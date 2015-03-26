@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+	<!-- Views for internal use -->
+	<data>
+		<record model="ir.ui.view" id="kdvn_news_tags_tree">
+			<field name="name">news.tags.tree</field>
+			<field name="model">kdvn.news.tags</field>
+			<field name="arch" type="xml">
+				<tree string="KDVN News Tags">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="kdvn_news_tree">
+			<field name="name">news.tree</field>
+			<field name="model">kdvn.news</field>
+			<field name="arch" type="xml">
+				<tree string="KDVN News">
+					<field name="name"/>
+					<field name="author_id"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="kdvn_news_form">
+			<field name="name">news.form</field>
+			<field name="model">kdvn.news</field>
+			<field name="arch" type="xml">
+				<form string="KDVN News">
+					<field name="name"/>
+					<field name="content"/>
+					<field name="author_id"/>
+					<field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+				</form>
+			</field>
+	
+		</record>
+	</data>
+	
+	<!-- Actions, Menus for internal use -->
+	<data>
+		<record model="ir.actions.act_window" id="kdvn_news_tags_list">
+			<field name="name">News Tags</field>
+			<field name="res_model">kdvn.news.tags</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="list_kdvn_news">
+			<field name="name">KDVN News</field>
+			<field name="res_model">kdvn.news</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="kdvn_contact_offices">
+			<field name="name">Contact Offices</field>
+			<field name="res_model">res.partner</field>
+			<field name="domain">[('name','=','KINDEN VIETNAM')]</field>
+			<field name="view_mode">form</field>
+		</record>
+		
+		<menuitem id="main_kdvn_website" name="KDVN Website"/>
+		
+		<menuitem id="kdvn_news_section" name="News" parent="main_kdvn_website"/>
+		<menuitem id="kdvn_website_config" name="Configuration" parent="main_kdvn_website" sequence="60"/>
+		
+		<menuitem id="kdvn_tags" name="News tags" parent="kdvn_website_config" action="kdvn_news_tags_list"/>
+		<menuitem id="kdvn_news" name="KDVN News" parent="kdvn_news_section" action="list_kdvn_news"/>
+		<menuitem id="kdvn_offices" name="Contact Offices" parent="kdvn_website_config" action="kdvn_contact_offices"/>
+	
+	</data>
+</openerp>
