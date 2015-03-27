@@ -41,11 +41,12 @@ class KdvnNewsTags(models.Model):
     
 
 class KdvnNews(models.Model):
-    _inherit = 'blog.blog'
-
-    blogpost_ids = fields.One2many('blog.post', 'blog_id', string="Blog Posts")
+    _name = 'kdvn.news'
+    
+    name = fields.Char(string='Title', required=True)
+    content = fields.Html(string='Content')
+    tag_ids = fields.Many2many('kdvn.news.tags')
+    author_id = fields.Many2one('res.users', string='Author')
     
 class KdvnOffice(models.Model):
     _inherit = 'res.partner'
-    
-

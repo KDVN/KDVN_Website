@@ -1,25 +1,25 @@
 <openerp>
-    <data>
-        <!--  -->
-        <!--   <record id="object0" model="kderp_website.kderp_website"> -->
-        <!--     <field name="name">Object 0</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object1" model="kderp_website.kderp_website"> -->
-        <!--     <field name="name">Object 1</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object2" model="kderp_website.kderp_website"> -->
-        <!--     <field name="name">Object 2</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object3" model="kderp_website.kderp_website"> -->
-        <!--     <field name="name">Object 3</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object4" model="kderp_website.kderp_website"> -->
-        <!--     <field name="name">Object 4</field> -->
-        <!--   </record> -->
-        <!--  -->
-    </data>
+	<data>
+		<!-- -->
+		<!-- <record id="object0" model="kderp_website.kderp_website"> -->
+		<!-- <field name="name">Object 0</field> -->
+		<!-- </record> -->
+		<!-- -->
+		<!-- <record id="object1" model="kderp_website.kderp_website"> -->
+		<!-- <field name="name">Object 1</field> -->
+		<!-- </record> -->
+		<!-- -->
+		<!-- <record id="object2" model="kderp_website.kderp_website"> -->
+		<!-- <field name="name">Object 2</field> -->
+		<!-- </record> -->
+		<!-- -->
+		<!-- <record id="object3" model="kderp_website.kderp_website"> -->
+		<!-- <field name="name">Object 3</field> -->
+		<!-- </record> -->
+		<!-- -->
+		<!-- <record id="object4" model="kderp_website.kderp_website"> -->
+		<!-- <field name="name">Object 4</field> -->
+		<!-- </record> -->
+		<!-- -->
+	</data>
 </openerp>

@@ -2,23 +2,23 @@
 <openerp>
 	<data>
 		<record id="kdvn_aboutus" model="website.menu">
-            <field name="name">About us</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">60</field>
-        </record>
-		
-        <record id="kdvn_contacts" model="website.menu">
-            <field name="name">Contacts</field>
-            <field name="url">/kderp_website/contacts</field>
-            <field name="parent_id" ref="kdvn_aboutus"/>
-            <field name="sequence" type="int">20</field>
-        </record>
-        
-        <record id="kdvn_privacy" model="website.menu">
-            <field name="name">Privacy</field>
-            <field name="url">http://www.kinden.co.jp/english/info/terms.html</field>
-            <field name="parent_id" ref="kdvn_aboutus"/>
-            <field name="sequence" type="int">30</field>
-        </record>	
+			<field name="name">About us</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="sequence" type="int">60</field>
+		</record>
+
+		<record id="kdvn_contacts" model="website.menu">
+			<field name="name">Contacts</field>
+			<field name="url">/kderp_website/contacts</field>
+			<field name="parent_id" ref="kdvn_aboutus" />
+			<field name="sequence" type="int">20</field>
+		</record>
+
+		<record id="kdvn_privacy" model="website.menu">
+			<field name="name">Privacy</field>
+			<field name="url">http://www.kinden.co.jp/english/info/terms.html</field>
+			<field name="parent_id" ref="kdvn_aboutus" />
+			<field name="sequence" type="int">30</field>
+		</record>
 	</data>
 </openerp>

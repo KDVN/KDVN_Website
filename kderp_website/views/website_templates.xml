@@ -1,98 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-        <template id="homepage" name="KDVN Homepage" inherit_id="website.homepage">
-            <xpath expr="//div[@id='wrap']" position="inside">
-                
-            </xpath>
-            
-        </template>
-        
-        <template id="contacts" name="Contacts">
-            <t t-call="website.layout">
-                <t t-set="title">Contacts</t>
-                <div class="oe_structure">
-                    <div class="container">
-                        <t t-foreach="res_company.partner_id.child_ids" t-as="contact">
-		                        <div class="col-md-6">
-		                            <h4 class="mt16"><t t-esc="contact.name"></t></h4>
-		                            <p>
-		                                <t t-esc="contact.street"></t>
-		                                <br/><t t-esc="contact.street2"></t>
-		                                <br/>Tel: <t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t>
-		                                <br/><a href="http://www.kinden.co.jp/english">KINDEN Corp.</a>		                                
-		                            </p>
-		                        </div>
-                        </t>
-                    </div>
-                </div>
-            </t>
-        </template>
-        
-        
-        
-        <template id="kdvn_footer_custom" inherit_id="website.footer_custom" name="KDVN Footer">
-        	<xpath expr="//div[@id='footer']" position="replace">
-        		<div class="oe_structure" if="footer">
-        			<div class="oe_strucutre">
-        				<div class="container">
-	                       	<t t-foreach="res_company.partner_id.child_ids" t-as="contact">
-			                        <div class="col-md-6">
-			                            <h4 class="mt16"><t t-esc="contact.name"></t></h4>
-			                            <p>
-			                                <t t-esc="contact.street"></t>
-			                                <br/><t t-esc="contact.street2"></t>
-			                                <br/>Tel: <t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t>
-			                                <br/><a href="http://www.kinden.co.jp/english">KINDEN Corp.</a>		                                
-			                            </p>
-			                        </div>
-	                        </t>        				
-        				</div>
-        			</div>
-        		</div>
-        	</xpath>
-        </template>
-        
-        
-        <template id="contactus" name="Contact KDVN" inherit_id="website.contactus">
-            <xpath expr="//div[p]" position="replace">
-                <div>
-	            	<p>Contact KINDEN VIETNAM for further information.</p>
-				    <p>We'll do our best to get back to you as soon as possible.</p>
-			    </div>
-		    </xpath>
+	<data>
+		<template id="website.homepage" name="KDVN Homepage" page="True"
+			priority="10">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure oe_empty">
+					<section>
+						<div class="container">
+							<div class="row">
+								<h1>WELCOME KINDEN VIETNAM</h1>
+							</div>
+						</div>
+					</section>
+				</div>
+			</t>
 		</template>
 
-        <!-- 		
-		<template id="kdvn_footer_custom" inherit_id="website.layout" name="KDVN Footer">
-		    <xpath expr="//div[@id='footer_container']" position="replace">
-		        <div class="oe_structure" id="footer">
-		            <section data-snippet-id='two-columns'>
-		                <div class="container">
-		                    <div class="row">
-		                        <div class="col-md-6">
-		                            <h4 class="mt16">Head Office</h4>
-		                            <p>
-		                                15F, CMC Tower, Duy Tan Street, Dich Vong Hau Ward,
-		                                <br/>Cau Giay District, Hanoi
-		                                <br/>Tel: (84-4) 3934 2535 * Fax: (84-4) 3934 2537
-		                                <br/><a href="http://www.kinden.co.jp/english">KINDEN Corp.</a>		                                
-		                            </p>
-		                        </div>
-		                        <div class="col-md-6">
-		                            <h4 class="mt16">Ho Chi Minh City Branch</h4>
-		                            <p>
-		                                3F, Saigon Riverside Office Center,
-		                                <br/>2A-4A Ton Duc Thang, Dist. 1, Ho Chi Minh City
-		                                <br/>Tel: (84-8) 3933 0121 * Fax: (84-4) 3933 0150
-		                            </p>
-		                    	</div>
-		                	</div>
-		                </div>
-		            </section>
-		        </div>
-		    </xpath>
+		<template id="contacts" name="Contacts">
+			<t t-call="website.layout">
+				<t t-set="title">Contacts</t>
+				<div class="oe_structure">
+					<div class="container">
+						<t t-foreach="res_company.partner_id.child_ids" t-as="contact">
+							<t t-if="contact_even">
+								<div class="col-md-8">
+									<h4 class="mt16">
+										<t t-esc="contact.name"></t>
+									</h4>
+									<p>
+										<t t-esc="contact.street"></t>
+										<br />
+										<t t-esc="contact.street2"></t>
+										<br />
+										Tel:
+										<t t-esc="contact.phone"></t>
+										* Fax:
+										<t t-esc="contact.fax"></t>
+										<br />
+										<a href="http://www.kinden.co.jp/english">KINDEN Corp.</a>
+									</p>
+								</div>
+							</t>
+							<t t-if="contact_odd">
+								<div class="col-md-4">
+									<h4 class="mt16">
+										<t t-esc="contact.name"></t>
+									</h4>
+									<p>
+										<t t-esc="contact.street"></t>
+										<br />
+										<t t-esc="contact.street2"></t>
+										<br />
+										Tel:
+										<t t-esc="contact.phone"></t>
+										* Fax:
+										<t t-esc="contact.fax"></t>
+									</p>
+								</div>
+							</t>
+						</t>
+					</div>
+				</div>
+			</t>
 		</template>
-        -->
-    </data>
+
+		<!-- <template id="kdvn_footer_custom" inherit_id="website.footer_custom" 
+			name="KDVN Footer"> <xpath expr="//div[@id='footer']" position="replace"> 
+			<div class="oe_structure" if="footer"> <div class="oe_strucutre"> <div class="container"> 
+			<t t-foreach="res_company.partner_id.child_ids" t-as="contact"> <t t-if="contact_even"> 
+			<div class="col-md-8"> <h4 class="mt16"><t t-esc="contact.name"></t></h4> 
+			<p> <t t-esc="contact.street"></t> <br/><t t-esc="contact.street2"></t> <br/>Tel: 
+			<t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t> <br/><a 
+			href="http://www.kinden.co.jp/english">KINDEN Corp.</a> </p> </div> </t> 
+			<t t-if="contact_odd"> <div class="col-md-4"> <h4 class="mt16"><t t-esc="contact.name"></t></h4> 
+			<p> <t t-esc="contact.street"></t> <br/><t t-esc="contact.street2"></t> <br/>Tel: 
+			<t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t> </p> </div> 
+			</t> </t> </div> </div> </div> </xpath> </template> -->
+
+		<template id="contactus" name="Contact KDVN" inherit_id="website.contactus">
+			<xpath expr="//div[p]" position="replace">
+				<div>
+					<p>Contact KINDEN VIETNAM for further information.</p>
+					<p>We'll do our best to get back to you as soon as possible.</p>
+				</div>
+			</xpath>
+		</template>
+
+	</data>
 </openerp>

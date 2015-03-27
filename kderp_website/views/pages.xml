@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<template id="website.welcome" name="Hello World" page="True">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure oe_empty">
+					<section>
+						<div class="container">
+							<div class="row">
+								<h1>Hello World</h1>
+								<p>Amazing here!</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</t>
+		</template>
+	</data>
+</openerp>
