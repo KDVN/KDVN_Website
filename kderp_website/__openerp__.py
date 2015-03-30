@@ -3,7 +3,10 @@
     'name': "KDVN Website",
     'summary': """KINDEN VIETNAM Web site""",
     'description': """
-                    A web site for KINDEN VIETNAM
+                    Providing means for customize KDVN Website
+                    - Maximizing feeding information automatically
+                    - Adding configurations for the website
+                    - Providing basic theme
                     Providing General information, News, QA section
                     And a kind of portal to employees
                     """,

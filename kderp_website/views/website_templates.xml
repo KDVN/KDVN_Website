@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+		<!-- Home page -->
 		<template id="website.homepage" name="KDVN Homepage" page="True"
 			priority="10">
 			<t t-call="website.layout">
@@ -63,19 +64,82 @@
 				</div>
 			</t>
 		</template>
-
-		<!-- <template id="kdvn_footer_custom" inherit_id="website.footer_custom" 
-			name="KDVN Footer"> <xpath expr="//div[@id='footer']" position="replace"> 
-			<div class="oe_structure" if="footer"> <div class="oe_strucutre"> <div class="container"> 
-			<t t-foreach="res_company.partner_id.child_ids" t-as="contact"> <t t-if="contact_even"> 
-			<div class="col-md-8"> <h4 class="mt16"><t t-esc="contact.name"></t></h4> 
-			<p> <t t-esc="contact.street"></t> <br/><t t-esc="contact.street2"></t> <br/>Tel: 
-			<t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t> <br/><a 
-			href="http://www.kinden.co.jp/english">KINDEN Corp.</a> </p> </div> </t> 
-			<t t-if="contact_odd"> <div class="col-md-4"> <h4 class="mt16"><t t-esc="contact.name"></t></h4> 
-			<p> <t t-esc="contact.street"></t> <br/><t t-esc="contact.street2"></t> <br/>Tel: 
-			<t t-esc="contact.phone"></t> * Fax: <t t-esc="contact.fax"></t> </p> </div> 
-			</t> </t> </div> </div> </div> </xpath> </template> -->
+	
+	<!-- Replace the Auto Footer -->
+	<template id="kdvn_footer_custom" inherit_id="website.footer_default" name="KDVN Footer">
+		<xpath expr="//div[@class='container hidden-print']" position="replace">
+			<div class="oe_structure" if="footer">
+				<div class="oe_strucutre">
+					<div class="container">
+						<t t-foreach="res_company.partner_id.child_ids" t-as="contact">
+							<t t-if="contact_even">
+								<div class="col-md-8">
+									<h4 class="mt16">
+										<t t-esc="contact.name"></t>
+									</h4>
+									<p>
+										<t t-esc="contact.street"></t>
+										<br />
+										<t t-esc="contact.street2"></t>
+										<br />
+										Tel:
+										<t t-esc="contact.phone"></t>
+										* Fax:
+										<t t-esc="contact.fax"></t>
+										<br />
+										<p><a href="http://www.kinden.co.jp/english">KINDEN Corp.</a></p>
+									</p>
+								</div>
+							</t>
+							<t t-if="contact_odd">
+								<div class="col-md-4">
+									<h4 class="mt16">
+										<t t-esc="contact.name"></t>
+									</h4>
+									<p>
+										<t t-esc="contact.street"></t>
+										<br />
+										<t t-esc="contact.street2"></t>
+										<br />
+										Tel:
+										<t t-esc="contact.phone"></t>
+										* Fax:
+										<t t-esc="contact.fax"></t>
+									</p>
+				                    <ul class="list-inline js_language_selector mt16" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+				                        <li t-foreach="languages" t-as="lg">
+				                            <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+				                             t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+				                             <t t-esc="lg[1].split('/').pop()"/></a>
+				                        </li>
+				                        <li groups="base.group_website_publisher">
+				                            <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+				                            <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+				                            <i class="fa fa-plus-circle"/>
+				                            Add a language...
+				                            </a>
+				                        </li>
+				                    </ul>									
+								</div>
+							</t>
+						</t>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
+	
+	<!-- Footer Copyright -->
+	<template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" priority="10" name="KDVN Footer Copyright">
+		<xpath expr="//footer/div[@class='container mt16 mb8']" position="replace">
+			<div class="container mt16 mb8">
+	            <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
+    	            Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+        	    </div>				
+			</div>
+		</xpath>
+	</template>
 
 		<template id="contactus" name="Contact KDVN" inherit_id="website.contactus">
 			<xpath expr="//div[p]" position="replace">
