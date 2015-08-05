@@ -14,12 +14,14 @@
     'website': "http://www.kinden.jp.co",
     'category': "Test",
     'version': "0.1",
-    'depends': ['website', 'website_partner', 'website_blog'],
+    'depends': ['web', 'website', 'website_partner', 'website_blog'],
     'data': [
              'data/data.xml',
-             'views/website_templates.xml',
+             'views/templates.xml',
              'views/views.xml',
              'views/pages.xml',
+             'views/snippets.xml',
+             'views/images.xml'
              ],
     'demo': [
              'demo.xml',

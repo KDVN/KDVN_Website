@@ -1,24 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<record id="kdvn_aboutus" model="website.menu">
+		<record id="menu_aboutus" model="website.menu">
 			<field name="name">About us</field>
 			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">/intro</field>
 			<field name="sequence" type="int">60</field>
 		</record>
 
-		<record id="kdvn_contacts" model="website.menu">
-			<field name="name">Contacts</field>
-			<field name="url">/kderp_website/contacts</field>
-			<field name="parent_id" ref="kdvn_aboutus" />
-			<field name="sequence" type="int">20</field>
-		</record>
+			<record id="aboutus" model="website.menu">
+				<field name="name">KINDEN VIETNAM</field>
+				<field name="url">/intro/kdvn/aboutus</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">10</field>
+			</record>
+				
+			<record id="testimonials" model="website.menu">
+				<field name="name">Testimonials</field>
+				<field name="url">/intro/testimonials</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">20</field>
+			</record>
+			
+			<record id="jobs" model="website.menu">
+				<field name="name">Jobs</field>
+				<field name="url">/intro/jobs</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">30</field>
+			</record>
+			
+			<record id="news" model="website.menu">
+				<field name="name">News</field>
+				<field name="url">/intro/news</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">40</field>
+			</record>
+			
+			<record id="contactus" model="website.menu">
+				<field name="name">Contact us</field>
+				<field name="url">/intro/contactus</field>
+				<field name="parent_id" ref="menu_aboutus" />
+				<field name="sequence" type="int">80</field>
+			</record>
+			
+			<record id="it_resource" model="website.menu">
+				<field name="name">IT News</field>
+				<field name="url">/it/news</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="divider" eval="True"></field>
+				<field name="divider_text">IT Resources</field>
+				<field name="sequence" type="int">90</field>
+			</record>
+			<record id="it_download" model="website.menu">
+				<field name="name">Download</field>
+				<field name="url">/it/download</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">92</field>
+			</record>
+			
+			<record id="privacy" model="website.menu">
+				<field name="name">Terms of Use</field>
+				<field name="url">/intro/termofuse</field>
+				<field name="parent_id" ref="menu_aboutus" />
+				<field name="new_window" eval="False"/>
+				<field name="divider" eval="True" />
+				<field name="divider_text">Notes</field>
+				<field name="sequence" type="int">100</field>
+			</record>
+			
+			<record id="flyout_menu" model="website.menu">
+			    <field name="name">Submenu demo</field>
+			    <field name="parent_id" ref="menu_aboutus" />
+			    <field name="url">/intro/demo</field>
+			    <field name="sequence" type="int">110</field>
+			</record>
+				
+				<record id="electrical" model="website.menu">
+					<field name="name">Electrical Systems</field>
+					<field name="url">/intro/demo/#</field>
+					<field name="parent_id" ref="flyout_menu"></field>
+					<field name="sequence" type="int">10</field>
+				</record>
 
-		<record id="kdvn_privacy" model="website.menu">
-			<field name="name">Privacy</field>
-			<field name="url">http://www.kinden.co.jp/english/info/terms.html</field>
-			<field name="parent_id" ref="kdvn_aboutus" />
-			<field name="sequence" type="int">30</field>
+				<record id="mechanical" model="website.menu">
+					<field name="name">Mechanical Systems</field>
+					<field name="url">/intro/demo/#</field>
+					<field name="parent_id" ref="flyout_menu"></field>
+					<field name="sequence" type="int">20</field>
+				</record>			
+		<record id="menu_qa" model="website.menu">
+			<field name="name">Quality Assurance</field>
+			<field name="parent_id" ref="website.main_menu"/>
+			<field name="sequence" type="int">50</field>
 		</record>
+			
+			<record id="qa_whatis" model="website.menu">
+				<field name="name">What is QA?</field>
+				<field name="url">/qa/what_is_qa</field>
+				<field name="parent_id" ref="menu_qa"></field>
+				<field name="sequence" type="int">10</field>
+			</record>
+			
+			<record id="qa_news" model="website.menu">
+				<field name="name">QA News</field>
+				<field name="url">/qa/news</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">20</field>
+			</record>
+			
+			<record id="qa_practice" model="website.menu">
+				<field name="name">QA Practice</field>
+				<field name="url">/intro/qa_practice</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">30</field>
+			</record>
+			
+			<record id="qa_regulation" model="website.menu">
+				<field name="name">QA Regulation</field>
+				<field name="url">/qa/regulation</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">40</field>
+			</record>
+		
+		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
+		<delete model="website.menu" id="website.menu_contactus"></delete>
+		<delete model="website.menu" id="website_blog.menu_news"></delete>
 	</data>
 </openerp>

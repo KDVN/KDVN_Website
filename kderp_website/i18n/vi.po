@@ -1,0 +1,216 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* kderp_website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150409\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-10 10:05+0000\n"
+"PO-Revision-Date: 2015-04-10 10:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: view:website:kderp_website.news
+#. module: kderp_website
+msgid "(Sorted by time)"
+msgstr "Sắp xếp theo thời gian"
+
+#: view:website:kderp_website.contacts
+#: view:website:website.layout
+#. module: kderp_website
+msgid "* Fax:"
+msgstr ""
+
+#: model:website.menu,name:kderp_website.kdvn_aboutus
+#. module: kderp_website
+msgid "About us"
+msgstr ""
+
+#: view:website:website.layout
+#. module: kderp_website
+msgid "Add a language..."
+msgstr ""
+
+#: model:ir.model,name:kderp_website.model_blog_post
+#. module: kderp_website
+msgid "Blog Post"
+msgstr ""
+
+#: field:blog.blog,blogpost_ids:0
+#. module: kderp_website
+msgid "Blog Posts"
+msgstr ""
+
+#: model:ir.model,name:kderp_website.model_blog_blog
+#. module: kderp_website
+msgid "Blogs"
+msgstr ""
+
+#: view:website:website.layout
+#. module: kderp_website
+msgid "Company name"
+msgstr ""
+
+#: model:ir.ui.menu,name:kderp_website.kdvn_website_config
+#. module: kderp_website
+msgid "Configuration"
+msgstr ""
+
+#: view:website:website.contactus
+#. module: kderp_website
+msgid "Contact KINDEN VIETNAM for further information."
+msgstr ""
+
+#: model:ir.actions.act_window,name:kderp_website.kdvn_contact_offices
+#: model:ir.ui.menu,name:kderp_website.kdvn_offices
+#. module: kderp_website
+msgid "Contact Offices"
+msgstr ""
+
+#: view:website:kderp_website.contacts
+#: model:website.menu,name:kderp_website.kdvn_contacts
+#. module: kderp_website
+msgid "Contacts"
+msgstr ""
+
+#: view:website:website.layout
+#. module: kderp_website
+msgid "Copyright &copy;"
+msgstr ""
+
+#: field:kdvn.news.tags,create_uid:0
+#. module: kderp_website
+msgid "Created by"
+msgstr ""
+
+#: field:kdvn.news.tags,create_date:0
+#. module: kderp_website
+msgid "Created on"
+msgstr ""
+
+#: field:kdvn.news.tags,id:0
+#. module: kderp_website
+msgid "ID"
+msgstr ""
+
+#: view:blog.blog:kderp_website.kdvn_news_form
+#: view:blog.blog:kderp_website.kdvn_news_tree
+#: model:ir.actions.act_window,name:kderp_website.list_kdvn_news
+#: model:ir.ui.menu,name:kderp_website.kdvn_news
+#: view:website:kderp_website.news
+#. module: kderp_website
+msgid "KDVN News"
+msgstr ""
+
+#: view:blog.tag:kderp_website.kdvn_news_tags_tree
+#. module: kderp_website
+msgid "KDVN News Tags"
+msgstr ""
+
+#: view:blog.post:kderp_website.kdvn_post_form
+#: view:blog.post:kderp_website.kdvn_post_tree
+#. module: kderp_website
+msgid "KDVN Posts"
+msgstr ""
+
+#: model:ir.ui.menu,name:kderp_website.main_kdvn_website
+#. module: kderp_website
+msgid "KDVN Website"
+msgstr ""
+
+#: view:website:kderp_website.contacts
+#: view:website:website.layout
+#. module: kderp_website
+msgid "KINDEN Corp."
+msgstr ""
+
+#: view:website:kderp_website.post
+#. module: kderp_website
+msgid "KINDEN VIETNAM News Channel"
+msgstr ""
+
+#: field:kdvn.news.tags,write_uid:0
+#. module: kderp_website
+msgid "Last Updated by"
+msgstr ""
+
+#: field:kdvn.news.tags,write_date:0
+#. module: kderp_website
+msgid "Last Updated on"
+msgstr ""
+
+#: view:website:kderp_website.news
+#: view:website:kderp_website.post_pictures
+#. module: kderp_website
+msgid "Major Works"
+msgstr ""
+
+#: model:ir.ui.menu,name:kderp_website.kdvn_news_section
+#: view:website:kderp_website.news
+#. module: kderp_website
+msgid "News"
+msgstr ""
+
+#: model:ir.actions.act_window,name:kderp_website.kdvn_news_tags_list
+#. module: kderp_website
+msgid "News Tags"
+msgstr ""
+
+#: model:ir.ui.menu,name:kderp_website.kdvn_tags
+#. module: kderp_website
+msgid "News tags"
+msgstr ""
+
+#: model:ir.model,name:kderp_website.model_res_partner
+#. module: kderp_website
+msgid "Partner"
+msgstr ""
+
+#: view:website:kderp_website.post_pictures
+#. module: kderp_website
+msgid "Post pictures"
+msgstr ""
+
+#: model:website.menu,name:kderp_website.kdvn_privacy
+#. module: kderp_website
+msgid "Privacy"
+msgstr ""
+
+#: field:blog.post,summary:0
+#. module: kderp_website
+msgid "Summary"
+msgstr ""
+
+#: field:kdvn.news.tags,name:0
+#. module: kderp_website
+msgid "Tags"
+msgstr ""
+
+#: view:blog.post:kderp_website.kdvn_post_form
+#. module: kderp_website
+msgid "Tags..."
+msgstr ""
+
+#: view:website:kderp_website.contacts
+#: view:website:website.layout
+#. module: kderp_website
+msgid "Tel:"
+msgstr ""
+
+#: view:website:website.contactus
+#. module: kderp_website
+msgid "We'll do our best to get back to you as soon as possible."
+msgstr ""
+
+#. module: website
+#: view:website:website.500
+#: view:website:website.layout
+#: model:website.menu,name:website.menu_homepage
+msgid "Home"
+msgstr "Trang chủ"
+

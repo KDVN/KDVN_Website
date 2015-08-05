@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="img_work_canon" model="ir.attachment">
+			<field name="name">canon_vietnam.jpg</field>
+			<field name="datas_fname">canon_vietnam.jpg</field>
+			<field name="res_model">ir.ui.view</field>
+			<field name="type">url</field>
+			<field name="url">/kderp_website/static/src/img/library/canon_vietnam.jpg</field>
+		</record>
+	</data>
+</openerp>
