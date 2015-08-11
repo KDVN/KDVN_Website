@@ -99,26 +99,29 @@
 						<div class="container">
 							<!-- Brief introduction -->
 							<div class="row">
-								<h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">About us... <a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN%20VIETNAM%20Brochure%202014.pdf" download="KDVN_brochure"><span class="fa fa-file-pdf-o fa-3" style="color:white"></span></a></span></h1>
-								<t t-foreach="kdvn_me" t-as="post">
-									<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
-									<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
-									<t t-if="post.name == 'Environmental Initiatives'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
-									<div t-attf-class="col-md-{{12 / post_size}}">
-										<div class="thumbnail">
-											<a t-att-href="post_url"><img class="img-circle" t-att-src="post.img_url_ids[0].website_url"></img></a>										
-										</div>
-										<div class="caption">
-											<h2 class="text-success"><t t-esc="post.name"></t></h2>
-											<p class="mt8"><t t-esc="post.summary"></t></p>
-										</div>
+								<div class="col-md-3">
+									<h4>Lastest News</h4>
+									<p></p>
+									<!-- News: Option to show on/off in customize menu-->
+									<div id="kdvn_news">
 									</div>
-								</t>
-							</div>
-
-							<div class="row">
-								<!-- News: Option to show on/off in customize menu-->
-								<div class="col-md-12 col-lg-6" id="kdvn_news">
+								</div>
+								<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">About us... <a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN%20VIETNAM%20Brochure%202014.pdf" download="KDVN_brochure"><span class="fa fa-file-pdf-o fa-3" style="color:white"></span></a></span></h1> -->
+								<div class="col-md-9">
+									<t t-foreach="kdvn_me" t-as="post">
+										<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
+										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
+										<t t-if="post.name == 'Environmental Initiatives'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
+										<div t-attf-class="col-md-{{12 / post_size}}">
+											<div class="thumbnail">
+												<a t-att-href="post_url"><img class="img-circle" t-att-src="post.img_url_ids[0].website_url"></img></a>										
+											</div>
+											<div class="caption">
+												<h2 class="text-success"><t t-esc="post.name"></t></h2>
+												<p class="mt8"><t t-esc="post.summary"></t></p>
+											</div>
+										</div>
+									</t>
 								</div>
 							</div>
 						</div>
@@ -194,7 +197,7 @@
 		<!-- KDVN News showing in homepage -->
 		<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='kdvn_news']" position="inside">
-				<h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">KINDEN VIETNAM News</span></h1>
+				<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">KINDEN VIETNAM News</span></h1> -->
 				<t t-set="posts" t-value="kdvn_news[:8]"></t>
 				<t t-call="kderp_website.list_posts"></t>
 				<p class="text-right"><a href="/intro/news" alt="More news">More News...</a></p>			
@@ -410,15 +413,6 @@
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
 					<table class="table">
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Title</th>
-								<t t-if="request.httprequest.path in ['/page/homepage', '/intro/news']">
-									<th>Category</th>
-								</t>
-							</tr>
-						</thead>
 						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
@@ -434,7 +428,9 @@
 										</t>
 									</t>
 									<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
-									<t t-if="request.httprequest.path in ['/page/homepage', '/intro/news']">
+									<t t-if="request.httprequest.path in ['/page/homepage']">
+									</t>
+									<t t-if="request.httprequest.path in ['/intro/news']">
 										<td><t t-esc="post.blog_id.name"></t></td>
 									</t>
 								</tr>
