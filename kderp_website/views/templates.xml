@@ -113,10 +113,8 @@
 										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
 										<t t-if="post.name == 'Environmental Initiatives'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
 										<div t-attf-class="col-md-{{12 / post_size}}">
-											<t t-if="post.name == 'Electrical Systems'"><h4 class="text-success">Electrical Systems</h4><p></p></t>
-											<t t-if="post.name == 'Mechanical Systems'"><h4 class="text-success">Mechanical Systems</h4><p></p></t>
-											<t t-if="post.name == 'QST'"><h4 class="text-success">Environmental Initiatives</h4><p></p></t>
-											
+											<h4 class="text-success"><t t-esc="post.name"></t></h4>
+											<p></p>
 											<div class="thumbnail">
 												<a t-att-href="post_url"><img class="img-circle" t-att-src="post.img_url_ids[0].website_url"></img></a>										
 											</div>
