@@ -108,22 +108,33 @@
 								</div>
 								<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">About us... <a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN%20VIETNAM%20Brochure%202014.pdf" download="KDVN_brochure"><span class="fa fa-file-pdf-o fa-3" style="color:white"></span></a></span></h1> -->
 								<div class="col-md-9">
-									<t t-foreach="kdvn_me" t-as="post">
-										<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
-										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
-										<t t-if="post.name == 'Environmental Initiatives'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
-										<div t-attf-class="col-md-{{12 / post_size}}">
-											<h4 class="text-success"><t t-esc="post.name"></t></h4>
-											<p></p>
-											<div class="thumbnail">
-												<a t-att-href="post_url"><img class="img-circle" t-att-src="post.img_url_ids[0].website_url"></img></a>										
+									<div class="row">
+										<t t-foreach="kdvn_me" t-as="post">
+											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
+											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
+											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
+											<div t-attf-class="col-md-{{12 / post_size}}">
+												<h4 class="text-success"><t t-esc="post.name"></t></h4>
+												<p></p>
+												<div class="thumbnail">
+													<a t-att-href="post_url"><img class="img-circle" t-att-src="post.img_url_ids[0].website_url"></img></a>										
+												</div>
+												<div class="caption">
+													<!-- <h2 class="text-success"><t t-esc="post.name"></t></h2> -->
+													<p class="mt8"><t t-esc="post.summary"></t></p>
+												</div>
 											</div>
-											<div class="caption">
-												<!-- <h2 class="text-success"><t t-esc="post.name"></t></h2> -->
-												<p class="mt8"><t t-esc="post.summary"></t></p>
+										</t>
+									</div>
+									<div class="row">
+										<t t-foreach="kdvn_me" t-as="post">
+											<div t-attf-class="col-md-{{12 / post_size}}">
+												<t t-if="post.name == 'Electrical Systems'"><div id="kdvn_news_e"></div></t>
+												<t t-if="post.name == 'Mechanical Systems'"><div id="kdvn_news_m"></div></t>
+												<t t-if="post.name == 'QST'"><div id="kdvn_news_q"></div></t>
 											</div>
-										</div>
-									</t>
+										</t>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -206,7 +217,31 @@
 			</xpath>
 	
 		</template>
-
+		
+		<!-- KDVN News showing in homepage e -->
+		<template id="home_news_e" name="Home News E" inherit_id="website.homepage" active="False" customize_show="True">
+			<xpath expr="//div[@id='kdvn_news_e']" position="inside">
+				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-call="kderp_website.list_posts_e"></t>	
+			</xpath>
+		</template>
+		
+		<!-- KDVN News showing in homepage m -->
+		<template id="home_news_m" name="Home News M" inherit_id="website.homepage" active="False" customize_show="True">
+			<xpath expr="//div[@id='kdvn_news_m']" position="inside">
+				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-call="kderp_website.list_posts_m"></t>	
+			</xpath>
+		</template>
+		
+		<!-- KDVN News showing in homepage q -->
+		<template id="home_news_q" name="Home News Q" inherit_id="website.homepage" active="False" customize_show="True">
+			<xpath expr="//div[@id='kdvn_news_q']" position="inside">
+				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-call="kderp_website.list_posts_q"></t>	
+			</xpath>
+		</template>
+		
 		<!-- Contact us: |offices|sites -->
 		<template id="contacts" name="Contacts">
 			<t t-call="website.layout">
@@ -436,6 +471,149 @@
 										<td><t t-esc="post.blog_id.name"></t></td>
 									</t>
 								</tr>
+							
+							</t>
+						</tbody>
+					</table>
+				</div>
+				<t t-if="announcements">
+					<div class="col-md-4">
+						<div id="announcement"></div>
+						<div id="funfact" class="hidden-xs hidden-sm"></div>
+					</div>
+				</t>
+			</div>					
+		</div>
+	</template>
+	
+	<!-- list Post for kdvn_news_e -->
+	<template id="list_posts_e" name="KDVN List posts E">
+		<div class="container">
+			<!-- Pager -->
+			<t t-if="pager">
+				<div class="row">
+					<div class="col-sm-12">
+						<t t-call="website.pager">
+							<t t-set="classname">pull-left</t>
+						</t>
+					</div>
+				</div>
+			</t>
+			<!-- Posts -->
+			<div class="row">
+				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					<table class="table">
+						
+						<tbody>
+							<t t-foreach="posts" t-as="post">
+								<t t-if ="post.blog_id.name=='Electrical Systems'">
+									<tr>
+										<!-- Setting fa value -->
+										<t t-if="post.img_url_ids">
+											<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+												<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+										</t>
+										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
+									</tr>
+								</t>
+							</t>
+						</tbody>
+					</table>
+				</div>
+				<t t-if="announcements">
+					<div class="col-md-4">
+						<div id="announcement"></div>
+						<div id="funfact" class="hidden-xs hidden-sm"></div>
+					</div>
+				</t>
+			</div>					
+		</div>
+	</template>
+	
+	<!-- list Post for kdvn_news_m -->
+	<template id="list_posts_m" name="KDVN List posts M">
+		<div class="container">
+			<!-- Pager -->
+			<t t-if="pager">
+				<div class="row">
+					<div class="col-sm-12">
+						<t t-call="website.pager">
+							<t t-set="classname">pull-left</t>
+						</t>
+					</div>
+				</div>
+			</t>
+			<!-- Posts -->
+			<div class="row">
+				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					<table class="table">
+						
+						<tbody>
+							<t t-foreach="posts" t-as="post">
+								<t t-if ="post.blog_id.name=='Mechanical Systems'">
+									<tr>
+										<t t-if="post.img_url_ids">
+											<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+												<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+										</t>
+										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
+									</tr>
+								</t>
+							</t>
+						</tbody>
+					</table>
+				</div>
+				<t t-if="announcements">
+					<div class="col-md-4">
+						<div id="announcement"></div>
+						<div id="funfact" class="hidden-xs hidden-sm"></div>
+					</div>
+				</t>
+			</div>					
+		</div>
+	</template>
+	
+	<!-- list Post for kdvn_news_q -->
+	<template id="list_posts_q" name="KDVN List posts Q">
+		<div class="container">
+			<!-- Pager -->
+			<t t-if="pager">
+				<div class="row">
+					<div class="col-sm-12">
+						<t t-call="website.pager">
+							<t t-set="classname">pull-left</t>
+						</t>
+					</div>
+				</div>
+			</t>
+			<!-- Posts -->
+			<div class="row">
+				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					<table class="table">
+						
+						<tbody>
+							<t t-foreach="posts" t-as="post">
+								<t t-if ="post.blog_id.name=='QST'">
+									<tr>
+										<t t-if="post.img_url_ids">
+											<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+												<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+										</t>
+										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
+									</tr>
+								</t>
 							</t>
 						</tbody>
 					</table>
