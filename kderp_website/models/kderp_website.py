@@ -20,7 +20,7 @@ class view(osv.osv):
         
         #KDVN hot news
         #TODO: offset and limit need to be variables
-        news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', ['General News', 'IT', 'Quality Safety Assurance','Electrical Systems','Mechanical Systems'])], offset=0, limit=8)
+        news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', ['General News', 'IT', 'Quality Safety Assurance', 'Electrical Systems', 'Mechanical Systems', 'QST'])], offset=0, limit=8)
         news = self.pool['blog.post'].browse(cr, uid, news_ids)
         
         #KDVN works
