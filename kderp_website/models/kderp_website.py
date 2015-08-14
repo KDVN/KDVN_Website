@@ -22,7 +22,15 @@ class view(osv.osv):
         #TODO: offset and limit need to be variables
         news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', ['General News', 'IT', 'Quality Safety Assurance', 'Electrical Systems', 'Mechanical Systems', 'QST'])], offset=0, limit=8)
         news = self.pool['blog.post'].browse(cr, uid, news_ids)
-        
+        #kdvn_news_e
+        news_e_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Electrical Systems')], offset=0, limit=2)
+        news_e = self.pool['blog.post'].browse(cr, uid, news_e_ids)
+        #kdvn_news_m
+        news_m_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Mechanical Systems')], offset=0, limit=2)
+        news_m = self.pool['blog.post'].browse(cr, uid, news_m_ids)
+        #kdvn_news_q
+        news_q_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'QST')], offset=0, limit=2)
+        news_q = self.pool['blog.post'].browse(cr, uid, news_q_ids)
         #KDVN works
         work_tag = "KDVN_Works"
         works_ids = self.pool['blog.post'].search(cr, uid, [('tag_ids','=', work_tag)], offset=0)
@@ -32,7 +40,7 @@ class view(osv.osv):
         me_ids = self.pool['blog.post'].search(cr, uid, [('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems', 'QST'])], order="name")
         me = self.pool['blog.post'].browse(cr, uid, me_ids)
         
-        kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me}
+        kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q}
 
         if not values:
             values = dict()

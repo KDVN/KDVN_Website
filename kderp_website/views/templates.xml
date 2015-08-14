@@ -221,7 +221,7 @@
 		<!-- KDVN News showing in homepage e -->
 		<template id="home_news_e" name="Home News E" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='kdvn_news_e']" position="inside">
-				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-set="posts" t-value="kdvn_news_e"></t>
 				<t t-call="kderp_website.list_posts_e"></t>	
 			</xpath>
 		</template>
@@ -229,7 +229,7 @@
 		<!-- KDVN News showing in homepage m -->
 		<template id="home_news_m" name="Home News M" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='kdvn_news_m']" position="inside">
-				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-set="posts" t-value="kdvn_news_m"></t>
 				<t t-call="kderp_website.list_posts_m"></t>	
 			</xpath>
 		</template>
@@ -237,7 +237,7 @@
 		<!-- KDVN News showing in homepage q -->
 		<template id="home_news_q" name="Home News Q" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='kdvn_news_q']" position="inside">
-				<t t-set="posts" t-value="kdvn_news"></t>
+				<t t-set="posts" t-value="kdvn_news_q"></t>
 				<t t-call="kderp_website.list_posts_q"></t>	
 			</xpath>
 		</template>
