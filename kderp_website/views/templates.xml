@@ -453,7 +453,7 @@
 						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
-								<tr>
+								<tr style="height: 46px">
 									<td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
 									<!-- Setting fa value -->
 									<t t-if="post.img_url_ids">
@@ -464,7 +464,13 @@
 											<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
 										</t>
 									</t>
-									<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
+									<td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
+										<t t-esc="post.name[:30]"></t>
+										<t t-if="post.name[31:]">
+											<span>...</span>
+										</t>
+										</a>
+									</td>
 									<t t-if="request.httprequest.path in ['/page/homepage']">
 									</t>
 									<t t-if="request.httprequest.path in ['/intro/news']">
