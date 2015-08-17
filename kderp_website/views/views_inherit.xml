@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <!-- page list view  -->
+        <record model="ir.ui.view" id="view_inherit_blog_post_list">
+            <field name="name">view.inherit.blog.post.list</field>
+            <field name="model">blog.post</field>
+            <field name='inherit_id' ref='website_blog.view_blog_post_list'/>
+            <field name="arch" type="xml">
+	            <field name="write_date" position='after'>
+	            	<field name="website_published" widget="website_button"/>
+	            </field>
+			</field>
+        </record>
+	</data>
+</openerp>
+        
