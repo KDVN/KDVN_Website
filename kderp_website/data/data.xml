@@ -121,7 +121,85 @@
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">40</field>
 			</record>
-		
+			
+			<record id="qa_safety_contents" model="website.menu">
+				<field name="name">Safety Document (Format)</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"></field>
+				<field name="divider" eval="True"></field>
+				<field name="divider_text">Safety Contents</field>
+				<field name="sequence" type="int">50</field>
+			</record>
+			
+				<record id="qa_monthly_safety_meeting" model="website.menu">
+					<field name="name">Monthly Safety Meeting</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">51</field>
+				</record>
+				<record id="qa_daily_safety_report" model="website.menu">
+					<field name="name">Daily Safety Report</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">52</field>
+				</record>
+				<record id="qa_safety_patrol_with_su_contractors" model="website.menu">
+					<field name="name">Safety Patrol with Su contractors</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">53</field>
+				</record>
+				<record id="qa_safety_patrol_schedule" model="website.menu">
+					<field name="name">Safety Patrol Schedule</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">54</field>
+				</record>
+				<record id="qa_safety_work_plan" model="website.menu">
+					<field name="name">Safety Work Plan</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">55</field>
+				</record>
+				<record id="qa_trouble_report" model="website.menu">
+					<field name="name">Trouble Report</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">56</field>
+				</record>
+				
+			<record id="qa_qc_contents" model="website.menu">
+				<field name="name">Monthly Technical Meeting</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"></field>
+				<field name="divider" eval="True"></field>
+				<field name="divider_text">QC Contents</field>
+				<field name="sequence" type="int">60</field>
+			</record>
+				<record id="qa_kinq_news" model="website.menu">
+					<field name="name">KinQ News</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">61</field>
+				</record>
+				<record id="qa_kinvq_news" model="website.menu">
+					<field name="name">KinVQ News</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">62</field>
+				</record>
+				<record id="qa_technical_information" model="website.menu">
+					<field name="name">Technical Infomation</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">63</field>
+				</record>
+				<record id="qa_qc_trouble_report" model="website.menu">
+					<field name="name">Trouble Report</field>
+					<field name="url">#</field>
+					<field name="parent_id" ref="menu_qa"/>
+					<field name="sequence" type="int">64</field>
+				</record>
 		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
 		<delete model="website.menu" id="website.menu_contactus"></delete>
 		<delete model="website.menu" id="website_blog.menu_news"></delete>
