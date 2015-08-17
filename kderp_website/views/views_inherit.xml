@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-        <!-- page list view  -->
+        <!-- Blog Post list view  -->
         <record model="ir.ui.view" id="view_inherit_blog_post_list">
             <field name="name">view.inherit.blog.post.list</field>
             <field name="model">blog.post</field>
@@ -10,6 +10,19 @@
 	            <field name="write_date" position='after'>
 	            	<field name="website_published" widget="website_button"/>
 	            </field>
+			</field>
+        </record>
+        
+         <!-- Blog Blog form view  -->
+        <record model="ir.ui.view" id="view_inherit_blog_blog_form">
+            <field name="name">view.inherit.blog.blog.form</field>
+            <field name="model">blog.blog</field>
+            <field name='inherit_id' ref='website_blog.view_blog_blog_form'/>
+            <field name="arch" type="xml">
+	             <group position='after'>
+	                <label for="blogpost_ids" string="Blog Post"/>
+		            <field name="blogpost_ids"/>
+	            </group>
 			</field>
         </record>
 	</data>
