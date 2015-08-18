@@ -212,7 +212,7 @@
 			<xpath expr="//div[@id='kdvn_news']" position="inside">
 				<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">KINDEN VIETNAM News</span></h1> -->
 				<t t-set="posts" t-value="kdvn_news[:8]"></t>
-				<t t-call="kderp_website.list_posts"></t>
+				<t t-call="kderp_website.list_posts_homepage"></t>
 				<p class="text-right"><a href="/intro/news" alt="More news">More News...</a></p>			
 			</xpath>
 	
@@ -448,12 +448,13 @@
 			</t>
 			<!-- Posts -->
 			<div class="row">
+				
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					
 					<table class="table">
-						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
-								<tr style="height: 46px">
+								<tr>
 									<td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
 									<!-- Setting fa value -->
 									<t t-if="post.img_url_ids">
@@ -465,23 +466,19 @@
 										</t>
 									</t>
 									<td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
-										<t t-esc="post.name[:30]"></t>
-										<t t-if="post.name[31:]">
-											<span>...</span>
-										</t>
+										<t t-esc="post.name"></t>
 										</a>
 									</td>
-									<t t-if="request.httprequest.path in ['/page/homepage']">
-									</t>
-									<t t-if="request.httprequest.path in ['/intro/news']">
+									<t t-if="request.httprequest.path in ['/page/homepage','/intro/news']">
 										<td><t t-esc="post.blog_id.name"></t></td>
 									</t>
 								</tr>
-							
 							</t>
 						</tbody>
 					</table>
+					
 				</div>
+				
 				<t t-if="announcements">
 					<div class="col-md-4">
 						<div id="announcement"></div>
@@ -492,6 +489,51 @@
 		</div>
 	</template>
 	
+	
+	<!-- List Post Home Page -->
+	<template id="list_posts_homepage" name="KDVN List posts">
+		<div class="container">
+			<!-- Pager -->
+			<t t-if="pager">
+				<div class="row">
+					<div class="col-sm-12">
+						<t t-call="website.pager">
+							<t t-set="classname">pull-left</t>
+						</t>
+					</div>
+				</div>
+			</t>
+			<!-- Posts -->
+			<div class="row">
+				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					<t t-if="request.httprequest.path in ['/page/homepage']">
+					<table class="table">
+						<tbody>
+							<t t-foreach="posts" t-as="post">
+							<tr>
+								<td class="news-date-hompage"><span t-field="post.create_date" t-field-options='{"format": "MMM, dd y"}'></span></td>
+								<!-- Setting fa value -->
+								<t t-if="post.img_url_ids">
+									<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+										<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+									</t>
+									<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+										<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+									</t>
+								</t>
+								<td class="news-name-homepage" style="border-top: 1px solid #FFF;"><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
+									<t t-esc="post.name[:40]"></t>
+									<t t-if="post.name[41:]"><span>...</span></t></a>
+								</td>
+							</tr>
+							</t>
+						</tbody>
+					</table>
+					</t>	
+				</div>
+			</div>					
+		</div>
+	</template>
 	<!-- list Post for kdvn_news_e -->
 	<template id="list_posts_e" name="KDVN List posts E">
 		<div class="container">
