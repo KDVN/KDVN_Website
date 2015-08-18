@@ -29,7 +29,7 @@ class view(osv.osv):
         news_m_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Mechanical Systems')], offset=0, limit=2)
         news_m = self.pool['blog.post'].browse(cr, uid, news_m_ids)
         #kdvn_news_q
-        news_q_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'QST')], offset=0, limit=2)
+        news_q_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Quality Safety Assurance')], offset=0, limit=2)
         news_q = self.pool['blog.post'].browse(cr, uid, news_q_ids)
         #KDVN works
         work_tag = "KDVN_Works"
