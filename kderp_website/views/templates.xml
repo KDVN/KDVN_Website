@@ -133,7 +133,8 @@
 											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
 											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
 											<div t-attf-class="col-md-{{12 / post_size}}">
-												<p><a t-att-href="post_url">View more </a><span class="fa fa-caret-right"></span></p>
+												<a class="view-more" t-att-href="post_url">View more <span class="icon-view-more"></span></a>
+												<p></p>
 											</div>
 										</t>
 									</div>

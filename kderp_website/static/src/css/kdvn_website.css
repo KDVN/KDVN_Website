@@ -300,3 +300,27 @@ footer address h4 {
 	width: 70%;
 	padding: 2px 2px 2px 8px;
 }
+.view-more {
+	padding: 4px 7px;
+	background: white;
+	border: 1px solid #e5e5e5;
+	color: #b7b7b7;
+	font-size: 12px;
+}
+.view-more:hover {
+	color: #11A84E;
+}
+.icon-view-more {
+	background: url(/website/image/ir.attachment/826_1ae51e0/datas) no-repeat;
+	width: 4px;height: 7px;
+	margin-left: 5px;
+	display: inline-block;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.view-more:hover .icon-view-more {
+	background-position: 4px 0;
+	padding-right: 7px;
+}
