@@ -22,18 +22,18 @@
 				<field name="sequence" type="int">20</field>
 			</record>
 			
-			<record id="jobs" model="website.menu">
-				<field name="name">Jobs</field>
-				<field name="url">/intro/jobs</field>
-				<field name="parent_id" ref="menu_aboutus"></field>
-				<field name="sequence" type="int">30</field>
+			<record id="au_certificates" model="website.menu">
+			    <field name="name">Certificates</field>
+			    <field name="parent_id" ref="menu_aboutus" />
+			    <field name="url">#</field>
+			    <field name="sequence" type="int">60</field>
 			</record>
 			
-			<record id="news" model="website.menu">
-				<field name="name">News</field>
-				<field name="url">/intro/news</field>
-				<field name="parent_id" ref="menu_aboutus"></field>
-				<field name="sequence" type="int">40</field>
+			<record id="au_management" model="website.menu">
+			    <field name="name">Management</field>
+			    <field name="parent_id" ref="menu_aboutus" />
+			    <field name="url">#</field>
+			    <field name="sequence" type="int">70</field>
 			</record>
 			
 			<record id="contactus" model="website.menu">
@@ -43,19 +43,27 @@
 				<field name="sequence" type="int">80</field>
 			</record>
 			
-			<record id="it_resource" model="website.menu">
-				<field name="name">IT News</field>
-				<field name="url">/it/news</field>
+			<record id="resource" model="website.menu">
+				<field name="name">News</field>
+				<field name="url">/intro/news</field>
 				<field name="parent_id" ref="menu_aboutus"></field>
 				<field name="divider" eval="True"></field>
-				<field name="divider_text">IT Resources</field>
+				<field name="divider_text">Resources</field>
 				<field name="sequence" type="int">90</field>
 			</record>
+			
 			<record id="it_download" model="website.menu">
 				<field name="name">Download</field>
 				<field name="url">/it/download</field>
 				<field name="parent_id" ref="menu_aboutus"></field>
 				<field name="sequence" type="int">92</field>
+			</record>
+			
+			<record id="jobs" model="website.menu">
+				<field name="name">Jobs</field>
+				<field name="url">/intro/jobs</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">94</field>
 			</record>
 			
 			<record id="privacy" model="website.menu">
@@ -67,13 +75,7 @@
 				<field name="divider_text">Notes</field>
 				<field name="sequence" type="int">100</field>
 			</record>
-			
-			<record id="flyout_menu" model="website.menu">
-			    <field name="name">Submenu demo</field>
-			    <field name="parent_id" ref="menu_aboutus" />
-			    <field name="url">/intro/demo</field>
-			    <field name="sequence" type="int">110</field>
-			</record>
+
 		
 		<record id="menu_electrical" model="website.menu">
 			<field name="name">Electrical</field>
