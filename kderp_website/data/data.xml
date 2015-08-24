@@ -226,12 +226,19 @@
 					<field name="parent_id" ref="menu_qa"/>
 					<field name="sequence" type="int">64</field>
 				</record>
-		
+				
+        <record id="menu_events" model="website.menu">
+            <field name="name">Events</field>
+            <field name="url">/event</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">60</field>
+        </record>
+        
 		<record id="menu_kinden_jp" model="website.menu">
 			<field name="name">KINDEN JAPAN</field>
 			<field name="parent_id" ref="website.main_menu" />
 			<field name="url">http://www.kinden.co.jp/english/example/japan.html</field>
-			<field name="sequence" type="int">60</field>
+			<field name="sequence" type="int">70</field>
 		</record>
 		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
 		<delete model="website.menu" id="website.menu_contactus"></delete>
