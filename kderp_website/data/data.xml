@@ -5,7 +5,7 @@
 			<field name="name">About us</field>
 			<field name="parent_id" ref="website.main_menu" />
 			<field name="url">/intro</field>
-			<field name="sequence" type="int">60</field>
+			<field name="sequence" type="int">10</field>
 		</record>
 
 			<record id="aboutus" model="website.menu">
@@ -74,24 +74,48 @@
 			    <field name="url">/intro/demo</field>
 			    <field name="sequence" type="int">110</field>
 			</record>
-				
-				<record id="electrical" model="website.menu">
-					<field name="name">Electrical Systems</field>
-					<field name="url">/intro/demo/#</field>
-					<field name="parent_id" ref="flyout_menu"></field>
-					<field name="sequence" type="int">10</field>
-				</record>
-
-				<record id="mechanical" model="website.menu">
-					<field name="name">Mechanical Systems</field>
-					<field name="url">/intro/demo/#</field>
-					<field name="parent_id" ref="flyout_menu"></field>
-					<field name="sequence" type="int">20</field>
-				</record>			
+		
+		<record id="menu_electrical" model="website.menu">
+			<field name="name">Electrical</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">#</field>
+			<field name="sequence" type="int">20</field>
+		</record>
+			<record id="e_eletrical_works" model="website.menu">
+				<field name="name">Eletrical Works</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_electrical"></field>
+				<field name="sequence" type="int">10</field>
+			</record>
+			<record id="e_eletrical_maintenance" model="website.menu">
+				<field name="name">Eletrical Maintenance</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_electrical"></field>
+				<field name="sequence" type="int">20</field>
+			</record>
+			
+		<record id="menu_mechanical" model="website.menu">
+			<field name="name">Mechanical</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">#</field>
+			<field name="sequence" type="int">30</field>
+		</record>
+			<record id="e_mechanical_works" model="website.menu">
+				<field name="name">Mechanical Works</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_mechanical"></field>
+				<field name="sequence" type="int">10</field>
+			</record>
+			<record id="e_mechanical_maintenance" model="website.menu">
+				<field name="name">Mechanical Maintenance</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_mechanical"></field>
+				<field name="sequence" type="int">20</field>
+			</record>
 		<record id="menu_qa" model="website.menu">
 			<field name="name">Quality Assurance</field>
 			<field name="parent_id" ref="website.main_menu"/>
-			<field name="sequence" type="int">50</field>
+			<field name="sequence" type="int">40</field>
 		</record>
 			
 			<record id="qa_whatis" model="website.menu">
@@ -131,37 +155,37 @@
 				<field name="sequence" type="int">50</field>
 			</record>
 			
-				<record id="qa_monthly_safety_meeting" model="website.menu">
-					<field name="name">Monthly Safety Meeting</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">51</field>
-				</record>
-				<record id="qa_daily_safety_report" model="website.menu">
-					<field name="name">Daily Safety Report</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">52</field>
-				</record>
-				<record id="qa_safety_patrol_with_su_contractors" model="website.menu">
-					<field name="name">Safety Patrol with Su contractors</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">53</field>
-				</record>
-				<record id="qa_safety_patrol_schedule" model="website.menu">
-					<field name="name">Safety Patrol Schedule</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">54</field>
-				</record>
-				<record id="qa_safety_work_plan" model="website.menu">
-					<field name="name">Safety Work Plan</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">55</field>
-				</record>
-				<record id="qa_trouble_report" model="website.menu">
+			<record id="qa_monthly_safety_meeting" model="website.menu">
+				<field name="name">Monthly Safety Meeting</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">51</field>
+			</record>
+			<record id="qa_daily_safety_report" model="website.menu">
+				<field name="name">Daily Safety Report</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">52</field>
+			</record>
+			<record id="qa_safety_patrol_with_su_contractors" model="website.menu">
+				<field name="name">Safety Patrol with Su contractors</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">53</field>
+			</record>
+			<record id="qa_safety_patrol_schedule" model="website.menu">
+				<field name="name">Safety Patrol Schedule</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">54</field>
+			</record>
+			<record id="qa_safety_work_plan" model="website.menu">
+				<field name="name">Safety Work Plan</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">55</field>
+			</record>
+			<record id="qa_trouble_report" model="website.menu">
 					<field name="name">Trouble Report</field>
 					<field name="url">#</field>
 					<field name="parent_id" ref="menu_qa"/>
@@ -176,30 +200,37 @@
 				<field name="divider_text">QC Contents</field>
 				<field name="sequence" type="int">60</field>
 			</record>
-				<record id="qa_kinq_news" model="website.menu">
-					<field name="name">KinQ News</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">61</field>
-				</record>
-				<record id="qa_kinvq_news" model="website.menu">
-					<field name="name">KinVQ News</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">62</field>
-				</record>
-				<record id="qa_technical_information" model="website.menu">
-					<field name="name">Technical Infomation</field>
-					<field name="url">#</field>
-					<field name="parent_id" ref="menu_qa"/>
-					<field name="sequence" type="int">63</field>
-				</record>
-				<record id="qa_qc_trouble_report" model="website.menu">
+			<record id="qa_kinq_news" model="website.menu">
+				<field name="name">KinQ News</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">61</field>
+			</record>
+			<record id="qa_kinvq_news" model="website.menu">
+				<field name="name">KinVQ News</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">62</field>
+			</record>
+			<record id="qa_technical_information" model="website.menu">
+				<field name="name">Technical Infomation</field>
+				<field name="url">#</field>
+				<field name="parent_id" ref="menu_qa"/>
+				<field name="sequence" type="int">63</field>
+			</record>
+			<record id="qa_qc_trouble_report" model="website.menu">
 					<field name="name">Trouble Report</field>
 					<field name="url">#</field>
 					<field name="parent_id" ref="menu_qa"/>
 					<field name="sequence" type="int">64</field>
 				</record>
+		
+		<record id="menu_kinden_jp" model="website.menu">
+			<field name="name">KINDEN JAPAN</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">http://www.kinden.co.jp/english/example/japan.html</field>
+			<field name="sequence" type="int">60</field>
+		</record>
 		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
 		<delete model="website.menu" id="website.menu_contactus"></delete>
 		<delete model="website.menu" id="website_blog.menu_news"></delete>
