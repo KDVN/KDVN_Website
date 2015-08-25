@@ -250,20 +250,20 @@ a:hover {
   padding-top: 133.33333333333334px;
 }
 footer {
-  background-color: #008000;
+  background-color: #fff;
 }
 footer a,
 footer a:hover {
-  color: #ffffff;
+  color: #777;
 }
 footer address {
-  color: #ffffff;
+  color: #777;
 }
 footer address h4 {
-  color: #ffffff !important;
+  color: #777 !important;
 }
 .text-kdvn {
-  color: #ffffff !important;
+  color: #777 !important;
 }
 .slider-size {
   height: 300px;
