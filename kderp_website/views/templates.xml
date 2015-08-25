@@ -936,10 +936,7 @@
 	<template id="kdvn_footer_custom" inherit_id="website.footer_default" name="KDVN Footer">
 		<xpath expr="//div[@class='container hidden-print']" position="replace">
 				<!-- <div class="oe_strucutre" id="footer">-->
-					<p></p>
-					<div class="container" style="border-bottom: 5px solid #11A84E;"/>
-					<p></p>
-					<div class="container" id="footer">
+					<div class="container" id="footer" style="border-top: 5px solid #11A84E;">
 						<div class="row">
 							<!-- TODO: Finding a better way to filter the data -->
 							<t t-foreach="res_company.partner_id.child_ids[3:5]" t-as="contact">
