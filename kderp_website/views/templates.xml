@@ -478,6 +478,9 @@
 										<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
 											<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
 										</t>
+										<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+											<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+										</t>
 									</t>
 									<td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
 										<t t-esc="post.name"></t>
@@ -534,6 +537,9 @@
 									<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
 										<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
 									</t>
+									<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+										<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+									</t>
 								</t>
 								<td class="news-name-homepage" style="border-top: 1px solid #FFF;"><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
 									<t t-esc="post.name[:40]"></t>
@@ -577,6 +583,9 @@
 											</t>
 											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
 												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+												<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
 											</t>
 										</t>
 										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
@@ -625,6 +634,9 @@
 											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
 												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
 											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+												<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+											</t>
 										</t>
 										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
 									</tr>
@@ -671,6 +683,9 @@
 											</t>
 											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
 												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+												<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
 											</t>
 										</t>
 										<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-esc="post.name"></t></a></td>
