@@ -131,9 +131,9 @@
 									</div>
 									<div class="row">
 										<t t-foreach="kdvn_me" t-as="post">
-											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
-											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
-											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
+											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
+											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
+											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
 											<div t-attf-class="col-md-{{12 / post_size}}">
 												<a class="view-more" t-att-href="post_url">View more <span class="icon-view-more"></span></a>
 												<p></p>

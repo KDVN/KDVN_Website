@@ -15,7 +15,9 @@ class KderpWebsite(http.Controller):
     it_blog = 'IT'
     kdvn_route = '/kdvn'
     _post_per_page = 8
-    
+    #Them bien 
+    es_blog = 'Electrical Systems'
+    ms_blog = 'Mechanical Systems'
     
     def kdvn_posts(self, blog_name_list=[], post_ids=[], page_url='/', page=1, template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
         """Getting all posts of blog(s) to prepare to show
@@ -92,9 +94,12 @@ class KderpWebsite(http.Controller):
         """Showing KDVN News, blog based on route header"""
         
         submenu_dic = {
-            'intro':[self.news_blog, self.qa_blog, self.it_blog],
+            'intro':[self.news_blog, self.qa_blog, self.it_blog, self.es_blog, self.ms_blog],
             'qa':[self.qa_blog],
-            'it':[self.it_blog]           
+            'it':[self.it_blog],
+            #them submenu
+            'es':[self.es_blog],
+            'ms':[self.ms_blog]          
             }
         return self.kdvn_posts([submenu_dic[submenu]], [], '/' + submenu + '/news', page)
         #Works = self.kdvn_posts([work_blog])

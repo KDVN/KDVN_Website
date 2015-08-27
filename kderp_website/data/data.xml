@@ -85,7 +85,7 @@
 		</record>
 			<record id="e_eletrical_works" model="website.menu">
 				<field name="name">Eletrical Works</field>
-				<field name="url">#</field>
+				<field name="url">/es/news</field>
 				<field name="parent_id" ref="menu_electrical"></field>
 				<field name="sequence" type="int">10</field>
 			</record>
@@ -104,7 +104,7 @@
 		</record>
 			<record id="e_mechanical_works" model="website.menu">
 				<field name="name">Mechanical Works</field>
-				<field name="url">#</field>
+				<field name="url">/ms/news</field>
 				<field name="parent_id" ref="menu_mechanical"></field>
 				<field name="sequence" type="int">10</field>
 			</record>
