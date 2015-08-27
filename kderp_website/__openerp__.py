@@ -16,6 +16,8 @@
     'version': "0.1",
     'depends': ['web', 'website', 'website_partner', 'website_blog'],
     'data': [
+             'security/security.xml',
+             'security/ir.model.access.csv',
              'data/data.xml',
              'views/templates.xml',
              'views/views.xml',

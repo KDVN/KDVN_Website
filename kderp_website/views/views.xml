@@ -138,7 +138,7 @@
 			<field name="view_mode">form</field>
 		</record>
 
-		<menuitem id="main_kdvn_website" name="KDVN Website" />
+		<menuitem id="main_kdvn_website" name="KDVN Website" groups="group_kderp_website_menu"/>
 
 		<menuitem id="kdvn_news_section" name="News" parent="main_kdvn_website" />
 		<menuitem id="kdvn_website_config" name="Configuration" parent="main_kdvn_website" sequence="60" />
