@@ -242,6 +242,7 @@
 				
 		<record id="menu_kinden_jp" model="website.menu">
 			<field name="name">KINDEN JAPAN</field>
+			<field name="new_window">True</field>
 			<field name="parent_id" ref="website.main_menu" />
 			<field name="url">http://www.kinden.co.jp/english/example/japan.html</field>
 			<field name="sequence" type="int">70</field>
