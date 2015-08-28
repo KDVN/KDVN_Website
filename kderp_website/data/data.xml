@@ -84,13 +84,13 @@
 			<field name="sequence" type="int">20</field>
 		</record>
 			<record id="e_eletrical_works" model="website.menu">
-				<field name="name">Eletrical Works</field>
+				<field name="name">Electrical Works</field>
 				<field name="url">/es/news</field>
 				<field name="parent_id" ref="menu_electrical"></field>
 				<field name="sequence" type="int">10</field>
 			</record>
 			<record id="e_eletrical_maintenance" model="website.menu">
-				<field name="name">Eletrical Maintenance</field>
+				<field name="name">Electrical Maintenance</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_electrical"></field>
 				<field name="sequence" type="int">20</field>
