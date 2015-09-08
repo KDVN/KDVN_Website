@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>    
+		<template id="extend_qa_new" inherit_id="kderp_website.page_list_posts">
+            <xpath expr="//div[@class='oe_structure']" position="replace">
+            	<div class='oe_structure services'>
+					<t t-set="title"><t t-esc="posts[0].blog_id.name"/></t>
+					<div class="oe_structure">
+						<t t-call="kderp_website.show_jumbo"/>
+						<t t-call="kderp_website.list_posts"/>
+					</div>
+				</div>
+			</xpath>
+        </template>
+    </data>
+</openerp>
