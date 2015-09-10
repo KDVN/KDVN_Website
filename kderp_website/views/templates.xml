@@ -486,7 +486,7 @@
 										<t t-esc="post.name"></t>
 										</a>
 									</td>
-									<t t-if="request.httprequest.path in ['/page/homepage','/intro/news']">
+									<t t-if="request.httprequest.path == '/page/homepage' or request.httprequest.path[:11] =='/intro/news'">
 										<td><t t-esc="post.blog_id.name"></t></td>
 									</t>
 								</tr>
