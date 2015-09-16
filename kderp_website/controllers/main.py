@@ -18,26 +18,36 @@ class KderpWebsite(http.Controller):
     #Them bien 
     es_blog = 'Electrical Systems'
     ms_blog = 'Mechanical Systems'
-    
-    def kdvn_posts(self, blog_name_list=[], post_ids=[], page_url='/', page=1, template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
+    kinqnews = 'KinQ News'
+    kinvqnews = 'KinVQ News'
+    def kdvn_posts(self, blog_name_list=[], tag_name_list=[], post_ids=[], page_url='/', page=1, template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
         """Getting all posts of blog(s) to prepare to show
         - If only 1 post return, show the post
         - If more than 1 post return, list these posts
-            + Also handle pager
-            + Can use website_blog: however rewrite to study
+            + Handle pager
+            + TODO: Handle and condition for tag
         """
         announcements = http.request.env['blog.post'].search([('blog_id', '=', 'Announcement')])
         funfacts = http.request.env['blog.post'].search([('blog_id','=','Fun Fact')])
+        #dat bien all_posts de su dung chung trong nhieu truong hop
+        all_posts = http.request.env['blog.post']
         if post_ids:
             search_domain = [('id', 'in', post_ids)]
         else:
             if blog_name_list:
-                search_domain = []
-                for blog_name in blog_name_list:
-                    search_domain.append(('blog_id','in',blog_name))
-                #Add or condition to the search domain
-                if len(search_domain) -1 :
-                    search_domain.insert(0, '|' * (len(search_domain)-1))
+                search_domain = [('blog_id', 'in', blog_name_list)]
+            if tag_name_list:
+                #do blog.tag va blog.post link voi nhau thong qua truong tag_ids 
+                #la truong many2many, nen tam thoi duyet tags truoc
+                #sau do join cac recordsets tra ve tu blog.tag de lay post_ids
+                tags = http.request.env['blog.tag'].search([('name', 'in', tag_name_list)])
+                #sudung map va reduce de lay join recordset cua post tra ve tu blog.tag
+                #luu y ban than odoo co bo sung mapped va filltered cho recordset
+                post_ids = tags.mapped('post_ids').mapped('id')
+                #tags_posts = map(lambda tag: tag.post_ids, tags)
+                #taged_posts = reduce(lambda a, c: a | c, tags_posts)
+                #post_ids = taged_posts.mapped('id')
+                search_domain.append(('id', 'in', post_ids))
         
         result = http.request.env['blog.post'].search(search_domain)
         if len(result) == 1:
@@ -89,8 +99,8 @@ class KderpWebsite(http.Controller):
             'sites': sites
         })
         
-    @http.route(['/<submenu>/news', '/<submenu>/news/page/<int:page>'], auth='public', website=True)
-    def kdvn_list_posts(self, page=1, submenu='intro'):
+    @http.route(['/<submenu>/news', '/<submenu>/news/page/<int:page>','/<submenu>/tag/<subtag>','/<submenu>/tag/<subtag>/page/<int:page>'], auth='public', website=True)
+    def kdvn_list_posts(self, page=1, submenu='intro', subtag='all'):
         """Showing KDVN News, blog based on route header"""
         
         submenu_dic = {
@@ -101,13 +111,22 @@ class KderpWebsite(http.Controller):
             'es':[self.es_blog],
             'ms':[self.ms_blog]          
             }
-        return self.kdvn_posts([submenu_dic[submenu]], [], '/' + submenu + '/news', page)
+        sub_tag = {
+            'all': [],
+            'kinqnews':[self.kinqnews],
+            'kinvqnews': [self.kinvqnews]
+                   }
+        if (subtag == 'all'):
+            url = '/' + submenu + '/news'
+        else:
+            url ='/' + submenu + '/tag/' + subtag
+        return self.kdvn_posts(submenu_dic[submenu], sub_tag[subtag], [], url, page)
         #Works = self.kdvn_posts([work_blog])
         
-    @http.route(['/<submenu>/news/<model("blog.post"):post>','/<submenu>/news/page/<int:page>/<model("blog.post"):post>'], auth='public', website=True)
-    def kdvn_show_post(self, post, submenu, page=1):
+    @http.route(['/<submenu>/news/<model("blog.post"):post>','/<submenu>/news/page/<int:page>/<model("blog.post"):post>','/<submenu>/tag/<subtag>/<model("blog.post"):post>','/<submenu>/tag/<subtag>/page/<int:page>/<model("blog.post"):post>'], auth='public', website=True)
+    def kdvn_show_post(self, post, submenu, subtag='', page=1):
         """Showing post content"""
-        return self.kdvn_posts([], [post.id])
+        return self.kdvn_posts([],[], [post.id])
 
     @http.route('/intro' + '/<model("blog.post"):post>', auth='public', website=True)
     def kdvn_show_intro(self, post):
