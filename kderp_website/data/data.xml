@@ -136,14 +136,14 @@
 			
 			<record id="qa_practice" model="website.menu">
 				<field name="name">QA Practice</field>
-				<field name="url">/intro/qa_practice</field>
+				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">30</field>
 			</record>
 			
 			<record id="qa_regulation" model="website.menu">
 				<field name="name">QA Regulation</field>
-				<field name="url">/qa/regulation</field>
+				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">40</field>
 			</record>
