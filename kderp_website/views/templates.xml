@@ -135,6 +135,7 @@
 										</t>
 									</div>
 									<div class="row">
+										<p></p>
 										<t t-foreach="kdvn_me" t-as="post">
 											<div t-attf-class="col-md-{{12 / post_size}}">
 												<t t-if="post.name == 'Electrical Systems'"><div id="kdvn_news_e"></div></t>
@@ -945,7 +946,7 @@
 	<template id="kdvn_footer_custom" inherit_id="website.footer_default" name="KDVN Footer">
 		<xpath expr="//div[@class='container hidden-print']" position="replace">
 				<!-- <div class="oe_strucutre" id="footer">-->
-					<div class="container" id="footer" style="border-top: 5px solid #11A84E;">
+					<div class="container" id="footer" style="border-top: 3px solid #11A84E;">
 						<div class="row">
 							<!-- TODO: Finding a better way to filter the data -->
 							<t t-foreach="res_company.partner_id.child_ids[3:5]" t-as="contact">
