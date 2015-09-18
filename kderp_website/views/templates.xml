@@ -112,10 +112,15 @@
 								<div class="col-md-9">
 									<div class="row">
 										<t t-foreach="kdvn_me" t-as="post">
+											<!-- Links intro -->
 											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/electricalsystems'"></t></t>
 											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
 											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
 											<div t-attf-class="col-md-{{12 / post_size}}">
+											<!-- Link news -->
+											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url_more" t-value="'/es/news'"></t></t>
+											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url_more" t-value="'/ms/news'"></t></t>
+											<t t-if="post.name == 'QST'"><t t-set="post_url_more" t-value="'/qa/news'"></t></t>
 												<h4 class="text-success"><t t-esc="post.name"></t></h4>
 												<p></p>
 												<div class="thumbnail">
@@ -123,21 +128,10 @@
 												</div>
 												<div class="caption">
 													<!-- <h2 class="text-success"><t t-esc="post.name"></t></h2> -->
-													<p class="mt8"><t t-esc="post.summary"></t></p>
+													<p class="mt8"><t t-esc="post.summary"></t><a class="view-more" t-att-href="post_url_more">View more <span class="icon-view-more"></span></a></p>
 												</div>
 											</div>
 											
-										</t>
-									</div>
-									<div class="row">
-										<t t-foreach="kdvn_me" t-as="post">
-											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
-											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
-											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
-											<div t-attf-class="col-md-{{12 / post_size}}">
-												<a class="view-more" t-att-href="post_url">View more <span class="icon-view-more"></span></a>
-												<p></p>
-											</div>
 										</t>
 									</div>
 									<div class="row">
