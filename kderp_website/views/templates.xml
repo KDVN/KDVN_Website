@@ -990,54 +990,34 @@
 	
 	<!-- Events: Using values from original event module -->
 	<template id="kderp_website.event_index" inherit_id="website_event.index" name="List Events">
-		<xpath expr="//div[@class='container']" position="replace">
-			<div class="container">
-				<t t-call="kderp_website.event_jumbo"></t>
-				<!-- Listing all events -->
-	            <div class="row mt8">
-	                <div class="col-sm-5">
-	                    <ol class="breadcrumb mb0">
-	                        <li>
-	                            <a href="/event">Our Events</a>
-	                        </li>
-	                        <li t-if="current_date"><t t-esc="current_date"/></li>
-	                        <li t-if="current_type"><t t-esc="current_type.name"/></li>
-	                        <li t-if="current_country"><t t-esc="current_country.name"/></li>
-	                    </ol>
-	                </div>
-	                <div class="col-sm-7">
-	                    <t t-call="website.pager" >
-	                        <t t-set="classname">pull-right</t>
-	                    </t>
-	                </div>
-           		 </div>
-				
-				<div class="col-md-6 col-md-offset-2">
-					<ul class="media-list">
-						<li t-foreach="event_ids" t-as="event" class="media">
-							<div class="media-body">
-								<h4 class="media-heading text-success">
-									<a t-attf-href="/event/#{slug(event)}/#{(not event.menu_id) and 'register' or ''}"><span t-field="event.name"></span></a>
-								</h4>
-								<div>
-									Organized by: <span t-field="event.organizer_id"></span>
-								</div>
-								<div>
-									<i class="fa fa-clock-o"></i> <span t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span> <i>to</i> <span t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'></span>
-								</div>
-								<div t-field="event.address_id" t-field-options='{
-									"widget": "contact",
-									"fields": ["city"]
-									}'>
-								</div>
-							</div>
-						</li>
-					</ul>
+		<xpath expr="//div[@class='container']" position="before">
+			<t t-call="kderp_website.event_jumbo"></t>
+		</xpath>
+		<xpath expr="//div[@id='right_column']" position="inside">
+			<div class="row">
+				<div id="event_pictures">
 				</div>
-				
-				<div class="col-md-4" id="event_pictures">
-					<!-- Option to show on/off event pictures -->
-				</div>
+			</div>
+		</xpath>
+		<xpath expr="//div[@class='row mt8']" position="replace">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0">
+                        <li>
+                            <a href="/event">Our Events</a>
+                        </li>
+                        <li t-if="current_date"><t t-esc="current_date"/></li>
+                        <li t-if="current_type"><t t-esc="current_type.name"/></li>
+                        <li t-if="current_country"><t t-esc="current_country.name"/></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row mt8">
+	            <div class="col-sm-7">
+                    <t t-call="website.pager" >
+                        <t t-set="classname">pull-left</t>
+                    </t>
+                </div>
 			</div>
 		</xpath>
 	</template>
@@ -1046,13 +1026,13 @@
 	<template id="event_show" inherit_id="kderp_website.event_index" name="Event Pictures" active="False" customize_show="True">
 		<xpath expr="//div[@id='event_pictures']" postion="inside">
 			<div class="col-md-12">
-				<img class="img-rounded mb32" src="/kderp_website/static/src/img/safety_day.jpg" width="300"></img>
+				<img class="img-rounded mb32" src="/kderp_website/static/src/img/safety_day.jpg" width="260"></img>
 			</div>
 			<div class="col-md-12">
-				<img class="img-rounded mb32" src="/kderp_website/static/src/img/year_end_party.jpg" width="300"></img>
+				<img class="img-rounded mb32" src="/kderp_website/static/src/img/year_end_party.jpg" width="260"></img>
 			</div>		
 			<div class="col-md-12">
-				<img class="img-rounded mb32" src="/website/image/ir.attachment/743_1efe281/datas" width="300"></img>
+				<img class="img-rounded mb32" src="/website/image/ir.attachment/743_1efe281/datas" width="260"></img>
 			</div>						
 		</xpath>
 	</template>
