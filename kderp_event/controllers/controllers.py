@@ -126,7 +126,7 @@ class website_event(http.Controller):
             step=step,
             scope=5)
 
-        order = 'website_published desc, date_begin'
+        order = 'website_published desc, date_begin desc'
         if searches.get('date','all') == 'old':
             order = 'website_published desc, date_begin desc'
         obj_ids = event_obj.search(
