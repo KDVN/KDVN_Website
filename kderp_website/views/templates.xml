@@ -722,7 +722,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">Announcments</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" style="padding: 0px">
 					<t t-if="announcements">
 						<div id="carousel-announcement" class="carousel slide" data-ride="carousel" data-interval="0">
 						  
@@ -767,7 +767,7 @@
 				<div class="panel-heading">
 					<h3 class="panel-title">Fun facts</h3>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" style="padding: 0px">
 					<t t-if="ffacts">
 						<div id="carousel-funfact" class="carousel slide" data-ride="carousel">
 						  
