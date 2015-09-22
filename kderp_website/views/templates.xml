@@ -847,20 +847,24 @@
 		<t t-call="website.layout">
 			<t t-set="title"><t t-esc="post.name"></t></t>
 			<t t-call="kderp_website.show_jumbo"></t>
-			<t t-call="kderp_website.show_post"></t>
+			<t t-call="kderp_website.show_post_content"></t>
 		</t>
 	</template>
 	
 	<!-- Showing post: post|posts|pager|jumbo -->
-	<template id="kderp_website.show_post" name="KDVN show post">
+	<template id="kderp_website.show_post_content" name="KDVN show post">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
 					<h2 class="text-success text-center"><t t-esc="post.name"></t></h2>
-					<div class="text-muted">
-						<small><t t-esc="post.author_id.name"></t></small>
-						<small><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="text-muted">
+								<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
+								<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+							</div>
+						</div>
 					</div>
 					<t t-if="post.summary">
 						<div class="bs-callout bs-callout-success">
