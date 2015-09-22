@@ -128,7 +128,7 @@
 												</div>
 												<div class="caption">
 													<!-- <h2 class="text-success"><t t-esc="post.name"></t></h2> -->
-													<p class="mt8" style="font-size:12px"><t t-esc="post.summary"></t><a class="view-more" t-att-href="post_url_more">View more <span class="icon-view-more"></span></a></p>
+													<p class="mt8" ><t t-esc="post.summary"></t><a class="view-more" t-att-href="post_url_more">View more <span class="icon-view-more"></span></a></p>
 												</div>
 											</div>
 											
@@ -571,7 +571,7 @@
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
-					<table class="table">
+					<table class="table" style="font-size:12px">
 						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
@@ -625,7 +625,7 @@
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
-					<table class="table">
+					<table class="table" style="font-size:12px">
 						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
@@ -678,7 +678,7 @@
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
-					<table class="table">
+					<table class="table" style="font-size:12px">
 						
 						<tbody>
 							<t t-foreach="posts" t-as="post">
