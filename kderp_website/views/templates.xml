@@ -925,9 +925,9 @@
 							<table class="table table-striped table-condensed">
 								<thead class="bg-success">
 									<tr>
-										<th>File thumbnail</th>
-										<th>File name</th>
-										<th>Usable weblink</th>
+										<th>File Thumbnail</th>
+										<th>File Date</th>
+										<th>File Name</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -936,11 +936,22 @@
 											<t t-if="file.name[-3:] in ['jpg', 'png']">
 												<td><img class="img-rounded" t-attf-src="{{file.website_url}}/120x80"></img></td>												
 											</t>
-											<t t-if="file.name[-3:] not in ['jpg', 'png']">
-												<td><span class="fa fa-file-image-o fa-2"></span></td>
+											<t t-if="file.name[-3:] == 'pdf'">
+												<td><span class="fa fa-file-pdf-o"></span></td>
 											</t>
-											<td><t t-esc="file.name"></t></td>
-											<td><code><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)"></t></a></code></td>
+											<t t-if="file.name[-3:] == 'doc'">
+												<td><span class="fa fa-file-doc-o"></span></td>
+											</t>
+											<t t-if="file.name[-3:] == 'xls'">
+												<td><span class="fa fa-file-xls-o"></span></td>
+											</t>
+											<td><t t-esc="file.create_date"/></td>
+											<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+												<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else file.name"></t></a></td>
+											</t>
+											<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+												<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)"></t></a></td>
+											</t>
 										</tr>
 									</t>
 								</tbody>
