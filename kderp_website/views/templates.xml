@@ -867,7 +867,7 @@
 						</div>
 					</div>
 					<t t-if="post.summary">
-						<div class="bs-callout bs-callout-success">
+						<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
 							<p><t t-esc="post.summary"></t></p>
 						</div>
 					</t>
