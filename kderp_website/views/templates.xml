@@ -961,8 +961,7 @@
 							<div class="panel panel-success">
 								<div class="panel-heading">Note</div>
 								<div class="panel-body">
-									<p>Can use this syntax to limit image size</p>
-									<code>/.../datas/300x200</code>
+									<div t-field="post.content"></div>
 								</div>
 							</div>
 						</div>
