@@ -222,5 +222,5 @@ class KderpWebsite(http.Controller):
         return http.request.render('kderp_website.page_testi', {
             'index': [pre_index, cur_index, next_index],
             'post': posts[cur_index],
-                                                                
+            'posts':posts                                                    
             })
