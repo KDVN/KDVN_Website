@@ -898,7 +898,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<div id="funfact" class="hidden-xs hidden-sm"></div>
+					<t t-if="announcements">
+						<div id="funfact" class="hidden-xs hidden-sm"></div>
+					</t>
 				</div>
 				<div class="col-sm-8">
 					<h2 class="text-success text-center"><t t-esc="post.name"></t></h2>
@@ -936,7 +938,9 @@
 					</div>
 				</div>
 				<div class="col-sm-2">
-					<div id="announcement"></div>
+					<t t-if="announcements">
+						<div id="announcement"></div>
+					</t>
 				</div>
 			</div>
 		</div>
