@@ -52,7 +52,7 @@ class KderpWebsite(http.Controller):
         result = http.request.env['blog.post'].search(search_domain)
         if len(result) == 1:
             # Return only one post
-            return http.request.render(template[0],{'post':result})
+            return http.request.render(template[0],{'post':result,'announcements': announcements,'ffacts': funfacts})
         elif len(result) > 1:
             # Return posts -> list posts
             # Handler pager
