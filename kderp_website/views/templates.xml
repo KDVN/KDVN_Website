@@ -307,7 +307,7 @@
 				</div>
 			</div>
 		</div>
-		<t t-raw="0"></t>
+		<t t-raw="0"><p></p></t>
 	</template>
 	
 	<!-- QA Jumbotron -->
