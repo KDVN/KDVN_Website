@@ -722,7 +722,7 @@
 		</xpath>
 	</template>
 	
-	<template id="announcemnt1" inherit_id="kderp_website.show_post_content" name="KDVN Announcements" active="False" customize_show="True">
+	<template id="announcemnt1" inherit_id="kderp_website.show_post_content1" name="KDVN Announcements" active="False" customize_show="True">
 		<xpath expr="//div[@id='announcement']" position="inside">
 			<t t-call="kderp_website.announcemnt_content"></t>
 		</xpath>
@@ -777,7 +777,7 @@
 		</xpath>
 	</template>
 	
-	<template id="funfact1" inherit_id="kderp_website.show_post_content" name="KDVN Fun facts" active="False" customize_show="True">
+	<template id="funfact1" inherit_id="kderp_website.show_post_content1" name="KDVN Fun facts" active="False" customize_show="True">
 		<xpath expr="//div[@id='funfact']" position="inside">
 			<t t-call="kderp_website.funfact_content"></t>
 		</xpath>
@@ -898,54 +898,68 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<t t-if="announcements">
-						<div id="funfact" class="hidden-xs hidden-sm"></div>
-					</t>
 				</div>
 				<div class="col-sm-8">
-					<h2 class="text-success text-center"><t t-esc="post.name"></t></h2>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="text-muted">
-								<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
-								<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
-							</div>
-						</div>
-					</div>
-					<t t-if="post.summary">
-						<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
-							<p><t t-esc="post.summary"></t></p>
-						</div>
-					</t>
-					<t t-if="post.img_url_ids">
-						<div class="bs-callout bs-callout-warning">
-							<h4><span class="fa fa-paperclip"></span></h4>
-							<t t-if="post.img_url_ids">
-								<div class="row">
-									<t t-foreach="post.img_url_ids" t-as="file">
-										<div class="col-md-6" t-attf-id="{{file_index % 2}}">
-<!-- 											<a t-attf-href="/web/binary/saveas?model=ir.attachment&amp;field=datas&amp;filename_field=name&amp;id={{file.id}}"><t t-esc="file.name"></t></a> -->
-											<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
-											<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
-										</div>
-									</t>
-								</div>
-							</t>
-						</div>
-					</t>
-					<div>
-						<div t-field="post.content"></div>
-					</div>
+					<t t-call="kderp_website.show_post_content_main"></t>
 				</div>
 				<div class="col-sm-2">
-					<t t-if="announcements">
-						<div id="announcement"></div>
-					</t>
 				</div>
 			</div>
 		</div>
 	</template>
 	
+	<template id="kderp_website.show_post_content1" inherit_id="kderp_website.show_post_content" name="KDVN show post 1" active="False" customize_show="True">
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container">
+				<div class="row">
+					<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+						<t t-call="kderp_website.show_post_content_main"></t>
+					</div>
+					<t t-if="announcements">
+						<div class="col-md-4">
+							<div id="announcement"></div>
+							<div id="funfact" class="hidden-xs hidden-sm"></div>
+						</div>
+					</t>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
+	<template id="kderp_website.show_post_content_main" name="Show Jumbotron">
+		<h2 class="text-success text-center"><t t-esc="post.name"></t></h2>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="text-muted">
+					<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
+					<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+				</div>
+			</div>
+		</div>
+		<t t-if="post.summary">
+			<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
+				<p><t t-esc="post.summary"></t></p>
+			</div>
+		</t>
+		<t t-if="post.img_url_ids">
+			<div class="bs-callout bs-callout-warning">
+				<h4><span class="fa fa-paperclip"></span></h4>
+				<t t-if="post.img_url_ids">
+					<div class="row">
+						<t t-foreach="post.img_url_ids" t-as="file">
+							<div class="col-md-6" t-attf-id="{{file_index % 2}}">
+							<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
+							<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
+							</div>
+						</t>
+					</div>
+				</t>
+			</div>
+		</t>
+		<div>
+			<div t-field="post.content"></div>
+		</div>
+	</template>
 	<!-- Media files library | post;files;pager -->
 	<template id="files" name="Files library">
 		<t t-call="website.layout">
