@@ -870,7 +870,7 @@
 						<t t-foreach="posts" t-as="post">
 							<div class="col-md-12 thumbnail">
 								<div class="col-md-6">
-									<p ><img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height: 205px; display: block; margin-left: auto; margin-right: auto;"></img></p>
+									<p ><img t-att-src="post.img_url_ids[0].website_url" class="img-responsive testi"></img></p>
 								</div>
 								<div class="col-md-6">
 									<h1><small class="text-danger"><t t-esc="post.name"></t></small></h1>
