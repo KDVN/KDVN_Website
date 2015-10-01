@@ -1007,7 +1007,10 @@
 												<td><span class="fa fa-file-doc-o"></span></td>
 											</t>
 											<t t-if="file.name[-3:] == 'xls'">
-												<td><span class="fa fa-file-xls-o"></span></td>
+												<td><span class="fa fa-file-xls-o"></span></td>												
+											</t>
+											<t t-if="file.name[-3:] not in ['jpg', 'png', 'pdf', 'doc', 'xls']">
+												<td><span class="fa fa-file-image-o"></span></td>												
 											</t>
 											<td><t t-esc="file.create_date"/></td>
 											<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
@@ -1024,9 +1027,17 @@
 						<div class="col-md-3">
 							<div class="panel panel-success">
 								<div class="panel-heading">Note</div>
-								<div class="panel-body">
-									<div t-field="post.content"></div>
-								</div>
+								<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+									<div class="panel-body">
+										<div t-field="post.content"></div>
+									</div>
+								</t>
+								<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+									<div class="panel-body">
+										<p>Can use this syntax to limit image size</p>
+										<code>/.../datas/300x200</code>
+									</div>
+								</t>
 							</div>
 						</div>
 					</div>
