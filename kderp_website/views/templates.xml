@@ -179,7 +179,7 @@
 		
 		<template id="home_jumbo4" name="Home jumbo 4" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='jumbo']" position="inside">
-				<div class="jumbotron" style="padding: 0px; height:450px">
+				<div class="jumbotron home-jumbo4">
 					<!-- Major Works -->
 					<!-- Carousel inspired by http://parkhurstdesign.com/improved-carousels-twitter-bootstrap/ 
 					Change a little bit with original carousel: 

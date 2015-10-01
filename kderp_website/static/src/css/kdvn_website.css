@@ -249,6 +249,10 @@ a:hover {
 .home-jumbo3 h1 {
   padding-top: 133.33333333px;
 }
+.home-jumbo4 {
+  padding: 0px;
+  height: 450px;
+}
 footer {
   background-color: white;
 }
