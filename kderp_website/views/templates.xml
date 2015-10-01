@@ -942,7 +942,7 @@
 			</div>
 		</t>
 		<t t-if="post.img_url_ids">
-			<div class="bs-callout bs-callout-warning">
+			<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
 				<h4><span class="fa fa-paperclip"></span></h4>
 				<t t-if="post.img_url_ids">
 					<div class="row">
