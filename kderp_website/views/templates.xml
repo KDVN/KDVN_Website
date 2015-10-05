@@ -445,6 +445,19 @@
 	<!-- Listing posts: posts|pager -->
 	<template id="list_posts" name="KDVN List posts">
 		<div class="container">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                       	<li>
+                            <a t-attf-href="{{request.httprequest.path}}"><t t-esc="posts[0].blog_id.name"/></a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <p></p>
 			<!-- Pager -->
 			<t t-if="pager">
 				<div class="row">
@@ -894,6 +907,21 @@
 	<!-- Showing post: post|posts|pager|jumbo -->
 	<template id="kderp_website.show_post_content" name="KDVN show post">
 		<div class="container">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                       	<li>
+                            <a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="post.blog_id.name"/></a>
+                        </li>
+                       	<li>
+                            <a t-attf-href="{{request.httprequest.path}}"><t t-esc="post.name"/></a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
 			<div class="row">
 				<div class="col-sm-2">
 				</div>
@@ -909,6 +937,21 @@
 	<template id="kderp_website.show_post_content1" inherit_id="kderp_website.show_post_content" name="KDVN show post 1" active="False" customize_show="True">
 		<xpath expr="//div[@class='container']" position="replace">
 			<div class="container">
+				<div class="row mt8">
+	                <div class="col-sm-12">
+	                    <ol class="breadcrumb mb0">
+	                        <li>
+	                            <a t-attf-href="/page/homepage">Home</a>
+	                        </li>
+	                       	<li>
+	                            <a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="post.blog_id.name"/></a>
+	                        </li>
+	                       	<li>
+	                            <a t-attf-href="{{request.httprequest.path}}"><t t-esc="post.name"/></a>
+	                        </li>
+	                    </ol>
+	                </div>
+            	</div>
 				<div class="row">
 					<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
 						<t t-call="kderp_website.show_post_content_main"></t>
