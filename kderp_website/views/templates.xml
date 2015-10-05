@@ -747,11 +747,14 @@
 					  <!-- Wrapper for slides -->
 						  <div class="carousel-inner" role="listbox">
 						  	<t t-foreach="announcements" t-as="ann">
+						  		<t t-if="(datetime.datetime.strptime(str(ann.create_date)[:10], '%Y-%m-%d') &gt;= 
+											datetime.datetime.strptime(str(datetime.date.today() - datetime.timedelta(days=7)),'%Y-%m-%d'))">
 							    <div t-attf-class="item {{'active' * (ann_index == 0)}}">
 <!-- 							    	<div class="carousel-caption"> -->
 							    		<p class="h4 text-center text-danger"><t t-esc="ann.summary"></t></p>
 <!-- 							    	</div> -->
-						    </div>
+						   		</div>
+							</t>
 					    </t>
 				      </div>
 				
