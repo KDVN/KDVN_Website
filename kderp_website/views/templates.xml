@@ -457,9 +457,7 @@
 			</t>
 			<!-- Posts -->
 			<div class="row">
-				
-				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
-					
+				<div t-attf-class="col-md-{{8 + 4 * (not(ffacts) and not(announcements))}}">	
 					<table class="table">
 						<tbody>
 							<t t-foreach="posts" t-as="post">
@@ -493,14 +491,14 @@
 					</table>
 					
 				</div>
-				
-				<t t-if="announcements">
+				<t t-if="ffacts or announcements">
 					<div class="col-md-4">
-						<div id="announcement"></div>
+						<t t-if="announcements">
+							<div id="announcement"></div></t>
 						<div id="funfact" class="hidden-xs hidden-sm"></div>
 					</div>
 				</t>
-			</div>					
+			</div>				
 		</div>
 	</template>
 	
@@ -747,14 +745,11 @@
 					  <!-- Wrapper for slides -->
 						  <div class="carousel-inner" role="listbox">
 						  	<t t-foreach="announcements" t-as="ann">
-						  		<t t-if="(datetime.datetime.strptime(str(ann.create_date)[:10], '%Y-%m-%d') &gt;= 
-											datetime.datetime.strptime(str(datetime.date.today() - datetime.timedelta(days=7)),'%Y-%m-%d'))">
 							    <div t-attf-class="item {{'active' * (ann_index == 0)}}">
 <!-- 							    	<div class="carousel-caption"> -->
 							    		<p class="h4 text-center text-danger"><t t-esc="ann.summary"></t></p>
 <!-- 							    	</div> -->
-						   		</div>
-							</t>
+						    </div>
 					    </t>
 				      </div>
 				
