@@ -80,7 +80,7 @@
 		<record id="menu_electrical" model="website.menu">
 			<field name="name">Electrical</field>
 			<field name="parent_id" ref="website.main_menu" />
-			<field name="url">#</field>
+			<field name="url">/es</field>
 			<field name="sequence" type="int">20</field>
 		</record>
 			<record id="e_eletrical_works" model="website.menu">
@@ -99,7 +99,7 @@
 		<record id="menu_mechanical" model="website.menu">
 			<field name="name">Mechanical</field>
 			<field name="parent_id" ref="website.main_menu" />
-			<field name="url">#</field>
+			<field name="url">/ms</field>
 			<field name="sequence" type="int">30</field>
 		</record>
 			<record id="e_mechanical_works" model="website.menu">
@@ -117,6 +117,7 @@
 		<record id="menu_qa" model="website.menu">
 			<field name="name">Quality Assurance</field>
 			<field name="parent_id" ref="website.main_menu"/>
+			<field name="url">/qa</field>
 			<field name="sequence" type="int">40</field>
 		</record>
 			
