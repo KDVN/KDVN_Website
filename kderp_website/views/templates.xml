@@ -999,6 +999,85 @@
 		</xpath>
 	</template>
 	
+	<template id="kderp_website.show_post_content2" inherit_id="kderp_website.show_post_content" name="KDVN show post 2" active="False" customize_show="True">
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container">
+				<div class="row mt8">
+	                <div class="col-sm-12">
+	                    <ol class="breadcrumb mb0">
+	                        <li>
+	                            <a t-attf-href="/page/homepage">Home</a>
+	                        </li>
+	                       	<li>
+	                        	<a t-attf-href="#">
+		                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+						            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
+						            		<t t-esc="url.name"/>
+						            	</t>
+						            </t>
+						   		</a>
+	                        </li>
+	                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+				            	 <t t-foreach="parent_url.child_id" t-as="url">
+				            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
+				            	 		<li>
+					            	 		<t t-if="url.url in request.httprequest.path">
+					            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
+					            	 		</t>
+				            	 		</li>
+					            	</t>
+				            	 </t>
+				            </t>
+	                       	<li>
+	                            <a t-attf-href="{{request.httprequest.path}}"><t t-esc="post.name"/></a>
+	                        </li>
+	                    </ol>
+	                </div>
+            	</div>
+				<div class="row">
+					<div t-attf-class="col-md-8 ">
+						<t t-call="kderp_website.show_post_content_main"></t>
+					</div>
+					<div class="col-md-4" id="middle_column">
+						<p></p>
+	                   <div class="text-center text-muted" t-if="not events">
+	                     <h1>No event found</h1>
+	                     <t groups="base.group_website_publisher">
+	                         <p groups="event.group_event_manager">Use the top menu <i>'Content'</i> to create your first event.</p>
+	                     </t>
+	                   </div>
+	                   <ul class="media-list">
+	                       <li t-foreach="events" t-as="event" class="media">
+	                           <div itemscope="itemscope" itemtype="http://schema.org/Event" class="media-body">
+	                               <h4 class="media-heading">
+	                                   <a itemprop="url" t-att-class="event.state == 'done' and 'text-success'" t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register' or ''}"><span itemprop="name" t-field="event.name"> </span></a>
+	                                   <small t-if="not event.address_id" class="label label-info">Online</small>
+	                                   <small t-if="not event.website_published" class="label label-danger">not published</small>
+	                               </h4>
+	                               <div>
+	                                   <t t-if="event.organizer_id">
+	                                       Organized by: <span t-field="event.organizer_id"> </span>
+	                                   </t>
+	                               </div>
+	                               <div>
+	                                   <i class="fa fa-clock-o"></i> <span itemprop="startDate" t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span> <i>to</i> <span itemprop="endDate" t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'> </span>
+	                               </div>
+	                               <div itemprop="location" t-field="event.address_id" t-field-options='{
+	                                   "widget": "contact",
+	                                   "fields": ["city"]
+	                                   }'/>
+	                               <div class="text-muted" t-if="event.type">
+	                                   <i class="fa fa-tag"></i> <span t-field="event.type"/>
+	                               </div>
+	                           </div>
+	                       </li>
+	                   </ul>
+	               </div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
 	<template id="kderp_website.show_post_content_main" name="Show Jumbotron">
 		<h2 class="text-success text-center"><t t-esc="post.name"></t></h2>
 		<div class="row">

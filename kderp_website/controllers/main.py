@@ -41,6 +41,7 @@ class KderpWebsite(http.Controller):
         
         announcements = http.request.env['blog.post'].search([('blog_id', '=', 'Announcement'), ("create_date", ">=", sd(today - relativedelta(days=7)))])
         funfacts = http.request.env['blog.post'].search([('blog_id','=','Fun Fact')])
+        events = http.request.env['event.event'].search([],order='date_begin DESC', limit=8)
         #dat bien all_posts de su dung chung trong nhieu truong hop
         all_posts = http.request.env['blog.post']
         if post_ids:
@@ -64,7 +65,7 @@ class KderpWebsite(http.Controller):
         result = http.request.env['blog.post'].search(search_domain)
         if len(result) == 1:
             # Return only one post
-            return http.request.render(template[0],{'post':result,'announcements': announcements,'ffacts': funfacts})
+            return http.request.render(template[0],{'post':result,'announcements': announcements,'ffacts': funfacts,'events':events})
         elif len(result) > 1:
             # Return posts -> list posts
             # Handler pager
