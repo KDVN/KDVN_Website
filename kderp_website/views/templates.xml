@@ -610,12 +610,6 @@
 						</tbody>
 					</table>
 				</div>
-				<t t-if="announcements">
-					<div class="col-md-4">
-						<div id="announcement"></div>
-						<div id="funfact" class="hidden-xs hidden-sm"></div>
-					</div>
-				</t>
 			</div>					
 		</div>
 	</template>
@@ -663,12 +657,6 @@
 						</tbody>
 					</table>
 				</div>
-				<t t-if="announcements">
-					<div class="col-md-4">
-						<div id="announcement"></div>
-						<div id="funfact" class="hidden-xs hidden-sm"></div>
-					</div>
-				</t>
 			</div>					
 		</div>
 	</template>
@@ -716,12 +704,6 @@
 						</tbody>
 					</table>
 				</div>
-				<t t-if="announcements">
-					<div class="col-md-4">
-						<div id="announcement"></div>
-						<div id="funfact" class="hidden-xs hidden-sm"></div>
-					</div>
-				</t>
 			</div>					
 		</div>
 	</template>
@@ -953,10 +935,11 @@
 	                </div>
             	</div>
 				<div class="row">
-					<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
+					<div t-attf-class="col-md-{{8 + 4 * (not(ffacts) and not(announcements))}}">
 						<t t-call="kderp_website.show_post_content_main"></t>
 					</div>
-					<t t-if="announcements">
+					<t t-if="ffacts or announcements">
+						<p></p>
 						<div class="col-md-4">
 							<div id="announcement"></div>
 							<div id="funfact" class="hidden-xs hidden-sm"></div>
