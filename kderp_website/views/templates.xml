@@ -924,7 +924,7 @@
 			            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
 			            	 		<li>
 				            	 		<t t-if="url.url in request.httprequest.path">
-				            	 			<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
+				            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
 				            	 		</t>
 			            	 		</li>
 				            	</t>
@@ -971,7 +971,7 @@
 				            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
 				            	 		<li>
 					            	 		<t t-if="url.url in request.httprequest.path">
-					            	 			<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
+					            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
 					            	 		</t>
 				            	 		</li>
 					            	</t>
