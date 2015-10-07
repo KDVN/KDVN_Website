@@ -1040,39 +1040,55 @@
 					</div>
 					<div class="col-md-4" id="middle_column">
 						<p></p>
-	                   <div class="text-center text-muted" t-if="not events">
-	                     <h1>No event found</h1>
-	                     <t groups="base.group_website_publisher">
-	                         <p groups="event.group_event_manager">Use the top menu <i>'Content'</i> to create your first event.</p>
-	                     </t>
-	                   </div>
-	                   <ul class="media-list">
-	                       <li t-foreach="events" t-as="event" class="media">
-	                           <div itemscope="itemscope" itemtype="http://schema.org/Event" class="media-body">
-	                               <h4 class="media-heading">
-	                                   <a itemprop="url" t-att-class="event.state == 'done' and 'text-success'" t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register' or ''}"><span itemprop="name" t-field="event.name"> </span></a>
-	                                   <small t-if="not event.address_id" class="label label-info">Online</small>
-	                                   <small t-if="not event.website_published" class="label label-danger">not published</small>
-	                               </h4>
-	                               <div>
-	                                   <t t-if="event.organizer_id">
-	                                       Organized by: <span t-field="event.organizer_id"> </span>
-	                                   </t>
-	                               </div>
-	                               <div>
-	                                   <i class="fa fa-clock-o"></i> <span itemprop="startDate" t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span> <i>to</i> <span itemprop="endDate" t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'> </span>
-	                               </div>
-	                               <div itemprop="location" t-field="event.address_id" t-field-options='{
-	                                   "widget": "contact",
-	                                   "fields": ["city"]
-	                                   }'/>
-	                               <div class="text-muted" t-if="event.type">
-	                                   <i class="fa fa-tag"></i> <span t-field="event.type"/>
-	                               </div>
-	                           </div>
-	                       </li>
-	                   </ul>
+		               <div class="panel panel-success">
+							<div class="panel-heading">
+								<h3 class="panel-title">Event</h3>
+							</div>
+							<div class="panel-body" style="padding-top: 0px">
+								<div class="text-center text-muted" t-if="not events">
+				                	<h1>No event found</h1>
+				                    <t groups="base.group_website_publisher">
+				                        <p groups="event.group_event_manager">Use the top menu <i>'Content'</i> to create your first event.</p>
+				                    </t>
+				               	</div>
+			                   	<ul class="media-list">
+			                       <li t-foreach="events" t-as="event" class="media" style="margin-top: 0px;">
+			                       		<table class="table" style="margin-bottom: 0px;">
+											<tbody>
+												<tr>
+												<td>	
+													<div itemscope="itemscope" itemtype="http://schema.org/Event" class="media-body">
+						                               <h4 class="media-heading">
+						                                   <a itemprop="url" t-att-class="event.state == 'done' and 'text-success'" t-attf-href="/event/#{ slug(event) }/#{(not event.menu_id) and 'register' or ''}"><span itemprop="name" t-field="event.name"> </span></a>
+						                                   <small t-if="not event.address_id" class="label label-info">Online</small>
+						                                   <small t-if="not event.website_published" class="label label-danger">not published</small>
+						                               </h4>
+						                               <div>
+						                                   <t t-if="event.organizer_id">
+						                                       Organized by: <span t-field="event.organizer_id"> </span>
+						                                   </t>
+						                               </div>
+						                               <div>
+						                                   <i class="fa fa-clock-o"></i> <span itemprop="startDate" t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span> <i>to</i> <span itemprop="endDate" t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'> </span>
+						                               </div>
+						                               <div itemprop="location" t-field="event.address_id" t-field-options='{
+						                                   "widget": "contact",
+						                                   "fields": ["city"]
+						                                   }'/>
+						                               <div class="text-muted" t-if="event.type">
+						                                   <i class="fa fa-tag"></i> <span t-field="event.type"/>
+						                               </div>
+						                           </div>
+						                        </td>
+												</tr>
+											</tbody>
+										</table>
+			                       </li>
+			                   	</ul>
+							</div>
+						</div>
 	               </div>
+	               	
 				</div>
 			</div>
 		</xpath>
