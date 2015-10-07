@@ -41,7 +41,7 @@ class KderpWebsite(http.Controller):
         
         announcements = http.request.env['blog.post'].search([('blog_id', '=', 'Announcement'), ("create_date", ">=", sd(today - relativedelta(days=7)))])
         funfacts = http.request.env['blog.post'].search([('blog_id','=','Fun Fact')])
-        events = http.request.env['event.event'].search([],order='date_begin DESC', limit=8)
+        events = http.request.env['event.event'].search([("date_begin", ">=", sd(today))], limit=8)
         #dat bien all_posts de su dung chung trong nhieu truong hop
         all_posts = http.request.env['blog.post']
         if post_ids:
