@@ -25,6 +25,7 @@
              'views/snippets.xml',
              'views/images.xml',
              'views/views_inherit.xml',
+             'views/about.xml'
              ],
     'demo': [
              'demo.xml',
