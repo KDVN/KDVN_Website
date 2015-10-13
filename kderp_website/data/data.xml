@@ -81,7 +81,7 @@
 			<field name="name">Electrical</field>
 			<field name="parent_id" ref="website.main_menu" />
 			<field name="url">/es</field>
-			<field name="sequence" type="int">20</field>
+			<field name="sequence" type="int">15</field>
 		</record>
 			<record id="e_eletrical_works" model="website.menu">
 				<field name="name">Electrical Works</field>
@@ -100,7 +100,7 @@
 			<field name="name">Mechanical</field>
 			<field name="parent_id" ref="website.main_menu" />
 			<field name="url">/ms</field>
-			<field name="sequence" type="int">30</field>
+			<field name="sequence" type="int">20</field>
 		</record>
 			<record id="e_mechanical_works" model="website.menu">
 				<field name="name">Mechanical Works</field>
@@ -118,7 +118,7 @@
 			<field name="name">Quality Assurance</field>
 			<field name="parent_id" ref="website.main_menu"/>
 			<field name="url">/qa</field>
-			<field name="sequence" type="int">40</field>
+			<field name="sequence" type="int">25</field>
 		</record>
 			
 			<record id="qa_whatis" model="website.menu">
@@ -228,22 +228,22 @@
 					<field name="sequence" type="int">64</field>
 				</record>
 				
-        <record id="menu_events" model="website.menu">
+        <record id="website_event.menu_events" model="website.menu">
             <field name="name">Events</field>
             <field name="url">/event</field>
             <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">60</field>
+            <field name="sequence" type="int">30</field>
         </record>
        		<record id="menu_events_sub" model="website.menu">
 	            <field name="name">Events</field>
 	            <field name="url">/event</field>
-	            <field name="parent_id" ref="menu_events"/>
+	            <field name="parent_id" ref="website_event.menu_events"/>
 	            <field name="sequence" type="int">10</field>
 	        </record>
         	<record id="ev_meeting_room_booking" model="website.menu">
 				<field name="name">Meeting Room Booking</field>
 				<field name="url">#</field>
-				<field name="parent_id" ref="menu_events"/>
+				<field name="parent_id" ref="website_event.menu_events"/>
 				<field name="sequence" type="int">20</field>
 			</record>
 				
