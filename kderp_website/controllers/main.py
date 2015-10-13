@@ -23,10 +23,6 @@ class KderpWebsite(http.Controller):
     ms_blog = 'Mechanical Systems'
     kinqnews = 'KinQ News'
     kinvqnews = 'KinVQ News'
-    
-    def sd(date):
-        return date.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT)
-    today = datetime.today()
         
     def kdvn_posts(self, blog_name_list=[], tag_name_list=[], post_ids=[], page_url='/', page=1, template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
         """Getting all posts of blog(s) to prepare to show
@@ -35,6 +31,7 @@ class KderpWebsite(http.Controller):
             + Handle pager
             + TODO: Handle and condition for tag
         """
+        #Dinh dang ngay
         def sd(date):
             return date.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT)
         today = datetime.today()
