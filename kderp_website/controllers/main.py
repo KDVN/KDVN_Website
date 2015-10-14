@@ -31,7 +31,7 @@ class KderpWebsite(http.Controller):
             + Handle pager
             + TODO: Handle and condition for tag
         """
-        #Dinh dang ngay
+        #Dinh dang ngay thang trong odoo
         def sd(date):
             return date.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT)
         today = datetime.today()
