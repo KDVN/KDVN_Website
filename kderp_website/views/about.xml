@@ -171,18 +171,6 @@
 			</xpath>
 		</template>	
 		
-		<!-- News -->
-		<!-- Page list posts -->
-		<template id="page_list_posts" name="KDVN Blog">
-			<t t-call="website.layout">
-				<t t-set="title"><t t-esc="posts[0].blog_id.name"></t></t>
-				<div class="oe_structure">
-					<t t-call="kderp_website.show_jumbo"></t>
-					<t t-call="kderp_website.list_posts"></t>
-				</div>
-			</t>
-		</template>
-		
 		<!-- Download -->
 		<!-- Media files library | post;files;pager -->
 		<template id="files" name="Files library">

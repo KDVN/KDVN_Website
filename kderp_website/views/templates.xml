@@ -304,6 +304,17 @@
 		<t t-raw="0"></t>
 	</template>
 	
+	<!-- Page list posts -->
+	<template id="page_list_posts" name="KDVN Blog">
+		<t t-call="website.layout">
+			<t t-set="title"><t t-esc="posts[0].blog_id.name"></t></t>
+			<div class="oe_structure">
+				<t t-call="kderp_website.show_jumbo"></t>
+				<t t-call="kderp_website.list_posts"></t>
+			</div>
+		</t>
+	</template>
+	
 	<!-- Listing posts: posts|pager -->
 	<template id="list_posts" name="KDVN List posts">
 		<div class="container">
@@ -391,21 +402,10 @@
 			</div>				
 		</div>
 	</template>
-	
-	
+		
 	<!-- List Post Home Page -->
 	<template id="list_posts_homepage" name="KDVN List posts">
 		<div class="container">
-			<!-- Pager -->
-			<t t-if="pager">
-				<div class="row">
-					<div class="col-sm-12">
-						<t t-call="website.pager">
-							<t t-set="classname">pull-left</t>
-						</t>
-					</div>
-				</div>
-			</t>
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
@@ -446,16 +446,6 @@
 	<!-- list Post for kdvn_news_e -->
 	<template id="list_posts_e" name="KDVN List posts E">
 		<div class="container">
-			<!-- Pager -->
-			<t t-if="pager">
-				<div class="row">
-					<div class="col-sm-12">
-						<t t-call="website.pager">
-							<t t-set="classname">pull-left</t>
-						</t>
-					</div>
-				</div>
-			</t>
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
@@ -494,16 +484,6 @@
 	<!-- list Post for kdvn_news_m -->
 	<template id="list_posts_m" name="KDVN List posts M">
 		<div class="container">
-			<!-- Pager -->
-			<t t-if="pager">
-				<div class="row">
-					<div class="col-sm-12">
-						<t t-call="website.pager">
-							<t t-set="classname">pull-left</t>
-						</t>
-					</div>
-				</div>
-			</t>
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
@@ -541,16 +521,6 @@
 	<!-- list Post for kdvn_news_q -->
 	<template id="list_posts_q" name="KDVN List posts Q">
 		<div class="container">
-			<!-- Pager -->
-			<t t-if="pager">
-				<div class="row">
-					<div class="col-sm-12">
-						<t t-call="website.pager">
-							<t t-set="classname">pull-left</t>
-						</t>
-					</div>
-				</div>
-			</t>
 			<!-- Posts -->
 			<div class="row">
 				<div t-attf-class="col-md-{{8 + 4 * (not(announcements))}}">
