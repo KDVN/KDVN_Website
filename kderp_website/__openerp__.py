@@ -19,15 +19,13 @@
              'security/security.xml',
              'security/ir.model.access.csv',
              'data/data.xml',
-             'views/templates.xml',
-             'views/views.xml',
-             #'views/pages.xml',
-             #'views/snippets.xml',
-             #'views/images.xml',
-             'views/views_inherit.xml',
-             'views/about.xml'
-             ],
-    'demo': [
-             'demo.xml',
-             ],
+             'views/inherited_kderp_website_views.xml',
+             'views/kderp_website_about.xml',
+             'views/kderp_website_event.xml',
+             'views/kderp_website_footer.xml',
+             'views/kderp_website_header.xml',
+             'views/kderp_website_homepage.xml',
+             'views/kderp_website_templates.xml',
+             'views/kderp_website_views.xml'
+             ]
 }
