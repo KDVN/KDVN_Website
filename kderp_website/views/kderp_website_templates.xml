@@ -63,33 +63,7 @@
 		<template id="list_posts" name="KDVN List posts">
 			<div class="container">
 				<!-- Thanh dieu huong trong list post -->
-				<div class="row mt8">
-	                <div class="col-sm-12">
-	                    <ol class="breadcrumb mb0">
-	                        <li>
-	                            <a t-attf-href="/page/homepage">Home</a>
-	                        </li>
-	                        <li>
-	                        	<a t-attf-href="#">
-		                        	<t t-foreach="website.menu_id.child_id" t-as="url">
-						            	<t t-if="url.url in request.httprequest.path">
-						            		<t t-esc="url.name"/>
-						            	</t>
-						            </t>
-						   		</a>
-	                        </li>
-	                       	<li>
-	                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
-					            	 <t t-foreach="parent_url.child_id" t-as="url">
-					            	 	<t t-if="url.url == request.httprequest.path">
-						            		<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
-						            	</t>
-					            	 </t>
-					            </t>
-	                        </li>
-	                    </ol>
-	                </div>
-	            </div>
+				<t t-call="kderp_website.show_list_post_breadcrumb"></t>
 	            <p></p>
 				<!-- Pager -->
 				<t t-if="pager">
@@ -261,98 +235,42 @@
 			<t t-call="website.layout">
 				<t t-set="title"><t t-raw="post.name.title()"></t></t>
 				<t t-call="kderp_website.show_jumbo"></t>
-				<t t-call="kderp_website.show_post_content"></t>
+				<div id="show_post_content"></div>
 			</t>
 		</template>
-		
+
 		<!-- Showing post: post|posts|pager|jumbo -->
-		<template id="kderp_website.show_post_content" name="KDVN show post">
-			<div class="container">
-				<!-- Thanh dieu huong trong noi dung -->
-				<div class="row mt8">
-	                <div class="col-sm-12">
-	                    <ol class="breadcrumb mb0">
-	                        <li>
-	                            <a t-attf-href="/page/homepage">Home</a>
-	                        </li>
-	                        <li>
-	                        	<a t-attf-href="#">
-		                        	<t t-foreach="website.menu_id.child_id" t-as="url">
-						            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
-						            		<t t-esc="url.name"/>
-						            	</t>
-						            </t>
-						   		</a>
-	                        </li>
-	                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
-				            	 <t t-foreach="parent_url.child_id" t-as="url">
-				            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
-				            	 		<li>
-					            	 		<t t-if="url.url in request.httprequest.path">
-					            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
-					            	 		</t>
-				            	 		</li>
-					            	</t>
-				            	 </t>
-				            </t>
-	                       	<li>
-	                            <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
-	                        </li>
-	                    </ol>
-	                </div>
-	            </div>
-				<div class="row">
-					<div class="col-sm-2">
-					</div>
-					<div class="col-sm-8">
-						<t t-call="kderp_website.show_post_content_main"></t>
-					</div>
-					<div class="col-sm-2">
-					</div>
-				</div>
-			</div>
-		</template>
-		
-		<template id="kderp_website.show_post_content1" inherit_id="kderp_website.show_post_content" name="KDVN show post 1" active="False" customize_show="True">
-			<xpath expr="//div[@class='container']" position="replace">
+		<template id="kderp_website.show_post_content" name="KDVN show post" inherit_id="page_show_post" active="False" customize_show="True">
+			<xpath expr="//div[@id='show_post_content']" position="inside">
 				<div class="container">
 					<!-- Thanh dieu huong trong noi dung -->
-					<div class="row mt8">
-		                <div class="col-sm-12">
-		                    <ol class="breadcrumb mb0">
-		                        <li>
-		                            <a t-attf-href="/page/homepage">Home</a>
-		                        </li>
-		                       	<li>
-		                        	<a t-attf-href="#">
-			                        	<t t-foreach="website.menu_id.child_id" t-as="url">
-							            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
-							            		<t t-esc="url.name"/>
-							            	</t>
-							            </t>
-							   		</a>
-		                        </li>
-		                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
-					            	 <t t-foreach="parent_url.child_id" t-as="url">
-					            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
-					            	 		<li>
-						            	 		<t t-if="url.url in request.httprequest.path">
-						            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
-						            	 		</t>
-					            	 		</li>
-						            	</t>
-					            	 </t>
-					            </t>
-		                       	<li>
-		                            <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
-		                        </li>
-		                    </ol>
-		                </div>
-	            	</div>
+					<t t-call="kderp_website.show_breadcrumb"></t>
+					<!-- Noi dung chinh -->
 					<div class="row">
+						<div class="col-sm-2">
+						</div>
+						<div class="col-sm-8">
+							<t t-call="kderp_website.show_post_content_main"></t>
+						</div>
+						<div class="col-sm-2">
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</template>
+		
+		<template id="kderp_website.show_post_content1" name="KDVN show post1" inherit_id="page_show_post" active="False" customize_show="True">
+			<xpath expr="//div[@id='show_post_content']" position="inside">
+				<div class="container">
+					<!-- Thanh dieu huong trong noi dung -->
+					<t t-call="kderp_website.show_breadcrumb"></t>
+					<!-- Noi dung chinh -->
+					<div class="row">
+						<!-- Phan noi dung ben trai -->
 						<div t-attf-class="col-md-{{8 + 4 * (not(ffacts) and not(announcements))}}">
 							<t t-call="kderp_website.show_post_content_main"></t>
 						</div>
+						<!-- Phan menu ben phai hien thi tin tuc -->
 						<t t-if="ffacts or announcements">
 							<p></p>
 							<div class="col-md-4">
@@ -365,46 +283,18 @@
 			</xpath>
 		</template>
 		
-		<template id="kderp_website.show_post_content2" inherit_id="kderp_website.show_post_content" name="KDVN show post 2" active="False" customize_show="True">
-			<xpath expr="//div[@class='container']" position="replace">
+		<template id="kderp_website.show_post_content2" name="KDVN show post2" inherit_id="page_show_post" active="False" customize_show="True">
+			<xpath expr="//div[@id='show_post_content']" position="inside">
 				<div class="container">
 					<!-- Thanh dieu huong trong noi dung -->
-					<div class="row mt8">
-		                <div class="col-sm-12">
-		                    <ol class="breadcrumb mb0">
-		                        <li>
-		                            <a t-attf-href="/page/homepage">Home</a>
-		                        </li>
-		                       	<li>
-		                        	<a t-attf-href="#">
-			                        	<t t-foreach="website.menu_id.child_id" t-as="url">
-							            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
-							            		<t t-esc="url.name"/>
-							            	</t>
-							            </t>
-							   		</a>
-		                        </li>
-		                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
-					            	 <t t-foreach="parent_url.child_id" t-as="url">
-					            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
-					            	 		<li>
-						            	 		<t t-if="url.url in request.httprequest.path">
-						            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
-						            	 		</t>
-					            	 		</li>
-						            	</t>
-					            	 </t>
-					            </t>
-		                       	<li>
-		                            <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
-		                        </li>
-		                    </ol>
-		                </div>
-	            	</div>
+					<t t-call="kderp_website.show_breadcrumb"></t>
+					<!-- Noi dung chinh -->
 					<div class="row">
+						<!-- Phan noi dung ben trai -->
 						<div t-attf-class="col-md-8 ">
 							<t t-call="kderp_website.show_post_content_main"></t>
 						</div>
+						<!-- Phan menu phai hien thi cac event -->
 						<div class="col-md-4" id="middle_column">
 							<p></p>
 			               <div class="panel panel-success">
@@ -462,7 +352,8 @@
 			</xpath>
 		</template>
 		
-		<template id="kderp_website.show_post_content_main" name="Show Jumbotron">
+		<!-- Hien thi noi dung main -->
+		<template id="kderp_website.show_post_content_main" name="Show Content Main">
 			<h2 class="text-success text-center"><t t-raw="post.name.title()"></t></h2>
 			<div class="row">
 				<div class="col-sm-12">
@@ -499,5 +390,72 @@
 				<div t-field="post.content"></div>
 			</div>
 		</template>
+		
+		<!-- Hien thi thanh dieu huong trong post content-->
+		<template id="kderp_website.show_breadcrumb" name="Show Content Breadcrumb">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                       	<li>
+                        	<a t-attf-href="#">
+	                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+					            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
+					            		<t t-esc="url.name"/>
+					            	</t>
+					            </t>
+					   		</a>
+                        </li>
+                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+			            	 <t t-foreach="parent_url.child_id" t-as="url">
+			            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
+			            	 		<li>
+				            	 		<t t-if="url.url in request.httprequest.path">
+				            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
+				            	 		</t>
+			            	 		</li>
+				            	</t>
+			            	 </t>
+			            </t>
+                       	<li>
+                            <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
+                        </li>
+                    </ol>
+                </div>
+           	</div>
+		</template>
+		
+		<!-- Hien thi thanh dieu huong trong list post-->
+		<template id="kderp_website.show_list_post_breadcrumb" name="Show List Post Breadcrumb">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                        <li>
+                        	<a t-attf-href="#">
+	                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+					            	<t t-if="url.url in request.httprequest.path">
+					            		<t t-esc="url.name"/>
+					            	</t>
+					            </t>
+					   		</a>
+                        </li>
+                       	<li>
+                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+				            	 <t t-foreach="parent_url.child_id" t-as="url">
+				            	 	<t t-if="url.url == request.httprequest.path">
+					            		<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
+					            	</t>
+				            	 </t>
+				            </t>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+       </template>
 	</data>
 </openerp>
