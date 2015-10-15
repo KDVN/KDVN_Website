@@ -13,9 +13,11 @@
 							<div class="row">
 								<div class="col-md-3">
 									<h4 class="text-success">Lastest News</h4>
-									<p></p>
-									<!-- News: Option to show on/off in customize menu-->
-									<div id="kdvn_news">
+									<div class="col-md-12">
+										<p></p>
+										<!-- News: Option to show on/off in customize menu-->
+										<div id="kdvn_news">
+										</div>
 									</div>
 								</div>
 								<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">About us... <a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN%20VIETNAM%20Brochure%202014.pdf" download="KDVN_brochure"><span class="fa fa-file-pdf-o fa-3" style="color:white"></span></a></span></h1> -->
