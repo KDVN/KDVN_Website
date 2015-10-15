@@ -21,9 +21,9 @@
              'data/data.xml',
              'views/templates.xml',
              'views/views.xml',
-             'views/pages.xml',
-             'views/snippets.xml',
-             'views/images.xml',
+             #'views/pages.xml',
+             #'views/snippets.xml',
+             #'views/images.xml',
              'views/views_inherit.xml',
              'views/about.xml'
              ],
