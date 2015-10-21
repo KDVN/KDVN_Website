@@ -23,6 +23,7 @@ class KderpWebsite(http.Controller):
     ms_blog = 'Mechanical Systems'
     kinqnews = 'KinQ News'
     kinvqnews = 'KinVQ News'
+    es_main = 'Electrical Maintenance'
         
     def kdvn_posts(self, blog_name_list=[], tag_name_list=[], post_ids=[], page_url='/', page=1, template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
         """Getting all posts of blog(s) to prepare to show
@@ -124,7 +125,8 @@ class KderpWebsite(http.Controller):
         sub_tag = {
             'all': [],
             'kinqnews':[self.kinqnews],
-            'kinvqnews': [self.kinvqnews]
+            'kinvqnews': [self.kinvqnews],
+            'es_main':[self.es_main]
                    }
         if (subtag == 'all'):
             url = '/' + submenu + '/news'
