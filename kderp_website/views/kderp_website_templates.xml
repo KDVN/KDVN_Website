@@ -354,41 +354,46 @@
 		
 		<!-- Hien thi noi dung main -->
 		<template id="kderp_website.show_post_content_main" name="Show Content Main">
-			<h2 class="text-success text-center"><t t-raw="post.name.title()"></t></h2>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="text-muted">
-						<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
-						<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+			<t t-if="request.httprequest.path != '/es/tag/es_main'">
+				<h2 class="text-success text-center"><t t-raw="post.name.title()"></t></h2>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="text-muted">
+							<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
+							<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+						</div>
 					</div>
 				</div>
-			</div>
-			<t t-if="post.summary">
-				<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
-					<p><t t-esc="post.summary"></t></p>
+				<t t-if="post.summary">
+					<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
+						<p><t t-esc="post.summary"></t></p>
+					</div>
+				</t>
+				<t t-if="not(post.summary)">
+					<p></p>
+				</t>
+				<t t-if="post.img_url_ids">
+					<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
+						<h4><span class="fa fa-paperclip"></span></h4>
+						<t t-if="post.img_url_ids">
+							<div class="row">
+								<t t-foreach="post.img_url_ids" t-as="file">
+									<div class="col-md-6" t-attf-id="{{file_index % 2}}">
+									<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
+									<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
+									</div>
+								</t>
+							</div>
+						</t>
+					</div>
+				</t>
+				<div>
+					<div t-field="post.content"></div>
 				</div>
 			</t>
-			<t t-if="not(post.summary)">
-				<p></p>
+			<t t-if="request.httprequest.path == '/es/tag/es_main'">
+				<t t-call="kderp_website.maintenance"/>
 			</t>
-			<t t-if="post.img_url_ids">
-				<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
-					<h4><span class="fa fa-paperclip"></span></h4>
-					<t t-if="post.img_url_ids">
-						<div class="row">
-							<t t-foreach="post.img_url_ids" t-as="file">
-								<div class="col-md-6" t-attf-id="{{file_index % 2}}">
-								<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
-								<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
-								</div>
-							</t>
-						</div>
-					</t>
-				</div>
-			</t>
-			<div>
-				<div t-field="post.content"></div>
-			</div>
 		</template>
 		
 		<!-- Hien thi thanh dieu huong trong post content-->
