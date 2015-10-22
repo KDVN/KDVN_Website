@@ -354,7 +354,7 @@
 		
 		<!-- Hien thi noi dung main -->
 		<template id="kderp_website.show_post_content_main" name="Show Content Main">
-			<t t-if="(request.httprequest.path != '/es/tag/es_main') and ('/es/news/electrical-maintenance' not in request.httprequest.path)">
+			<t t-if="(request.httprequest.path != '/es/tag/es_main') and ('/news/electrical-maintenance' not in request.httprequest.path)">
 				<h2 class="text-success text-center"><t t-raw="post.name.title()"></t></h2>
 				<div class="row">
 					<div class="col-sm-12">
@@ -391,7 +391,7 @@
 					<div t-field="post.content"></div>
 				</div>
 			</t>
-			<t t-if="request.httprequest.path == '/es/tag/es_main' or ('/es/news/electrical-maintenance' in request.httprequest.path)">
+			<t t-if="request.httprequest.path == '/es/tag/es_main' or ('/news/electrical-maintenance' in request.httprequest.path)">
 				<t t-call="kderp_website.maintenance"/>
 			</t>
 		</template>
