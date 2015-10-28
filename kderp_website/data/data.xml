@@ -242,7 +242,7 @@
 	        </record>
         	<record id="ev_meeting_room_booking" model="website.menu">
 				<field name="name">Meeting Room Booking</field>
-				<field name="url">#</field>
+				<field name="url">/booking/calendar</field>
 				<field name="parent_id" ref="website_event.menu_events"/>
 				<field name="sequence" type="int">20</field>
 			</record>
