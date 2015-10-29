@@ -31,6 +31,7 @@ class event_event(models.Model):
             ('date_begin', '>=', start), 
             ('date_end', '<=', end),
             ('date_begin', '>=', fields.Datetime.now()),
+            ('address_id.name','=','KINDEN VIETNAM')
             ]
         if types:
             domain.append(('type', 'in', types))
