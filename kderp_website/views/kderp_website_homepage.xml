@@ -128,6 +128,36 @@
 			</xpath>
 		</template>
 		
+		<template id="home_jumbo5" name="Home jumbo 5" inherit_id="website.homepage" active="False" customize_show="True">
+			<xpath expr="//div[@id='jumbo']" position="inside">
+				<div id="worksCaroudelhp" class="carousel slide carouselhp" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<t t-foreach="kdvn_works" t-as="work">
+							<li data-target="#worksCaroudelhp" t-att-data-slide-to="str(work_index)" t-att-class="'active' * (work_index == 0)"></li>
+						</t>
+					</ol>
+					
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner carouselhp-inner" role="listbox">
+						<t t-foreach="kdvn_works" t-as="work">
+							<div t-att-class="'item ' + 'active' * (work_index == 0)">
+								<img t-attf-src="{{work.img_url_ids[0].website_url}}"></img>
+								<div class="carousel-caption carouselhp-caption">
+									<h3><t t-esc="work.name"></t></h3>
+								</div>
+							</div>
+						</t>
+					</div>	
+					<a class="left carousel-control" data-target="#worksCaroudelhp" role="button" data-slide="prev">
+						<span class="fa fa-caret-left"></span>
+					</a>
+					<a class="right carousel-control" data-target="#worksCaroudelhp" role="button" data-slide="next">
+						<span class="fa fa-caret-right"></span>
+					</a>
+				</div>	
+			</xpath>
+		</template>
 		<!-- KDVN News showing in homepage -->
 		<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
 			<xpath expr="//div[@id='kdvn_news']" position="inside">

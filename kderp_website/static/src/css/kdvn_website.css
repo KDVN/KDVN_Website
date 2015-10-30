@@ -355,5 +355,28 @@ footer address h4 {
 .carousel01-inner .prev {
   opacity: 0.3;
 }
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel Hompage 5 base class */
+.carouselhp {
+  height: 450px;
+  margin-bottom: 40px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carouselhp-caption {
+  z-index: 0;
+}
+/* Declare heights because of positioning of img element */
+.carouselhp .item {
+  height: 450px;
+  background-color: #777;
+}
+.carouselhp-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 450px;
+}
 
 /* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
