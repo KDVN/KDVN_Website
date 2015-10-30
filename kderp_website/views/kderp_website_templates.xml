@@ -23,7 +23,7 @@
 					</div>
 				</div>
 			</div>
-			<t t-raw="0"><p></p></t>
+			<t t-raw="0"></t>
 		</template>
 		
 		<!-- QA Jumbotron -->
@@ -64,7 +64,6 @@
 			<div class="container">
 				<!-- Thanh dieu huong trong list post -->
 				<t t-call="kderp_website.show_list_post_breadcrumb"></t>
-	            <p></p>
 				<!-- Pager -->
 				<t t-if="pager">
 					<div class="row">
@@ -272,7 +271,6 @@
 						</div>
 						<!-- Phan menu ben phai hien thi tin tuc -->
 						<t t-if="ffacts or announcements">
-							<p></p>
 							<div class="col-md-4">
 								<div id="announcement"></div>
 								<div id="funfact" class="hidden-xs hidden-sm"></div>
@@ -296,7 +294,6 @@
 						</div>
 						<!-- Phan menu phai hien thi cac event -->
 						<div class="col-md-4" id="middle_column">
-							<p></p>
 			               <div class="panel panel-success">
 								<div class="panel-heading">
 									<h3 class="panel-title">Event</h3>
@@ -370,7 +367,6 @@
 					</div>
 				</t>
 				<t t-if="not(post.summary)">
-					<p></p>
 				</t>
 				<t t-if="post.img_url_ids">
 					<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
@@ -400,7 +396,7 @@
 		<template id="kderp_website.show_breadcrumb" name="Show Content Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
-                    <ol class="breadcrumb mb0" style="background-color: #fff;">
+                    <ol class="breadcrumb mb0 bcstyle">
                         <li>
                             <a t-attf-href="/page/homepage">Home</a>
                         </li>
@@ -436,7 +432,7 @@
 		<template id="kderp_website.show_list_post_breadcrumb" name="Show List Post Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
-                    <ol class="breadcrumb mb0" style="background-color: #fff;">
+                    <ol class="breadcrumb mb0 bcstyle">
                         <li>
                             <a t-attf-href="/page/homepage">Home</a>
                         </li>

@@ -338,6 +338,10 @@ footer address h4 {
   margin-left: auto;
   margin-right: auto;
 }
+.bcstyle {
+  background-color: #fff;
+  padding-bottom: 40px;
+}
 .carousel01-inner img {
   width: 100%;
 }
