@@ -400,7 +400,7 @@
 		<template id="kderp_website.show_breadcrumb" name="Show Content Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
-                    <ol class="breadcrumb mb0">
+                    <ol class="breadcrumb mb0" style="background-color: #fff;">
                         <li>
                             <a t-attf-href="/page/homepage">Home</a>
                         </li>
@@ -436,7 +436,7 @@
 		<template id="kderp_website.show_list_post_breadcrumb" name="Show List Post Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
-                    <ol class="breadcrumb mb0">
+                    <ol class="breadcrumb mb0" style="background-color: #fff;">
                         <li>
                             <a t-attf-href="/page/homepage">Home</a>
                         </li>
