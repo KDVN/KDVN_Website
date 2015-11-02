@@ -294,7 +294,7 @@
 						</div>
 						<!-- Phan menu phai hien thi cac event -->
 						<div class="col-md-3" id="middle_column">
-			               <div class="panel panel-default">
+			               <div class="panel panel-default hidden-xs hidden-sm">
 								<div class="panel-heading">
 									<h3 class="panel-title">Event</h3>
 								</div>
