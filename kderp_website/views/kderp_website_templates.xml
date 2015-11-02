@@ -420,9 +420,11 @@
 				            	</t>
 			            	 </t>
 			            </t>
+			            <!-- 
                        	<li>
                             <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
                         </li>
+                         -->
                     </ol>
                 </div>
            	</div>
@@ -444,7 +446,7 @@
 					            	</t>
 					            </t>
 					   		</a>
-                        </li>
+                        </li> 
                        	<li>
                         	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
 				            	 <t t-foreach="parent_url.child_id" t-as="url">
@@ -453,7 +455,7 @@
 					            	</t>
 				            	 </t>
 				            </t>
-                        </li>
+                        </li>  
                     </ol>
                 </div>
             </div>
