@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
-		<template id="kderp_website.maintenance" name="Show Maintenance">
-			<div class="row">
-				<p></p>
-				<div class="col-sm-12">
-				<!-- <h2 class="text-success text-center">Electrical Maintenance</h2> -->
-					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-					  	<!-- Indicators -->
-						<ol class="carousel-indicators">
-							<t t-foreach="post.img_url_ids" t-as="file">
-								<li data-target="#carousel-example-generic" t-att-data-slide-to="str(file_index)" t-att-class="'active' * (file_index == 0)"></li>
-							</t>
-						</ol>
-						<div class="carousel-inner carousel01-inner">
-							<t t-foreach="post.img_url_ids" t-as="file">
-								 <div t-attf-class="item {{'active' * (file_index == 0)}}">
-							    	<img t-attf-src="{{file.website_url}}/600x800"></img>
-						    	</div>
-							</t>
-						</div>
-					</div>
-				</div>
-				<p></p>
-			</div>
-		</template>
+	
 	</data>
 </openerp>

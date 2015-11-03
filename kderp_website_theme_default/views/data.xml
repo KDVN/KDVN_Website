@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+    <!-- Cap nhat view active ve False trong truong hop gap loi -->
+    
+<!--     <record id="kderp_website.funfact" model="ir.ui.view">
+        <field name="active" eval="False" />
+    </record>
+    -->
+</data>
+</openerp>
