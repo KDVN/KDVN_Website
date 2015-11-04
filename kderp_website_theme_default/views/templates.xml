@@ -72,22 +72,22 @@
        	<!-- Listing posts: posts|pager -->
 		<template id="kderp_website.list_posts" name="KDVN List posts">
 			<div class="container">
-				<!-- Thanh dieu huong trong list posts -->
-				<t t-call="kderp_website.list_posts_breadcrumb"></t>
-				<!-- Pager -->
+        <div class="row" id="list_navi">
+          <!-- breadcrumbs in  list posts -->
+				  <t t-call="kderp_website.list_posts_breadcrumb"></t>
+          <!-- Pager -->
+          <t t-if="pager">
+            <div id="list-pager" class="col-md-8">
+              <t t-call="website.pager">
+                <t t-set="classname">pull-left</t>
+              </t>
+            </div>
+          </t>
+        </div>
 
-				<div class="row" style="padding: 20px 0px 20px 0px;">
-					<t t-if="pager">
-					<div class="col-sm-12">
-						<t t-call="website.pager">
-							<t t-set="classname">pull-left</t>
-						</t>
-					</div>
-					</t>
-				</div>
 				<!-- Posts -->
 				<div class="row">
-					<div t-attf-class="col-md-{{8 + 4 * (not(ffacts) and not(announcements))}}">
+					<div id="list-main" t-attf-class="col-md-8">
 						<table class="table">
 							<tbody>
 								<t t-foreach="posts" t-as="post">
@@ -119,17 +119,13 @@
 								</t>
 							</tbody>
 						</table>
-
 					</div>
 
-					<t t-if="ffacts or announcements">
-						<div class="col-md-4">
-							<t t-if="announcements">
-								<div id="announcement"></div>
-							</t>
-							<div id="funfact" class="hidden-xs hidden-sm"></div>
-						</div>
-					</t>
+          <div id="list-features">
+            <div class="oe_structure"></div>
+            <div id="announcement" t-if="announcements"></div>
+            <div id="funfact" t-if="ffacts"></div>
+          </div>
 
 				</div>
 			</div>

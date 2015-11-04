@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+  <!--
+  Should use this guide to add snippet http://bloopark.de/en_US/blog/the-bloopark-times-1/post/a-beginners-guide-to-building-snippets-in-odoo-105
+  The one in odoo 8 instruction still not working as of Nov 4 2015
+  -->
+  <template id="snippet_test" inherit_id="website.snippets" name="Theme Snippet">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png" />
+          <span class="oe_snippet_thumbnail_title">Theme Snippet</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="row">
+              <div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3>Some information</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>You can add some information here</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+
+</data>
+</openerp>

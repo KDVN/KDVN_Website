@@ -2,14 +2,19 @@
 <openerp>
 	<data>
 
-		<!-- ERROR here - Seem to be because of the word DEFAULT 
+		<!-- ERROR here - Seem to be because of the word DEFAULT
 		<template id="default_style" name="Default Styles" inherit_id="website.assets_frontend">
         	<xpath expr="link[last()]" position="after">
             	<link href="/kderp_website_theme_default/static/src/css/kdvn_website.css" rel="stylesheet" type="text/css" />
         	</xpath>
     	</template>-->
-		
 
+    <!-- Add custom js -->
+    <template id="theme_js" name="Theme JS" inherit_id="website.assets_editor">
+      <xpath expr="script[last()]" position="after">
+        <script type="text/javascript" src="/kderp_website_theme_default/static/src/js/theme.js" />
+      </xpath>
+    </template>
 		<!-- Define custom css -->
 
 		<template id="theme_style" name="Theme Styles" inherit_id="website.assets_frontend">
@@ -24,14 +29,14 @@
 				<link rel="shortcut icon" href="/website/image/ir.attachment/628_01ef479/datas/favicon.ico" type="image/x-icon"></link>
 			</xpath>
 		</template>
-		
+
 		<!-- KDVN Logo: Trung id phai xoa view da tao ra trong View TODO -->
 		<template id="website.layout_logo_show" inherit_id="website.layout" name="KDVN Logo" priority="10">
 		    <xpath expr="//header//a[@class='navbar-brand']" position="replace">
 		        <a href="/" class="navbar-brand logo">
 		            <img src="/kderp_website_theme_default/static/src/img/logo.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
 		        </a>
-		    </xpath>		
+		    </xpath>
 		</template>
 
 	</data>
