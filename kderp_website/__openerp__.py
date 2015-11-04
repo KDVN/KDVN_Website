@@ -21,12 +21,6 @@
              'data/data.xml',
              'views/inherited_kderp_website_views.xml',
              'views/kderp_website_about.xml',
-             'views/kderp_website_event.xml',
-             'views/kderp_website_footer.xml',
-             'views/kderp_website_header.xml',
-             'views/kderp_website_homepage.xml',
-             'views/kderp_website_templates.xml',
              'views/kderp_website_views.xml',
-             'views/kderp_website_es_maintenance.xml'
              ]
 }

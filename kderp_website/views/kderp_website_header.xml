@@ -16,9 +16,9 @@
 		</template>
 		
 		<!-- Second submenu: 
-		+ Adding flyout submenu, not recomend to use because of mobile interface 
+		+ Adding flyout submenu, not recommend to use because of mobile interface
 		+ Replace website.submenu template
-		+ Using addtional css
+		+ Using additional css
 		-->
 		<template id="website.submenu" name="KDVN Submenu" priority="5">
 			<t t-if="submenu.name!='Home'">

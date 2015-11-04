@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+  <data>
+    <template id="on_maintenance" inherit_id="website.layout" name="Maintenance Alert" customize_show="True" active="False">
+        <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+            <attribute name="id">on_maintenance</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+            <div class="container">
+                <div class="alert alert-danger mt16" role="alert">
+                    <strong>Website is under maintenance</strong> Please check back later!
+                </div>
+            </div>
+        </xpath>
+    </template>
+  </data>
+</openerp>
