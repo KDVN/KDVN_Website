@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data> 
+	
+		<!-- Showing Jumbotron:post|posts|jumbo -->
+		<template id="kderp_website.show_jumbo" name="Show Jumbotron">
+			<t t-if="not(jumbo)">
+				<t t-set="jumbo" t-value="'gen_jumbo'"></t>
+				<t t-if="posts"><t t-set="post0" t-value="posts[0]"></t></t>
+				<t t-if="post"><t t-set="post0" t-value="post"></t></t>
+				<t t-if="post0.blog_id.name == 'General News'">
+					<t t-set="jumbo" t-value="'gn_jumbo'"></t>
+				</t>
+				<t t-if="post0.blog_id.name == 'Quality Safety Assurance'">
+					<t t-set="jumbo" t-value="'qa_jumbo'"></t>
+				</t>
+			</t>
+			<t t-call="kderp_website.{{jumbo}}"></t>
+		</template>
+		 
+		 <!-- General Jumbo/Header -->
+		<template id="kderp_website.gen_jumbo" name="General Jumbotron">
+			<div class="container">
+				<div class="bs-docs-header bg-success text-center">
+					<div class="row">
+						<div class="col-md-6">
+							<h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
+							<h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>								
+						</div>
+						<div class="col-md-6">
+							<img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<t t-raw="0"></t>
+		</template>
+		
+		<!-- QA Jumbotron -->
+		<template id="kderp_website.qa_jumbo" name="QA Jumbotron">
+			<div class="container">
+				<div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/742_50a335b/datas/qa_slogan_01_semi.png) center center; background-size:contain; margin-bottom: 0px;">
+					<h1><small class="text-danger">KINDEN VIETNAM Quality Assurance</small></h1>
+					<h2 class="text-success">SAFETY then QUALITY</h2>
+				</div>
+				<t t-raw="0"></t>
+			</div>
+		</template>
+		
+		<!-- General News Jumbotron -->
+		<template id="kderp_website.gn_jumbo" name="GN Jumbotron">
+			<div class="container">
+				<div class="jumbotron text-center">
+					<h1><small class="text-success">KINDEN VIETNAM News Channel</small></h1>
+					<h3 class="text-warning">Latest information need to know</h3>
+				</div>
+				<t t-raw="0"></t>
+			</div>
+		</template>
+		
+		<!-- Page list posts -->
+		<template id="kderp_website.page_list_posts" name="KDVN Blog" priority='5'>
+			<t t-call="website.layout">
+				<t t-set="title"><t t-esc="posts[0].blog_id.name"></t></t>
+				<div class="oe_structure">
+					<t t-call="kderp_website.show_jumbo"></t>
+					<t t-call="kderp_website.list_posts"></t>
+				</div>
+			</t>
+		</template>
+		
+       	<!-- Listing posts: posts|pager -->
+		<template id="kderp_website.list_posts" name="KDVN List posts">
+			<div class="container">
+				<!-- Thanh dieu huong trong list posts -->
+				<t t-call="kderp_website.list_posts_breadcrumb"></t>
+				<!-- Pager -->
+				
+				<div class="row" style="padding: 20px 0px 20px 0px;">
+					<t t-if="pager">
+					<div class="col-sm-12">
+						<t t-call="website.pager">
+							<t t-set="classname">pull-left</t>
+						</t>
+					</div>
+					</t>
+				</div>
+				<!-- Posts -->
+				<div class="row">
+					<div t-attf-class="col-md-{{8 + 4 * (not(ffacts) and not(announcements))}}">	
+						<table class="table">
+							<tbody>
+								<t t-foreach="posts" t-as="post">
+									<tr>
+										<td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
+										<!-- Setting fa value -->
+										<t t-if="post.img_url_ids">
+											<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+												<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+												<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+											</t>
+											<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+												<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+											</t>
+										</t>
+										<td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
+											<t t-raw="post.name.title()"></t>
+											</a>
+										</td>
+										<t t-if="request.httprequest.path == '/page/homepage' or request.httprequest.path[:11] =='/intro/news'">
+											<td><t t-esc="post.blog_id.name"></t></td>
+										</t>
+									</tr>
+								</t>
+							</tbody>
+						</table>
+						
+					</div>
+					
+					<t t-if="ffacts or announcements">
+						<div class="col-md-4">
+							<t t-if="announcements">
+								<div id="kderp_website.announcement"></div>
+							</t>
+							<div id="kderp_website.funfact" class="hidden-xs hidden-sm"></div>
+						</div>
+					</t>
+					
+				</div>				
+			</div>
+		</template>
+		
+		<!-- Annoucements | annoucements -->
+		<template id="kderp_website.announcemnt" inherit_id="kderp_website.list_posts" name="KDVN Announcements" active="False" customize_show="True">
+			<xpath expr="//div[@id='kderp_website.announcement']" position="inside">
+				<t t-call="kderp_website.announcemnt_content"></t>
+			</xpath>
+		</template>
+		
+		<template id="kderp_website.announcemnt_content" name="KDVN Announcemnt Content">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Announcments</h3>
+				</div>
+				<div class="panel-body" style="padding: 0px">
+					<t t-if="announcements">
+						<div id="carousel-announcement" class="carousel slide" data-ride="carousel" data-interval="0">
+						  
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators" style="visibility:hidden">
+						  	<t t-foreach="announcements" t-as="ann">
+						  		<li data-target="#carousel-announcement" t-att-data-slide-to="ann_index" t-att-class="'active' * (ann_index == 0)"></li>
+						  	</t>
+						  </ol>
+						
+						  <!-- Wrapper for slides -->
+							<div class="carousel-inner" role="listbox">
+							  	<t t-foreach="announcements" t-as="ann">
+								    <div t-attf-class="item {{'active' * (ann_index == 0)}}">
+								    	<p class="h4 text-center text-danger"><t t-esc="ann.summary"></t></p>
+							    </div>
+						    </t>
+					      </div>
+					
+					  <!-- Controls -->
+					  <a class="left carousel-control" href="#carousel-announcement" role="button" data-slide="prev">
+					    <span class="fa fa-caret-left"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#carousel-announcement" role="button" data-slide="next">
+					    <span class="fa fa-caret-right"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					  </div>
+					</t>
+				</div>
+			</div>	
+		</template>
+		
+		<!-- Fun facts | ffacts -->
+		<template id="kderp_website.funfact" inherit_id="kderp_website.list_posts" name="KDVN Fun facts" active="False" customize_show="True">
+			<xpath expr="//div[@id='kderp_website.funfact']" position="inside">
+				<t t-call="kderp_website.funfact_content"></t>
+			</xpath>
+		</template>
+		
+		<template id="kderp_website.funfact_content" name="KDVN Funfact Content">
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title">Fun facts</h3>
+				</div>
+				<div class="panel-body" style="padding: 0px">
+					<t t-if="ffacts">
+						<div id="carousel-funfact" class="carousel slide" data-ride="carousel">
+						  
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators" style="visibility:hidden">
+						  	<t t-foreach="ffacts" t-as="fact">
+						  		<li data-target="#carousel-funfact" t-att-data-slide-to="fact_index" t-att-class="'active' * (fact_index == 0)"></li>
+						  	</t>
+						  </ol>
+						
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" role="listbox">
+						  	<t t-foreach="ffacts" t-as="fact">
+							    <div t-attf-class="item {{'active' * (fact_index == 0)}}">
+							    	<p class="h4 text-center text-success"><t t-esc="fact.summary"></t></p>
+						    	</div>
+					    	</t>
+					      </div>
+					
+					  <!-- Controls -->
+					  <a class="left carousel-control" href="#carousel-funfact" role="button" data-slide="prev">
+					    <span class="fa fa-caret-left"></span>
+					    <span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#carousel-funfact" role="button" data-slide="next">
+					    <span class="fa fa-caret-right"></span>
+					    <span class="sr-only">Next</span>
+					  </a>
+					  </div>
+					</t>
+				</div>
+			</div>
+		</template>	
+		
+		<!-- Page show post content-->
+		<template id="kderp_website.page_show_post" name="KDVN Post" priority="5">
+			<t t-call="website.layout">
+				<t t-set="title"><t t-raw="post.name.title()"></t></t>
+				<t t-call="kderp_website.show_jumbo"></t>
+				<t t-call="kderp_website.show_post"></t>
+			</t>
+		</template>
+
+		<!-- Showing post: post|posts|pager|jumbo -->
+		<template id="kderp_website.show_post" name="KDVN show post">
+			<div class="container">
+				<!-- Thanh dieu huong trong noi dung -->
+				<t t-call="kderp_website.show_post_breadcrumb"></t>
+				<!-- Noi dung chinh -->
+				<div class="row">
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-8">
+						<h2 class="text-success text-center"><t t-raw="post.name.title()"></t></h2>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="text-muted">
+									<small class="pull-left"><t t-esc="post.author_id.name"></t></small>
+									<small class="pull-right"><span t-field="post.create_date" t-field-options='{"format":"dd/MMM/y"}'></span></small>
+								</div>
+							</div>
+						</div>
+						<t t-if="post.summary">
+							<div class="bs-callout bs-callout-success" style="border-left-width: 2px;">
+								<p><t t-esc="post.summary"></t></p>
+							</div>
+						</t>
+						<t t-if="not(post.summary)">
+						</t>
+						<t t-if="post.img_url_ids">
+							<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
+								<h4><span class="fa fa-paperclip"></span></h4>
+								<t t-if="post.img_url_ids">
+									<div class="row">
+										<t t-foreach="post.img_url_ids" t-as="file">
+											<div class="col-md-6" t-attf-id="{{file_index % 2}}">
+											<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
+											<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
+											</div>
+										</t>
+									</div>
+								</t>
+							</div>
+						</t>
+						<div>
+							<div t-field="post.content"></div>
+						</div>
+					</div>
+					<div class="col-sm-2">
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<!-- Hien thi thanh dieu huong trong post content-->
+		<template id="kderp_website.show_post_breadcrumb" name="Show Post Breadcrumb">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0 bcstyle">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                       	<li>
+                        	<a t-attf-href="#">
+	                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+					            	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))]) or (url.url in request.httprequest.path)">
+					            		<t t-esc="url.name"/>
+					            	</t>
+					            </t>
+					   		</a>
+                        </li>
+                       	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+			            	 <t t-foreach="parent_url.child_id" t-as="url">
+			            	 	<t t-if="(url.url in request.httprequest.path[:-(len(slug(post)))])">
+			            	 		<li>
+				            	 		<t t-if="url.url in request.httprequest.path">
+				            	 			<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
+				            	 		</t>
+			            	 		</li>
+				            	</t>
+			            	 </t>
+			            </t>
+			            <!-- 
+                       	<li>
+                            <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
+                        </li>
+                         -->
+                    </ol>
+                </div>
+           	</div>
+		</template>
+		
+		<!-- Hien thi thanh dieu huong trong list post-->
+		<template id="kderp_website.list_posts_breadcrumb" name="List Posts Breadcrumb">
+			<div class="row mt8">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb mb0 bcstyle">
+                        <li>
+                            <a t-attf-href="/page/homepage">Home</a>
+                        </li>
+                        <li>
+                        	<a t-attf-href="#">
+	                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+					            	<t t-if="url.url in request.httprequest.path">
+					            		<t t-esc="url.name"/>
+					            	</t>
+					            </t>
+					   		</a>
+                        </li> 
+                       	<li>
+                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+				            	 <t t-foreach="parent_url.child_id" t-as="url">
+				            	 	<t t-if="url.url == request.httprequest.path">
+					            		<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
+					            	</t>
+				            	 </t>
+				            </t>
+                        </li>  
+                    </ol>
+                </div>
+            </div>
+       </template>
+       
+		<!-- KINDEN VIETNAM -->
+		<!-- Intro jumbo -->
+		<template id="kderp_website.intro_jumbo" name="Intro Jumbotron">
+			<div class="container">
+				<div class="bs-docs-header bg-success text-center">
+					<div class="row">
+						<div class="col-md-6">
+							<h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
+							<h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>								
+						</div>
+						<div class="col-md-6">
+							<img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Preparing for navabar -->
+				<t t-set="abt_menus" t-value="[('aboutus','About us'),
+												('electricalsystems','Electrical'),
+												('environment','Improve environment'),
+												('aircon','Air conditional'),
+												('housing','Housing'),
+												('what_is_qa','QST')	
+												]"></t>
+				<div class="navbar navbar-custom navbar-right">
+				    <ul class="nav navbar-nav">
+				   	  <t t-foreach="abt_menus" t-as="submenu">
+				   	  	<li  t-att-class="(request.httprequest.path.endswith('/' and submenu[0])) and 'active'"><a t-attf-href="/intro/kdvn/{{submenu[0]}}"><t t-esc="submenu[1]"></t></a></li>
+				   	  </t>
+				    </ul>			
+				</div>
+			</div>
+			<t t-raw="0"></t>
+		</template>
+		
+		<!-- About us pages: post -->
+		<template id="kderp_website.intro" name="Show Intro">
+			<t t-call="website.layout">
+				<t t-set="title"><t t-esc="post.name"></t></t>
+				<t t-set="jumbo" t-value="'intro_jumbo'"></t>
+				<t t-call="kderp_website.show_jumbo"></t>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<h1 class="text-center"><span class="text-success"><t t-esc="post.name"></t></span></h1>
+							<div t-field="post.content"></div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+		
+		<!-- Testi -->
+		<!-- Testimonial Jumbo/Header -->
+		<template id="kderp_website.testi_jumbo" name="Testimonials Jumbotron">
+			<div class="container">
+				<div class="jumbotron text-center" id="kderp_website.job-jumbo">
+					<h1><span class="h2 text-alert">What clients talked about us?</span></h1>
+				</div>
+			</div>
+		</template>
+		
+		<!-- Page show testimonials|post; index -->
+		<template id="kderp_website.page_testi" name="KDVN Testimonials">
+			<t t-call="website.layout">
+				<t t-set="title">Testimonials</t>
+				<t t-set="jumbo" t-value="'testi_jumbo'"></t>
+				<t t-call="kderp_website.show_jumbo"></t>
+				<div class="container">
+					<!-- Previous -->
+					<div class="col-md-2 text-center">
+						<a class="btn btn-lg" role="button" t-attf-href="/intro/testimonials/{{index[0]}}"><span class="fa fa-chevron-left fa-2x"></span></a>
+					</div>
+					<!-- Main content -->
+					<div class="col-md-8">
+						<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive"></img>
+						<t t-if="post.summary">
+							<h3 class="text-center" t-field="post.summary"></h3>
+						</t>
+					</div>
+					<!-- Next -->
+					<div class="col-md-2 text-center">
+						<a class="btn btn-lg" role="button" t-attf-href="/intro/testimonials/{{index[2]}}"><span class="fa fa-chevron-right fa-2x"></span></a>
+					</div>
+					
+				</div>
+			</t>
+		</template>
+		
+		<!-- Contact us -->
+		<!-- Contact us: |offices|sites -->
+		<template id="kderp_website.contacts" name="Contacts">
+			<t t-call="website.layout">
+				<t t-set="title">How to contact us</t>
+				<div class="oe_structure">
+					<t t-call="kderp_website.gen_jumbo"></t>
+					<div class="container">
+						<div class="row offices">
+							<t t-foreach="offices" t-as="office">
+								<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
+									<address>
+										<h2 class="text-danger"><t t-esc="office.name"></t></h2>
+										<t t-esc="office.street"></t><br />
+										<t t-esc="office.street2"></t><br />
+										<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+										<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
+									</address>
+								</div>
+							</t>
+						</div>
+						<div class="row sites">
+							<t t-foreach="sites" t-as="site">
+								<div class="col-md-4">
+									<address>
+										<h3 class="text-success"><t t-esc="site.name"></t></h3>
+										<t t-esc="site.street"></t><br />
+										<t t-esc="site.street2"></t><br />
+										<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+										<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />										
+									</address>
+								</div>
+							</t>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+
+		<!-- Download -->
+		<!-- Media files library | post;files;pager -->
+		<template id="kderp_website.files" name="Files library">
+			<t t-call="website.layout">
+				<div class="container">
+					<t t-set="title"><t t-esc="post.name"></t></t>
+					<t t-call="kderp_website.show_jumbo"></t>
+					
+					<!-- Pager -->
+					<t t-if="pager">
+						<div class="row">
+							<div class="col-sm-12">
+								<t t-call="website.pager">
+									<t t-set="classname">pull-right</t>
+								</t>
+							</div>
+						</div>
+					</t>
+					
+					<!-- Listing images weblink -->
+					<div class="container">
+						<div class="row">
+							<h1 class="text-center text-success"><t t-esc="post.name"></t></h1>
+							<div class="bs-callout-success">
+							    <p><t t-esc="post.summary"></t></p>
+							</div>
+							<div class="col-md-9">
+								<table class="table table-striped table-condensed">
+									<thead class="bg-success">
+										<tr>
+											<th>File Thumbnail</th>
+											<th>File Date</th>
+											<th>File Name</th>
+										</tr>
+									</thead>
+									<tbody>
+										<t t-foreach="files" t-as="file">
+											<tr>
+												<t t-if="file.name[-3:] in ['jpg', 'png']">
+													<td><img class="img-rounded" t-attf-src="{{file.website_url}}/120x80"></img></td>												
+												</t>
+												<t t-if="file.name[-3:] == 'pdf'">
+													<td><span class="fa fa-file-pdf-o"></span></td>
+												</t>
+												<t t-if="file.name[-3:] == 'doc'">
+													<td><span class="fa fa-file-doc-o"></span></td>
+												</t>
+												<t t-if="file.name[-3:] == 'xls'">
+													<td><span class="fa fa-file-xls-o"></span></td>												
+												</t>
+												<t t-if="file.name[-3:] not in ['jpg', 'png', 'pdf', 'doc', 'xls']">
+													<td><span class="fa fa-file-image-o"></span></td>												
+												</t>
+												<td><t t-esc="file.create_date"/></td>
+												<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+													<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else file.name"></t></a></td>
+												</t>
+												<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+													<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)"></t></a></td>
+												</t>
+											</tr>
+										</t>
+									</tbody>
+								</table>
+							</div>
+							<div class="col-md-3">
+								<div class="panel panel-success">
+									<div class="panel-heading">Note</div>
+									<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+										<div class="panel-body">
+											<div t-field="post.content"></div>
+										</div>
+									</t>
+									<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+										<div class="panel-body">
+											<p>Can use this syntax to limit image size</p>
+											<code>/.../datas/300x200</code>
+										</div>
+									</t>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</template>
+		
+		<!-- Job -->
+		<!-- Job Jumbo/Header -->
+		<template id="kderp_website.job_jumbo" name="Job Jumbotron">
+			<div class="container">
+				<div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/736_edd012c/datas) center center; background-size:contain">
+					<h1><span class="h2 text-danger">Working for one of top 50 most desired companies?</span></h1>
+					<a class="btn btn-primary btn-lg" href="#">Apply Now!</a>
+				</div>
+			</div>
+		</template>
+		
+		<!--Page show jobs  -->
+		<template id="kderp_website.page_job" name="KDVN Job">
+			<t t-call="website.layout">
+				<t t-set="title">Our jobs</t>
+				<t t-set="jumbo" t-value="'job_jumbo'"></t>
+				<t t-call="kderp_website.show_jumbo"></t>
+			</t>
+		</template>
+		
+		<!-- Event Jumbo/Header -->
+		<template id="kderp_website.event_jumbo" name="Event Jumbotron">
+			<div class="container">
+				<div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/738_32324c4/datas) center center; background-size:cover">
+					<h1><small class="text-kdvn">Want to join our hot events?</small></h1>
+					<a class="btn btn-primary btn-lg" href="#">Book Now!</a>
+				</div>
+			</div>
+			<t t-raw="0"></t>
+		</template>
+		
+		<!-- Events: Using values from original event module -->
+		<template id="kderp_website.event_index" inherit_id="website_event.index" name="List Events">
+			<xpath expr="//div[@class='container']" position="before">
+				<t t-call="kderp_website.event_jumbo"></t>
+			</xpath>
+			<xpath expr="//div[@id='right_column']" position="inside">
+				<div class="row">
+					<div id="event_pictures">
+					</div>
+				</div>
+			</xpath>
+			<xpath expr="//div[@class='row mt8']" position="replace">
+				<div class="row mt8">
+	                <div class="col-sm-12">
+	                    <ol class="breadcrumb mb0">
+	                        <li>
+	                            <a href="/event">Our Events</a>
+	                        </li>
+	                        <li t-if="current_date"><t t-esc="current_date"/></li>
+	                        <li t-if="current_type"><t t-esc="current_type.name"/></li>
+	                        <li t-if="current_country"><t t-esc="current_country.name"/></li>
+	                    </ol>
+	                </div>
+	            </div>
+	            <div class="row mt8">
+		            <div class="col-sm-7">
+	                    <t t-call="website.pager" >
+	                        <t t-set="classname">pull-left</t>
+	                    </t>
+	                </div>
+				</div>
+			</xpath>
+		</template>
+		
+		<!-- Events: Event Pictures -->
+		<template id="event_show" inherit_id="kderp_website.event_index" name="Event Pictures" active="False" customize_show="True">
+			<xpath expr="//div[@id='event_pictures']" postion="inside">
+				<div class="col-md-12">
+					<img class="img-rounded mb32" src="/kderp_website_theme_default/static/src/img/safety_day.jpg" width="260"></img>
+				</div>
+				<div class="col-md-12">
+					<img class="img-rounded mb32" src="/kderp_website_theme_default/static/src/img/year_end_party.jpg" width="260"></img>
+				</div>		
+				<div class="col-md-12">
+					<img class="img-rounded mb32" src="/website/image/ir.attachment/743_1efe281/datas" width="260"></img>
+				</div>						
+			</xpath>
+		</template>
+		
+		<!-- Events: Event description right -->
+		<template id="event_description_right" inherit_id="website_event.event_description_full" name="Event Description Right" active="False" customize_show="True">
+			<xpath expr="//div[@class='col-md-4 css_noprint']" position="replace">
+				<div class="col-md-4 css_noprint">
+		            <div class="clearfix"/>
+		
+		            <div class="panel panel-default" t-if="event.address_id">
+		                <div class="panel-heading">
+		                    <h4>Where</h4>
+		                </div>
+		                <div class="panel-body">
+		                    <a t-att-href="event.google_map_link()" target="_BLANK">
+		                        <img t-att-src="event.google_map_img()" width="100%%"/>
+		                    </a>
+		                    <div itemprop="location" class="mt16 mb8" t-field="event.address_id" t-field-options='{
+		                        "widget": "contact",
+		                        "fields": ["address", "phone", "mobile", "fax", "email"]
+		                        }'/>
+		                </div>
+		            </div>
+		
+		            <div class="panel panel-default">
+		                <div class="panel-heading">
+		                    <h4>When</h4>
+		                </div>
+		                <div class="panel-body">
+		                    <i class="fa fa-clock-o"></i> From <span t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span><br/>
+		                    <i class="fa fa-clock-o"></i> To <span t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'> </span>
+		                </div>
+		            </div>
+		
+		            <div class="panel panel-default" t-if="event.organizer_id">
+		                <div class="panel-heading">
+		                    <h4>Organizer</h4>
+		                </div>
+		                <div class="panel-body" t-field="event.organizer_id" t-field-options='{
+		                    "widget": "contact",
+		                    "fields": ["name", "phone", "mobile", "fax", "email"]
+		                    }'/>
+		            </div>
+		        </div>
+			</xpath>
+		</template>
+		
+    </data>
+</openerp>
