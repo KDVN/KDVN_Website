@@ -90,15 +90,30 @@
 			</t>
 		</template>
 
-    <!-- Listing posts: posts|pager -->
+    <!--
+    Listing posts: posts|pager|breadcrumbs
+    Multi-purpose posts listing
+    Adding customize classes for better styling
+    -->
+
 		<template id="kderp_website.list_posts" name="KDVN List posts">
-      <div id="list-main">
+      <t t-if="not customize_class">
+        <t t-set="customize_class" t-value="'col-md-8'" />
+      </t>
+      <div id="list-main" t-attf-class="{{customize_class}}">
         <table class="table">
           <tbody>
             <t t-foreach="posts" t-as="post">
               <tr>
-                <t t-if="request.httprequest.path != '/page/homepage'">
-                  <td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
+                <t t-if="request.httprequest.path != '/page/homepage' or show_date_col">
+                  <td t-att-class="'text-nowrap' if not show_date_col else ''">
+                    <t t-if="not show_date_col">
+                      <span class="fa fa-calendar" /> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}' /> <span class="fa fa-caret-right" />
+                    </t>
+                    <t t-if="show_date_col">
+                      <span t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' />
+                    </t>
+                  </td>
                 </t>
                 <!-- Setting fa value -->
                 <t t-if="post.img_url_ids">

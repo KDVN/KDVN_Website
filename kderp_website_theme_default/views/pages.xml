@@ -50,6 +50,8 @@
 								<div class="row">
 									<p></p>
 									<t t-foreach="kdvn_me" t-as="post">
+                    <!-- set class value for customize style -->
+                    <t t-set="customize_class" t-value="'home_list_posts'" />
 										<div t-attf-class="col-md-{{12 / post_size}}">
 											<t t-if="post.name == 'Electrical Systems'"><div id="kdvn_news_e"></div></t>
 											<t t-if="post.name == 'Mechanical Systems'"><div id="kdvn_news_m"></div></t>
@@ -101,7 +103,10 @@
 	<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news']" position="inside">
 			<t t-set="posts" t-value="kdvn_news[:8]"></t>
-			<t t-call="kderp_website.list_posts_homepage"></t>
+			<t t-call="kderp_website.list_posts">
+        <t t-set="customize_class" t-value="'home_news_posts'" />
+        <t t-set="show_date_col" t-value="True" />
+      </t>
 			<p class="text-right"><a href="/intro/news" alt="More news">More News...</a></p>
 		</xpath>
 

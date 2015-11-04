@@ -285,6 +285,28 @@ footer address h4 {
 #carousel-announcement .carousel-indicators {
   visibility: hidden;
 }
+.home_news_posts td {
+  background: #f2f2f2;
+  font-weight: normal;
+  margin-bottom: 0px;
+  color: #737373;
+  height: 50px;
+  float: left;
+  width: 75%;
+  padding: 2px 2px 2px 8px;
+  font-size: 13px;
+  border-top: 1px solid #FFF;
+}
+.home_news_posts td:first-child {
+  background: #008000 none repeat scroll 0% 0%;
+  color: #FFF;
+  font-weight: normal;
+  width: 25%;
+  height: 50px;
+  float: left;
+  text-align: center;
+  font-size: 13px;
+}
 .news-date-hompage {
   background: #008000 none repeat scroll 0% 0%;
   color: #FFF;
