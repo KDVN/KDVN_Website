@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-<data>   
-		
+<data>
+
 	<!-- Home page: Trung id phai xoa view da tao ra trong view TODO -->
 	<template id="website.homepage" name="KDVN Homepage" page="True" priority="10">
 		<t t-call="website.layout">
@@ -37,14 +37,14 @@
 											<h4 class="text-success"><t t-raw="post.name.title()"></t></h4>
 											<p></p>
 											<div class="thumbnail">
-												<a t-att-href="post_url"><img class="img-responsive" t-att-src="post.img_url_ids[0].website_url"></img></a>										
+												<a t-att-href="post_url"><img class="img-responsive" t-att-src="post.img_url_ids[0].website_url"></img></a>
 											</div>
 											<div class="caption">
 												<!-- <h2 class="text-success"><t t-raw="post.name.title()"></t></h2> -->
 												<p class="mt8" style="overflow: auto; height:200px" ><t t-esc="post.summary"></t><a class="view-more" t-att-href="post_url_more">View more <span class="icon-view-more"></span></a></p>
 											</div>
 										</div>
-										
+
 									</t>
 								</div>
 								<div class="row">
@@ -64,7 +64,7 @@
 			</div>
 		</t>
 	</template>
-	
+
 	<!-- Jumbo options for homepage -->
 	<template id="kderp_website.home_jumbo" name="Home jumbo" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='jumbo']" position="inside">
@@ -75,7 +75,7 @@
 						<li data-target="#worksCaroudelhp" t-att-data-slide-to="str(work_index)" t-att-class="'active' * (work_index == 0)"></li>
 					</t>
 				</ol>
-				
+
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner carouselhp-inner" role="listbox">
 					<t t-foreach="kdvn_works" t-as="work">
@@ -86,51 +86,51 @@
 							</div>
 						</div>
 					</t>
-				</div>	
+				</div>
 				<a class="left carousel-control" data-target="#worksCaroudelhp" role="button" data-slide="prev">
 					<span class="fa fa-caret-left"></span>
 				</a>
 				<a class="right carousel-control" data-target="#worksCaroudelhp" role="button" data-slide="next">
 					<span class="fa fa-caret-right"></span>
 				</a>
-			</div>	
+			</div>
 		</xpath>
 	</template>
-	
+
 	<!-- KDVN News showing in homepage -->
 	<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news']" position="inside">
 			<t t-set="posts" t-value="kdvn_news[:8]"></t>
 			<t t-call="kderp_website.list_posts_homepage"></t>
-			<p class="text-right"><a href="/intro/news" alt="More news">More News...</a></p>			
+			<p class="text-right"><a href="/intro/news" alt="More news">More News...</a></p>
 		</xpath>
 
 	</template>
-	
+
 	<!-- KDVN News showing in homepage e -->
 	<template id="home_news_e" name="Home News E" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news_e']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_e"></t>
-			<t t-call="kderp_website.list_posts_ge"></t>	
+			<t t-call="kderp_website.list_posts"></t>
 		</xpath>
 	</template>
-	
+
 	<!-- KDVN News showing in homepage m -->
 	<template id="home_news_m" name="Home News M" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news_m']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_m"></t>
-			<t t-call="kderp_website.list_posts_ge"></t>	
+			<t t-call="kderp_website.list_posts"></t>
 		</xpath>
 	</template>
-	
+
 	<!-- KDVN News showing in homepage q -->
 	<template id="home_news_q" name="Home News Q" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news_q']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_q"></t>
-			<t t-call="kderp_website.list_posts_ge"></t>	
+			<t t-call="kderp_website.list_posts"></t>
 		</xpath>
 	</template>
-	
+
 	<!-- Lists Posts Home Page -->
 	<template id="kderp_website.list_posts_homepage" name="KDVN Lists Posts">
 		<div class="container">
@@ -155,7 +155,7 @@
 									<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
 								</t>
 							</t>
-							<td class="news-name-homepage" style="border-top: 1px solid #FFF;"><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> 
+							<td class="news-name-homepage" style="border-top: 1px solid #FFF;"><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
 								<t t-raw="post.name[:40].title()"></t>
 								<t t-if="post.name[41:]"><span>...</span></t></a>
 							</td>
@@ -163,40 +163,10 @@
 						</t>
 					</tbody>
 				</table>
-				</t>	
-			</div>					
+				</t>
+			</div>
 		</div>
 	</template>
-	
-	<!-- lists Posts for kdvn_news_ge -->
-	<template id="kderp_website.list_posts_ge" name="KDVN Lists Posts GE">
-		<div class="container">
-			<!-- Posts -->
-			<table class="table" style="font-size:12px">
-				<tbody>
-					<t t-foreach="posts" t-as="post">
-						<tr>
-							<t t-if="post.img_url_ids">
-								<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
-									<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
-								</t>
-								<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
-									<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
-								</t>
-								<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
-									<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
-								</t>
-								<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
-									<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
-								</t>
-							</t>
-							<td><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}"> <t t-raw="post.name.title()"></t></a></td>
-						</tr>
-					</t>
-				</tbody>
-			</table>				
-		</div>
-	</template>
-	
+
 </data>
 </openerp>

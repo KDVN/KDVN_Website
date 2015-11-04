@@ -1,5 +1,4 @@
 /* Bootstrap callout */
-/* Bootstrap callout */
 .bs-callout {
   padding: 20px;
   margin: 20px 0;
@@ -57,96 +56,96 @@
   color: #5bc0de;
 }
 .navbar-custom {
-  background-color: #ffffff;
+  background-color: white;
   padding-bottom: 4px;
 }
 .navbar-custom .navbar-brand {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
-  color: #008000;
+  color: green;
 }
 .navbar-custom .navbar-text {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-nav > li > a {
-  color: #000000;
-  border-bottom: solid #ffffff;
+  color: black;
+  border-bottom: solid white;
 }
 .navbar-custom .navbar-nav > li > a:hover,
 .navbar-custom .navbar-nav > li > a:focus {
-  color: #008000;
-  border-bottom: solid #008000;
+  color: green;
+  border-bottom: solid green;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu {
-  background-color: #ffffff;
+  background-color: white;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a {
-  color: #000000;
-  border-left: solid 2px #ffffff;
+  color: black;
+  border-left: solid 2px white;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #008000;
-  border-left: solid 2px #008000;
+  color: green;
+  border-left: solid 2px green;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > .active > a,
 .navbar-custom .navbar-nav > li > .dropdown-menu > .active > :hover,
 .navbar-custom .navbar-nav > li > .dropdown-menu > .active > a:focus {
-  color: #008000;
+  color: green;
   background-color: transparent;
   font-weight: bold;
-  border-left: solid 2px #008000;
+  border-left: solid 2px green;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu .divider {
-  background-color: #008000;
+  background-color: green;
 }
 .navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
-  color: #008000;
-  border-bottom: solid #008000;
+  color: green;
+  border-bottom: solid green;
 }
 .navbar-custom .navbar-nav > .open > a,
 .navbar-custom .navbar-nav > .open > a:hover,
 .navbar-custom .navbar-nav > .open > a:focus {
-  color: #008000;
-  border-bottom: solid #008000;
+  color: green;
+  border-bottom: solid green;
 }
 .navbar-custom .navbar-toggle {
-  border-color: #008000;
+  border-color: green;
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  border-bottom: solid #008000;
+  border-bottom: solid green;
 }
 .navbar-custom .navbar-toggle .icon-bar {
-  background-color: #000000;
+  background-color: black;
 }
 .navbar-custom .navbar-collapse,
 .navbar-custom .navbar-form {
-  border-color: #000000;
+  border-color: black;
 }
 .navbar-custom .navbar-link {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-link:hover {
-  color: #008000;
+  color: green;
 }
 @media (max-width: 767px) {
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-    color: #000000;
+    color: black;
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #008000;
+    color: green;
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #008000;
-    background-color: #008000;
+    color: green;
+    background-color: green;
   }
 }
 .dropdown-submenu {
@@ -192,23 +191,23 @@
 }
 a,
 a:hover {
-  color: #008000;
+  color: green;
 }
 .pagination .active a,
 .pagination .active a:hover,
 .pagination .active a:focus {
-  background-color: #008000;
-  color: #ffffff;
-  border-color: #008000;
+  background-color: green;
+  color: white;
+  border-color: green;
 }
 .pagination li a,
 .pagination li a:hover,
 .pagination li a:focus {
-  background-color: #ffffff;
-  color: #008000;
+  background-color: white;
+  color: green;
 }
 .bg-kdvn {
-  background-color: #008000 !important;
+  background-color: green !important;
 }
 /* First menu items */
 #_top_menu > li > a {
@@ -221,10 +220,10 @@ a:hover {
   height: 400px;
 }
 .home-jumbo1 h2 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo1 h1 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo2 {
   background-image: url("../img/kd_cover_1.jpg");
@@ -233,10 +232,10 @@ a:hover {
   height: 400px;
 }
 .home-jumbo2 h2 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo2 h1 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo3 {
   background-image: url("/website/image/ir.attachment/730_b23b1ee/datas");
@@ -245,30 +244,30 @@ a:hover {
   height: 400px;
 }
 .home-jumbo3 h2 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo3 h1 {
-  padding-top: 133.33333333333334px;
+  padding-top: 133.33333333px;
 }
 .home-jumbo4 {
   padding: 0px;
   height: 450px;
 }
 footer {
-  background-color: #ffffff;
+  background-color: white;
 }
 footer a,
 footer a:hover {
-  color: #777777;
+  color: #777;
 }
 footer address {
-  color: #777777;
+  color: #777;
 }
 footer address h4 {
-  color: #777777 !important;
+  color: #777 !important;
 }
 .text-kdvn {
-  color: #777777 !important;
+  color: #777 !important;
 }
 .slider-size {
   height: 300px;
@@ -382,5 +381,3 @@ footer address h4 {
   min-width: 100%;
   height: 450px;
 }
-
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */

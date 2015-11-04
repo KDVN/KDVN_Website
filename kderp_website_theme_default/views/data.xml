@@ -259,8 +259,8 @@
 			<field name="sequence" type="int">70</field>
 		</record>
 		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
- 		<delete model="website.menu" id="website.menu_contactus"></delete>
-		<delete model="website.menu" id="website_blog.menu_news"></delete>
+ 		<!--<delete model="website.menu" id="website.menu_contactus"></delete>-->
+		<!--<delete model="website.menu" id="website_blog.menu_news"></delete>-->
 
     <!-- Cap nhat view active ve False trong truong hop gap loi -->
 	<!--

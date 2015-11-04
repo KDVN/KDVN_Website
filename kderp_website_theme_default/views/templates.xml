@@ -64,75 +64,73 @@
 				<t t-set="title"><t t-esc="posts[0].blog_id.name"></t></t>
 				<div class="oe_structure">
 					<t t-call="kderp_website.show_jumbo"></t>
-					<t t-call="kderp_website.list_posts"></t>
+          <div class="container">
+            <div class="row" id="list_navi">
+              <!-- breadcrumbs in  list posts -->
+              <t t-call="kderp_website.list_posts_breadcrumb"></t>
+              <!-- Pager -->
+              <div t-if="pager" id="list-pager" class="col-md-8">
+                <t t-call="website.pager">
+                  <t t-set="classname">pull-left</t>
+                </t>
+              </div>
+            </div>
+
+            <!-- Posts -->
+            <div class="row">
+              <t t-call="kderp_website.list_posts" name="" />
+              <div id="list-features">
+                <div class="oe_structure"></div>
+                <div id="announcement" t-if="announcements"></div>
+                <div id="funfact" t-if="ffacts"></div>
+              </div>
+            </div>
+          </div>
 				</div>
 			</t>
 		</template>
 
-       	<!-- Listing posts: posts|pager -->
+    <!-- Listing posts: posts|pager -->
 		<template id="kderp_website.list_posts" name="KDVN List posts">
-			<div class="container">
-        <div class="row" id="list_navi">
-          <!-- breadcrumbs in  list posts -->
-				  <t t-call="kderp_website.list_posts_breadcrumb"></t>
-          <!-- Pager -->
-          <t t-if="pager">
-            <div id="list-pager" class="col-md-8">
-              <t t-call="website.pager">
-                <t t-set="classname">pull-left</t>
-              </t>
-            </div>
-          </t>
-        </div>
-
-				<!-- Posts -->
-				<div class="row">
-					<div id="list-main" t-attf-class="col-md-8">
-						<table class="table">
-							<tbody>
-								<t t-foreach="posts" t-as="post">
-									<tr>
-										<td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
-										<!-- Setting fa value -->
-										<t t-if="post.img_url_ids">
-											<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
-												<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
-											</t>
-											<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
-												<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
-											</t>
-											<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
-												<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
-											</t>
-											<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
-												<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
-											</t>
-										</t>
-										<td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
-											<t t-raw="post.name.title()"></t>
-											</a>
-										</td>
-										<t t-if="request.httprequest.path == '/page/homepage' or request.httprequest.path[:11] =='/intro/news'">
-											<td><t t-esc="post.blog_id.name"></t></td>
-										</t>
-									</tr>
-								</t>
-							</tbody>
-						</table>
-					</div>
-
-          <div id="list-features">
-            <div class="oe_structure"></div>
-            <div id="announcement" t-if="announcements"></div>
-            <div id="funfact" t-if="ffacts"></div>
-          </div>
-
-				</div>
-			</div>
+      <div id="list-main">
+        <table class="table">
+          <tbody>
+            <t t-foreach="posts" t-as="post">
+              <tr>
+                <t t-if="request.httprequest.path != '/page/homepage'">
+                  <td class="text-nowrap"><span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span></td>
+                </t>
+                <!-- Setting fa value -->
+                <t t-if="post.img_url_ids">
+                  <t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+                    <t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+                  </t>
+                  <t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+                    <t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+                  </t>
+                  <t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+                    <t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+                  </t>
+                  <t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+                    <t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+                  </t>
+                </t>
+                <td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+                  <t t-raw="post.name.title()"></t>
+                  </a>
+                </td>
+                <t t-if="request.httprequest.path[:11] =='/intro/news'">
+                  <td><t t-esc="post.blog_id.name"></t></td>
+                </t>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+      </div>
 		</template>
 
 		<!-- Annoucements | annoucements -->
-		<template id="kderp_website.announcement" inherit_id="kderp_website.list_posts" name="KDVN Announcements" active="False" customize_show="True">
+		<template id="kderp_website.announcement" inherit_id="kderp_website.page_list_posts" name="KDVN Announcements" active="False" customize_show="True">
 			<xpath expr="//div[@id='announcement']" position="inside">
 				<t t-call="kderp_website.announcement_content"></t>
 			</xpath>
@@ -179,7 +177,7 @@
 		</template>
 
 		<!-- Fun facts | ffacts -->
-		<template id="kderp_website.funfact" inherit_id="kderp_website.list_posts" name="KDVN Fun facts" active="False" customize_show="True">
+		<template id="kderp_website.funfact" inherit_id="kderp_website.page_list_posts" name="KDVN Fun facts" active="False" customize_show="True">
 			<xpath expr="//div[@id='funfact']" position="inside">
 				<t t-call="kderp_website.funfact_content"></t>
 			</xpath>

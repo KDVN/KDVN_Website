@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-	<data>    
+	<data>
 		<!-- Customize the top menu -->
 		<template id="kdvn_header" inherit_id="website.layout" name="KDVN Header">
 			<xpath expr="//header//div[contains(@class, 'navbar')]" position="attributes">
@@ -47,6 +47,14 @@
 		    	<li t-if="submenu.divider and submenu.divider_text" class="dropdown-header"><span t-esc="submenu.divider_text"></span></li>
 		    </xpath>
 		</template>
+
+    <!-- Add placeholder for jumbotron in the header of a page-->
+    <template id="kderp_website.jumbo_place" inherit_id="website.layout" name="Jumbotron placeholder">
+      <xpath expr="//header" position="inside">
+        <div class="oe_structure theme_jumbo"></div>
+      </xpath>
+    </template>
+
 
 		<!--
 		Replace the Auto Footer
