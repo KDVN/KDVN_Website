@@ -20,73 +20,50 @@
 
 		 <!-- General Jumbo/Header -->
 		<template id="kderp_website.gen_jumbo" name="General Jumbotron">
-			<div class="container">
-				<div class="bs-docs-header bg-success text-center">
-					<div class="row">
-						<div class="col-md-6">
-							<h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
-							<h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
-						</div>
-						<div class="col-md-6">
-							<img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
-						</div>
-					</div>
-				</div>
-			</div>
+      <div class="oe_structure ge_jumbo"></div>
 			<t t-raw="0"></t>
 		</template>
 
 		<!-- QA Jumbotron -->
 		<template id="kderp_website.qa_jumbo" name="QA Jumbotron">
-			<div class="container">
-				<div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/742_50a335b/datas/qa_slogan_01_semi.png) center center; background-size:contain; margin-bottom: 0px;">
-					<h1><small class="text-danger">KINDEN VIETNAM Quality Assurance</small></h1>
-					<h2 class="text-success">SAFETY then QUALITY</h2>
-				</div>
-				<t t-raw="0"></t>
-			</div>
+      <div class="oe_structure qa_jumbo"></div>
+      <t t-raw="0"></t>
 		</template>
 
 		<!-- General News Jumbotron -->
 		<template id="kderp_website.gn_jumbo" name="GN Jumbotron">
-			<div class="container">
-				<div class="jumbotron text-center">
-					<h1><small class="text-success">KINDEN VIETNAM News Channel</small></h1>
-					<h3 class="text-warning">Latest information need to know</h3>
-				</div>
-				<t t-raw="0"></t>
-			</div>
+      <div class="oe_structure gn_jumbo"></div>
+      <t t-raw="0"></t>
 		</template>
 
 		<!-- Page list posts -->
 		<template id="kderp_website.page_list_posts" name="KDVN Blog" priority='5'>
 			<t t-call="website.layout">
-				<t t-set="title"><t t-esc="posts[0].blog_id.name"></t></t>
-				<div class="oe_structure">
-					<t t-call="kderp_website.show_jumbo"></t>
-          <div class="container">
-            <div class="row" id="list_navi">
-              <!-- breadcrumbs in  list posts -->
-              <t t-call="kderp_website.list_posts_breadcrumb"></t>
-              <!-- Pager -->
-              <div t-if="pager" id="list-pager" class="col-md-8">
-                <t t-call="website.pager">
-                  <t t-set="classname">pull-left</t>
-                </t>
-              </div>
-            </div>
-
-            <!-- Posts -->
-            <div class="row">
-              <t t-call="kderp_website.list_posts" name="" />
-              <div id="list-features">
-                <div class="oe_structure"></div>
-                <div id="announcement" t-if="announcements"></div>
-                <div id="funfact" t-if="ffacts"></div>
-              </div>
+				<t t-set="title"><t t-esc="posts[0].blog_id.name" /></t>
+        <t t-call="kderp_website.show_jumbo"></t>
+        <div class="container">
+          <div class="row" id="list_navi">
+            <!-- breadcrumbs in  list posts -->
+            <t t-call="kderp_website.list_posts_breadcrumb"></t>
+            <!-- Pager -->
+            <div t-if="pager" id="list-pager" class="col-md-8">
+              <t t-call="website.pager">
+                <t t-set="classname">pull-left</t>
+              </t>
             </div>
           </div>
-				</div>
+
+          <!-- Listing posts -->
+          <div class="row">
+            <t t-call="kderp_website.list_posts" />
+            <!-- Features -->
+            <div id="list-features">
+              <div class="oe_structure"></div>
+              <div id="announcement" t-if="announcements"></div>
+              <div id="funfact" t-if="ffacts"></div>
+            </div>
+          </div>
+        </div>
 			</t>
 		</template>
 
@@ -97,10 +74,8 @@
     -->
 
 		<template id="kderp_website.list_posts" name="KDVN List posts">
-      <t t-if="not customize_class">
-        <t t-set="customize_class" t-value="'col-md-8'" />
-      </t>
-      <div id="list-main" t-attf-class="{{customize_class}}">
+      <t t-set="customize_class" t-value="customize_class or 'col-md-8'" />
+      <div id="list-main" t-att-class="customize_class">
         <table class="table">
           <tbody>
             <t t-foreach="posts" t-as="post">
@@ -111,7 +86,7 @@
                       <span class="fa fa-calendar" /> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}' /> <span class="fa fa-caret-right" />
                     </t>
                     <t t-if="show_date_col">
-                      <span t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' />
+                      <span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' />
                     </t>
                   </td>
                 </t>
@@ -130,8 +105,10 @@
                     <t t-set="fa_value" t-value="'fa-file-image-o'"></t>
                   </t>
                 </t>
-                <td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
-                  <t t-raw="post.name[:40].title() if show_date_col else post.name.title()"></t>
+                <td>
+                  <span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+                  <a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+                    <t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
                   </a>
                 </td>
                 <t t-if="request.httprequest.path[:11] =='/intro/news'">
@@ -367,66 +344,55 @@
             </div>
        </template>
 
-		<!-- KINDEN VIETNAM -->
+    <!-- KINDEN VIETNAM -->
 		<!-- Intro jumbo -->
 		<template id="kderp_website.intro_jumbo" name="Intro Jumbotron">
-			<div class="container">
-				<div class="bs-docs-header bg-success text-center">
-					<div class="row">
-						<div class="col-md-6">
-							<h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
-							<h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
-						</div>
-						<div class="col-md-6">
-							<img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
-						</div>
-					</div>
-				</div>
-
-				<!-- Preparing for navabar -->
-				<t t-set="abt_menus" t-value="[('aboutus','About us'),
-												('electricalsystems','Electrical'),
-												('environment','Improve environment'),
-												('aircon','Air conditional'),
-												('housing','Housing'),
-												('what_is_qa','QST')
-												]"></t>
-				<div class="navbar navbar-custom navbar-right">
-				    <ul class="nav navbar-nav">
-				   	  <t t-foreach="abt_menus" t-as="submenu">
-				   	  	<li  t-att-class="(request.httprequest.path.endswith('/' and submenu[0])) and 'active'"><a t-attf-href="/intro/kdvn/{{submenu[0]}}"><t t-esc="submenu[1]"></t></a></li>
-				   	  </t>
-				    </ul>
-				</div>
-			</div>
+      <div class="oe_structure intro_jumbo"></div>
+      <!-- Preparing for navabar -->
+      <div class="container">
+        <t t-set="abt_menus" t-value="[('aboutus','About us'),
+                        ('electricalsystems','Electrical'),
+                        ('environment','Improve environment'),
+                        ('aircon','Air conditional'),
+                        ('housing','Housing'),
+                        ('what_is_qa','QST')
+                        ]">
+        </t>
+        <div class="navbar navbar-custom navbar-right">
+            <ul class="nav navbar-nav">
+              <t t-foreach="abt_menus" t-as="submenu">
+                <li  t-att-class="(request.httprequest.path.endswith('/' and submenu[0])) and 'active'"><a t-attf-href="/intro/kdvn/{{submenu[0]}}"><t t-esc="submenu[1]"></t></a></li>
+              </t>
+            </ul>
+        </div>
+      </div>
 			<t t-raw="0"></t>
 		</template>
 
-		<!-- About us pages: post -->
-		<template id="kderp_website.intro" name="Show Intro">
-			<t t-call="website.layout">
-				<t t-set="title"><t t-esc="post.name"></t></t>
-				<t t-set="jumbo" t-value="'intro_jumbo'"></t>
-				<t t-call="kderp_website.show_jumbo"></t>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-offset-2 col-md-8">
-							<h1 class="text-center"><span class="text-success"><t t-esc="post.name"></t></span></h1>
-							<div t-field="post.content"></div>
-						</div>
-					</div>
-				</div>
-			</t>
-		</template>
+  <!-- About us pages: post -->
+  <template id="kderp_website.intro" name="Show About us">
+    <t t-call="website.layout">
+      <t t-set="title"><t t-esc="post.name"></t></t>
+      <t t-set="jumbo" t-value="'intro_jumbo'"></t>
+      <t t-call="kderp_website.show_jumbo"></t>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <h1 class="text-center"><span class="text-success"><t t-esc="post.name"></t></span></h1>
+            <div t-field="post.content"></div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+
 
 		<!-- Testi -->
 		<!-- Testimonial Jumbo/Header -->
 		<template id="kderp_website.testi_jumbo" name="Testimonials Jumbotron">
-			<div class="container">
-				<div class="jumbotron text-center" id="kderp_website.job-jumbo">
-					<h1><span class="h2 text-alert">What clients talked about us?</span></h1>
-				</div>
-			</div>
+      <div class="oe_structure"></div>
+			<t t-raw="0"></t>
 		</template>
 
 		<!-- Page show testimonials|post; index -->
@@ -458,46 +424,44 @@
 
 		<!-- Contact us -->
 		<!-- Contact us: |offices|sites -->
-		<template id="kderp_website.contacts" name="Contacts">
+		<template id="kderp_website.contacts" name="Contacts" page="True">
 			<t t-call="website.layout">
 				<t t-set="title">How to contact us</t>
-				<div class="oe_structure">
-					<t t-call="kderp_website.gen_jumbo"></t>
-					<div class="container">
-						<div class="row offices">
-							<t t-foreach="offices" t-as="office">
-								<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
-									<address>
-										<h2 class="text-danger"><t t-esc="office.name"></t></h2>
-										<t t-esc="office.street"></t><br />
-										<t t-esc="office.street2"></t><br />
-										<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
-										<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
-									</address>
-								</div>
-							</t>
-						</div>
-						<div class="row sites">
-							<t t-foreach="sites" t-as="site">
-								<div class="col-md-4">
-									<address>
-										<h3 class="text-success"><t t-esc="site.name"></t></h3>
-										<t t-esc="site.street"></t><br />
-										<t t-esc="site.street2"></t><br />
-										<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
-										<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
-									</address>
-								</div>
-							</t>
-						</div>
-					</div>
-				</div>
+        <t t-call="kderp_website.gen_jumbo"></t>
+        <div class="container">
+          <div class="row offices">
+            <t t-foreach="offices" t-as="office">
+              <div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
+                <address>
+                  <h2 class="text-danger"><t t-esc="office.name"></t></h2>
+                  <t t-esc="office.street"></t><br />
+                  <t t-esc="office.street2"></t><br />
+                  <span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+                  <span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
+                </address>
+              </div>
+            </t>
+          </div>
+          <div class="row sites">
+            <t t-foreach="sites" t-as="site">
+              <div class="col-md-4">
+                <address>
+                  <h3 class="text-success"><t t-esc="site.name"></t></h3>
+                  <t t-esc="site.street"></t><br />
+                  <t t-esc="site.street2"></t><br />
+                  <span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+                  <span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
+                </address>
+              </div>
+            </t>
+          </div>
+        </div>
 			</t>
 		</template>
 
 		<!-- Download -->
 		<!-- Media files library | post;files;pager -->
-		<template id="kderp_website.files" name="Files library">
+		<template id="kderp_website.files" name="Files library" page="True">
 			<t t-call="website.layout">
 				<div class="container">
 					<t t-set="title"><t t-esc="post.name"></t></t>
@@ -585,12 +549,8 @@
 		<!-- Job -->
 		<!-- Job Jumbo/Header -->
 		<template id="kderp_website.job_jumbo" name="Job Jumbotron">
-			<div class="container">
-				<div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/736_edd012c/datas) center center; background-size:contain">
-					<h1><span class="h2 text-danger">Working for one of top 50 most desired companies?</span></h1>
-					<a class="btn btn-primary btn-lg" href="#">Apply Now!</a>
-				</div>
-			</div>
+      <div class="oe_structure job_jumbo"></div>
+      <t t-raw="0"></t>
 		</template>
 
 		<!--Page show jobs  -->
@@ -604,12 +564,7 @@
 
 		<!-- Event Jumbo/Header -->
 		<template id="kderp_website.event_jumbo" name="Event Jumbotron">
-			<div class="container">
-				<div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/738_32324c4/datas) center center; background-size:cover">
-					<h1><small class="text-kdvn">Want to join our hot events?</small></h1>
-					<a class="btn btn-primary btn-lg" href="#">Book Now!</a>
-				</div>
-			</div>
+      <div class="oe_structure event_jumbo"></div>
 			<t t-raw="0"></t>
 		</template>
 
@@ -648,7 +603,7 @@
 		</template>
 
 		<!-- Events: Event Pictures -->
-		<template id="event_show" inherit_id="kderp_website.event_index" name="Event Pictures" active="False" customize_show="True">
+		<template id="kderp_website.event_show" inherit_id="kderp_website.event_index" name="Event Pictures" active="False" customize_show="True">
 			<xpath expr="//div[@id='event_pictures']" postion="inside">
 				<div class="col-md-12">
 					<img class="img-rounded mb32" src="/kderp_website_theme_default/static/src/img/safety_day.jpg" width="260"></img>
@@ -663,7 +618,7 @@
 		</template>
 
 		<!-- Events: Event description right -->
-		<template id="event_description_right" inherit_id="website_event.event_description_full" name="Event Description Right" active="False" customize_show="True">
+		<template id="kderp_website.event_description_right" inherit_id="website_event.event_description_full" name="Event Description Right" active="False" customize_show="True">
 			<xpath expr="//div[@class='col-md-4 css_noprint']" position="replace">
 				<div class="col-md-4 css_noprint">
 		            <div class="clearfix"/>

@@ -5,26 +5,162 @@
   Should use this guide to add snippet http://bloopark.de/en_US/blog/the-bloopark-times-1/post/a-beginners-guide-to-building-snippets-in-odoo-105
   The one in odoo 8 instruction still not working as of Nov 4 2015
   -->
-  <template id="snippet_test" inherit_id="website.snippets" name="Theme Snippet">
+  <!--
+  <template id="sample" inherit_id="website.snippets" name="Sample">
     <xpath expr="//div[@id='snippet_structure']" position="inside">
       <div>
         <div class="oe_snippet_thumbnail">
-          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png" />
-          <span class="oe_snippet_thumbnail_title">Theme Snippet</span>
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=Sample" />
+          <span class="oe_snippet_thumbnail_title">Sample</span>
         </div>
         <section class="oe_snippet_body">
           <div class="container">
             <div class="row">
               <div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h3>Some information</h3>
-                  </div>
-                  <div class="panel-body">
-                    <p>You can add some information here</p>
-                  </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  -->
+
+  <template id="kderp_website.jumbo_ge" inherit_id="website.snippets" name="GE Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=GE" />
+          <span class="oe_snippet_thumbnail_title">General</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="bs-docs-header bg-success text-center">
+              <div class="row">
+                <div class="col-md-6">
+                  <h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
+                  <h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
+                </div>
+                <div class="col-md-6">
+                  <img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="kderp_website.jumbo_qa" inherit_id="website.snippets" name="QA Jumbo">
+      <xpath expr="//div[@id='snippet_structure']" position="inside">
+        <div>
+          <div class="oe_snippet_thumbnail">
+            <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=QA" />
+            <span class="oe_snippet_thumbnail_title">QA Jumbo</span>
+          </div>
+          <section class="oe_snippet_body">
+            <div class="container">
+              <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/742_50a335b/datas/qa_slogan_01_semi.png) center center; background-size:contain; margin-bottom: 0px;">
+                <h1><small class="text-danger">KINDEN VIETNAM Quality Assurance</small></h1>
+                <h2 class="text-success">SAFETY then QUALITY</h2>
+              </div>
+              <t t-raw="0"></t>
+            </div>
+          </section>
+        </div>
+      </xpath>
+    </template>
+  <template id="kderp_website.jumbo_news" inherit_id="website.snippets" name="News Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+          <span class="oe_snippet_thumbnail_title">News Jumbo</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center">
+              <h1><small class="text-success">KINDEN VIETNAM News Channel</small></h1>
+              <h3 class="text-warning">Latest information need to know</h3>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="kderp_website.jumbo_intro" inherit_id="website.snippets" name="Intro Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=Intro" />
+          <span class="oe_snippet_thumbnail_title">Intro Jumbo</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="bs-docs-header bg-success text-center">
+              <div class="row">
+                <div class="col-md-6">
+                  <h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
+                  <h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
+                </div>
+                <div class="col-md-6">
+                  <img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="kderp_website.jumbo_testi" inherit_id="website.snippets" name="Testi Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=Testi" />
+          <span class="oe_snippet_thumbnail_title">Testi Jumbo</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center" id="kderp_website.job-jumbo">
+              <h1><span class="h2 text-alert">What clients talked about us?</span></h1>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="kderp_website.jumbo_job" inherit_id="website.snippets" name="Job Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=JOB" />
+          <span class="oe_snippet_thumbnail_title">Job Jumbo</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/736_edd012c/datas) center center; background-size:contain">
+              <h1><span class="h2 text-danger">Working for one of top 50 most desired companies?</span></h1>
+              <a class="btn btn-primary btn-lg" href="#">Apply Now!</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  <template id="kderp_website.jumbo_event" inherit_id="website.snippets" name="Event Jumbo">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=Event" />
+          <span class="oe_snippet_thumbnail_title">Event Jumbo</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/738_32324c4/datas) center center; background-size:cover">
+              <h1><small class="text-kdvn">Want to join our hot events?</small></h1>
+              <a class="btn btn-primary btn-lg" href="#">Book Now!</a>
             </div>
           </div>
         </section>
