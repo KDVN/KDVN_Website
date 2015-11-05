@@ -310,6 +310,9 @@ footer address h4 {
 .home_list_posts {
   font-size: 12px;
 }
+#kdvn_meq .caption p {
+  overflow: hidden;
+}
 .view-more {
   padding: 4px 7px;
   background: white;
@@ -317,7 +320,7 @@ footer address h4 {
   color: #b7b7b7;
   font-size: 12px;
 }
-.view-more:hover {
+.view-more :hover {
   color: #11A84E;
 }
 .icon-view-more {

@@ -12,17 +12,10 @@
 					<div class="container">
 						<!-- Brief introduction -->
 						<div class="row">
-							<div class="col-md-3">
-								<h4 class="text-success">Lastest News</h4>
-								<div class="col-md-12">
-									<p></p>
-									<!-- News: Option to show on/off in customize menu-->
-									<div id="kdvn_news">
-									</div>
-								</div>
-							</div>
+              <!-- Latest News: Option to show on/off in customize menu-->
+							<div id="kdvn_news" class="col-md-3"></div>
 							<!-- <h1 class="bg-kdvn pt16 pb16"><span class="text-kdvn">About us... <a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN%20VIETNAM%20Brochure%202014.pdf" download="KDVN_brochure"><span class="fa fa-file-pdf-o fa-3" style="color:white"></span></a></span></h1> -->
-							<div class="col-md-9">
+							<div id="kdvn_meq" class="col-md-9">
 								<div class="row">
 									<t t-foreach="kdvn_me" t-as="post">
 										<!-- Links intro -->
@@ -30,28 +23,28 @@
 										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/intro/kdvn/aircon'"></t></t>
 										<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/what_is_qa'"></t></t>
 										<div t-attf-class="col-md-{{12 / post_size}}">
-										<!-- Link news -->
-										<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url_more" t-value="'/es/news'"></t></t>
-										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url_more" t-value="'/ms/news'"></t></t>
-										<t t-if="post.name == 'QST'"><t t-set="post_url_more" t-value="'/qa/news'"></t></t>
-											<h4 class="text-success"><t t-raw="post.name.title()"></t></h4>
-											<p></p>
-											<div class="thumbnail">
-												<a t-att-href="post_url"><img class="img-responsive" t-att-src="post.img_url_ids[0].website_url"></img></a>
-											</div>
-											<div class="caption">
-												<!-- <h2 class="text-success"><t t-raw="post.name.title()"></t></h2> -->
-												<p class="mt8" style="overflow: auto; height:200px" ><t t-esc="post.summary"></t><a class="view-more" t-att-href="post_url_more">View more <span class="icon-view-more"></span></a></p>
-											</div>
-										</div>
+                      <!-- Link news -->
+                      <t t-if="post.name == 'Electrical Systems'"><t t-set="post_url_more" t-value="'/es/news'"></t></t>
+                      <t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url_more" t-value="'/ms/news'"></t></t>
+                      <t t-if="post.name == 'QST'"><t t-set="post_url_more" t-value="'/qa/news'"></t></t>
 
+                      <h4 class="text-success mb32"><t t-raw="post.name.title()"></t></h4>
+                      <div class="thumbnail">
+                        <a t-att-href="post_url"><img class="img-responsive" t-att-src="post.img_url_ids[0].website_url"></img></a>
+                      </div>
+                      <div class="caption">
+                        <p class="mt8"><t t-esc="post.summary"></t>
+                          <a class="view-more" t-att-href="post_url_more"> More <span class="icon-view-more"></span></a>
+                        </p>
+                      </div>
+                    </div>
 									</t>
 								</div>
 								<div class="row">
 									<p></p>
 									<t t-foreach="kdvn_me" t-as="post">
                     <!-- set class value for customize style -->
-                    <t t-set="customize_class" t-value="'home_list_posts'" />
+                    <t t-set="customize_class" t-value="'home_list_posts hidden-sm hidden-xs'" />
 										<div t-attf-class="col-md-{{12 / post_size}}">
 											<t t-if="post.name == 'Electrical Systems'"><div id="kdvn_news_e"></div></t>
 											<t t-if="post.name == 'Mechanical Systems'"><div id="kdvn_news_m"></div></t>
@@ -102,6 +95,7 @@
 	<!-- KDVN News showing in homepage -->
 	<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news']" position="inside">
+      <h4 class="text-success mb32">Latest News</h4>
 			<t t-set="posts" t-value="kdvn_news[:8]"></t>
 			<t t-call="kderp_website.list_posts">
         <t t-set="customize_class" t-value="'home_news_posts'" />
