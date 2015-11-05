@@ -115,7 +115,7 @@
                     </t>
                   </td>
                 </t>
-                <!-- Setting fa value -->
+                <!-- Setting fa values -->
                 <t t-if="post.img_url_ids">
                   <t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
                     <t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
@@ -131,7 +131,7 @@
                   </t>
                 </t>
                 <td ><span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
-                  <t t-raw="post.name.title()"></t>
+                  <t t-raw="post.name[:40].title() if show_date_col else post.name.title()"></t>
                   </a>
                 </td>
                 <t t-if="request.httprequest.path[:11] =='/intro/news'">
@@ -144,7 +144,7 @@
       </div>
 		</template>
 
-		<!-- Annoucements | annoucements -->
+		<!-- Announcements | announcements -->
 		<template id="kderp_website.announcement" inherit_id="kderp_website.page_list_posts" name="KDVN Announcements" active="False" customize_show="True">
 			<xpath expr="//div[@id='announcement']" position="inside">
 				<t t-call="kderp_website.announcement_content"></t>

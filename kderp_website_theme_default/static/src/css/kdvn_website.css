@@ -305,28 +305,10 @@ footer address h4 {
   height: 50px;
   float: left;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
 }
-.news-date-hompage {
-  background: #008000 none repeat scroll 0% 0%;
-  color: #FFF;
-  font-weight: normal;
-  width: 25%;
-  height: 50px;
-  float: left;
-  text-align: center;
-  font-size: 13px;
-}
-.news-name-homepage {
-  background: #f2f2f2;
-  font-weight: normal;
-  margin-bottom: 0px;
-  color: #737373;
-  height: 50px;
-  float: left;
-  width: 75%;
-  padding: 2px 2px 2px 8px;
-  font-size: 13px;
+.home_list_posts {
+  font-size: 12px;
 }
 .view-more {
   padding: 4px 7px;
