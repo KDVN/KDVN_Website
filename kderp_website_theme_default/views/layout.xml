@@ -9,13 +9,18 @@
 		</template>
 
 		<!-- Second submenu:
-		+ Adding flyout submenu, not recomend to use because of mobile interface
+		+ Adding flyout submenu, not recommend to use because of mobile interface
 		+ Replace website.submenu template
-		+ Using addtional css
+		+ Using additional css
+		+ Delete template view from website_menu_by_user_status 
 		-->
+		<record id="website_menu_by_user_status.website_display_menu" model="ir.ui.view">
+			<field name="active" eval="False"></field>
+		</record>
+		
 		<template id="website.submenu" name="KDVN Submenu" priority="5">
 			<t t-if="submenu.name!='Home'">
-			    <li t-if="not submenu.child_id" t-att-class="
+			    <li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
 			        ((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
 			         request.httprequest.path == submenu.url) and 'active'
 			        ">
@@ -33,11 +38,15 @@
 			        </a>
 			        <ul class="dropdown-menu" role="menu">
 			            <t t-foreach="submenu.child_id" t-as="submenu">
+			            	
 			                <t t-call="website.submenu"/>
 			            </t>
 			        </ul>
 			    </li>
 			</t>
+			<!-- <t t-raw="user_id"/>
+			<t t-esc="website.user_id"/>	 -->
+			
 		</template>
 
 		<!-- Add divider to menu -->
