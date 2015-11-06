@@ -16,12 +16,5 @@
                 </div>
             </t>
         </template>
-
-        <record id="features_page_link" model="website.menu">
-            <field name="name">Testing</field>
-            <field name="url">/page/a_page</field>
-            <field name="parent_id" ref="website.main_menu" />
-            <field name="sequence" type="int">99</field>
-        </record>
     </data>
 </openerp>
