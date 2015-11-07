@@ -18,9 +18,17 @@ class view(osv.osv):
         offices = self.pool['res.users'].browse(cr, uid, uid).company_id.partner_id.child_ids
         kdvn_offices = {"kdvn_offices":offices}
         
+        tag_list = ['KinQ News','KinVQ News']
+        news_list = ['General News', 'IT', 'Quality Safety Assurance', 'Electrical Systems', 'Mechanical Systems']
         #KDVN hot news
         #TODO: offset and limit need to be variables
-        news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', ['General News', 'IT', 'Quality Safety Assurance', 'Electrical Systems', 'Mechanical Systems', 'QST'])], offset=0, limit=8)
+        #
+         
+        # sudung map va reduce de lay join recordset cua post tra ve tu blog.tag
+        tags = http.request.env['blog.tag'].search([('name', 'in', tag_list)])
+        post_ids = tags.mapped('post_ids').mapped('id')
+        
+        news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', news_list), ('id', 'not in', post_ids)], offset=0, limit=8)
         news = self.pool['blog.post'].browse(cr, uid, news_ids)
         #kdvn_news_e
         news_e_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Electrical Systems')], offset=0, limit=2)
