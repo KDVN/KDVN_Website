@@ -160,6 +160,7 @@
 				<field name="divider" eval="True"></field>
 				<field name="divider_text">Safety Contents</field>
 				<field name="sequence" type="int">50</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 
 			<record id="qa_monthly_safety_meeting" model="website.menu">
@@ -167,36 +168,42 @@
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">51</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_daily_safety_report" model="website.menu">
 				<field name="name">Daily Safety Report</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">52</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_safety_patrol_with_su_contractors" model="website.menu">
 				<field name="name">Safety Patrol with Su contractors</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">53</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_safety_patrol_schedule" model="website.menu">
 				<field name="name">Safety Patrol Schedule</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">54</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_safety_work_plan" model="website.menu">
 				<field name="name">Safety Work Plan</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">55</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_trouble_report" model="website.menu">
 					<field name="name">Trouble Report</field>
 					<field name="url">#</field>
 					<field name="parent_id" ref="menu_qa"/>
 					<field name="sequence" type="int">56</field>
+					<field name="user_not_logged" eval="False" />
 				</record>
 
 			<record id="qa_qc_contents" model="website.menu">
@@ -206,30 +213,35 @@
 				<field name="divider" eval="True"></field>
 				<field name="divider_text">QC Contents</field>
 				<field name="sequence" type="int">60</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_kinq_news" model="website.menu">
 				<field name="name">KinQ News</field>
 				<field name="url">/qa/tag/kinqnews</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">61</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_kinvq_news" model="website.menu">
 				<field name="name">KinVQ News</field>
 				<field name="url">/qa/tag/kinvqnews</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">62</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_technical_information" model="website.menu">
 				<field name="name">Technical Infomation</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_qa"/>
 				<field name="sequence" type="int">63</field>
+				<field name="user_not_logged" eval="False" />
 			</record>
 			<record id="qa_qc_trouble_report" model="website.menu">
 					<field name="name">Trouble Report</field>
 					<field name="url">#</field>
 					<field name="parent_id" ref="menu_qa"/>
 					<field name="sequence" type="int">64</field>
+					<field name="user_not_logged" eval="False" />
 				</record>
 
         <record id="website_event.menu_events" model="website.menu">
@@ -246,6 +258,7 @@
 	        </record>
         	<record id="ev_meeting_room_booking" model="website.menu">
 				<field name="name">Meeting Room Booking</field>
+				<field name="user_not_logged" eval="False" />
 				<field name="url">/booking/calendar</field>
 				<field name="parent_id" ref="website_event.menu_events"/>
 				<field name="sequence" type="int">20</field>
