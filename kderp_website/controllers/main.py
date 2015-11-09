@@ -12,6 +12,7 @@ from openerp import tools
 class KderpWebsite(http.Controller):
   # some variables
   qa_blog = 'Quality Safety Assurance'
+  qa_internal_tags =['KinQ News', 'KinVQ News']
   news_blog = 'General News'
   work_blog = 'Major Works'
   it_blog = 'IT'
@@ -25,13 +26,14 @@ class KderpWebsite(http.Controller):
   es_main = 'Electrical Maintenance'
 
   def kdvn_posts(self, blog_name_list=[], tag_name_list=[], post_ids=[], page_url='/', page=1,
-                 template=['kderp_website.page_show_post', 'kderp_website.page_list_posts']):
-    """Getting all posts of blog(s) to prepare to show
+                 template=['kderp_website.page_show_post', 'kderp_website.page_list_posts'], other_domain_search=[], **kwargs):
+    """
+    Getting all posts of blog(s) to prepare to show
         - If only 1 post return, show the post
         - If more than 1 post return, list these posts
             + Handle pager
             + TODO: Handle and condition for tag
-        """
+    """
 
     # Dinh dang ngay thang trong odoo
     def sd(date):
@@ -43,27 +45,22 @@ class KderpWebsite(http.Controller):
       [('blog_id', '=', 'Announcement'), ("create_date", ">=", sd(today - relativedelta(days=7)))])
     funfacts = http.request.env['blog.post'].search([('blog_id', '=', 'Fun Fact')])
     events = http.request.env['event.event'].search([("date_begin", ">=", sd(today))], limit=6)
-    # dat bien all_posts de su dung chung trong nhieu truong hop
-    all_posts = http.request.env['blog.post']
+
     if post_ids:
       search_domain = [('id', 'in', post_ids)]
     else:
       if blog_name_list:
         search_domain = [('blog_id', 'in', blog_name_list)]
       if tag_name_list:
-        # do blog.tag va blog.post link voi nhau thong qua truong tag_ids
-        # la truong many2many, nen tam thoi duyet tags truoc
-        # sau do join cac recordsets tra ve tu blog.tag de lay post_ids
-        tags = http.request.env['blog.tag'].search([('name', 'in', tag_name_list)])
-        # sudung map va reduce de lay join recordset cua post tra ve tu blog.tag
-        # luu y ban than odoo co bo sung mapped va filltered cho recordset
-        post_ids = tags.mapped('post_ids').mapped('id')
-        # tags_posts = map(lambda tag: tag.post_ids, tags)
-        # taged_posts = reduce(lambda a, c: a | c, tags_posts)
-        # post_ids = taged_posts.mapped('id')
-        search_domain.append(('id', 'in', post_ids))
+        search_domain.append(('tag_ids.name', 'in', tag_name_list))
+    #handle for
 
-    result = http.request.env['blog.post'].search(search_domain)
+    search_domain += other_domain_search
+
+    #test not in
+    search_domain += [('tag_ids.name', 'not in', ['KinVQ News'])]
+
+    result = http.request.env['blog.post'].search(search_domain, **kwargs)
     if len(result) == 1:
       # Return only one post
       return http.request.render(template[0],
@@ -87,7 +84,7 @@ class KderpWebsite(http.Controller):
         'ffacts': funfacts
       })
 
-  @http.route('/intro/kdvn/<intro_name>', auth='user', website=True)
+  @http.route('/intro/kdvn/<intro_name>', auth='public', website=True)
   def aboutus(self, intro_name):
     intro_dic = {
       'aboutus': 47,
@@ -118,7 +115,6 @@ class KderpWebsite(http.Controller):
                '/<submenu>/tag/<subtag>/page/<int:page>'], auth='public', website=True)
   def kdvn_list_posts(self, page=1, submenu='intro', subtag='all'):
     """Showing KDVN News, blog based on route header"""
-
     submenu_dic = {
       'intro': [self.news_blog, self.qa_blog, self.it_blog, self.es_blog, self.ms_blog],
       'qa': [self.qa_blog],
