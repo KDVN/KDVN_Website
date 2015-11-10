@@ -59,6 +59,41 @@
 		    </xpath>
 		</template>
 
+		<template id="breadcrumb" inherit_id="website.layout" name="Breadcrumb">
+			<xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+				<t t-if="request.httprequest.path != '/page/homepage'">
+					<div class="container">
+						<div class="row mt8">
+			                <div class="col-sm-12">
+			                    <ol class="breadcrumb mb0 bcstyle">
+			                        <li>
+			                            <a t-attf-href="/page/homepage">Home</a>
+			                        </li>
+			                        <li>
+			                        	<a t-attf-href="#">
+				                        	<t t-foreach="website.menu_id.child_id" t-as="url">
+								            	<t t-if="url.url in request.httprequest.path">
+								            		<t t-esc="url.name"/>
+								            	</t>
+								            </t>
+								   		</a>
+			                        </li>
+			                       	<li>
+			                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+							            	 <t t-foreach="parent_url.child_id" t-as="url">
+							            	 	<t t-if="url.url in request.httprequest.path">
+								            		<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
+								            	</t>
+							            	 </t>
+							            </t>
+			                        </li>
+			                    </ol>
+			                 </div>
+			        	</div> 
+		        	</div>
+	        	</t>     
+			</xpath>
+		</template>
     <!-- Add placeholder for jumbotron in the header of a page-->
     <!--
     <template id="kderp_website.jumbo_place" inherit_id="website.layout" name="Jumbotron placeholder">
