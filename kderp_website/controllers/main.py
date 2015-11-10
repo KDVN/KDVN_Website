@@ -31,12 +31,28 @@ class KderpWebsite(http.Controller):
     Getting all posts of blog(s) to prepare to show
         - If only 1 post return, show the post
         - If more than 1 post return, list these posts
-            + Handle pager
-            + TODO: Handle and condition for tag
+        - Using other_domain_search for special search for example tag_ids.name
     """
+    def _tag_search(search_domain):
+      """
+      blog.tag la truong many2many nen khi search voi dieu kien NOT
+      ket qua tra ve se khong dung nhu mong muon. Method nay xu ly dieu kien
+      search cua tag
+      :return: search_domain
+      """
+      not_in_tags_search = filter(lambda s: s[0] == 'tag_ids.name' and s[1] == 'not in', search_domain)
+      #not_in_tags_search.insert(0, '!')
+      if not_in_tags_search:
+        search_domain.remove(not_in_tags_search[0])
+        post_ids_tags_search = http.request.env['blog.post'].search(['!', not_in_tags_search[0]]).mapped('id')
+        search_domain.append(('id', 'not in', post_ids_tags_search))
+      return search_domain
 
-    # Dinh dang ngay thang trong odoo
     def sd(date):
+      """
+       Dinh dang ngay thang theo odoo server settings
+      :return: dd-mm-yyyy
+      """
       return date.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT)
 
     today = datetime.today()
@@ -51,14 +67,11 @@ class KderpWebsite(http.Controller):
     else:
       if blog_name_list:
         search_domain = [('blog_id', 'in', blog_name_list)]
-      if tag_name_list:
-        search_domain.append(('tag_ids.name', 'in', tag_name_list))
-    #handle for
-
+        if tag_name_list:
+          search_domain.append(('tag_ids.name', 'in', tag_name_list))
+    #handle for not in tags search
+    other_domain_search = _tag_search(other_domain_search)
     search_domain += other_domain_search
-
-    #test not in
-    search_domain += [('tag_ids.name', 'not in', ['KinVQ News'])]
 
     result = http.request.env['blog.post'].search(search_domain, **kwargs)
     if len(result) == 1:
@@ -113,28 +126,42 @@ class KderpWebsite(http.Controller):
 
   @http.route(['/<submenu>/news', '/<submenu>/news/page/<int:page>', '/<submenu>/tag/<subtag>',
                '/<submenu>/tag/<subtag>/page/<int:page>'], auth='public', website=True)
-  def kdvn_list_posts(self, page=1, submenu='intro', subtag='all'):
-    """Showing KDVN News, blog based on route header"""
+  def kdvn_list_posts_public(self, page=1, submenu='intro', subtag='all'):
+    """Showing KDVN News, blog based on route header on public pages"""
     submenu_dic = {
+      # submenu or blog category
       'intro': [self.news_blog, self.qa_blog, self.it_blog, self.es_blog, self.ms_blog],
       'qa': [self.qa_blog],
       'it': [self.it_blog],
-      # them submenu
       'es': [self.es_blog],
       'ms': [self.ms_blog]
     }
-    sub_tag = {
+    subtag_dic = {
       'all': [],
-      'kinqnews': [self.kinqnews],
-      'kinvqnews': [self.kinvqnews],
       'es_main': [self.es_main]
     }
-    if (subtag == 'all'):
+    if submenu not in submenu_dic.keys():
+      submenu = 'intro'
+    if subtag not in subtag_dic.keys():
+      subtag = 'all'
+    if subtag == 'all':
       url = '/' + submenu + '/news'
     else:
       url = '/' + submenu + '/tag/' + subtag
-    return self.kdvn_posts(submenu_dic[submenu], sub_tag[subtag], [], url, page)
-    # Works = self.kdvn_posts([work_blog])
+    return self.kdvn_posts(submenu_dic[submenu], subtag_dic[subtag], [], url, page, other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags)])
+
+  @http.route(['/qa/tag/<subtag>', '/qa/tag/<subtag>/page/<int:page>'], auth='user', website=True)
+  def kdvn_list_posts_internal(self, page=1, submenu='intro', subtag='all'):
+    """Showing KDVN News, blog based on route header"""
+    subtag_dic = {
+      'all': [],
+      'kinqnews': [self.kinqnews],
+      'kinvqnews': [self.kinvqnews],
+    }
+    if subtag not in subtag_dic.keys():
+      subtag = 'all'
+    url = '/' + submenu + '/tag/' + subtag
+    return self.kdvn_posts([self.qa_blog], subtag_dic[subtag], [], url, page)
 
   @http.route(['/<submenu>/news/<model("blog.post"):post>', '/<submenu>/news/page/<int:page>/<model("blog.post"):post>',
                '/<submenu>/tag/<subtag>/<model("blog.post"):post>',

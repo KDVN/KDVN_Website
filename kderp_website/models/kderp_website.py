@@ -19,7 +19,7 @@ class view(osv.osv):
         def _search_browse(search_domain, **kwargs):
             """
             :param search_domain: list of search sets
-            :return: record sets
+            :return: recordsets
             """
             # Search for tag_ids.name in search domain
             post_tags_not_search = filter(lambda s: s[0] == 'tag_ids.name' and s[1] == 'not in', search_domain)
@@ -37,6 +37,8 @@ class view(osv.osv):
 
         # KDVN hot news
         news = _search_browse([('blog_id', 'in', news_list), ('tag_ids.name', 'not in', qa_tag_list)], offset=0, limit=8)
+        # news_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', 'in', news_list), '!', ('tag_ids.name', 'in', qa_tag_list)], offset=0, limit=8)
+        # news = self.pool['blog.post'].browse(cr, uid, news_ids)
 
         # KDVN Electrical | Mechanical | QA news
         news_e = _search_browse([('blog_id', '=', 'Electrical Systems')], offset=0, limit=2)
