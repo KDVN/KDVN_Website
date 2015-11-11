@@ -163,10 +163,13 @@ class KderpWebsite(http.Controller):
     url = '/' + submenu + '/tag/' + subtag
     return self.kdvn_posts([self.qa_blog], subtag_dic[subtag], [], url, page)
 
-  @http.route(['/<submenu>/news/<model("blog.post"):post>', '/<submenu>/news/page/<int:page>/<model("blog.post"):post>',
-               '/<submenu>/tag/<subtag>/<model("blog.post"):post>',
-               '/<submenu>/tag/<subtag>/page/<int:page>/<model("blog.post"):post>'], auth='public', website=True)
+  @http.route(['/<submenu>/news/<model("blog.post"):post>', '/<submenu>/news/page/<int:page>/<model("blog.post"):post>'], auth='public', website=True)
   def kdvn_show_post(self, post, submenu, subtag='', page=1):
+    """Showing post content"""
+    return self.kdvn_posts([], [], [post.id])
+
+  @http.route(['/<submenu>/tag/<subtag>/<model("blog.post"):post>', '/<submenu>/tag/<subtag>/page/<int:page>/<model("blog.post"):post>'], auth='user', website=True)
+  def kdvn_show_post_tag(self, post, submenu, subtag='', page=1):
     """Showing post content"""
     return self.kdvn_posts([], [], [post.id])
 
