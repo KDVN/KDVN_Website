@@ -59,6 +59,7 @@
 		    </xpath>
 		</template>
 
+		<!-- Thanh dieu huong hien thi o tat cac cac trang  -->
 		<template id="breadcrumb" inherit_id="website.layout" name="Breadcrumb">
 			<xpath expr="//div[@id='wrapwrap']/header/div" position="after">
 				<t t-if="(request.httprequest.path not in ['/page/homepage','/web/login']) and ('/intro/kdvn' not in request.httprequest.path)">
@@ -81,7 +82,10 @@
 			                       	<li>
 			                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
 							            	 <t t-foreach="parent_url.child_id" t-as="url">
-							            	 	<t t-if="url.url in request.httprequest.path">
+							            	 	<t t-if="(len(url.url) != len(request.httprequest.path)) and (url.url in request.httprequest.path)">
+								            		<a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="url.name"/></a>
+								            	</t>
+								            	<t t-if="(len(url.url) == len(request.httprequest.path)) and (url.url in request.httprequest.path)">
 								            		<a t-attf-href="{{request.httprequest.path}}"><t t-esc="url.name"/></a>
 								            	</t>
 							            	 </t>
