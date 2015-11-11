@@ -61,7 +61,7 @@
 
 		<template id="breadcrumb" inherit_id="website.layout" name="Breadcrumb">
 			<xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-				<t t-if="request.httprequest.path != '/page/homepage'">
+				<t t-if="request.httprequest.path not in ['/page/homepage','/web/login']">
 					<div class="container">
 						<div class="row mt8">
 			                <div class="col-sm-12">
