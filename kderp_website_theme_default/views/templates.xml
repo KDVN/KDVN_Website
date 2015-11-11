@@ -44,7 +44,7 @@
         <div class="container">
           <div class="row" id="list_navi">
             <!-- breadcrumbs in  list posts -->
-            <t t-call="kderp_website.list_posts_breadcrumb"></t>
+           <!--  <t t-call="kderp_website.list_posts_breadcrumb"></t> -->
             <!-- Pager -->
             <div t-if="pager" id="list-pager" class="col-md-8">
               <t t-call="website.pager">
@@ -228,7 +228,7 @@
 		<template id="kderp_website.show_post" name="KDVN show post">
 			<div class="container">
 				<!-- Thanh dieu huong trong noi dung -->
-				<t t-call="kderp_website.show_post_breadcrumb"></t>
+				<!-- <t t-call="kderp_website.show_post_breadcrumb"></t> -->
 				<!-- Noi dung chinh -->
 				<div class="row">
 					<div class="col-sm-2">
@@ -276,7 +276,7 @@
 		</template>
 
 		<!-- Hien thi thanh dieu huong trong post content-->
-		<template id="kderp_website.show_post_breadcrumb" name="Show Post Breadcrumb">
+		<!-- <template id="kderp_website.show_post_breadcrumb" name="Show Post Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
                     <ol class="breadcrumb mb0 bcstyle">
@@ -303,18 +303,18 @@
 				            	</t>
 			            	 </t>
 			            </t>
-			            <!--
+			            
                        	<li>
                             <a t-attf-href="{{request.httprequest.path}}"><t t-raw="post.name.title()"/></a>
                         </li>
-                         -->
+                        
                     </ol>
                 </div>
            	</div>
-		</template>
+		</template> -->
 
 		<!-- Hien thi thanh dieu huong trong list post-->
-		<template id="kderp_website.list_posts_breadcrumb" name="List Posts Breadcrumb">
+		<!-- <template id="kderp_website.list_posts_breadcrumb" name="List Posts Breadcrumb">
 			<div class="row mt8">
                 <div class="col-sm-12">
                     <ol class="breadcrumb mb0 bcstyle">
@@ -342,7 +342,7 @@
                     </ol>
                 </div>
             </div>
-       </template>
+       </template> -->
 
     <!-- KINDEN VIETNAM -->
 		<!-- Intro jumbo -->
