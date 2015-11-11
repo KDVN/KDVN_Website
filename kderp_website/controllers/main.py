@@ -241,7 +241,9 @@ class KderpWebsite(http.Controller):
 
     return self.kdvn_file_library(44, page, '/kdvn/images', 'kderp_website.files')
 
-  @http.route(['/it/download', '/it/download/page/<int:page>', '/it/files', '/it/files/page/<int:page>'], auth='public',
+  @http.route(['/it/download', '/it/download/page/<int:page>', '/it/files', '/it/files/page/<int:page>',
+               '/intro/download', '/intro/download/page/<int:page>', '/intro/files', '/intro/files/page/<int:page>'
+               ], auth='public',
               website=True)
   def kdvn_download(self, page=1):
     return self.kdvn_file_library(46, page, '/kdvn/download')

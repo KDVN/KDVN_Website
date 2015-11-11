@@ -56,9 +56,9 @@
 				<field name="sequence" type="int">90</field>
 			</record>
 
-			<record id="it_download" model="website.menu">
+			<record id="intro_download" model="website.menu">
 				<field name="name">Download</field>
-				<field name="url">/it/download</field>
+				<field name="url">/intro/download</field>
 				<field name="parent_id" ref="menu_aboutus"></field>
 				<field name="sequence" type="int">92</field>
 			</record>

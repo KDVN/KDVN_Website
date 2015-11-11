@@ -513,10 +513,10 @@
 													<td><span class="fa fa-file-image-o"></span></td>
 												</t>
 												<td><t t-esc="file.create_date"/></td>
-												<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+												<t t-if="request.httprequest.path in ['/it/download', '/it/files', '/intro/download','/intro/files']">
 													<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else file.name"></t></a></td>
 												</t>
-												<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+												<t t-if="request.httprequest.path not in ['/it/download', '/it/files', '/intro/download','/intro/files']">
 													<td><a t-att-href="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)" target="_blank"><t t-esc="file.website_url if (file.name[-3:] in ['jpg', 'png']) else (file.website_url + '/' + file.name)"></t></a></td>
 												</t>
 											</tr>
@@ -527,12 +527,12 @@
 							<div class="col-md-3">
 								<div class="panel panel-success">
 									<div class="panel-heading">Note</div>
-									<t t-if="request.httprequest.path[:12] == '/it/download' or request.httprequest.path[:9] =='/it/files'">
+									<t t-if="request.httprequest.path in ['/it/download', '/it/files', '/intro/download','/intro/files']">
 										<div class="panel-body">
 											<div t-field="post.content"></div>
 										</div>
 									</t>
-									<t t-if="request.httprequest.path[:12] != '/it/download' and request.httprequest.path[:9] !='/it/files'">
+									<t t-if="request.httprequest.path not in ['/it/download', '/it/files', '/intro/download','/intro/files']">
 										<div class="panel-body">
 											<p>Can use this syntax to limit image size</p>
 											<code>/.../datas/300x200</code>
