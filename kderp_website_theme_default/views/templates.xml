@@ -421,7 +421,31 @@
 				</div>
 			</t>
 		</template>
-
+		
+		<!-- Page show testimonials inherit 'kderp_website.page_testi' -->
+		<template id="page_testi_inherit" inherit_id="kderp_website.page_testi" name="KDVN Testimonials" active="False" customize_show="True">
+			<xpath expr="//div[@class='container']" position="replace">
+				<div class="container">
+					<div >
+						<div class="row">
+							<t t-foreach="posts" t-as="post">
+								<div class="col-md-12 thumbnail">
+									<div class="col-md-6">
+										<p ><img t-att-src="post.img_url_ids[0].website_url" class="img-responsive testi"></img></p>
+									</div>
+									<div class="col-md-6">
+										<h1><small class="text-danger"><t t-esc="post.name"></t></small></h1>
+										<h2><small class="text-warning"><t t-esc="post.summary"></t></small></h2>								
+									</div>
+								</div>
+							</t>
+							
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</template>	
+		
 		<!-- Contact us -->
 		<!-- Contact us: |offices|sites -->
 		<template id="kderp_website.contacts" name="Contacts" page="True">
