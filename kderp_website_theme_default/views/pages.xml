@@ -61,7 +61,7 @@
 	</template>
 
 	<!-- Jumbo options for homepage -->
-	<template id="kderp_website.home_jumbo" name="Home jumbo" inherit_id="website.homepage" active="False" customize_show="True">
+	<template id="kderp_website.home_jumbo" name="Home jumbo" inherit_id="website.homepage" active="True" customize_show="True">
 		<xpath expr="//div[@id='jumbo']" position="inside">
 			<div id="worksCaroudelhp" class="carousel slide carouselhp" data-ride="carousel">
 				<!-- Indicators -->
@@ -93,7 +93,7 @@
 	</template>
 
 	<!-- KDVN News showing in homepage -->
-	<template id="home_news" name="Home News" inherit_id="website.homepage" active="False" customize_show="True">
+	<template id="home_news" name="Home News" inherit_id="website.homepage" active="True" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news']" position="inside">
       <h4 class="text-success mb32">Latest News</h4>
 			<t t-set="posts" t-value="kdvn_news[:8]"></t>
@@ -106,7 +106,7 @@
 	</template>
 
 	<!-- Showing in electrical news in homepage -->
-	<template id="home_news_e" name="Home News E" inherit_id="website.homepage" active="False" customize_show="True">
+	<template id="home_news_e" name="Home News E" inherit_id="website.homepage">
 		<xpath expr="//div[@id='kdvn_news_e']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_e"></t>
 			<t t-call="kderp_website.list_posts"></t>
@@ -114,7 +114,7 @@
 	</template>
 
 	<!-- Showing mechanical news in homepage -->
-	<template id="home_news_m" name="Home News M" inherit_id="website.homepage" active="False" customize_show="True">
+	<template id="home_news_m" name="Home News M" inherit_id="website.homepage">
 		<xpath expr="//div[@id='kdvn_news_m']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_m"></t>
 			<t t-call="kderp_website.list_posts"></t>
@@ -122,7 +122,7 @@
 	</template>
 
 	<!-- Showing QST news in homepage -->
-	<template id="home_news_q" name="Home News Q" inherit_id="website.homepage" active="False" customize_show="True">
+	<template id="home_news_q" name="Home News Q" inherit_id="website.homepage">
 		<xpath expr="//div[@id='kdvn_news_q']" position="inside">
 			<t t-set="posts" t-value="kdvn_news_q"></t>
 			<t t-call="kderp_website.list_posts"></t>
