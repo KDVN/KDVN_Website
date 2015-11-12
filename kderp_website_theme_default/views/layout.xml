@@ -71,13 +71,17 @@
 			                            <a t-attf-href="/page/homepage">Home</a>
 			                        </li>
 			                        <li>
-			                        	<a t-attf-href="#">
-				                        	<t t-foreach="website.menu_id.child_id" t-as="url">
-								            	<t t-if="url.url in request.httprequest.path">
-								            		<t t-esc="url.name"/>
-								            	</t>
-								            </t>
-								   		</a>
+			                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+							            	<t t-if="parent_url.url in request.httprequest.path and not parent_url.child_id and (len(parent_url.url) != len(request.httprequest.path))">
+									            <a t-attf-href="{{request.httprequest.path[:-(len(slug(post)))]}}"><t t-esc="parent_url.name"/></a>
+							            	</t>
+							           		<t t-if="parent_url.url in request.httprequest.path and not parent_url.child_id and (len(parent_url.url) == len(request.httprequest.path))">
+									            <a t-attf-href="{{request.httprequest.path}}"><t t-esc="parent_url.name"/></a>
+							            	</t>
+							            	<t t-if="parent_url.url in request.httprequest.path and parent_url.child_id">
+							            		<t t-esc="parent_url.name"/>
+							            	</t>
+							            </t>
 			                        </li>
 			                       	<li>
 			                        	<t t-foreach="website.menu_id.child_id" t-as="parent_url">
