@@ -42,9 +42,7 @@
 				<t t-set="title"><t t-esc="posts[0].blog_id.name" /></t>
         <t t-call="kderp_website.show_jumbo"></t>
         <div class="container">
-          <div class="row" id="list_navi">
-            <!-- breadcrumbs in  list posts -->
-           <!--  <t t-call="kderp_website.list_posts_breadcrumb"></t> -->
+          <div class="row pager-style" id="list_navi">
             <!-- Pager -->
             <div t-if="pager" id="list-pager" class="col-md-8">
               <t t-call="website.pager">
