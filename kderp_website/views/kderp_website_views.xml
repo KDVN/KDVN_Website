@@ -34,8 +34,8 @@
 					<field name="subtitle" />
 					<field name="description" />
 					<field name="blogpost_ids">
-						<!-- <tree string="Blog posts"> <field name="name"/> <field name="subtitle"/> 
-							<field name="author_id"/> <field name="tag_ids"/> <field name="content"/> 
+						<!-- <tree string="Blog posts"> <field name="name"/> <field name="subtitle"/>
+							<field name="author_id"/> <field name="tag_ids"/> <field name="content"/>
 							<field name="website_published"/> </tree> -->
 					</field>
 				</form>
@@ -67,14 +67,15 @@
 			<field name="arch" type="xml">
 				<form string="KDVN Posts">
 				<group>
-					<field name="website_published" widget="website_button"/>				
+					<field name="website_published" widget="website_button"/>
 					<field name="blog_id" string="Blog category"/>
 					<field name="name" string="Title"/>
 					<field name="subtitle" string="Subtitle"/>
 					<field name="author_id" string="Author"/>
 					<field name="summary" string="Summary"/>
 					<field name="tag_ids" widget="many2many_tags" placeholder="Tags..." />
-					<field name="content" />
+					<!--<field name="content" widget="text_html"/>-->
+          <field name="content" widget="text_ckeditor4" />
 
 				</group>
 				</form>
@@ -95,14 +96,14 @@
 			<field name="res_model">blog.post</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		
+
 		<!-- Show KDVN General News Posts -->
 		<record model="ir.actions.act_window" id="list_kdvn_gen_post">
 			<field name="name">KDVN Gen News Posts</field>
 			<field name="res_model">blog.post</field>
 			<field name="domain">[('blog_id','=','General News')]</field>
 		</record>
-		
+
 		<!-- Show KDVN Project Posts -->
 		<record model="ir.actions.act_window" id="list_kdvn_prj_post">
 			<field name="name">KDVN Works Posts</field>
@@ -117,14 +118,14 @@
 			<field name="domain">[('blog_id','=','Quality Safety Assurance')]</field>
 		</record>
 
-		<!-- 
+		<!--
 		<record model="ir.actions.act_window.view" id="list_kdvn_post_tree">
 			<field name="view_mode">tree</field>
 			<field name="act_windows_id" ref="kdvn_post_tree" />
 		</record>
 		-->
 
-		<!-- 
+		<!--
 		<record model="ir.actions.act_window.view" id="list_kdvn_news_tree">
 			<field name="view_mode">form</field>
 			<field name="act_windows_id" ref="kdvn_post_form" />
@@ -147,7 +148,7 @@
 
 		<menuitem id="kdvn_news" name="KDVN General Posts" parent="kdvn_news_section" action="list_kdvn_gen_post" />
 		<menuitem id="kdvn_works" name="KDVN Works Posts" parent="kdvn_news_section" action="list_kdvn_prj_post" />
-		<menuitem id="kdvn_qa" name="KDVN QA Posts" parent="kdvn_news_section" action="list_kdvn_qa_post" />				
+		<menuitem id="kdvn_qa" name="KDVN QA Posts" parent="kdvn_news_section" action="list_kdvn_qa_post" />
 
 		<menuitem id="kdvn_offices" name="Contact Offices" parent="kdvn_website_config" action="kdvn_contact_offices" />
 
