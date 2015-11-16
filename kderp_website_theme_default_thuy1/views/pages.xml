@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	    <!-- === Show Post === -->
+	    <template id="kderp_website_theme_default_thuy1.show_post" name="KDVN Thuy1 Show Post" inherit_id="kderp_website.show_post">
+    	<xpath expr="//div[@class='container']" position="replace">
+    		<div class="container show-post">
+    			<div class="col-sm-1"/>
+    			<div class="col-sm-10">
+    			<div class="blog-header">
+			        <h2 class="blog-title h2-show-post"><t t-raw="post.name.title()"></t></h2>
+			        <p class="blog-post-meta"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><a href="#"><t t-esc="post.author_id.name"></t></a></p>
+			    </div>
+	    		<div class="row">
+
+	        		<div class="col-sm-10 blog-main">
+			    		<div class="blog-post">
+							<t t-if="post.summary">
+								<p><t t-esc="post.summary"></t></p><hr/>
+							</t>
+							<t t-if="post.img_url_ids">
+								<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
+									<h4><span class="fa fa-paperclip"></span></h4>
+									<t t-if="post.img_url_ids">
+										<div class="row">
+											<t t-foreach="post.img_url_ids" t-as="file">
+												<div class="col-md-6" t-attf-id="{{file_index % 2}}">
+												<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
+												<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
+												</div>
+											</t>
+										</div>
+									</t>
+								</div>
+							</t>
+				           	<div>
+								<div t-field="post.content"></div>
+							</div>
+				   		</div><!-- /.blog-post -->
+				   	</div><!-- .blog-main -->
+				</div><!-- .row -->
+				</div>
+				<div class="col-sm-1"/>
+	    	</div><!-- .container -->
+		</xpath>
+	</template>
+	
+	<!-- === List Posts === -->
+	<template id="kderp_website_theme_default_thuy1.list_posts" name="KDVN List posts" inherit_id="kderp_website.list_posts">
+    	<xpath expr="//div[@id='list-main']" position="replace">
+	    	<!-- Listing posts: posts|pager  -->
+	    	<div id="list-main" t-att-class="customize_class">
+		        <table class="table">
+		          <tbody>
+		            <t t-foreach="posts" t-as="post">
+		              <tr>
+		                <t t-if="request.httprequest.path != '/page/homepage' or show_date_col">
+		                  <td t-att-class="'text-nowrap' if not show_date_col else ''">
+		                    <t t-if="not show_date_col">
+		                      <span class="fa fa-calendar" /> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}' /> <span class="fa fa-caret-right" />
+		                    </t>
+		                    <t t-if="show_date_col">
+		                      <span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' />
+		                    </t>
+		                  </td>
+		                </t>
+		                <!-- Setting fa values -->
+		                <t t-if="post.img_url_ids">
+		                  <t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+		                    <t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+		                  </t>
+		                  <t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+		                    <t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+		                  </t>
+		                  <t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+		                    <t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+		                  </t>
+		                  <t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+		                    <t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+		                  </t>
+		                </t>
+		                <td>
+		                  <div class="pull-left" t-if="post.img_url_ids" ><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}" t-attf-class="fa {{fa_value}}" ></a>&#160;</div>
+		                  <div class="imgWrap">
+		                  	<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+		                    	<t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
+		                  	</a>
+		                  	<p class="imgDescription">This image looks super neat.</p>
+		                  </div>
+		                </td>
+		                <t t-if="request.httprequest.path[:11] =='/intro/news'">
+		                  <td><t t-esc="post.blog_id.name"></t></td>
+		                </t>
+		              </tr>
+		            </t>
+		          </tbody>
+		        </table>
+	    	</div>
+		</xpath>
+	</template>
+		
+</data>
+</openerp>
