@@ -41,12 +41,13 @@ h2, .h2-show-post
   font-size: 60px;
 }
 */
-/*
+
 .blog-post-meta {
   margin-bottom: 20px;
+  margin-top:20px;
   color: #999;
 }
-
+/*
 .imgWrap {
   position: relative;
 }
