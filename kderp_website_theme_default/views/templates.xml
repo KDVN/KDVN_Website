@@ -89,22 +89,21 @@
                   </td>
                 </t>
                 <!-- Setting fa values -->
+                <!-- Trong truong hop co file dinh kem kieu pdf, doc, xls se tao duong link de mo file dong thoi
+                hover de mo ta summary
+                -->
                 <t t-if="post.img_url_ids">
-                  <t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
-                    <t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+                  <t t-set="fa_values" t-value="{'pdf':'pdf-o', 'doc': 'word-o', 'xls': 'excel-o'}" />
+                  <t t-set="file_type" t-value="post.img_url_ids[0].name[-3:]" />
+                  <t t-if="file_type in ['pdf', 'doc', 'xls']">
+                    <t t-set="fa_value" t-valuef="fa-file-{{fa_values[file_type]}}"></t>
                   </t>
-                  <t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
-                    <t t-set="fa_value" t-value="'fa-file-word-o'"></t>
-                  </t>
-                  <t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
-                    <t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
-                  </t>
-                  <t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+                  <t t-if="file_type not in ['pdf', 'doc', 'xls']">
                     <t t-set="fa_value" t-value="'fa-file-image-o'"></t>
                   </t>
                 </t>
                 <td>
-                  <span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+                  <span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"></span>
                   <a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
                     <t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
                   </a>
@@ -303,7 +302,7 @@
 	                        </li>
 	                    </ol>
 	                 </div>
-	        	</div> 
+	        	</div>
         	</div>
 		</template>
 
@@ -384,7 +383,7 @@
 				</div>
 			</t>
 		</template>
-		
+
 		<!-- Page show testimonials inherit 'kderp_website.page_testi' -->
 		<template id="page_testi_inherit" inherit_id="kderp_website.page_testi" name="KDVN Testimonials" active="False" customize_show="True">
 			<xpath expr="//div[@class='container']" position="replace">
@@ -398,17 +397,17 @@
 									</div>
 									<div class="col-md-6">
 										<h1><small class="text-danger"><t t-esc="post.name"></t></small></h1>
-										<h2><small class="text-warning"><t t-esc="post.summary"></t></small></h2>								
+										<h2><small class="text-warning"><t t-esc="post.summary"></t></small></h2>
 									</div>
 								</div>
 							</t>
-							
+
 						</div>
 					</div>
 				</div>
 			</xpath>
-		</template>	
-		
+		</template>
+
 		<!-- Contact us -->
 		<!-- Contact us: |offices|sites -->
 		<template id="kderp_website.contacts" name="Contacts" page="True">
