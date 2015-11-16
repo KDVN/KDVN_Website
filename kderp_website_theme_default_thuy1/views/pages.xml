@@ -77,12 +77,12 @@
 		                </t>
                 		<td>
 		                  <span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"></span>
-		                  <span  t-if="not post.img_url_ids">
+		                  <span  t-if="not post.img_url_ids" t-att-data-popover="popover" t-att-title="post.summary">
 			                  <a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
 			                    <t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
 			                  </a>
 		                  </span>
-		                  <span t-if="post.img_url_ids">
+		                  <span t-if="post.img_url_ids" t-att-data-popover="popover" t-att-title="post.summary">
 		                  	<t t-foreach="post.img_url_ids" t-as="file">
 								<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
 								<a t-if="file.name[-4:] != '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
