@@ -84,8 +84,8 @@
 		                  </span>
 		                  <span t-if="post.img_url_ids" t-att-data-popover="popover" t-att-title="post.summary">
 		                  	<t t-foreach="post.img_url_ids" t-as="file">
-								<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
-								<a t-if="file.name[-4:] != '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
+								<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{(file.website_url+'/'+file.name).encode('ascii', 'ignore').decode('ascii')}}" target="_blank"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
+								<a t-if="file.name[-4:] != '.pdf'" t-attf-href="{{(file.website_url+'/'+file.name).encode('ascii', 'ignore').decode('ascii')}}" t-att-download="file.name"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
 							</t>
 		                  </span>
 		               </td>
