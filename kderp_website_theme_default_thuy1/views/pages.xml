@@ -47,55 +47,50 @@
     	<xpath expr="//div[@id='list-main']" position="replace">
 	    	<!-- Listing posts: posts|pager  -->
 	    	<div id="list-main" t-att-class="customize_class">
-		        <table class="table">
-		          <tbody>
-		            <t t-foreach="posts" t-as="post">
-		              <tr>
-		                <t t-if="request.httprequest.path != '/page/homepage' or show_date_col">
-		                  <td t-att-class="'text-nowrap' if not show_date_col else ''">
-		                    <t t-if="not show_date_col">
-		                      <span class="fa fa-calendar" /> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}' /> <span class="fa fa-caret-right" />
-		                    </t>
-		                    <t t-if="show_date_col">
-		                      <span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' />
-		                    </t>
-		                  </td>
-		                </t>
-		                <!-- Setting fa values -->
-		                <!-- Trong truong hop co file dinh kem kieu pdf, doc, xls se tao duong link de mo file dong thoi
-		                hover de mo ta summary
-		                -->
-		                <t t-if="post.img_url_ids">
-		                  <t t-set="fa_values" t-value="{'pdf':'pdf-o', 'doc': 'word-o', 'xls': 'excel-o'}" />
-		                  <t t-set="file_type" t-value="post.img_url_ids[0].name[-3:]" />
-		                  <t t-if="file_type in ['pdf', 'doc', 'xls']">
-		                    <t t-set="fa_value" t-valuef="fa-file-{{fa_values[file_type]}}"></t>
-		                  </t>
-		                  <t t-if="file_type not in ['pdf', 'doc', 'xls']">
-		                    <t t-set="fa_value" t-value="'fa-file-image-o'"></t>
-		                  </t>
-		                </t>
-                		<td>
-		                  <span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"></span>
-		                  <span  t-if="not post.img_url_ids" t-att-data-popover="popover" t-att-title="post.summary">
-			                  <a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
-			                    <t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
-			                  </a>
-		                  </span>
-		                  <span t-if="post.img_url_ids" t-att-data-popover="popover" t-att-title="post.summary">
-		                  	<t t-foreach="post.img_url_ids" t-as="file">
-								<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{(file.website_url+'/'+file.name).encode('ascii', 'ignore').decode('ascii')}}" target="_blank"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
-								<a t-if="file.name[-4:] != '.pdf'" t-attf-href="{{(file.website_url+'/'+file.name).encode('ascii', 'ignore').decode('ascii')}}" t-att-download="file.name"><t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t></a>
-							</t>
-		                  </span>
-		               </td>
-		                <t t-if="request.httprequest.path[:11] =='/intro/news'">
-		                  <td><t t-esc="post.blog_id.name"></t></td>
-		                </t>
-		              </tr>
-		            </t>
-		          </tbody>
-		        </table>
+		        <t t-foreach="posts" t-as="post">
+					<t t-if="post.img_url_ids">
+						<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+							<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+							<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+							<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+							<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+						</t>
+					</t>
+					<t t-if = "request.httprequest.path != '/page/homepage'">
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4>
+								<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>
+								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+					<t t-if = "request.httprequest.path == '/page/homepage'">
+						<div class="list-group-item" style=" border-left:0px; border-right:0px; padding:0px 0px;">
+							<div class="row" style="margin-right: 0px; margin-left: 0px;">
+								<t t-if="show_date_col">
+									<div class="col-sm-3 news-date-hompage"><span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' /></div>
+								</t>
+								<div t-attf-class="col-sm-(9 + 3 * (0 if show_date_col else 1) news-name-homepage">
+									<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>
+									<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+										<t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
+									</a>
+								</div>
+							</div>
+						</div>
+					</t>
+				</t>
 	    	</div>
 		</xpath>
 	</template>
