@@ -94,6 +94,34 @@
 	    	</div>
 		</xpath>
 	</template>
-		
+
+	<!--==Fun Fact==-->
+	<template id="kderp_website_theme_default_thuy1.funfact_content" inherit_id="kderp_website.funfact_content" name="KDVN Funfact Content">
+		<xpath expr="//div[@class='panel panel-default']" position="replace">
+			<div class="panel panel-default">
+				<t t-if="ffacts">
+					<div id="carousel-funfact" class="carousel slide" data-ride="carousel">
+						<h3>Fun fact</h3>
+					  	<!-- Indicators -->
+					  	<ol class="carousel-indicators" style="visibility:hidden">
+							<t t-foreach="ffacts" t-as="fact">
+								<li data-target="#carousel-funfact" t-att-data-slide-to="fact_index" t-att-class="'active' * (fact_index == 0)"></li>
+							</t>
+					  	</ol>
+
+					  	<!-- Wrapper for slides -->
+					  	<div class="carousel-inner" role="listbox">
+							<t t-foreach="ffacts" t-as="fact">
+								<div t-attf-class="item {{'active' * (fact_index == 0)}}">
+									<h4 style="color:green"><t t-esc="fact.name"></t></h4>
+									<p style="margin-left:15px"><t t-esc="fact.summary"></t></p>
+								</div>
+							</t>
+					  	</div>
+					</div>
+				</t>
+			</div>
+		</xpath>
+	</template>
 </data>
 </openerp>
