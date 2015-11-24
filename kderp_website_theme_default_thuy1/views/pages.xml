@@ -101,7 +101,7 @@
 			<div class="panel panel-default">
 				<t t-if="ffacts">
 					<div id="carousel-funfact" class="carousel slide" data-ride="carousel">
-						<h3>Fun fact</h3>
+						<h3 style="text-align: center;">Fun fact</h3>
 					  	<!-- Indicators -->
 					  	<ol class="carousel-indicators" style="visibility:hidden">
 							<t t-foreach="ffacts" t-as="fact">
@@ -113,7 +113,7 @@
 					  	<div class="carousel-inner" role="listbox">
 							<t t-foreach="ffacts" t-as="fact">
 								<div t-attf-class="item {{'active' * (fact_index == 0)}}">
-									<h4 style="color:green"><t t-esc="fact.name"></t></h4>
+									<h4 style="margin-left:15px; color:green"><t t-esc="fact.name"></t></h4>
 									<p style="margin-left:15px"><t t-esc="fact.summary"></t></p>
 								</div>
 							</t>
@@ -123,5 +123,6 @@
 			</div>
 		</xpath>
 	</template>
+
 </data>
 </openerp>
