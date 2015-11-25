@@ -254,11 +254,29 @@ class KderpWebsite(http.Controller):
   @http.route('/intro/jobs', auth='public', website=True)
   def kdvn_job(self):
     return http.request.render('kderp_website.page_job')
+  #
+  # @http.route(['/intro/testimonials', '/intro/testimonials/<int:cur_index>'], auth="public", website=True)
+  # def kdvn_testi(self, cur_index=0):
+  #   """Showing testimonials with next and previous button"""
+  #   posts = http.request.env['blog.post'].search([('blog_id', '=', 'Testimonial')])
+  #
+  #   if cur_index == 0:
+  #     pre_index = len(posts) - 1
+  #   else:
+  #     pre_index = cur_index - 1
+  #
+  #   next_index = (cur_index + 1) % len(posts)
+  #
+  #   return http.request.render('kderp_website.page_testi', {
+  #     'index': [pre_index, cur_index, next_index],
+  #     'post': posts[cur_index],
+  #     'posts': posts
+  #   })
 
-  @http.route(['/intro/testimonials', '/intro/testimonials/<int:cur_index>'], auth="public", website=True)
+  @http.route(['/intro/certificates', '/intro/certificates/<int:cur_index>'], auth="public", website=True)
   def kdvn_testi(self, cur_index=0):
     """Showing testimonials with next and previous button"""
-    posts = http.request.env['blog.post'].search([('blog_id', '=', 'Testimonial')])
+    posts = http.request.env['blog.post'].search([('blog_id', '=', 'Certificates')])
 
     if cur_index == 0:
       pre_index = len(posts) - 1
@@ -267,7 +285,7 @@ class KderpWebsite(http.Controller):
 
     next_index = (cur_index + 1) % len(posts)
 
-    return http.request.render('kderp_website.page_testi', {
+    return http.request.render('kderp_website.page_certificates', {
       'index': [pre_index, cur_index, next_index],
       'post': posts[cur_index],
       'posts': posts

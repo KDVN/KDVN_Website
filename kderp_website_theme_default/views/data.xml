@@ -19,17 +19,17 @@
 				<field name="sequence" type="int">10</field>
 			</record>
 
-			<record id="testimonials" model="website.menu">
+<!--			<record id="testimonials" model="website.menu">
 				<field name="name">Testimonials</field>
 				<field name="url">#</field>
 				<field name="parent_id" ref="menu_aboutus"></field>
 				<field name="sequence" type="int">20</field>
-			</record>
+			</record>-->
 
 			<record id="au_certificates" model="website.menu">
 			    <field name="name">Certificates</field>
 			    <field name="parent_id" ref="menu_aboutus" />
-			    <field name="url">/intro/testimonials</field>
+			    <field name="url">/intro/certificates</field>
 			    <field name="sequence" type="int">60</field>
 			</record>
 
@@ -244,7 +244,7 @@
 					<field name="user_not_logged" eval="False" />
 				</record>
 
-        <record id="website_event.menu_events" model="website.menu">
+<!--        <record id="website_event.menu_events" model="website.menu">
             <field name="name">Events</field>
             <field name="url">/event</field>
             <field name="parent_id" ref="website.main_menu"/>
@@ -262,7 +262,7 @@
 				<field name="url">/booking/calendar</field>
 				<field name="parent_id" ref="website_event.menu_events"/>
 				<field name="sequence" type="int">20</field>
-			</record>
+			</record>-->
 
 		<record id="menu_kinden_jp" model="website.menu">
 			<field name="name">KINDEN JAPAN</field>
