@@ -21,7 +21,7 @@
 
 			<record id="testimonials" model="website.menu">
 				<field name="name">Testimonials</field>
-				<field name="url">/intro/testimonials</field>
+				<field name="url">#</field>
 				<field name="parent_id" ref="menu_aboutus"></field>
 				<field name="sequence" type="int">20</field>
 			</record>
@@ -29,7 +29,7 @@
 			<record id="au_certificates" model="website.menu">
 			    <field name="name">Certificates</field>
 			    <field name="parent_id" ref="menu_aboutus" />
-			    <field name="url">#</field>
+			    <field name="url">/intro/testimonials</field>
 			    <field name="sequence" type="int">60</field>
 			</record>
 
