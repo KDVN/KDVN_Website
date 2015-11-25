@@ -73,6 +73,7 @@ h2, .h2-show-post
   padding-left: 0px;
   padding-top:10px;
   height: 50px;
+  margin-right: 0px;
 }
 .news-name-homepage {
   /*background: #f2f2f2;*/
@@ -83,4 +84,9 @@ h2, .h2-show-post
   font-size: 13px;
   height: 50px;
   padding-top:10px;
+}
+@media (min-width: 970px) {
+  .news-date-hompage {
+   margin-right: 15px;
+  }
 }

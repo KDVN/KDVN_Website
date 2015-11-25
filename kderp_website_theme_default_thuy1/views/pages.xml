@@ -80,7 +80,7 @@
 						<div class="list-group-item" style=" border-left:0px; border-right:0px; padding:0px 0px;">
 							<div class="row" style="margin-right: 0px; margin-left: 0px;">
 								<t t-if="show_date_col">
-									<div class="col-sm-3 news-date-hompage" style="margin-right: 15px;"><span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' /></div>
+									<div class="col-sm-3 news-date-hompage"><span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' /></div>
 								</t>
 								<div t-attf-class="col-sm-(9 + 3 * (0 if show_date_col else 1) news-name-homepage">
 									<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>
