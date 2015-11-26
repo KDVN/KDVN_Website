@@ -132,5 +132,33 @@
 		</xpath>
 	</template>
 
+	<!--== Announcements==-->
+	<template id="kderp_website_theme_default_thuy1.announcement_content" inherit_id="kderp_website.announcement_content" name="KDVN Announcement Content">
+		<xpath expr="//div[@class='panel panel-default']" position="replace">
+			<div class="panel panel-default">
+				<t t-if="announcements">
+					<div id="carousel-announcement" class="carousel slide" data-ride="carousel">
+						<h3 style="text-align: center;">Announcements</h3>
+					  	<!-- Indicators -->
+					  	<ol class="carousel-indicators" style="visibility:hidden">
+							<t t-foreach="announcements" t-as="ann">
+								<li data-target="#carousel-announcement" t-att-data-slide-to="ann_index" t-att-class="'active' * (ann_index == 0)"></li>
+							</t>
+					  	</ol>
+
+					  	<!-- Wrapper for slides -->
+					  	<div class="carousel-inner" role="listbox">
+							<t t-foreach="announcements" t-as="ann">
+								<div t-attf-class="item {{'active' * (ann_index == 0)}}">
+									<h4 style="margin-left:15px; color:green"><t t-esc="ann.name"></t></h4>
+									<p style="margin-left:15px"><t t-esc="ann.summary"></t></p>
+								</div>
+							</t>
+					  	</div>
+					</div>
+				</t>
+			</div>
+		</xpath>
+	</template>
 </data>
 </openerp>
