@@ -62,6 +62,9 @@
 							<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
 						</t>
 					</t>
+					<t t-if="not post.img_url_ids">
+						<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+					</t>
 					<t t-if = "request.httprequest.path != '/page/homepage'">
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
 							<h4>
@@ -83,10 +86,14 @@
 									<div class="col-sm-3 news-date-hompage"><span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}' /></div>
 								</t>
 								<div t-attf-class="col-sm-(9 + 3 * (0 if show_date_col else 1) news-name-homepage">
-									<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>
-									<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
-										<t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
-									</a>
+									<!--<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>-->
+									<span t-attf-class="fa {{fa_value}}" data-toggle="popover" t-att-data-content="post.summary"/>
+									<span t-att-data-popover="popover" t-att-title="post.summary">
+										<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+											<t t-raw="(post.name[:40].title() + '...') if show_date_col else post.name.title()"></t>
+										</a>
+									</span>
+
 								</div>
 							</div>
 						</div>
