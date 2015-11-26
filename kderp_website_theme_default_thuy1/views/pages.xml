@@ -160,5 +160,29 @@
 			</div>
 		</xpath>
 	</template>
+
+	<!-- Page show certificates|post; index -->
+	<template id="kderp_website_theme_default_thuy1.page_certificates" inherit_id="kderp_website.page_certificates" name="KDVN Certificates">
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container">
+				<div >
+					<div class="row">
+						<t t-foreach="posts" t-as="post">
+							<div class="col-md-12 thumbnail">
+								<div class="col-md-6 img-hover">
+									<p ><img t-att-src="post.img_url_ids[0].website_url" class="img-responsive testi"></img></p>
+								</div>
+								<div class="col-md-6">
+									<h1><small class="text-danger"><t t-esc="post.name"></t></small></h1>
+									<h2><small class="text-warning"><t t-esc="post.summary"></t></small></h2>
+								</div>
+							</div>
+						</t>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+
 </data>
 </openerp>
