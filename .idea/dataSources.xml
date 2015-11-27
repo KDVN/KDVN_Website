@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1060596561">
+  <component name="DataSourceManagerImpl" format="xml" hash="448462276">
     <data-source source="LOCAL" name="PostgreSQL - odoo@192.168.0.38" uuid="a24d03e8-3bd9-4961-9f96-bd942a7ea000">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
