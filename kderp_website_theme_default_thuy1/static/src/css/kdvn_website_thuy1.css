@@ -85,7 +85,8 @@ h2, .h2-show-post
   height: 50px;
   padding-top:10px;
 }
-@media (min-width: 970px) {
+
+@media (min-width: 790px) {
   .news-date-hompage {
    margin-right: 15px;
   }
@@ -129,4 +130,20 @@ o desktop hien thi do rong 30%
 .img-click-mobil {
   width:90%; position: absolute; top: 0; bottom:0; left: 0; right:0; margin: auto;
  }
+}
+.data-lp-hp {
+    position: relative;
+}
+.data-lp-hp-date {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.data-lp-hp-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
