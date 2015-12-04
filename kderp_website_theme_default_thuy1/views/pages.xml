@@ -67,9 +67,9 @@
 					</t>
 					<t t-if = "request.httprequest.path != '/page/homepage'">
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
-							<h4>
+							<h4 style="line-height:1.5" >
 								<!--<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>-->
-								<span class="label label-default" style="padding: .2em .6em .2em;"><t t-esc="post.blog_id.name"></t></span>
+								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
 								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
 								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
 									<t t-raw="post.name.title()"></t>
