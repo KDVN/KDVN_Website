@@ -147,3 +147,13 @@ o desktop hien thi do rong 30%
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
 }
+
+.popover{
+    width: 250px;
+}
+.arrow {
+    visibility: hidden;
+}
+.popover.top > .arrow {
+    left: 30%;
+}

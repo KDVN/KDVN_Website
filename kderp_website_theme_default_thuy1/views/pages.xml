@@ -92,7 +92,7 @@
 								<div t-attf-class="col-sm-(9 + 3 * (0 if show_date_col else 1) news-name-homepage data-lp-hp">
 									<!--<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>-->
 									<span class="data-lp-hp-content">
-										<span t-attf-class="fa {{fa_value}}" data-toggle="popover" t-att-data-content="post.summary"/>
+										<span t-attf-class="fa {{fa_value}}" data-toggle="popover" data-placement="top" t-att-data-content="post.summary"/>
 										<span t-att-data-popover="popover" t-att-title="post.summary">
 											<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
 												<t t-raw="((post.name[:post.name.find(' ',40)].title() + '...') if post.name.find(' ',40) != -1 else post.name.title()) if show_date_col else post.name.title()"></t>
