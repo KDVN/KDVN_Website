@@ -447,7 +447,7 @@
 				<t t-set="title">How to contact us</t>
         		<t t-call="kderp_website.gen_jumbo"></t>
 				<div class="container">
-					<div class="row offices">
+					<div class="row offices" style="padding-top: 20px;">
 						<t t-foreach="offices" t-as="office">
 							<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
 								<address>
