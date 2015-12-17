@@ -145,7 +145,7 @@
   .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: green;
-    background-color: green;
+    /*background-color: green;*/
   }
 }
 .dropdown-submenu {
