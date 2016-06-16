@@ -47,48 +47,49 @@
 				<div class="row" style="margin: 30px 10px 20px 10px;">
 					<div class="col-md-5"  style="margin-bottom: 20px;">
 						<div class="media">
-							<div class="media-left media-middle">
+							<div class="media-left media-middle hp-media">
 								<a href="/intro/kdvn/aboutus">
 									<img class="media-object" src="/website/image/ir.attachment/664_bbb5efc/datas" alt="ABOUT US" width="92" height="82"/>
 								</a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading text-success">ABOUT US</h4>
-								<p>Kinden Vietnam Co., Ltd. is an equipment and facilities provider working to fulfill customers' energy, environmental and communication needs. </p>
+								<p>Our corporate overview,history,and policy</p>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle">
+							<div class="media-left media-middle hp-media">
 								<a href="#">
 									<img class="media-object" src="/website/image/ir.attachment/586_f566f9f/datas" alt="SITE REFERENCE" width="92" height="82"/>
 								</a>
 							</div>
 							<div class="media-body">
-								<h4 ><span class="media-heading text-success">SITE REFERENCE</span></h4>
-								<p></p>
+								<h4 class="media-heading text-success">SITE REFERENCE</h4>
+								<p>Our site reference in Vietnam</p>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle">
+							<div class="media-left media-middle hp-media">
 								<a href="#">
 									<img class="media-object" src="	/website/image/ir.attachment/588_58571bf/datas" alt="KINDEN GROUP" width="92" height="82"/>
 								</a>
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading text-success">KINDEN GROUP</h4>
-								<p></p>
+								<p>About kinden's oversea group companies</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-7" style="background: rgba(92, 184, 92, 0.12); padding-top: 20px;">
 						<div class="media" style="margin-bottom: 20px;">
-							<div class="media-left media-middle">
+							<div class="media-left media-middle hp-media">
 								<a href="#">
 									<img class="media-object" src="/website/image/ir.attachment/740_0b6bbbc/datas" alt="SERVICE" width="92" height="82"/>
 								</a>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">SERVICE</h4>
+								<h4 class="media-heading text-success">SERVICE</h4>
+								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair,Renovation</p>
 							</div>
 						</div>
 						<div class="row">
@@ -98,7 +99,7 @@
 									<div class="overlay">
 										<h3>Electrical</h3>
 										<p>
-											<a href="#">CLICK HERE</a>
+											<a href="/intro/kdvn/electricalsystems">CLICK HERE</a>
 										</p>
 									</div>
 								</div>
@@ -109,7 +110,7 @@
 									<div class="overlay">
 										<h3>Air conditionnal</h3>
 										<p>
-											<a href="#">CLICK HERE</a>
+											<a href="/intro/kdvn/aircon">CLICK HERE</a>
 										</p>
 									</div>
 								</div>
@@ -122,7 +123,7 @@
 									<div class="overlay">
 										<h3>Improve environment</h3>
 										<p>
-											<a href="#">CLICK HERE</a>
+											<a href="/intro/kdvn/environment">CLICK HERE</a>
 										</p>
 									</div>
 								</div>
@@ -133,7 +134,7 @@
 									<div class="overlay">
 										<h3>Housing</h3>
 										<p>
-											<a href="#">CLICK HERE</a>
+											<a href="/intro/kdvn/housing">CLICK HERE</a>
 										</p>
 									</div>
 								</div>
@@ -144,7 +145,7 @@
 									<div class="overlay">
 										<h3>QST</h3>
 										<p>
-											<a href="#">CLICK HERE</a>
+											<a href="/intro/kdvn/what_is_qa">CLICK HERE</a>
 										</p>
 									</div>
 								</div>
