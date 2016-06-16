@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	<!--===header===-->
+	<!--LOGO OHSAS-->
+	<template id="kderp_website_theme_default_thuy2.wrapwrap" name="KDVN Thuy2 header" inherit_id="website.layout">
+		<xpath expr="//div[@class='container']/div[@class='navbar-header']" position="inside">
+			<span><img src=" /website/image/ir.attachment/1886_9df23f4/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/></span>
+		</xpath>
+		<xpath expr="//div[@class='container']" position="before">
+			<div class="container" style="padding-top: 15px; padding-bottom: 15px;">
+				<!--dua logo kinden vietnam len tren-->
+				<div class="brand">
+					<a href="/" class="logo">
+						<img src="/kderp_website_theme_default/static/src/img/logo.png" het-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+					</a>
+					<span><img src=" /website/image/ir.attachment/1886_9df23f4/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/></span>
+				</div>
+				<!-- hien thu ten cong ty va sdt -->
+				<div class="brand-left">
+					<p style="color: #7c7c7c; margin: 0px;">KINDEN VIETNAM CORPORATION</p>
+					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
+						<div >
+							<address style="margin-bottom: 0px;">
+							<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
+							<span class="fa fa-fax"></span> <t t-esc="contact.fax"></t>
+							</address>
+						</div>
+					</t>
+				</div>
+			</div>
+		</xpath>
+		<xpath expr="//header/div[@class='navbar navbar-custom navbar-static-top']/div[@class='container']/div[@class='collapse navbar-collapse navbar-top-collapse']/ul[contains(@class, 'nav navbar-nav navbar-right')]" position="attributes">
+			<attribute name="class">nav navbar-nav</attribute>
+		</xpath>
+	</template>
+
+	<!--bo hien thi menu duoi trong intro KINDEN VIETNAM trong menu abount us-->
+	<template id="kderp_website_theme_default_thuy2.intro_jumbo" name="KDVN Thuy2 Intro" inherit_id="kderp_website.intro_jumbo">
+    		<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']" position="replace">
+			</xpath>
+	</template>
+	<!--sua home page-->
+	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
+		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
+			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
+				<div class="row" style="margin: 30px 10px 20px 10px;">
+					<div class="col-md-5"  style="margin-bottom: 20px;">
+						<div class="media">
+							<div class="media-left media-middle">
+								<a href="/intro/kdvn/aboutus">
+									<img class="media-object" src="/website/image/ir.attachment/664_bbb5efc/datas" alt="ABOUT US" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">ABOUT US</h4>
+								<p>Kinden Vietnam Co., Ltd. is an equipment and facilities provider working to fulfill customers' energy, environmental and communication needs. </p>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle">
+								<a href="#">
+									<img class="media-object" src="/website/image/ir.attachment/586_f566f9f/datas" alt="SITE REFERENCE" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 ><span class="media-heading text-success">SITE REFERENCE</span></h4>
+								<p></p>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle">
+								<a href="#">
+									<img class="media-object" src="	/website/image/ir.attachment/588_58571bf/datas" alt="KINDEN GROUP" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">KINDEN GROUP</h4>
+								<p></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7" style="background: rgba(92, 184, 92, 0.12); padding-top: 20px;">
+						<div class="media" style="margin-bottom: 20px;">
+							<div class="media-left media-middle">
+								<a href="#">
+									<img class="media-object" src="/website/image/ir.attachment/740_0b6bbbc/datas" alt="SERVICE" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">SERVICE</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="thumbnail hovereffect" >
+									<img class="img-responsive" src="/website/image/ir.attachment/674_a84f737/datas" alt="Electrical"/>
+									<div class="overlay">
+										<h3>Electrical</h3>
+										<p>
+											<a href="#">CLICK HERE</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="thumbnail hovereffect" >
+									<img class="img-responsive" src="/website/image/ir.attachment/665_9b3d330/datas" alt="Air conditionnal"/>
+									<div class="overlay">
+										<h3>Air conditionnal</h3>
+										<p>
+											<a href="#">CLICK HERE</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="thumbnail hovereffect" >
+									<img class="img-responsive"  src="/website/image/ir.attachment/668_c12910e/datas" alt="Improve environment"/>
+									<div class="overlay">
+										<h3>Improve environment</h3>
+										<p>
+											<a href="#">CLICK HERE</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="thumbnail hovereffect" >
+									<img class="img-responsive" src="/website/image/ir.attachment/674_a84f737/datas" alt="Housing"/>
+									<div class="overlay">
+										<h3>Housing</h3>
+										<p>
+											<a href="#">CLICK HERE</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="thumbnail hovereffect" >
+									<img class="img-responsive" src="/website/image/ir.attachment/660_a0c2522/datas" alt="QST"/>
+									<div class="overlay">
+										<h3>QST</h3>
+										<p>
+											<a href="#">CLICK HERE</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+</data>
+</openerp>
