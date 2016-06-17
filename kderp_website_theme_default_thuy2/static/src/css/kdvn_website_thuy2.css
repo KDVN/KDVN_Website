@@ -4,6 +4,9 @@
 .brand-left{
     display:none;
 }
+.navbar-header span{
+        display: none;
+    }
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -19,6 +22,7 @@
     .navbar-header {
         display: none;
     }
+
     .navbar-brand{
         display: none;
     }

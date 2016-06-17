@@ -5,7 +5,7 @@
 	<!--LOGO OHSAS-->
 	<template id="kderp_website_theme_default_thuy2.wrapwrap" name="KDVN Thuy2 header" inherit_id="website.layout">
 		<xpath expr="//div[@class='container']/div[@class='navbar-header']" position="inside">
-			<span><img src=" /website/image/ir.attachment/1886_9df23f4/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/></span>
+			<img src=" /website/image/ir.attachment/1886_9df23f4/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
 		</xpath>
 		<xpath expr="//div[@class='container']" position="before">
 			<div class="container" style="padding-top: 15px; padding-bottom: 15px;">
