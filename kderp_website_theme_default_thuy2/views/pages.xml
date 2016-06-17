@@ -36,17 +36,17 @@
 	</template>
 
 	<!--bo hien thi menu duoi trong intro KINDEN VIETNAM trong menu abount us-->
-	<template id="kderp_website_theme_default_thuy2.intro_jumbo" name="KDVN Thuy2 Intro" inherit_id="kderp_website.intro_jumbo">
-    		<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']" position="replace">
-			</xpath>
-	</template>
+	<!--<template id="kderp_website_theme_default_thuy2.intro_jumbo" name="KDVN Thuy2 Intro" inherit_id="kderp_website.intro_jumbo">-->
+    		<!--<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']" position="replace">-->
+			<!--</xpath>-->
+	<!--</template>-->
 	<!--sua home page-->
 	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
 		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
 			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
 				<div class="row" style="margin: 30px 10px 20px 10px;">
 					<div class="col-md-5"  style="margin-bottom: 20px;">
-						<div class="media">
+						<div class="media" style="margin-bottom: 15px;">
 							<div class="media-left media-middle hp-media">
 								<a href="/intro/kdvn/aboutus">
 									<img class="media-object" src="/website/image/ir.attachment/664_bbb5efc/datas" alt="ABOUT US" width="92" height="82"/>
@@ -57,20 +57,30 @@
 								<p>Our corporate overview,history,and policy</p>
 							</div>
 						</div>
-						<div class="media">
-							<div class="media-left media-middle hp-media">
-								<a href="#">
-									<img class="media-object" src="/website/image/ir.attachment/586_f566f9f/datas" alt="SITE REFERENCE" width="92" height="82"/>
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading text-success">SITE REFERENCE</h4>
-								<p>Our site reference in Vietnam</p>
-							</div>
+						<div>
+							<t t-foreach="kdvn_me" t-as="post">
+								<div class="media">
+									<div class="media-left media-middle hp-media">
+										<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
+										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
+										<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
+										<a t-att-href="post_url">
+											<img class="media-object" t-att-src="post.img_url_ids[0].website_url" alt="SITE REFERENCE" width="92" height="82"></img>
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading text-success">
+											<t t-raw="(post.name[:post.name.find(' ')].upper()) if post.name.find(' ') != -1 else post.name.upper()"></t>
+										</h4>
+										<p><t t-raw="(post.summary[:post.summary.find(' ',40)]+ '...') if post.summary.find(' ',40) != -1 else post.summary"></t></p>
+									</div>
+								</div>
+							</t>
 						</div>
+
 						<div class="media">
 							<div class="media-left media-middle hp-media">
-								<a href="#">
+								<a href="http://www.kinden.co.jp/english/example/japan.html">
 									<img class="media-object" src="	/website/image/ir.attachment/588_58571bf/datas" alt="KINDEN GROUP" width="92" height="82"/>
 								</a>
 							</div>
@@ -88,7 +98,7 @@
 								</a>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading text-success">SERVICE</h4>
+								<h4 class="media-heading text-success">KINDEN VIETNAM</h4>
 								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair,Renovation</p>
 							</div>
 						</div>

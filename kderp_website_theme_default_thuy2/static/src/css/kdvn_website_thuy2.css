@@ -164,3 +164,6 @@ h4.media-heading{
 #wrapwrap footer a, footer a:hover {
     color: #fff;
 }
+#wrapwrap header {
+    display: table-header-group;
+}

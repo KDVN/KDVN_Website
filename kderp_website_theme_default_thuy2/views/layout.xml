@@ -30,15 +30,5 @@
 			</li>
 
 		</template>
-
-		<!-- Add divider to menu -->
-		<template id="kderp_website_theme_default_thuy2.submenu_divider" inherit_id="website.submenu" name="Submenu divider thuy2">
-		    <xpath expr="//li" position="before">
-		    	<t t-if="(submenu.user_not_logged or user_id != website.user_id)">
-		    		<li t-if="(not submenu.child_id) and (submenu.divider)" class="divider"></li>
-		    		<li t-if="submenu.divider and submenu.divider_text" class="dropdown-header"><span t-esc="submenu.divider_text"></span></li>
-		    	</t>
-		    </xpath>
-		</template>
 	</data>
 </openerp>
