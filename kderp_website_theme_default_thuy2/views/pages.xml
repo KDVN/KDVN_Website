@@ -46,6 +46,7 @@
 			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
 				<div class="row" style="margin: 30px 10px 20px 10px;">
 					<div class="col-md-5"  style="margin-bottom: 20px;">
+						<!--
 						<div class="media" style="margin-bottom: 15px;">
 							<div class="media-left media-middle hp-media">
 								<a href="/intro/kdvn/aboutus">
@@ -57,6 +58,7 @@
 								<p>Our corporate overview,history,and policy</p>
 							</div>
 						</div>
+						-->
 						<div>
 							<t t-foreach="kdvn_me" t-as="post">
 								<div class="media">
@@ -77,7 +79,6 @@
 								</div>
 							</t>
 						</div>
-
 						<div class="media">
 							<div class="media-left media-middle hp-media">
 								<a href="http://www.kinden.co.jp/english/example/japan.html">
@@ -89,11 +90,25 @@
 								<p>About kinden's oversea group companies</p>
 							</div>
 						</div>
+						<div class="media" style="margin-bottom: 15px;">
+							<div class="media-left media-middle hp-media">
+								<a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN VIETNAM Brochure 2014.pdf">
+									<img class="media-object" src="/website/image/ir.attachment/580_9e3b6d1/datas" alt="CATALOGUE DOWNLOAD" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">CATALOGUE DOWNLOAD</h4>
+								<p>
+									<a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN VIETNAM Brochure 2014.pdf" target="_blank">KINDEN VIETNAM Brochure</a>
+
+								</p>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-7" style="background: rgba(92, 184, 92, 0.12); padding-top: 20px;">
 						<div class="media" style="margin-bottom: 20px;">
 							<div class="media-left media-middle hp-media">
-								<a href="#">
+								<a href="/intro/kdvn/aboutus">
 									<img class="media-object" src="/website/image/ir.attachment/740_0b6bbbc/datas" alt="SERVICE" width="92" height="82"/>
 								</a>
 							</div>

@@ -2,33 +2,5 @@
 <openerp>
 	<data>
 		<!--Hien thi nut Home tren header, thay doi cac menu-->
-		<template id="website.submenu" name="KDVN Submenu thuy2" priority="5">
-			<li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
-				((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
-				 request.httprequest.path == submenu.url) and 'active'
-				">
-				<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
-					<span t-field="submenu.name"/>
-					<!--<span>testing</span>-->
-				</a>
-			</li>
-
-			<li t-if="(submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-attf-class="dropdown{{'' if (submenu.parent_id.name == 'Top Menu') else '-submenu'}} #{
-				((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
-				 request.httprequest.path == submenu.url) and 'active'
-				}">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<span t-field="submenu.name"/>
-					<!--<span>tesing</span>-->
-					<span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
-				</a>
-				<ul class="dropdown-menu" role="menu">
-					<t t-foreach="submenu.child_id" t-as="submenu">
-						<t t-call="website.submenu"/>
-					</t>
-				</ul>
-			</li>
-
-		</template>
 	</data>
 </openerp>
