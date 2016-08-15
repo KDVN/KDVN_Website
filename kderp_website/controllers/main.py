@@ -166,7 +166,21 @@ class KderpWebsite(http.Controller):
   @http.route(['/<submenu>/news/<model("blog.post"):post>', '/<submenu>/news/page/<int:page>/<model("blog.post"):post>'], auth='public', website=True)
   def kdvn_show_post_public(self, post, submenu, subtag='', page=1):
     """Showing post content"""
-    return self.kdvn_posts([], [], [post.id], other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags)])
+    #Loc du lieu QSA chi hien thi khi dang nhap
+    if request.uid == 3:
+      return self.kdvn_posts([], [], [post.id], other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags), ('blog_id', '!=', 'Quality Safety Assurance')])
+    else:
+      return self.kdvn_posts([], [], [post.id], other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags)])
+
+  # Chi hien thi chi tiet QSA khi dang nhap
+  @http.route(['/qa/news/<model("blog.post"):post>', '/qa/news/page/<int:page>/<model("blog.post"):post>'], auth='user', website=True)
+  def kdvn_show_post_qa(self, post, submenu='', subtag='', page=1):
+    """Showing post content"""
+    return self.kdvn_posts([], [], [post.id])
+
+  @http.route(['/qa/news', '/qa/news/page/<int:page>'], auth='user', website=True)
+  def kdvn_list_posts_qa(self, page=1, submenu='', subtag=''):
+    return self.kdvn_posts([self.qa_blog], [], [], '/qa/news', page)
 
   @http.route(['/<submenu>/tag/<subtag>/<model("blog.post"):post>', '/<submenu>/tag/<subtag>/page/<int:page>/<model("blog.post"):post>'], auth='user', website=True)
   def kdvn_show_post_internal(self, post, submenu, subtag='', page=1):
@@ -212,7 +226,7 @@ class KderpWebsite(http.Controller):
 
     return response
 
-  def kdvn_file_library(self, post_id, page, pager_url, template='kderp_website.files'):
+  def kdvn_file_library(self, post_id, page, pager_url, template=['kderp_website.files', 'website.homepage']):
     """
         Handling posts that manage attachments as media:
         - Images

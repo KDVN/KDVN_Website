@@ -36,29 +36,13 @@
 	</template>
 
 	<!--bo hien thi menu duoi trong intro KINDEN VIETNAM trong menu abount us-->
-	<!--<template id="kderp_website_theme_default_thuy2.intro_jumbo" name="KDVN Thuy2 Intro" inherit_id="kderp_website.intro_jumbo">-->
-    		<!--<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']" position="replace">-->
-			<!--</xpath>-->
-	<!--</template>-->
 	<!--sua home page-->
 	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
 		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
 			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
 				<div class="row" style="margin: 30px 10px 20px 10px;">
+					<!--Menu trai-->
 					<div class="col-md-5"  style="margin-bottom: 20px;">
-						<!--
-						<div class="media" style="margin-bottom: 15px;">
-							<div class="media-left media-middle hp-media">
-								<a href="/intro/kdvn/aboutus">
-									<img class="media-object" src="/website/image/ir.attachment/664_bbb5efc/datas" alt="ABOUT US" width="92" height="82"/>
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading text-success">ABOUT US</h4>
-								<p>Our corporate overview,history,and policy</p>
-							</div>
-						</div>
-						-->
 						<div>
 							<t t-foreach="kdvn_me" t-as="post">
 								<div class="media">
@@ -79,6 +63,7 @@
 								</div>
 							</t>
 						</div>
+						<!--Kinden Group-->
 						<div class="media">
 							<div class="media-left media-middle hp-media">
 								<a href="http://www.kinden.co.jp/english/example/japan.html">
@@ -90,6 +75,7 @@
 								<p>About kinden's oversea group companies</p>
 							</div>
 						</div>
+						<!--Download Category-->
 						<div class="media" style="margin-bottom: 15px;">
 							<div class="media-left media-middle hp-media">
 								<a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN VIETNAM Brochure 2014.pdf">
@@ -98,13 +84,19 @@
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading text-success">CATALOGUE DOWNLOAD</h4>
-								<p>
-									<a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN VIETNAM Brochure 2014.pdf" target="_blank">KINDEN VIETNAM Brochure</a>
-
-								</p>
+								<t t-foreach="kdvn_file" t-as="post">
+									<t t-if="post.img_url_ids">
+									<div >
+										<t t-foreach="post.img_url_ids" t-as="file">
+											<p><a t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a></p>
+										</t>
+									</div>
+									</t>
+								</t>
 							</div>
 						</div>
 					</div>
+					<!--Menu phai-->
 					<div class="col-md-7" style="background: rgba(92, 184, 92, 0.12); padding-top: 20px;">
 						<div class="media" style="margin-bottom: 20px;">
 							<div class="media-left media-middle hp-media">
@@ -178,6 +170,62 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</xpath>
+	</template>
+
+	<!-- Tin tuc QSA trong News khong hien thi khi chua dang nhap-->
+	<template id="kderp_website_theme_default_thuy2.news_qsa" name="KDVN Thuy2 News QSA" inherit_id="kderp_website_theme_default_thuy1.list_posts">
+		<xpath expr="//div[@id='list-main']" position="replace">
+			<div id="list-main" t-att-class="customize_class" style="padding-bottom:40px">
+		        <t t-foreach="posts" t-as="post">
+					<t t-if="post.img_url_ids">
+						<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+							<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+							<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+							<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+							<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+						</t>
+					</t>
+					<t t-if="not post.img_url_ids">
+						<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+					</t>
+					<t t-if = "post.blog_id.name != 'Quality Safety Assurance'" >
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4 style="line-height:1.5" >
+
+								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+					<t t-if = "request.uid != 3">
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4 style="line-height:1.5" >
+								<!--<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>-->
+								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+				</t>
 			</div>
 		</xpath>
 	</template>
