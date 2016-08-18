@@ -78,7 +78,7 @@
 						<!--Download Category-->
 						<div class="media" style="margin-bottom: 15px;">
 							<div class="media-left media-middle hp-media">
-								<a href="/website/image/ir.attachment/621_fcac2f1/datas/KINDEN VIETNAM Brochure 2014.pdf">
+								<a href="/intro/download">
 									<img class="media-object" src="/website/image/ir.attachment/580_9e3b6d1/datas" alt="CATALOGUE DOWNLOAD" width="92" height="82"/>
 								</a>
 							</div>
@@ -87,7 +87,7 @@
 								<t t-foreach="kdvn_file" t-as="post">
 									<t t-if="post.img_url_ids">
 									<div >
-										<t t-foreach="post.img_url_ids" t-as="file">
+										<t t-foreach="post.img_url_ids[:2]" t-as="file">
 											<p><a t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a></p>
 										</t>
 									</div>
