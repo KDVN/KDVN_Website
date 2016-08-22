@@ -211,7 +211,7 @@
 							<p><t t-esc="post.summary"></t></p>
 						</div>
 					</t>
-					<t t-if = "request.uid != 3">
+					<t t-if = "request.uid != 3 and post.blog_id.name == 'Quality Safety Assurance'">
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
 							<h4 style="line-height:1.5" >
 								<!--<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>-->
