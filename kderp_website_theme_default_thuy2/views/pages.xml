@@ -205,11 +205,30 @@
 					<t t-if="not post.img_url_ids">
 						<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
 					</t>
+					<t t-if="request.context.get('lang')=='en_US'">
+						<t t-set="list_post_lable" t-value="[
+							('General News','General News'),
+							('IT','IT'),
+							('Quality Safety Assurance','Quality Safety Assurance'),
+							('Electrical Systems','Electrical Systems'),
+							('Mechanical Systems','Mechanical Systems')]"/>
+					</t>
+					<t t-if="request.context.get('lang')=='vi_VN'">
+						<t t-set="list_post_lable" t-value="[
+							('General News','Tin tức chung'),
+							('IT','IT'),
+							('Quality Safety Assurance','Quản lý chất lượng'),
+							('Electrical Systems','Hệ thống điện'),
+							('Mechanical Systems','Hệ thống cơ')]"/>
+					</t>
 					<t t-if = "post.blog_id.name != 'Quality Safety Assurance'" >
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
 							<h4 style="line-height:1.5" >
-
-								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<t t-foreach="list_post_lable" t-as="lable">
+									<t t-if="lable[0]==post.blog_id.name">
+										<span class="label label-default"><t t-esc="lable[1]"></t></span>
+									</t>
+								</t>
 								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
 
 								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
@@ -223,8 +242,11 @@
 					<t t-if = "request.uid != 3 and post.blog_id.name == 'Quality Safety Assurance'">
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
 							<h4 style="line-height:1.5" >
-								<!--<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>-->
-								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<t t-foreach="list_post_lable" t-as="lable">
+									<t t-if="lable[0]==post.blog_id.name">
+										<span class="label label-default"><t t-esc="lable[1]"></t></span>
+									</t>
+								</t>
 								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
 								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
 									<t t-raw="post.name.title()"></t>
