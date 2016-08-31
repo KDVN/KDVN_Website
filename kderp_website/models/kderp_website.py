@@ -53,7 +53,12 @@ class view(osv.osv):
         me = _search_browse([('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems', 'QST'])], order="name")
         #Hien thi file download ra homepage
         kdvn_file = _search_browse([('blog_id', '=', 'Media'),('name','=','Resources Download')], offset=0, limit=4)
-        kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file}
+        #Hien thi translate ra homepage
+        news_trans_ids = self.pool['ir.translation'].search(cr, uid, [('name', 'ilike', 'blog.post')])
+        news_trans = self.pool['ir.translation'].browse(cr, uid, news_trans_ids).sorted(key=lambda b: b.name)
+
+        kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file,
+                     "kdvn_news_trans": news_trans}
 
         if not values:
             values = dict()

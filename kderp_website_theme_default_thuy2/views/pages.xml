@@ -55,10 +55,19 @@
 										</a>
 									</div>
 									<div class="media-body">
-										<h4 class="media-heading text-success">
-											<t t-raw="(post.name[:post.name.find(' ')].upper()) if post.name.find(' ') != -1 else post.name.upper()"></t>
-										</h4>
-										<p><t t-raw="(post.summary[:post.summary.find(' ',40)]+ '...') if post.summary.find(' ',40) != -1 else post.summary"></t></p>
+										<t t-foreach="kdvn_news_trans" t-as="news_trans">
+											<t t-if="post.id == news_trans.res_id and request.context.get('lang') == news_trans.lang" >
+												<t t-if="news_trans.name=='blog.post,name'">
+													<h4 class="media-heading text-success">
+														<t t-raw="news_trans.value.upper()"></t>
+													</h4>
+												</t>
+												<t t-if="news_trans.name=='blog.post,summary'">
+													<p><t t-raw="(news_trans.value[:news_trans.value.find(' ',40)]+ '...') if news_trans.value.find(' ',40) != -1 else news_trans.value"></t></p>
+
+												</t>
+											</t>
+										</t>
 									</div>
 								</div>
 							</t>
@@ -106,7 +115,7 @@
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading text-success">KINDEN VIETNAM</h4>
-								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair,Renovation</p>
+								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair, Renovation</p>
 							</div>
 						</div>
 						<div class="row">
@@ -207,7 +216,7 @@
 									<t t-raw="post.name.title()"></t>
 								</a>
 							</h4>
-							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
 							<p><t t-esc="post.summary"></t></p>
 						</div>
 					</t>
@@ -221,12 +230,48 @@
 									<t t-raw="post.name.title()"></t>
 								</a>
 							</h4>
-							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
 							<p><t t-esc="post.summary"></t></p>
 						</div>
 					</t>
 				</t>
 			</div>
+		</xpath>
+	</template>
+
+	<!--Translate KINDEN VIETNAM-->
+	<template id="kderp_website_theme_default_thuy2.kdvn" name="KDVN Thuy2 KDVN" inherit_id="kderp_website.intro_jumbo">
+		<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']/ul[@class='nav navbar-nav']" position="replace">
+			<t t-if="request.context.get('lang')=='en_US'">
+				<t t-set="abt_menus" t-value="[('aboutus','About us'),
+					('electricalsystems','Electrical'),
+					('aircon','Air conditional'),
+					('environment','Improve environment'),
+					('housing','Housing'),
+					('what_is_qa','QST')]">
+				</t>
+			</t>
+			<t t-if="request.context.get('lang')=='vi_VN'">
+				<t t-set="abt_menus" t-value="[('aboutus','Giới thiệu'),
+					('electricalsystems','Hệ thống điện'),
+					('aircon','Hệ thống cơ'),
+					('environment','Bảo trì'),
+					('housing','Hệ thống khác'),
+					('what_is_qa','QL chất lượng')]">
+				</t>
+			</t>
+			<ul class="nav navbar-nav">
+				<t t-foreach="abt_menus" t-as="submenu">
+					<li  t-att-class="(request.httprequest.path.endswith('/' and submenu[0])) and 'active'"><a t-attf-href="/intro/kdvn/{{submenu[0]}}"><t t-esc="submenu[1]"></t></a></li>
+				</t>
+			</ul>
+		</xpath>
+	</template>
+
+	<!--Sua lai dinh dang ngay trong bai viet-->
+	<template id="kderp_website_theme_default_thuy2.show_post" name="KDVN Thuy2 Show Post" inherit_id="kderp_website_theme_default_thuy1.show_post">
+		<xpath expr="//div[@class='container show-post']/div[@class='col-sm-10']/div[@class='blog-header']/p[@class='blog-post-meta']" position="replace">
+			<p class="blog-post-meta"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
 		</xpath>
 	</template>
 </data>
