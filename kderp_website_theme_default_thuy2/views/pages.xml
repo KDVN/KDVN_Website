@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data>
-	<!--===header===-->
+	<!--=== header ===-->
 	<!--LOGO OHSAS-->
 	<template id="kderp_website_theme_default_thuy2.wrapwrap" name="KDVN Thuy2 header" inherit_id="website.layout">
 		<xpath expr="//div[@class='container']/div[@class='navbar-header']" position="inside">
