@@ -167,9 +167,11 @@ class KderpWebsite(http.Controller):
   def kdvn_show_post_public(self, post, submenu, subtag='', page=1):
     """Showing post content"""
     #Loc du lieu QSA chi hien thi khi dang nhap
-    if request.uid == 3:
+    #Neu la publish user thi khong hien thi noi dung QSA
+    if request.uid == request.website.user_id.id:
       return self.kdvn_posts([], [], [post.id], other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags), ('blog_id', '!=', 'Quality Safety Assurance')])
     else:
+      # Neu la login user thi hien thi noi dung cac QSA ma khong co trong tags
       return self.kdvn_posts([], [], [post.id], other_domain_search=[('tag_ids.name', 'not in', self.qa_internal_tags)])
 
   # Chi hien thi chi tiet QSA khi dang nhap

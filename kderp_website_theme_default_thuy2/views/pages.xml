@@ -239,7 +239,7 @@
 							<p><t t-esc="post.summary"></t></p>
 						</div>
 					</t>
-					<t t-if = "request.uid != 3 and post.blog_id.name == 'Quality Safety Assurance'">
+					<t t-if = "request.uid != request.website.user_id.id and post.blog_id.name == 'Quality Safety Assurance'">
 						<div class="list-group-item" style="border-left:0px;border-right:0px;">
 							<h4 style="line-height:1.5" >
 								<t t-foreach="list_post_lable" t-as="lable">
