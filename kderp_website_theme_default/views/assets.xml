@@ -30,7 +30,7 @@
 		<!-- Favicon for KDVN Site -->
 		<template id="kderp_website.favicon" inherit_id="website.layout" name="KDVN favicon">
 			<xpath expr="//head//link" position="after">
-				<link rel="shortcut icon" href="/website/image/ir.attachment/628_01ef479/datas/favicon.ico" type="image/x-icon"></link>
+				<link rel="shortcut icon" href="/website/image/ir.attachment/1787_273fbc4/datas/favicon.ico" type="image/x-icon"></link>
 			</xpath>
 		</template>
 
