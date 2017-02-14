@@ -121,59 +121,54 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="thumbnail hovereffect" >
-									<img class="img-responsive" src="/website/image/ir.attachment/1769_6ebe4f7/datas" alt="Electrical"/>
-									<div class="overlay">
-										<h3>Electrical</h3>
-										<p>
-											<a href="/intro/kdvn/electricalsystems">CLICK HERE</a>
-										</p>
-									</div>
+									<a href="/intro/kdvn/electricalsystems">
+										<img class="img-responsive" src="/website/image/ir.attachment/1769_6ebe4f7/datas" alt="Electrical"/>
+										<div class="overlay">
+											<h3>Electrical</h3>
+										</div>
+									</a>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="thumbnail hovereffect" >
-									<img class="img-responsive" src="	/website/image/ir.attachment/1774_16b170f/datas" alt="Air conditionnal"/>
-									<div class="overlay">
-										<h3>Air conditionnal</h3>
-										<p>
-											<a href="/intro/kdvn/aircon">CLICK HERE</a>
-										</p>
-									</div>
+									<a href="/intro/kdvn/aircon">
+										<img class="img-responsive" src="	/website/image/ir.attachment/1774_16b170f/datas" alt="Air conditionnal"/>
+										<div class="overlay">
+											<h3>Air conditionnal</h3>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-4">
 								<div class="thumbnail hovereffect" >
-									<img class="img-responsive"  src="	/website/image/ir.attachment/1777_4c07c00/datas" alt="Improve environment"/>
-									<div class="overlay">
-										<h3>Improve environment</h3>
-										<p>
-											<a href="/intro/kdvn/environment">CLICK HERE</a>
-										</p>
-									</div>
+									<a href="/intro/kdvn/environment">
+										<img class="img-responsive"  src="	/website/image/ir.attachment/1777_4c07c00/datas" alt="Improve environment"/>
+										<div class="overlay">
+											<h3>Improve environment</h3>
+										</div>
+									</a>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="thumbnail hovereffect" >
-									<img class="img-responsive" src="/website/image/ir.attachment/1783_3d71071/datas" alt="Housing"/>
-									<div class="overlay">
-										<h3>Housing</h3>
-										<p>
-											<a href="/intro/kdvn/housing">CLICK HERE</a>
-										</p>
-									</div>
+									<a href="/intro/kdvn/housing">
+										<img class="img-responsive" src="/website/image/ir.attachment/1783_3d71071/datas/300x400" alt="Housing"/>
+										<div class="overlay">
+											<h3>Housing</h3>
+										</div>
+									</a>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="thumbnail hovereffect" >
-									<img class="img-responsive" src="/website/image/ir.attachment/1780_9eab116/datas" alt="QST"/>
-									<div class="overlay">
-										<h3>QST</h3>
-										<p>
-											<a href="/intro/kdvn/what_is_qa">CLICK HERE</a>
-										</p>
-									</div>
+									<a href="/intro/kdvn/what_is_qa">
+										<img class="img-responsive" src="/website/image/ir.attachment/1780_9eab116/datas" alt="QST"/>
+										<div class="overlay">
+											<h3>QST</h3>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>
