@@ -268,7 +268,7 @@
 			<field name="name">KINDEN JAPAN</field>
 			<field name="new_window">True</field>
 			<field name="parent_id" ref="website.main_menu" />
-			<field name="url">http://www.kinden.co.jp</field>
+			<field name="url">http://www.kinden.co.jp/english/index.html</field>
 			<field name="sequence" type="int">70</field>
 		</record>
 		<!-- Delete unused menus: su dung search de tranh bao loi khi ban ghi da duoc xoa -->
