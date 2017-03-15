@@ -75,9 +75,29 @@
 					<field name="summary" string="Summary"/>
 					<field name="tag_ids" widget="many2many_tags" placeholder="Tags..." />
 					<!--<field name="content" widget="text_html"/>-->
-          <field name="content" widget="text_ckeditor4" />
-
+          			<field name="content" widget="text_ckeditor4" />
 				</group>
+				</form>
+			</field>
+		</record>
+
+        <record model="ir.ui.view" id="kdvn_res_partner_form">
+			<field name="name">res.partner</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<form string="Res Partner">
+					<field name="name" position='replace'>
+						<field name="name"/>
+					</field>
+					<field name="street" position='replace'>
+						<field name="street"/>
+					</field>
+					<field name="street2" position='replace'>
+						<field name="street2"/>
+					</field>
+					<field name="city" position='replace'>
+						<field name="city"/>
+					</field>
 				</form>
 			</field>
 		</record>

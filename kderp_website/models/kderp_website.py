@@ -127,3 +127,11 @@ class event(osv.osv):
         if event.address_id:
             return self.browse(cr, SUPERUSER_ID, ids[0], context=context).address_id.google_map_link()
         return None
+		
+class Partner(models.Model):
+	_inherit = 'res.partner'
+
+	name = fields.Char(string="Name", translate=True)
+	street = fields.Char(string="Address", translate=True)
+	street2 = fields.Char(string="Address2", translate=True)
+	city = fields.Char(string="City", translate=True)
