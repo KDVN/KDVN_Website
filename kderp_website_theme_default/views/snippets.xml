@@ -141,7 +141,7 @@
         <section class="oe_snippet_body">
           <div class="container">
             <div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/1807_c7b0433/datas) center center; background-size:contain">
-              <h1><span class="h2 text-danger">Working for one of top 50 most desired companies?</span></h1>
+              <h1 ><span class="h2 text-success" style="background-color: rgba(238, 238, 238, 0.58);">Working for one of top 50 most desired companies?</span></h1>
               <a class="btn btn-primary btn-lg" href="#">Apply Now!</a>
             </div>
           </div>
