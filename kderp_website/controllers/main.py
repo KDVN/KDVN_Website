@@ -269,7 +269,8 @@ class KderpWebsite(http.Controller):
 
   @http.route('/intro/jobs', auth='public', website=True)
   def kdvn_job(self):
-    return http.request.render('kderp_website.page_job')
+    posts = http.request.env['blog.post'].search([('blog_id', '=', 'Jobs')])
+    return http.request.render('kderp_website.page_job', {'posts': posts})
   #
   # @http.route(['/intro/testimonials', '/intro/testimonials/<int:cur_index>'], auth="public", website=True)
   # def kdvn_testi(self, cur_index=0):

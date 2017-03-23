@@ -577,6 +577,22 @@
 				<t t-set="title">Our jobs</t>
 				<t t-set="jumbo" t-value="'job_jumbo'"></t>
 				<t t-call="kderp_website.show_jumbo"></t>
+				<div class="container">
+					<div class="row">
+						<t t-foreach="posts" t-as="post">
+							<div class="container">
+								<div class="col-md-offset-2 col-md-8">
+									<div class="row">
+										<div class="col-md-6"><a target="_blank" href="https://www.vietnamworks.com/ky-su-dien-237-1-3-775509-jv/">
+											<h4><span class="text-success text-left"><t t-raw="post.name.title()"></t></span></h4>
+										</a></div>
+										<div class="col-md-6 text-right"><span t-field="post.create_date" t-field-options='{"format":"dd-MM-y"}' class="text-success"></span></div>
+									</div>
+								</div>
+							</div>
+						</t>
+					</div>
+				</div>
 			</t>
 		</template>
 
@@ -630,7 +646,7 @@
 					<img class="img-rounded mb32" src="/kderp_website_theme_default/static/src/img/year_end_party.jpg" width="260"></img>
 				</div>
 				<div class="col-md-12">
-					<img class="img-rounded mb32" src="/website/image/ir.attachment/743_1efe281/datas" width="260"></img>
+					<img class="img-rounded mb32" src="/website/image/ir.attachment/1796_c6823f1/datas" width="260"></img>
 				</div>
 			</xpath>
 		</template>
