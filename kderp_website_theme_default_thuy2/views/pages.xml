@@ -106,7 +106,7 @@
 						</div>
 					</div>
 					<!--Menu phai-->
-					<div class="col-md-7" style="background: rgba(92, 184, 92, 0.12); padding: 5px 5px 0px 5px;">
+					<div class="col-md-7 home-menu-right">
 						<div class="media" style="margin-bottom: 20px;">
 							<div class="media-left media-middle hp-media">
 								<a href="/intro/kdvn/aboutus">
