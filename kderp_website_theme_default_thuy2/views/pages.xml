@@ -5,7 +5,8 @@
 	<!--LOGO OHSAS-->
 	<template id="kderp_website_theme_default_thuy2.wrapwrap" name="KDVN Thuy2 header" inherit_id="website.layout">
 		<xpath expr="//div[@class='container']/div[@class='navbar-header']" position="inside">
-			<img src="/website/image/ir.attachment/1800_ce1e93d/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
+			<img src="/website/image/ir.attachment/2088_46ca30e/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
+			<img src="/website/image/ir.attachment/2087_8132346/datas/50x50" alt="Logo of ISO" title="ISO"/>
 		</xpath>
 		<xpath expr="//div[@class='container']" position="before">
 			<div class="container" style="padding-top: 15px; padding-bottom: 15px;">
@@ -14,7 +15,10 @@
 					<a href="/" class="logo">
 						<img src="/kderp_website_theme_default/static/src/img/logo.png" het-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
 					</a>
-					<span><img src="/website/image/ir.attachment/1800_ce1e93d/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/></span>
+					<span>
+						<img src="/website/image/ir.attachment/2088_46ca30e/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
+						<img src="/website/image/ir.attachment/2087_8132346/datas/50x50" alt="Logo of ISO" title="ISO"/>
+					</span>
 				</div>
 				<!-- hien thu ten cong ty va sdt -->
 				<div class="brand-left">
