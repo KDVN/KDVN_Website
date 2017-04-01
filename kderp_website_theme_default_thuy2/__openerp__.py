@@ -14,6 +14,7 @@
             'views/pages.xml',
             'views/data.xml',
             'views/assets.xml',
+            'views/res_flag.xml',
             ],
     
     #Information

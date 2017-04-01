@@ -22,10 +22,24 @@
 				</div>
 				<!-- hien thu ten cong ty va sdt -->
 				<div class="brand-left">
-					<p style="margin: 0px;"><b>KINDEN VIETNAM CO., LTD</b></p>
+
 					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
 						<div >
-							<address style="margin-bottom: 0px;">
+							<ul class="list-inline js_language_selector" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+								<li><b>KINDEN VIETNAM CO., LTD</b></li>
+								<li t-foreach="languages" t-as="lg">
+									<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+									 <img t-att-src="website.image_url(lg[2], 'flag_image')" height="20" width="30"  t-att-title="lg[1]" />
+									</a>
+								</li>
+								<li groups="base.group_website_publisher">
+									<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+									<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+									</a>
+								</li>
+							</ul>
+							<address style="margin-bottom: 0px; margin-right: 5px;">
 							<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
 							<span class="fa fa-fax"></span> <t t-esc="contact.fax"></t>
 							</address>
