@@ -63,31 +63,33 @@
 					<div class="col-md-5"  style="margin-top: 5px;">
 						<div>
 							<t t-foreach="kdvn_me" t-as="post">
-								<div class="media">
-									<div class="media-left media-middle hp-media">
-										<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
-										<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
-										<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
-										<a t-att-href="post_url">
-											<img class="media-object" t-att-src="post.img_url_ids[0].website_url" alt="SITE REFERENCE" width="92" height="82"></img>
-										</a>
-									</div>
-									<div class="media-body">
-										<t t-foreach="kdvn_news_trans" t-as="news_trans">
-											<t t-if="post.id == news_trans.res_id and request.context.get('lang') == news_trans.lang" >
-												<t t-if="news_trans.name=='blog.post,name'">
-													<h4 class="media-heading text-success">
-														<t t-raw="news_trans.value.upper()"></t>
-													</h4>
-												</t>
-												<t t-if="news_trans.name=='blog.post,summary'">
-													<p><t t-raw="(news_trans.value[:news_trans.value.find(' ',40)]+ '...') if news_trans.value.find(' ',40) != -1 else news_trans.value"></t></p>
+								<t t-if="post.name != 'QST'">
+									<div class="media">
+										<div class="media-left media-middle hp-media">
+											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
+											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
+											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
+											<a t-att-href="post_url">
+												<img class="media-object" t-att-src="post.img_url_ids[0].website_url" alt="SITE REFERENCE" width="92" height="82"></img>
+											</a>
+										</div>
+										<div class="media-body">
+											<t t-foreach="kdvn_news_trans" t-as="news_trans">
+												<t t-if="post.id == news_trans.res_id and request.context.get('lang') == news_trans.lang" >
+													<t t-if="news_trans.name=='blog.post,name'">
+														<h4 class="media-heading text-success">
+															<t t-raw="news_trans.value.upper()"></t>
+														</h4>
+													</t>
+													<t t-if="news_trans.name=='blog.post,summary'">
+														<p><t t-raw="(news_trans.value[:news_trans.value.find(' ',40)]+ '...') if news_trans.value.find(' ',40) != -1 else news_trans.value"></t></p>
 
+													</t>
 												</t>
 											</t>
-										</t>
+										</div>
 									</div>
-								</div>
+								</t>
 							</t>
 						</div>
 						<!--Kinden Group-->
@@ -158,6 +160,7 @@
 								</div>
 							</div>
 						</div>
+						<!--
 						<div class="row">
 							<div class="col-md-offset-3 col-md-6" style="margin-bottom: -15px;">
 								<div class="thumbnail hovereffect" >
@@ -170,6 +173,7 @@
 								</div>
 							</div>
 						</div>
+						-->
 					</div>
 				</div>
 			</div>
