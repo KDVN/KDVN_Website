@@ -60,8 +60,9 @@
 				<field name="url">#</field>
 				<field name="sequence" type="int">35</field>
 			</record>
+
 		<!--Chuyen sub menu Jobs tu top menu Abount Us thanh top menu Recruitment-->
-		<record id="kderp_website_theme_default.menu_re" model="website.menu">
+		<record id="kderp_website_theme_default.jobs" model="website.menu">
 			<field name="name">Recruitment</field>
 			<field name="parent_id" ref="website.main_menu"/>
 			<field name="url">/intro/jobs</field>
