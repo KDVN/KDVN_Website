@@ -340,5 +340,44 @@
 		</div>
 		</xpath>
 	</template>
+
+	<!--Them form vao Contach Us-->
+	<template id="kderp_website_theme_default_thuy2.contacts" name="KDVN Thuy2 Contacts" inherit_id="kderp_website.contacts">
+		<xpath expr="//div[@class='container']" position="before">
+			<div class="container">
+
+				<h2 class="text-danger" style="margin-top: 20px; text-align: center;">Contact Form</h2>
+				<div class="row">
+					<form action="/crm/contactus" method="post" class="form-horizontal" enctype="multipart/form-data" >
+						<div class="col-md-6">
+							<div t-attf-class="form-group #{error and 'contact_name' in error and 'has-error' or ''}" >
+								<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
+							</div>
+							<div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}" >
+								<input placeholder="Phone Number" type="text" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
+							</div>
+							<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
+								<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
+							</div>
+							<div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}" >
+								<input placeholder="Subject" type="text" class="form-control" name="name" t-attf-value="#{name or ''}"/>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}" >
+								<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 120px" required="True"><t t-esc="description or ''"/></textarea>
+							</div>
+							<div class="form-group" >
+								<button class="btn btn-primary btn-lg" style="width: 100%;background-color: green;">Send</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<hr size="2px" align="center" style="border-top: 1px solid #5cb85c;" />
+			</div>
+
+		</xpath>
+	</template>
 </data>
 </openerp>
