@@ -289,5 +289,56 @@
 			<p class="blog-post-meta"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
 		</xpath>
 	</template>
+
+	<!--Sua lai duong dan thanh dieu huong-->
+	<template id="kderp_website_theme_default_thuy2.breadcrumb" name="KDVN Thuy2 Breadcrumb" inherit_id="kderp_website.breadcrumb">
+		<xpath expr="//div[@class='container']" position="replace">
+		<div class="container">
+			<div class="row mt8">
+				<div class="col-sm-12">
+					<ol class="breadcrumb mb0 bcstyle">
+						<li>
+							<a t-attf-href="/page/homepage">Home</a>
+						</li>
+						<li>
+							<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+								<t t-if="parent_url.url in request.httprequest.path and not parent_url.child_id">
+									<a t-attf-href="{{parent_url.url}}"><t t-esc="parent_url.name"/></a>test
+								</t>
+								<t t-if="parent_url.url in request.httprequest.path and parent_url.child_id">
+									<t t-esc="parent_url.name"/>
+								</t>
+
+								<t t-if="parent_url.url == '/ba' and
+										(('/es' in request.httprequest.path and parent_url.child_id) or ('/ms' in request.httprequest.path and parent_url.child_id))">
+									<t t-esc="parent_url.name"/>
+								</t>
+
+							</t>
+						</li>
+						<li>
+							<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+								<t t-if="parent_url.url != '/ba'">
+									<t t-foreach="parent_url.child_id" t-as="url">
+										<t t-if="url.url in request.httprequest.path and parent_url.child_id">
+											<a t-attf-href="{{parent_url.url+'/news'}}"><t t-esc="url.name"/></a>
+										</t>
+									</t>
+								</t>
+								<t t-if="parent_url.url == '/ba'">
+									<t t-foreach="parent_url.child_id" t-as="url">
+										<t t-if="url.url in request.httprequest.path and parent_url.child_id">
+											<a t-attf-href="{{url.url}}"><t t-esc="url.name"/></a>
+										</t>
+									</t>
+								</t>
+							</t>
+						</li>
+					</ol>
+				 </div>
+			</div>
+		</div>
+		</xpath>
+	</template>
 </data>
 </openerp>

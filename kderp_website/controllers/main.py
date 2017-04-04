@@ -134,7 +134,8 @@ class KderpWebsite(http.Controller):
       'qa': [self.qa_blog],
       'it': [self.it_blog],
       'es': [self.es_blog],
-      'ms': [self.ms_blog]
+      'ms': [self.ms_blog],
+      'ba': [self.es_blog, self.ms_blog]
     }
     subtag_dic = {
       'all': [],
