@@ -15,6 +15,7 @@
             'views/data.xml',
             'views/assets.xml',
             'views/res_flag.xml',
+            'views/contact_us.xml',
             ],
     
     #Information
