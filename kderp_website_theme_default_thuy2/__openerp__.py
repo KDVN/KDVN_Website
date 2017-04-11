@@ -17,6 +17,7 @@
             'views/res_flag.xml',
             'views/contact_us.xml',
             'views/snippets.xml',
+            'views/hr.xml',
             ],
     
     #Information

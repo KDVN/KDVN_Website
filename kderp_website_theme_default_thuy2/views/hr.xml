@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<!-- Show KDVN Jobs-->
+	<record id="view_kdvn_hr_job_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="website_hr_recruitment.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <!-- add state field in header -->
+           	<field name='department_id' position='before'>
+                <field name="date_input"/>
+                <field name="date_deadline"/>
+            </field>
+        </field>
+    </record>
+	
+	<record model="ir.actions.act_window" id="kdvn_jobs_act">
+		<field name="name">Job Positions</field>
+		<field name="res_model">hr.job</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_applications_act">
+		<field name="name">Applications</field>
+		<field name="res_model">hr.applicant</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+	
+	<record model="ir.actions.act_window" id="kdvn_departments_act">
+		<field name="name">Departments</field>
+		<field name="res_model">hr.department</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<menuitem id="kdvn_menu_recruitment" name="Recruitment" parent="kderp_website.main_kdvn_website" sequence="28"/>
+	<menuitem id="kdvn_job" name="Job Positions" parent="kdvn_menu_recruitment" action="kdvn_jobs_act"/>
+	<menuitem id="kdvn_applications" name="Applications" parent="kdvn_menu_recruitment" action="kdvn_applications_act"/>
+	
+	<menuitem id="kdvn_departments" name="Departments" parent="kderp_website.kdvn_website_config" action="kdvn_departments_act"/>
+</data>
+</openerp>

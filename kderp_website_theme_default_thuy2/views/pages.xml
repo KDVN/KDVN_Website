@@ -460,5 +460,18 @@
 		</t>
 		
 	</template>
+	
+	<!--Ke thua template Jobs-->
+	<template id="kderp_website_theme_default_thuy2.jobs_index" name="KDVN Thuy2 Jobs Index" inherit_id="website_hr_recruitment.index">
+		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mb16']/div[@class='container']" position="replace">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center mb16" data-snippet-id="colmd">
+						<h2>Our Job Offers</h2>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
 </data>
 </openerp>
