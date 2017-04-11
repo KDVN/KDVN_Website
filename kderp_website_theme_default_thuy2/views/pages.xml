@@ -400,8 +400,8 @@
 								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
 							</div>
 							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#18a152; text-transform: uppercase;"><div t-field="post.name"></div></h5>
-								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;"><t t-raw="post.content"></t></p>
+								<h5 style="color:#18a152; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
 							</div>
 						</div>
 					</t>
@@ -439,8 +439,8 @@
 								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
 							</div>
 							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#18a152; text-transform: uppercase;"><div t-field="post.name"></div></h5>
-								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;"><t t-raw="post.content"></t></p>
+								<h5 style="color:#18a152; text-transform: uppercase;text-align: center;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
 							</div>
 						</div>
 					</t>
