@@ -49,7 +49,7 @@
 			<record id="menu_ongoing_pj" model="website.menu">
 				<field name="name">On Going Project</field>
 				<field name="parent_id" ref="menu_ba" />
-				<field name="url">#</field>
+				<field name="url">/pj/ongoing</field>
 				<field name="divider" eval="True" />
 				<field name="divider_text">Project</field>
 				<field name="sequence" type="int">30</field>
@@ -57,7 +57,7 @@
 			<record id="menu_comleted_pj" model="website.menu">
 				<field name="name">Completed Project</field>
 				<field name="parent_id" ref="menu_ba" />
-				<field name="url">#</field>
+				<field name="url">/pj/completed</field>
 				<field name="sequence" type="int">35</field>
 			</record>
 

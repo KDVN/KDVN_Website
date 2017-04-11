@@ -379,5 +379,86 @@
 
 		</xpath>
 	</template>
+	
+	<!--Them template moi Project OnGoing-->
+	<template id="kderp_website_theme_default_thuy2.pj_ongoing_jumbo" name="Project On Going Jumbotron">
+		<div class="oe_structure pj_ongoing_jumbo"></div>
+		<t t-raw="0"></t>
+	</template>
+	
+	<template id="kderp_website_theme_default_thuy2.page_pj_ongoing" name="KDVN Project On Going">
+		<t t-call="website.layout">
+			<t t-set="title">Project On Going</t>
+			<t t-call="kderp_website_theme_default_thuy2.pj_ongoing_jumbo"></t>
+			<div class="container">
+				<div class="row">
+					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#18a152;">Featured Projects</h3>
+					<t t-foreach="posts" t-as="post">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+							</div>
+							<div style ="position: relative; height: 70px; margin-bottom: 10px">
+								<h5 style="color:#18a152; text-transform: uppercase;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;"><t t-raw="post.content"></t></p>
+							</div>
+						</div>
+					</t>
+				</div>
+			</div>
+			<t t-if="pager">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<t t-call="website.pager">
+								<t t-set="classname">pull-left</t>
+							</t>
+						</div>
+					</div>
+				</div>
+			</t>
+		</t>
+	</template>
+	<!--Them template moi Project Completed-->
+	<template id="kderp_website_theme_default_thuy2.pj_completed_jumbo" name="Project Completed Jumbotron">
+		<div class="oe_structure pj_completed_jumbo"></div>
+		<t t-raw="0"></t>
+	</template>
+	<template id="kderp_website_theme_default_thuy2.page_pj_completed" name="KDVN Project Completed">
+		<t t-call="website.layout">
+			<t t-set="title">Project Completed</t>
+			<t t-call="kderp_website_theme_default_thuy2.pj_completed_jumbo"></t>
+			<div class="container">
+				<div class="row">
+					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#18a152;">Completed Projects</h3>
+					<t t-foreach="posts" t-as="post">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+							</div>
+							<div style ="position: relative; height: 70px; margin-bottom: 10px">
+								<h5 style="color:#18a152; text-transform: uppercase;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;"><t t-raw="post.content"></t></p>
+							</div>
+						</div>
+					</t>
+				</div>
+			</div>
+			<t t-if="pager">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<t t-call="website.pager">
+								<t t-set="classname">pull-left</t>
+							</t>
+						</div>
+					</div>
+				</div>
+			</t>
+		</t>
+		
+	</template>
 </data>
 </openerp>
