@@ -380,16 +380,16 @@
 		</xpath>
 	</template>
 	
-	<!--Them template moi Project OnGoing-->
-	<template id="kderp_website_theme_default_thuy2.pj_ongoing_jumbo" name="Project On Going Jumbotron">
-		<div class="oe_structure pj_ongoing_jumbo"></div>
+	<!--Them template moi Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.pj_featured_jumbo" name="Project On Going Jumbotron">
+		<div class="oe_structure pj_featured_jumbo"></div>
 		<t t-raw="0"></t>
 	</template>
 	
-	<template id="kderp_website_theme_default_thuy2.page_pj_ongoing" name="KDVN Project On Going">
+	<template id="kderp_website_theme_default_thuy2.page_pj_featured" name="KDVN Project On Going">
 		<t t-call="website.layout">
 			<t t-set="title">Project On Going</t>
-			<t t-call="kderp_website_theme_default_thuy2.pj_ongoing_jumbo"></t>
+			<t t-call="kderp_website_theme_default_thuy2.pj_featured_jumbo"></t>
 			<div class="container">
 				<div class="row">
 					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;

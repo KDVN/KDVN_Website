@@ -2,12 +2,12 @@
 <openerp>
 <data>
 
-  <template id="kderp_website.jumbo_project_ongoing" inherit_id="website.snippets" name="Jumbo Project Ongoing">
+  <template id="kderp_website.jumbo_project_featured" inherit_id="website.snippets" name="Jumbo Project Featured">
     <xpath expr="//div[@id='snippet_structure']" position="inside">
       <div>
         <div class="oe_snippet_thumbnail">
           <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
-          <span class="oe_snippet_thumbnail_title">Jumbo Project Ongoing</span>
+          <span class="oe_snippet_thumbnail_title">Jumbo Project Featured</span>
         </div>
         <section class="oe_snippet_body">
           <div class="container">
