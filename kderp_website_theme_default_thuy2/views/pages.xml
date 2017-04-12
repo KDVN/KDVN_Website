@@ -410,9 +410,9 @@
 			<t t-if="pager">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-12" style="text-align: center;">
 							<t t-call="website.pager">
-								<t t-set="classname">pull-left</t>
+								<t t-set="classname"></t>
 							</t>
 						</div>
 					</div>
@@ -449,9 +449,9 @@
 			<t t-if="pager">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-12" style="text-align: center;">
 							<t t-call="website.pager">
-								<t t-set="classname">pull-left</t>
+								<t t-set="classname"></t>
 							</t>
 						</div>
 					</div>
