@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 	<data>
-		<!--Hien thi nut Home tren header, thay doi cac menu-->
+		<!-- Ke thua module kderp_website de bo lua chon ngon ngu o footer-->
+		<template id="kderp_website_theme_default_thuy2.layout_footer_copyright" inherit_id="kderp_website.layout_footer_copyright" priority="10" name="KDVN Thuy2 Footer Copyright">
+			<xpath expr="//div[@class='container mb8 text-kdvn']" position="replace">
+				<div class="container mb8 text-kdvn">
+					<div class="row" style="border-top: 1px solid;">
+						<div class="col-md-8">
+				            <div class="pull-left" itemscope="itemscope" itemtype="http://schema.org/Organization">
+			    	            Copyright <span class="fa fa-copyright"></span> <span t-field="res_company.name" itemprop="name">Company name</span>
+			        	    </div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</template>
 	</data>
 </openerp>
