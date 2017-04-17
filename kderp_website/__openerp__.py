@@ -14,7 +14,7 @@
     'website': "http://www.kinden.jp.co",
     'category': "Test",
     'version': "0.1",
-    'depends': ['web', 'website', 'website_partner', 'website_blog'],
+    'depends': ['web', 'website', 'website_partner', 'website_blog', 'website_crm'],
     'data': [
              'security/security.xml',
              'security/ir.model.access.csv',
