@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 	<data>
-		<template id="show_post_style_thuy2" name="Show Post Style" inherit_id="website.assets_frontend">
+		<template id="show_post_style_thuy2" name="Show Post Style" inherit_id="kderp_website_theme_default.theme_style">
 		    <xpath expr="link[last()]" position="after">
 				<link href="/kderp_website_theme_default_thuy2/static/src/css/kdvn_website_thuy2.css" rel="stylesheet"/>
 		    </xpath>
