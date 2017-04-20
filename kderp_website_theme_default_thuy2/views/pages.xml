@@ -95,7 +95,7 @@
 						<!--Kinden Group-->
 						<div class="media">
 							<div class="media-left media-middle hp-media">
-								<a href="http://www.kinden.co.jp/english/index.html">
+								<a href="http://www.kinden.co.jp/english/index.html" target="_blank">
 									<img class="media-object" src="/website/image/ir.attachment/1793_ccc5901/datas" alt="KINDEN GROUP" width="92" height="82"/>
 								</a>
 							</div>
@@ -264,15 +264,13 @@
 			<t t-if="request.context.get('lang')=='en_US'">
 				<t t-set="abt_menus" t-value="[('aboutus','About us'),
 					('electricalsystems','Electrical'),
-					('aircon','Mechanical'),
-					('what_is_qa','QST')]">
+					('aircon','Mechanical')]">
 				</t>
 			</t>
 			<t t-if="request.context.get('lang')=='vi_VN'">
 				<t t-set="abt_menus" t-value="[('aboutus','Giới thiệu'),
 					('electricalsystems','Hệ thống điện'),
-					('aircon','Hệ thống cơ'),
-					('what_is_qa','QL chất lượng')]">
+					('aircon','Hệ thống cơ')]">
 				</t>
 			</t>
 			<ul class="nav navbar-nav">
