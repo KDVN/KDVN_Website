@@ -343,12 +343,11 @@
 
 	<!--Them form vao Contach Us-->
 	<template id="kderp_website_theme_default_thuy2.contacts" name="KDVN Thuy2 Contacts" inherit_id="kderp_website.contacts">
-		<xpath expr="//div[@class='container']" position="before">
+		<xpath expr="//div[@class='container']" position="replace">
 			<div class="container">
-
 				<h2 class="text-danger" style="margin-top: 20px; text-align: center;">Contact Form</h2>
 				<div class="row">
-					<form action="/crm/contactus" method="post" class="form-horizontal" enctype="multipart/form-data" >
+					<form action="/crm/contactus" method="post" class="form-horizontal" style = "margin-right: 0px; margin-left: 0px;" enctype="multipart/form-data" >
 						<div class="col-md-6">
 							<div t-attf-class="form-group #{error and 'contact_name' in error and 'has-error' or ''}" >
 								<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
@@ -359,24 +358,52 @@
 							<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
 								<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
 							</div>
+						</div>
+						<div class="col-md-6">
 							<div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}" >
 								<input placeholder="Subject" type="text" class="form-control" name="name" t-attf-value="#{name or ''}"/>
 							</div>
-						</div>
-						<div class="col-md-6">
 							<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}" >
-								<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 120px" required="True"><t t-esc="description or ''"/></textarea>
-							</div>
-							<div class="form-group" >
-								<button class="btn btn-primary btn-lg" style="width: 100%;background-color: green;">Send</button>
+								<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 85px" required="True"><t t-esc="description or ''"/></textarea>
 							</div>
 						</div>
-
+						<div class="col-md-12 text-center form-group" >
+							<button class="btn btn-primary btn-lg">Send</button>
+						</div>
 					</form>
 				</div>
-				<hr size="2px" align="center" style="border-top: 1px solid #5cb85c;" />
+				<hr size="2px" align="center" style="border-top: 1px solid #026232;" />
 			</div>
-
+			<div class="container">
+				<div class="row offices" style="padding-top: 20px;">
+					<t t-foreach="offices" t-as="office">
+						<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
+							<address>
+								<h2 class="text-danger"><t t-esc="office.name"></t></h2>
+								<t t-esc="office.street"></t><br />
+								<t t-esc="office.street2"></t><br />
+								<t t-esc="office.city"></t><br />
+								<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+								<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
+							</address>
+						</div>
+					</t>
+				</div>
+				<div class="row sites">
+					<t t-foreach="sites" t-as="site">
+						<div class="col-md-4">
+							<address>
+								<h3 class="text-success"><t t-esc="site.name"></t></h3>
+								<t t-esc="site.street"></t><br />
+								<t t-esc="site.street2"></t><br />
+								<t t-esc="site.city"></t><br />
+								<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+								<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
+							</address>
+						</div>
+					</t>
+				</div>
+			</div>
 		</xpath>
 	</template>
 	
@@ -393,14 +420,14 @@
 			<div class="container">
 				<div class="row">
 					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#18a152;">Featured Projects</h3>
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Featured Projects</h3>
 					<t t-foreach="posts" t-as="post">
 						<div class="col-sm-6 col-md-4">
 							<div class="thumbnail">
 								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
 							</div>
 							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#18a152; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+								<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
 								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
 							</div>
 						</div>
@@ -432,14 +459,14 @@
 			<div class="container">
 				<div class="row">
 					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#18a152;">Completed Projects</h3>
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Completed Projects</h3>
 					<t t-foreach="posts" t-as="post">
 						<div class="col-sm-6 col-md-4">
 							<div class="thumbnail">
 								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
 							</div>
 							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#18a152; text-transform: uppercase;text-align: center;"><div t-field="post.name"></div></h5>
+								<h5 style="color:#026232; text-transform: uppercase;text-align: center;"><div t-field="post.name"></div></h5>
 								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
 							</div>
 						</div>
@@ -501,7 +528,7 @@
 		<!--Thay doi mau cua nut bam Apply-->
 		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mt16 mb16']/div[@class='container']/div[@class='row']/div[@class='col-md-12 text-center mt16 mb16']" position="replace">
 			<div class="col-md-12 text-center mt16 mb16">
-				<a t-attf-href="/jobs/apply/#{ job.id }" class="btn btn-primary btn-lg" style="background-color: #11A84E; border-color: #11A84E}">Apply</a>
+				<a t-attf-href="/jobs/apply/#{ job.id }" class="btn btn-primary btn-lg">Apply</a>
 			</div>
 		</xpath>
 	</template>
@@ -515,7 +542,7 @@
 		<!--Thay doi mau cua nut bam submit-->
 		<xpath expr="//div[@id='wrap']/div[@class='container']/div[@class='row']/section[@id='forms']/form[@class='form-horizontal mt32']/div[@class='form-group']/div[@class='col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7']" position="replace">
 			<div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
-				<button type="submit" class="btn btn-primary" style="background-color: #11A84E; border-color: #11A84E;}">Submit</button>
+				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
 		</xpath>
 	</template>
