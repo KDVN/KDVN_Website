@@ -5,6 +5,14 @@
 		<record id="website.show_sign_in" model="ir.ui.view">
             <field name="active" eval="False"/>
         </record>
+        <!--An menu Job-->
+		<record id="kderp_website_theme_default.jobs" model="website.menu">
+			<field name="name">Jobs</field>
+			<field name="url">/intro/jobs</field>
+			<field name="active" eval="False"/>
+			<field name="parent_id" ref="kderp_website_theme_default.jobs"></field>
+			<field name="sequence" type="int">94</field>
+		</record>
 		<!--Doi ten top menu kinden Japan thanh Kinden Corp. -->
 		<record id="kderp_website_theme_default.menu_kinden_jp" model="website.menu">
 			<field name="name">KINDEN CORP.</field>
