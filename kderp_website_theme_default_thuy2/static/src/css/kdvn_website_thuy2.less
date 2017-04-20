@@ -1,5 +1,10 @@
 @kdvn_theme2_color: #026232;
 
+/*==ke thua css trong module kderp_website_theme_default==*/
+@import "../../../../kderp_website_theme_default/static/src/css/kdvn_website.less";
+@kdvn_color: @kdvn_theme2_color;
+/*--------------------------------------------------------*/
+
 .brand {
     display: none;
 }
@@ -120,6 +125,11 @@ h4.media-heading{
 #wrapwrap header {
     display: table-header-group;
 }
+.form-horizontal .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 /*----------------------*/
 .hovereffect h3{
   color: @kdvn_theme2_color;
@@ -136,7 +146,7 @@ h4.media-heading{
     color: #fff;
     background-color: @kdvn_theme2_color;
 }
-
-/*----------------------*/
-@import "../../../../kderp_website_theme_default/static/src/css/kdvn_website.less";
-@kdvn_color: @kdvn_theme2_color;
+.btn-primary {
+    background-color: @kdvn_theme2_color;
+    border-color: @kdvn_theme2_color;
+}
