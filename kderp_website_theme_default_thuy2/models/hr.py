@@ -90,7 +90,24 @@ class hr_department(osv.Model):
 				name = "%s - %s" % (name,record['name'])
 			res.append((record['id'], name))
 		return res
+		
+	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+		if not args:
+			args=[]
+		if context is None:
+			context={}
 
+		if name:
+			name=name.strip()
+			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
+		else:
+			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
+		return self.name_get(cr, uid, ctc_ids, context=context)
+		
 	_columns={
 			'manager_2nd_id':fields.many2one('res.users','2nd Manager'),
 			'code':fields.char('Code'),
@@ -99,9 +116,38 @@ class hr_department(osv.Model):
 class kderp_hr_job_language(osv.Model):
 	_name = "kderp.hr.job.language"
 	_description = "Job Preferred Language"
+	
+	def name_get(self, cr, uid, ids, context=None):
+		if not ids:
+			return []
+		reads = self.read(cr, uid, ids, ['code','name'], context=context)
+		res = []
+		for record in reads:
+			name = record['code']
+			if record['name']:
+				name = "%s - %s" % (name,record['name'])
+			res.append((record['id'], name))
+		return res
+		
+	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+		if not args:
+			args=[]
+		if context is None:
+			context={}
 
+		if name:
+			name=name.strip()
+			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
+		else:
+			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
+		return self.name_get(cr, uid, ctc_ids, context=context)
+		
 	_columns={
-		'sequence': fields.integer('Seq.'),
+		'code':fields.char('Code',size=4,required=True),
 		'name': fields.char('Name', size=64, required = True, translate= True),
 		'description':fields.char('Description', size=128),
 		'jobs_ids': fields.one2many('hr.job', 'job_language_id', 'Jobs'),
@@ -109,9 +155,38 @@ class kderp_hr_job_language(osv.Model):
 class kderp_hr_job_level(osv.Model):
 	_name = "kderp.hr.job.lever"
 	_description = "Job Lever"
+	
+	def name_get(self, cr, uid, ids, context=None):
+		if not ids:
+			return []
+		reads = self.read(cr, uid, ids, ['code','name'], context=context)
+		res = []
+		for record in reads:
+			name = record['code']
+			if record['name']:
+				name = "%s - %s" % (name,record['name'])
+			res.append((record['id'], name))
+		return res
+		
+	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+		if not args:
+			args=[]
+		if context is None:
+			context={}
 
+		if name:
+			name=name.strip()
+			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
+		else:
+			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
+		return self.name_get(cr, uid, ctc_ids, context=context)
+		
 	_columns={
-		'sequence': fields.integer('Seq.'),
+		'code':fields.char('Code',size=4,required=True),
 		'name': fields.char('Name', size=64, required = True, translate= True),
 		'description':fields.char('Description', size=128),
 		'jobs_ids': fields.one2many('hr.job', 'job_lever_id', 'Jobs'),
@@ -119,9 +194,38 @@ class kderp_hr_job_level(osv.Model):
 class kderp_hr_job_work_place(osv.Model):
 	_name = "kderp.hr.job.work.place"
 	_description = "Job Work Place"
+	
+	def name_get(self, cr, uid, ids, context=None):
+		if not ids:
+			return []
+		reads = self.read(cr, uid, ids, ['code','name'], context=context)
+		res = []
+		for record in reads:
+			name = record['code']
+			if record['name']:
+				name = "%s - %s" % (name,record['name'])
+			res.append((record['id'], name))
+		return res
+		
+	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
+		if not args:
+			args=[]
+		if context is None:
+			context={}
 
+		if name:
+			name=name.strip()
+			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
+			if not ctc_ids:
+				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
+		else:
+			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
+		return self.name_get(cr, uid, ctc_ids, context=context)
+		
 	_columns={
-		'sequence': fields.integer('Seq.'),
+		'code':fields.char('Code',size=4,required=True),
 		'name': fields.char('Name', size=64, required = True, translate= True),
 		'description':fields.char('Description', size=128),
 		'jobs_ids': fields.one2many('hr.job', 'job_work_place_id', 'Jobs'),

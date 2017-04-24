@@ -49,7 +49,7 @@
         <field name="inherit_id" ref="hr.view_hr_job_tree"/>
         <field name="arch" type="xml">
         	<field name="name" position="before">
-        		<field name="code"/>
+        		<field name="code" string="Job Code"/>
         	</field>
         </field>
     </record>
@@ -61,7 +61,7 @@
         <field name="arch" type="xml">
             <!-- add state field in header -->
 			<field name="name" position='before'>
-				<field name="code" string="Job code"/>
+				<field name="code"/>
 			</field>
 			<field name="parent_id" position='after'>
 				<field name="manager_2nd_id"/>
@@ -76,9 +76,9 @@
             <form string="Job Language">
 				<sheet>
 					<group col="4">
+						<field name="code"/>
 						<field name="name"/>
 						<field name="description"/>
-						<field name="sequence"/>
 					</group>
 				</sheet>
 			</form>
@@ -89,6 +89,7 @@
         <field name="model">kderp.hr.job.language</field>
         <field name="arch" type="xml">
             <tree string="Job Language">
+				<field name="code"/>
 				<field name="name"/>
 			</tree>
         </field>
@@ -102,9 +103,9 @@
             <form string="Job lever">
 				<sheet>
 					<group col="4">
+						<field name="code"/>
 						<field name="name"/>
 						<field name="description"/>
-						<field name="sequence"/>
 					</group>
 				</sheet>
 			</form>
@@ -115,6 +116,7 @@
         <field name="model">kderp.hr.job.lever</field>
         <field name="arch" type="xml">
             <tree string="Job Language">
+				<field name="code"/>
 				<field name="name"/>
 			</tree>
         </field>
@@ -128,9 +130,9 @@
             <form string="Job Word Place">
 				<sheet>
 					<group col="4">
+						<field name="code"/>
 						<field name="name"/>
 						<field name="description"/>
-						<field name="sequence"/>
 					</group>
 				</sheet>
 			</form>
@@ -141,6 +143,7 @@
         <field name="model">kderp.hr.job.work.place</field>
         <field name="arch" type="xml">
             <tree string="Job Word Place">
+				<field name="code"/>
 				<field name="name"/>
 			</tree>
         </field>
