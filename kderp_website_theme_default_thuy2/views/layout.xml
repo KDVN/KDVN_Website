@@ -27,8 +27,7 @@
 								<address>
 								<h4 class="text-danger"><t t-esc="contact.name"></t></h4>
 								<t t-esc="contact.street"></t><br />
-								<t t-esc="contact.street2"></t><br />
-								<t t-esc="contact.city"></t><br />					
+								<t t-esc="contact.street2"></t>, <t t-esc="contact.city"></t><br />
 								<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
 								<span class="fa fa-fax"></span> <t t-esc="contact.fax"></t>
 								</address>
