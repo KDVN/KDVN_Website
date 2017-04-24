@@ -18,6 +18,7 @@
             'views/contact_us.xml',
             'views/snippets.xml',
             'views/hr.xml',
+            'views/views.xml',
             ],
     
     #Information

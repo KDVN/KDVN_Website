@@ -14,7 +14,7 @@ class ExtendKderpWebsite(KderpWebsite):
 	post_limit = 9
 	@http.route(['/pj/featured','/pj/featured/page/<int:page>'],  auth='public', website=True)
 	def kdvn_pj_featured(self, page=1 , pager_url="/pj/featured"):
-		posts = http.request.env['blog.post'].search([('blog_id', '=', 'Project Featured')])
+		posts = http.request.env['blog.post'].search([('blog_id', '=', 'Projects Featured')])
 		list_posts = posts[(page - 1) * self.post_limit:page * self.post_limit]
 		pager = request.website.pager(
 			url=pager_url,
@@ -26,7 +26,7 @@ class ExtendKderpWebsite(KderpWebsite):
 		
 	@http.route(['/pj/completed','/pj/completed/page/<int:page>'], auth='public', website=True)
 	def kdvn_pj_completed(self, page=1 , pager_url="/pj/completed"):
-		posts = http.request.env['blog.post'].search([('blog_id', '=', 'Project Completed')])
+		posts = http.request.env['blog.post'].search([('blog_id', '=', 'Projects Completed')])
 		list_posts = posts[(page - 1) * self.post_limit:page * self.post_limit]
 		pager = request.website.pager(
 			url=pager_url,

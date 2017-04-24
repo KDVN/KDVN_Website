@@ -57,22 +57,22 @@
   color: #5bc0de;
 }
 .navbar-custom {
-  background-color: #ffffff;
+  background-color: white;
   padding-bottom: 4px;
 }
 .navbar-custom .navbar-brand {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
   color: #026232;
 }
 .navbar-custom .navbar-text {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-nav > li > a {
-  color: #000000;
-  border-bottom: solid #ffffff;
+  color: black;
+  border-bottom: solid white;
 }
 .navbar-custom .navbar-nav > li > a:hover,
 .navbar-custom .navbar-nav > li > a:focus {
@@ -80,11 +80,11 @@
   border-bottom: solid #026232;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu {
-  background-color: #ffffff;
+  background-color: white;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a {
-  color: #000000;
-  border-left: solid 2px #ffffff;
+  color: black;
+  border-left: solid 2px white;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:focus {
@@ -122,21 +122,21 @@
   border-bottom: solid #026232;
 }
 .navbar-custom .navbar-toggle .icon-bar {
-  background-color: #000000;
+  background-color: black;
 }
 .navbar-custom .navbar-collapse,
 .navbar-custom .navbar-form {
-  border-color: #000000;
+  border-color: black;
 }
 .navbar-custom .navbar-link {
-  color: #000000;
+  color: black;
 }
 .navbar-custom .navbar-link:hover {
   color: #026232;
 }
 @media (max-width: 767px) {
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-    color: #000000;
+    color: black;
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -198,13 +198,13 @@ a:hover {
 .pagination .active a:hover,
 .pagination .active a:focus {
   background-color: #026232;
-  color: #ffffff;
+  color: white;
   border-color: #026232;
 }
 .pagination li a,
 .pagination li a:hover,
 .pagination li a:focus {
-  background-color: #ffffff;
+  background-color: white;
   color: #026232;
 }
 .bg-kdvn {
@@ -255,20 +255,20 @@ a:hover {
   height: 450px;
 }
 footer {
-  background-color: #ffffff;
+  background-color: white;
 }
 footer a,
 footer a:hover {
-  color: #777777;
+  color: #777;
 }
 footer address {
-  color: #777777;
+  color: #777;
 }
 footer address h4 {
-  color: #777777 !important;
+  color: #777 !important;
 }
 .text-kdvn {
-  color: #777777 !important;
+  color: #777 !important;
 }
 .slider-size {
   height: 300px;
