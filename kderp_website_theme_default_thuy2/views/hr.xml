@@ -191,8 +191,8 @@
 	
 	<menuitem id="kderp_website_config_recruitment" name="Recruitment" parent="kderp_website.kdvn_website_config"/>
 	<menuitem id="kdvn_departments" name="Departments" parent="kderp_website_config_recruitment" action="kdvn_departments_act"/>
-	<menuitem id="kdvn_job_language" name="Job language" parent="kderp_website_config_recruitment" action="kdvn_hr_job_language_act"/>
-	<menuitem id="kdvn_job_lever" name="Job Lever" parent="kderp_website_config_recruitment" action="kdvn_hr_job_lever_act"/>
-	<menuitem id="kdvn_job_word_place" name="Job Word Place" parent="kderp_website_config_recruitment" action="kdvn_hr_job_word_place_act"/>
+	<menuitem id="kdvn_job_language" name="Job Language" parent="kderp_website_config_recruitment" action="kdvn_hr_job_language_act"/>
+	<menuitem id="kdvn_job_lever" name="Job Level" parent="kderp_website_config_recruitment" action="kdvn_hr_job_lever_act"/>
+	<menuitem id="kdvn_job_word_place" name="Job Work Place" parent="kderp_website_config_recruitment" action="kdvn_hr_job_word_place_act"/>
 </data>
 </openerp>
