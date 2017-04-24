@@ -26,7 +26,7 @@
             </field>
 			<xpath expr="//group[@name='employee_data']/div[1]" position="after">
 				<field name="job_language_id"/>
-				<field name="job_lever_id"/>
+				<field name="job_level_id"/>
 				<field name="job_work_place_id"/>
 			</xpath>
 			<div attrs="{'invisible': [('state', '!=', 'recruit')]}" position='replace'>
@@ -95,12 +95,12 @@
         </field>
     </record>
 	
-	<!-- Show KDVN Job Lever"-->
-	<record id="view_kderp_hr_job_lever_form" model="ir.ui.view">
-        <field name="name">kderp.hr.job.lever.form</field>
-        <field name="model">kderp.hr.job.lever</field>
+	<!-- Show KDVN Job Level"-->
+	<record id="view_kderp_hr_job_level_form" model="ir.ui.view">
+        <field name="name">kderp.hr.job.level.form</field>
+        <field name="model">kderp.hr.job.level</field>
         <field name="arch" type="xml">
-            <form string="Job lever">
+            <form string="Job level">
 				<sheet>
 					<group col="4">
 						<field name="code"/>
@@ -111,9 +111,9 @@
 			</form>
         </field>
     </record>
-	<record id="view_kderp_hr_job_lever_tree" model="ir.ui.view">
-        <field name="name">kderp.hr.job.lever.tree</field>
-        <field name="model">kderp.hr.job.lever</field>
+	<record id="view_kderp_hr_job_level_tree" model="ir.ui.view">
+        <field name="name">kderp.hr.job.level.tree</field>
+        <field name="model">kderp.hr.job.level</field>
         <field name="arch" type="xml">
             <tree string="Job Language">
 				<field name="code"/>
@@ -176,14 +176,14 @@
 		<field name="view_mode">tree,form</field>
 	</record>
 	<record model="ir.actions.act_window" id="kdvn_hr_job_word_place_act">
-		<field name="name">Job Lever</field>
+		<field name="name">Job Level</field>
 		<field name="res_model">kderp.hr.job.work.place</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
-	<record model="ir.actions.act_window" id="kdvn_hr_job_lever_act">
+	<record model="ir.actions.act_window" id="kdvn_hr_job_level_act">
 		<field name="name">Job Word Place</field>
-		<field name="res_model">kderp.hr.job.lever</field>
+		<field name="res_model">kderp.hr.job.level</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
@@ -195,7 +195,7 @@
 	<menuitem id="kderp_website_config_recruitment" name="Recruitment" parent="kderp_website.kdvn_website_config"/>
 	<menuitem id="kdvn_departments" name="Departments" parent="kderp_website_config_recruitment" action="kdvn_departments_act"/>
 	<menuitem id="kdvn_job_language" name="Job Language" parent="kderp_website_config_recruitment" action="kdvn_hr_job_language_act"/>
-	<menuitem id="kdvn_job_lever" name="Job Level" parent="kderp_website_config_recruitment" action="kdvn_hr_job_lever_act"/>
+	<menuitem id="kdvn_job_level" name="Job Level" parent="kderp_website_config_recruitment" action="kdvn_hr_job_level_act"/>
 	<menuitem id="kdvn_job_word_place" name="Job Work Place" parent="kderp_website_config_recruitment" action="kdvn_hr_job_word_place_act"/>
 </data>
 </openerp>

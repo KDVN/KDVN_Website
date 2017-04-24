@@ -65,7 +65,7 @@ class hr_job(osv.Model):
 		'date_input': fields.date('Date'),
 		'date_deadline': fields.date('Deadline'),
 		'job_language_id': fields.many2one('kderp.hr.job.language', 'Job language'),
-		'job_lever_id': fields.many2one('kderp.hr.job.lever', 'Job lever'),
+		'job_level_id': fields.many2one('kderp.hr.job.level', 'Job level'),
 		'job_work_place_id': fields.many2one('kderp.hr.job.work.place', 'Job work place'),
 	}
 	_sql_constraints = [
@@ -153,8 +153,8 @@ class kderp_hr_job_language(osv.Model):
 		'jobs_ids': fields.one2many('hr.job', 'job_language_id', 'Jobs'),
 	}
 class kderp_hr_job_level(osv.Model):
-	_name = "kderp.hr.job.lever"
-	_description = "Job Lever"
+	_name = "kderp.hr.job.level"
+	_description = "Job Level"
 	
 	def name_get(self, cr, uid, ids, context=None):
 		if not ids:
@@ -189,7 +189,7 @@ class kderp_hr_job_level(osv.Model):
 		'code':fields.char('Code',size=4,required=True),
 		'name': fields.char('Name', size=64, required = True, translate= True),
 		'description':fields.char('Description', size=128),
-		'jobs_ids': fields.one2many('hr.job', 'job_lever_id', 'Jobs'),
+		'jobs_ids': fields.one2many('hr.job', 'job_level_id', 'Jobs'),
 	}
 class kderp_hr_job_work_place(osv.Model):
 	_name = "kderp.hr.job.work.place"
