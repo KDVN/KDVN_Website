@@ -6,7 +6,7 @@
     """,
     'category':'test',
     'version':'1.0',
-    'depends':['kderp_website', 'kderp_website_theme_default', 'website_menu_by_user_status'],
+    'depends':['kderp_website', 'kderp_website_theme_default', 'website_menu_by_user_status', 'kderp_event'],
     
     #tempalte, pages, and snippets
     'data':[
