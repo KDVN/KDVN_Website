@@ -517,7 +517,40 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-offset-2">
-							<div t-field="job.website_description"/>
+							<!--<div t-field="job.website_description"/>-->
+							<table border="0" cellpadding="0" cellspacing="0" style="width:80%">
+								<tbody>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Title:</strong></p></td>
+										<td style="vertical-align:middle"><p><strong><div t-field="job.name"/></strong></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Code:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.code"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Description</strong>:</p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.description"/></p>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Requirement:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.requirements"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Preferred language</strong>(For applications)</p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_language_id.name"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Level:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_level_id.name"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Work Place:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_work_place_id.name"/></p></td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

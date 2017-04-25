@@ -19,6 +19,8 @@
             'views/snippets.xml',
             'views/hr.xml',
             'views/views.xml',
+            'security/security.xml',
+			'security/ir.model.access.csv',
             ],
     
     #Information
