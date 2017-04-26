@@ -536,3 +536,12 @@ footer a:hover {
   background-color: #026232;
   border-color: #026232;
 }
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #03944c;
+  border-color: #03944c;
+}
