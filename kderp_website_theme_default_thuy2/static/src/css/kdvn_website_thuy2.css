@@ -406,6 +406,7 @@ footer address h4 {
     text-align: left;
     float: left;
     color: #026232;
+    margin-top: 5px;
   }
   .brand-left {
     display: inherit;
