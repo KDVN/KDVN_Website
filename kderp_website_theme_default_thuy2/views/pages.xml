@@ -16,8 +16,11 @@
 						<img src="/website/image/ir.attachment/2532_249831d/datas" het-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="100" height="60"/>
 					</a>
 					<span>
+						<img src="/website/image/ir.attachment/2558_ed44260/datas/100x50" alt="Logo ISO and OHSAS" title="ISO and OHSAS"/>
+						<!--
 						<img src="/website/image/ir.attachment/2088_46ca30e/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
 						<img src="/website/image/ir.attachment/2087_8132346/datas/50x50" alt="Logo of ISO" title="ISO"/>
+						-->
 					</span>
 				</div>
 				<!-- hien thu ten cong ty va sdt -->
