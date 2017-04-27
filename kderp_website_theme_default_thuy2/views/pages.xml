@@ -382,8 +382,13 @@
 							<address>
 								<h2 class="text-danger"><t t-esc="office.name"></t></h2>
 								<t t-esc="office.street"></t><br />
-								<t t-esc="office.street2"></t><br />
-								<t t-esc="office.city"></t><br />
+								<t t-esc="office.street2"></t>
+								<t t-if = "not office.city">
+									<br />
+								</t>
+								<t t-if = "office.city">
+									<span>, <t t-esc="office.city"></t></span><br />
+								</t>
 								<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
 								<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
 							</address>
@@ -396,8 +401,13 @@
 							<address>
 								<h3 class="text-success"><t t-esc="site.name"></t></h3>
 								<t t-esc="site.street"></t><br />
-								<t t-esc="site.street2"></t><br />
-								<t t-esc="site.city"></t><br />
+								<t t-esc="site.street2"></t>
+								<t t-if = "not site.city">
+									<br />
+								</t>
+								<t t-if = "site.city">
+									<span>, <t t-esc="site.city"></t></span><br />
+								</t>
 								<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
 								<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
 							</address>
