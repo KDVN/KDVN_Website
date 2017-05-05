@@ -7,6 +7,7 @@
 		<xpath expr="//div[@class='container']/div[@class='navbar-header']/span/img[@src='/website/image/ir.attachment/1800_ce1e93d/datas/50x50']" position="replace">
 			<img src="/website/image/ir.attachment/2558_ed44260/datas/100x50" alt="Logo ISO and OHSAS" title="ISO and OHSAS"/>
 		</xpath>
+		<!--Them lua chon ngon ngu trong giao dien mobile-->
 		<xpath expr="//div[@class='container']/div[@class='collapse navbar-collapse navbar-top-collapse']" position="inside">
 			<ul class="list-inline js_language_selector display-lg" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
 				<li t-foreach="languages" t-as="lg">
@@ -545,9 +546,10 @@
 			<section class="mt16 mb16">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-offset-2">
+						<div class="col-md-2"/>
+						<div class="col-md-8">
 							<!--<div t-field="job.website_description"/>-->
-							<table border="0" cellpadding="0" cellspacing="0" style="width:80%">
+							<table border="0" cellpadding="0" cellspacing="0">
 								<tbody>
 									<tr style="border-bottom: 1px solid #026232;">
 										<td style="vertical-align:middle"><p><strong>Job Title:</strong></p></td>
@@ -581,6 +583,7 @@
 								</tbody>
 							</table>
 						</div>
+						<div class="col-md-2"/>
 					</div>
 				</div>
 			</section>
