@@ -400,6 +400,9 @@ footer address h4 {
 .brand-left {
   display: none;
 }
+.display-lg {
+  display: table-cell;
+}
 @media screen and (min-width: 768px) {
   .brand {
     display: inherit;
@@ -440,6 +443,9 @@ footer address h4 {
   }
   .navbar.navbar-static-top ul.nav > li.divider {
     border-right: 1px solid #ffffff;
+  }
+  .display-lg {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
