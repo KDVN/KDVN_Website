@@ -613,5 +613,15 @@
 			</div>
 		</xpath>
 	</template>
+	
+	<!--Ke thua template Certificates-->
+	<template id="kderp_website_theme_default_thuy2.page_certificates" inherit_id="kderp_website_theme_default_thuy1.page_certificates" name="KDVN Thuy2 Certificates">
+		<xpath expr="//div[@class='container']/div/div[@class='row']" position="attributes">
+        	<attribute name="style">
+        		margin-right: 0px;
+    			margin-left: 0px;
+        	</attribute>
+		</xpath>
+	</template>
 </data>
 </openerp>
