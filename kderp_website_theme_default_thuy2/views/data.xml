@@ -59,7 +59,7 @@
 				<field name="parent_id" ref="menu_ba" />
 				<field name="url">/pj/featured</field>
 				<field name="divider" eval="True" />
-				<field name="divider_text">Project</field>
+				<field name="divider_text">Projects</field>
 				<field name="sequence" type="int">30</field>
 			</record>
 			<record id="menu_comleted_pj" model="website.menu">
