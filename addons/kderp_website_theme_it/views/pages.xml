@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <template name="A page" id="website.a_page" page="True">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <h1>Hello World</h1>
+                        <ul class="features list-group">
+                            <li class="list-group-item">Feature 1</li>
+                            <li class="list-group-item">Feature 2</li>
+                            <li class="list-group-item">Feature 3</li>
+                        </ul>
+                    </div>
+                    <div class="oe_structure" />
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

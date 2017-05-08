@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<!-- Show KDVN Project Featured-->
+	<record model="ir.actions.act_window" id="list_kdvn_pf">
+		<field name="name">KDVN Projects Featured</field>
+		<field name="res_model">blog.post</field>
+		<field name="domain">[('blog_id','=','Projects Featured')]</field>
+	</record>
+	<!-- Show KDVN Project Completed-->
+	<record model="ir.actions.act_window" id="list_kdvn_pc">
+		<field name="name">KDVN Projects Completed</field>
+		<field name="res_model">blog.post</field>
+		<field name="domain">[('blog_id','=','Projects Completed')]</field>
+	</record>
+	
+	<menuitem id="kdvn_pf_news" name="KDVN PJ Featured" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pf"/>
+	<menuitem id="kdvn_pc_news" name="KDVN PJ Completed" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pc"/>
+</data>
+</openerp>

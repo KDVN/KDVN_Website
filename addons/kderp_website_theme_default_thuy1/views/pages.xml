@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+		<!--===header===-->
+		<template id="kderp_website_theme_default_thuy1.wrapwrap" name="KDVN Thuy1 header" inherit_id="website.layout">
+    		<xpath expr="//div[@class='container']/div[@class='navbar-header']" position="inside">
+				<span><img src="/website/image/ir.attachment/1800_ce1e93d/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/></span>
+			</xpath>
+		</template>
+
+	    <!-- === Show Post === -->
+	    <template id="kderp_website_theme_default_thuy1.show_post" name="KDVN Thuy1 Show Post" inherit_id="kderp_website.show_post">
+    	<xpath expr="//div[@class='container']" position="replace">
+    		<div class="container show-post">
+    			<div class="col-sm-1"/>
+    			<div class="col-sm-10">
+	    			<div class="blog-header">
+				        <h2 class="blog-title h2-show-post"><t t-raw="post.name.title()"></t></h2>
+				        <p class="blog-post-meta"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+				    </div>
+		    		<div class="blog-main">
+			    		<div class="blog-post">
+							<t t-if="post.summary">
+								<p><b><t t-esc="post.summary"></t></b></p><hr/>
+							</t>
+							<t t-if="post.img_url_ids">
+								<div class="bs-callout bs-callout-warning" style="border-left-width: 2px;">
+									<!--<h4><span class="fa fa-paperclip"></span></h4>-->
+									<t t-if="post.img_url_ids">
+										<div class="row">
+											<t t-foreach="post.img_url_ids" t-as="file">
+												<div class="col-md-6" t-attf-id="{{file_index % 2}}">
+													<span class="fa fa-paperclip"></span>
+													<a t-if="file.name[-4:] == '.pdf'" t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a>
+													<a t-if="not(file.name[-4:] == '.pdf')" t-attf-href="{{file.website_url}}/{{file.name}}" t-att-download="file.name"><t t-esc="file.name"></t></a>
+												</div>
+											</t>
+										</div>
+									</t>
+								</div>
+							</t>
+				           	<div>
+								<div t-field="post.content"></div>
+							</div>
+				   		</div><!-- /.blog-post -->
+					</div><!-- .row -->
+				</div>
+				<div class="col-sm-1"/>
+	    	</div><!-- .container -->
+		</xpath>
+	</template>
+	
+	<!-- === List Posts === -->
+	<template id="kderp_website_theme_default_thuy1.list_posts" name="KDVN List posts" inherit_id="kderp_website.list_posts">
+    	<xpath expr="//div[@id='list-main']" position="replace">
+	    	<!-- Listing posts: posts|pager  -->
+	    	<div id="list-main" t-att-class="customize_class" style="padding-bottom:40px">
+		        <t t-foreach="posts" t-as="post">
+					<t t-if="post.img_url_ids">
+						<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+							<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+							<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+							<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+							<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+						</t>
+					</t>
+					<t t-if="not post.img_url_ids">
+						<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+					</t>
+					<t t-if = "request.httprequest.path != '/page/homepage'">
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4 style="line-height:1.5" >
+								<!--<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>-->
+								<span class="label label-default"><t t-esc="post.blog_id.name"></t></span>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+                            <p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+					<t t-if = "request.httprequest.path == '/page/homepage'">
+						<div class="list-group-item" style=" border-left:0px; border-right:0px; padding:0px 0px;">
+							<div class="row" style="margin-right: 0px; margin-left: 0px;">
+								<t t-if="show_date_col">
+									<div class="col-sm-3 news-date-hompage data-lp-hp">
+										<span class="data-lp-hp-date">
+											<span t-if="show_date_col" t-field="post.create_date" t-field-options='{"format":"MMM, dd y"}'/>
+										</span>
+									</div>
+								</t>
+								<div t-attf-class="col-sm-(9 + 3 * (0 if show_date_col else 1) news-name-homepage data-lp-hp">
+									<!--<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}" t-att-data-popover="popover" t-att-title="post.summary"/>-->
+									<span class="data-lp-hp-content">
+										<t t-if="post.img_url_ids">
+											<span t-attf-class="fa {{fa_value}}" data-toggle="popover" data-placement="top" t-att-data-content="post.summary"/>
+										</t>
+										<t t-if="not post.img_url_ids">
+											<span t-attf-class="fa {{fa_value}} hidden-sm hidden-md hidden-lg" data-toggle="popover" data-placement="top" t-att-data-content="post.summary"/>
+										</t>
+										<span t-att-data-popover="popover" t-att-title="post.summary">
+											<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+												<t t-raw="((post.name[:post.name.find(' ',40)].title() + '...') if post.name.find(' ',40) != -1 else post.name.title()) if show_date_col else post.name.title()"></t>
+											</a>
+										</span>
+                                    </span>
+								</div>
+							</div>
+						</div>
+					</t>
+				</t>
+	    	</div>
+		</xpath>
+	</template>
+
+	<!--==Fun Fact==-->
+	<template id="kderp_website_theme_default_thuy1.funfact_content" inherit_id="kderp_website.funfact_content" name="KDVN Funfact Content">
+		<xpath expr="//div[@class='panel panel-default']" position="replace">
+			<div class="panel panel-default">
+				<t t-if="ffacts">
+					<div id="carousel-funfact" class="carousel slide" data-ride="carousel">
+						<h3 style="text-align: center;">Fun fact</h3>
+					  	<!-- Indicators -->
+					  	<ol class="carousel-indicators" style="visibility:hidden">
+							<t t-foreach="ffacts" t-as="fact">
+								<li data-target="#carousel-funfact" t-att-data-slide-to="fact_index" t-att-class="'active' * (fact_index == 0)"></li>
+							</t>
+					  	</ol>
+
+					  	<!-- Wrapper for slides -->
+					  	<div class="carousel-inner" role="listbox">
+							<t t-foreach="ffacts" t-as="fact">
+								<div t-attf-class="item {{'active' * (fact_index == 0)}}">
+									<h4 style="margin-left:15px; color:green"><t t-esc="fact.name"></t></h4>
+									<p style="margin-left:15px"><t t-esc="fact.summary"></t></p>
+								</div>
+							</t>
+					  	</div>
+					</div>
+				</t>
+			</div>
+		</xpath>
+	</template>
+
+	<!--== Announcements==-->
+	<template id="kderp_website_theme_default_thuy1.announcement_content" inherit_id="kderp_website.announcement_content" name="KDVN Announcement Content">
+		<xpath expr="//div[@class='panel panel-default']" position="replace">
+			<div class="panel panel-default">
+				<t t-if="announcements">
+					<div id="carousel-announcement" class="carousel slide" data-ride="carousel">
+						<h3 style="text-align: center;">Announcements</h3>
+					  	<!-- Indicators -->
+					  	<ol class="carousel-indicators" style="visibility:hidden">
+							<t t-foreach="announcements" t-as="ann">
+								<li data-target="#carousel-announcement" t-att-data-slide-to="ann_index" t-att-class="'active' * (ann_index == 0)"></li>
+							</t>
+					  	</ol>
+
+					  	<!-- Wrapper for slides -->
+					  	<div class="carousel-inner" role="listbox">
+							<t t-foreach="announcements" t-as="ann">
+								<div t-attf-class="item {{'active' * (ann_index == 0)}}">
+									<h4 style="margin-left:15px; color:green"><t t-esc="ann.name"></t></h4>
+									<p style="margin-left:15px"><t t-esc="ann.summary"></t></p>
+								</div>
+							</t>
+					  	</div>
+					</div>
+				</t>
+			</div>
+		</xpath>
+	</template>
+
+	<!-- Page show certificates|post; index -->
+	<template id="kderp_website_theme_default_thuy1.page_certificates" inherit_id="kderp_website.page_certificates" name="KDVN Certificates">
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container">
+				<div >
+					<div class="row">
+						<t t-foreach="posts" t-as="post">
+							<div class="col-md-12 thumbnail">
+								<!--<div class="col-md-6 img-hover">
+									<p ><img t-att-src="post.img_url_ids[0].website_url" class="img-responsive testi"></img></p>
+								</div>-->
+								<div class="col-md-6">
+									<a href="#" class="pop">
+										<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height:200px"/>
+									</a>
+									<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+										<img src="" class="imagepreview img-click-mobil img-click-desk"/>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<h1><small class="text-danger"><t t-esc="post.name"></t></small></h1>
+									<h2><small class="text-warning"><t t-esc="post.summary"></t></small></h2>
+								</div>
+							</div>
+						</t>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+
+</data>
+</openerp>

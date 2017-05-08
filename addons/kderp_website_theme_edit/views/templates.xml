@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+      
+	<template id="kderp_website_theme_edit.list_posts" name="KDVN Edit List posts" inherit_id="kderp_website.list_posts">
+    	<xpath expr="//div[@id='list-main']" position="replace">
+	    	<!-- Listing posts: posts|pager -->
+			<div id="list-main" t-attf-class="col-md-8">
+				<t t-foreach="posts" t-as="post">
+					<div class="list-group-item" style="border-left:0px;border-right:0px;">
+						<!-- Setting fa value -->
+						<t t-if="post.img_url_ids">
+							<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+								<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+							</t>
+							<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+								<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+							</t>
+							<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+								<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+							</t>
+							<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+								<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+							</t>
+						</t>
+						<div class="row">
+							<div class="col-md-2">
+								<span class="fa fa-calendar"></span> <span t-field="post.create_date" t-field-options='{"format":"dd/MMM/yy"}'></span> <span class="fa fa-caret-right"></span>
+							</div>
+							<div class="col-md-8">
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+								<t t-raw="post.name.title()"></t>
+								</a>
+							</div>
+							<div class="col-md-2">
+								<t t-if="request.httprequest.path == '/page/homepage' or request.httprequest.path[:11] =='/intro/news'">
+									<t t-esc="post.blog_id.name"></t>
+								</t>
+							</div>
+						</div>
+					</div>
+				</t>
+			</div>
+		</xpath>
+	</template>
+	
+	
+</data>
+</openerp>

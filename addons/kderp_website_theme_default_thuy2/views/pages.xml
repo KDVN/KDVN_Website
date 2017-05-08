@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	<!--=== header ===-->
+	<!--LOGO OHSAS-->
+	<template id="kderp_website_theme_default_thuy2.wrapwrap" name="KDVN Thuy2 header" inherit_id="kderp_website_theme_default_thuy1.wrapwrap">
+		<xpath expr="//div[@class='container']/div[@class='navbar-header']/span/img[@src='/website/image/ir.attachment/1800_ce1e93d/datas/50x50']" position="replace">
+			<img src="/website/image/ir.attachment/2558_ed44260/datas/100x50" alt="Logo ISO and OHSAS" title="ISO and OHSAS"/>
+		</xpath>
+		<!--Them lua chon ngon ngu trong giao dien mobile-->
+		<xpath expr="//div[@class='container']/div[@class='collapse navbar-collapse navbar-top-collapse']" position="inside">
+			<ul class="list-inline js_language_selector display-lg" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+				<li t-foreach="languages" t-as="lg">
+					<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+					 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+					 <img t-att-src="website.image_url(lg[2], 'flag_image')" height="20" width="30"  t-att-title="lg[1]" />
+					</a>
+				</li>
+				<li groups="base.group_website_publisher">
+					<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+					<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+					</a>
+				</li>
+			</ul>
+		</xpath>
+		<xpath expr="//div[@class='container']" position="before">
+			<div class="container" style="padding-top: 5px; padding-bottom: 5px;">
+				<!--dua logo kinden vietnam len tren-->
+				<div class="brand">
+					<a href="/" class="logo">
+						<img src="/website/image/ir.attachment/2532_249831d/datas" het-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="100" height="60"/>
+					</a>
+					<span>
+						<img src="/website/image/ir.attachment/2558_ed44260/datas/100x50" alt="Logo ISO and OHSAS" title="ISO and OHSAS"/>
+						<!--
+						<img src="/website/image/ir.attachment/2088_46ca30e/datas/50x50" alt="Logo of OHSAS" title="OHSAS"/>
+						<img src="/website/image/ir.attachment/2087_8132346/datas/50x50" alt="Logo of ISO" title="ISO"/>
+						-->
+					</span>
+				</div>
+				<!-- hien thu ten cong ty va sdt -->
+				<div class="brand-left">
+
+					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
+						<div >
+							<ul class="list-inline js_language_selector" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+								<li><b>KINDEN VIETNAM CO., LTD</b></li>
+								<li t-foreach="languages" t-as="lg">
+									<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+									 <img t-att-src="website.image_url(lg[2], 'flag_image')" height="20" width="30"  t-att-title="lg[1]" />
+									</a>
+								</li>
+								<li groups="base.group_website_publisher">
+									<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+									<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+									</a>
+								</li>
+							</ul>
+							<address style="margin-bottom: 0px; margin-right: 5px;">
+							<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
+							<span class="fa fa-fax"></span> <t t-esc="contact.fax"></t>
+							</address>
+						</div>
+					</t>
+				</div>
+			</div>
+		</xpath>
+		<xpath expr="//header/div[@class='navbar navbar-custom navbar-static-top']/div[@class='container']/div[@class='collapse navbar-collapse navbar-top-collapse']/ul[contains(@class, 'nav navbar-nav navbar-right')]" position="attributes">
+			<attribute name="class">nav navbar-nav</attribute>
+		</xpath>
+	</template>
+
+	<!--bo hien thi menu duoi trong intro KINDEN VIETNAM trong menu abount us-->
+	<!--sua home page-->
+	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
+		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
+			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
+				<div class="row" style="margin: 5px -10px 5px -25px;">
+					<!--Menu trai-->
+					<div class="col-md-5"  style="margin-top: 5px;">
+						<div>
+							<t t-foreach="kdvn_me" t-as="post">
+								<t t-if="post.name != 'QST'">
+									<div class="media">
+										<div class="media-left media-middle hp-media">
+											<t t-if="post.name == 'Electrical Systems'"><t t-set="post_url" t-value="'/es/news'"></t></t>
+											<t t-if="post.name == 'Mechanical Systems'"><t t-set="post_url" t-value="'/ms/news'"></t></t>
+											<t t-if="post.name == 'QST'"><t t-set="post_url" t-value="'/qa/news'"></t></t>
+											<a t-att-href="post_url">
+												<img class="media-object" t-att-src="post.img_url_ids[0].website_url" alt="SITE REFERENCE" width="92" height="82"></img>
+											</a>
+										</div>
+										<div class="media-body">
+											<t t-foreach="kdvn_news_trans" t-as="news_trans">
+												<t t-if="post.id == news_trans.res_id and request.context.get('lang') == news_trans.lang" >
+													<t t-if="news_trans.name=='blog.post,name'">
+														<h4 class="media-heading text-success">
+															<t t-raw="news_trans.value.upper()"></t>
+														</h4>
+													</t>
+													<t t-if="news_trans.name=='blog.post,summary'">
+														<p><t t-raw="(news_trans.value[:news_trans.value.find(' ',40)]+ '...') if news_trans.value.find(' ',40) != -1 else news_trans.value"></t></p>
+
+													</t>
+												</t>
+											</t>
+										</div>
+									</div>
+								</t>
+							</t>
+						</div>
+						<!--Kinden Group-->
+						<div class="media">
+							<div class="media-left media-middle hp-media">
+								<a href="http://www.kinden.co.jp/english/index.html" target="_blank">
+									<img class="media-object" src="/website/image/ir.attachment/1793_ccc5901/datas" alt="KINDEN GROUP" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">KINDEN CORPORATION</h4>
+								<p>About kinden's oversea group companies</p>
+							</div>
+						</div>
+						<!--Download Category-->
+						<div class="media" style="margin-bottom: 15px;">
+							<div class="media-left media-middle hp-media">
+								<a href="/intro/download">
+									<img class="media-object" src="/website/image/ir.attachment/1791_27c6eec/datas" alt="CATALOGUE DOWNLOAD" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">CATALOGUE DOWNLOAD</h4>
+								<t t-foreach="kdvn_file" t-as="post">
+									<t t-if="post.img_url_ids">
+									<div >
+										<t t-foreach="post.img_url_ids[:2]" t-as="file">
+											<p><a t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a></p>
+										</t>
+									</div>
+									</t>
+								</t>
+							</div>
+						</div>
+					</div>
+					<!--Menu phai-->
+					<div class="col-md-7 home-menu-right">
+						<div class="media" style="margin-bottom: 20px;">
+							<div class="media-left media-middle hp-media">
+								<a href="/intro/kdvn/aboutus">
+									<img class="media-object" src="/website/image/ir.attachment/1802_d34a84d/datas" alt="SERVICE" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading text-success">KINDEN VIETNAM CO., LTD</h4>
+								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair, Renovation</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/kdvn/electricalsystems">
+										<img class="img-responsive" src="/website/image/ir.attachment/1769_6ebe4f7/datas" alt="Electrical"/>
+										<div class="overlay">
+											<h3>Electrical</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/kdvn/aircon">
+										<img class="img-responsive" src="	/website/image/ir.attachment/1774_16b170f/datas" alt="Air conditionnal"/>
+										<div class="overlay">
+											<h3>Mechanical</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<!--
+						<div class="row">
+							<div class="col-md-offset-3 col-md-6" style="margin-bottom: -15px;">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/kdvn/what_is_qa">
+										<img class="img-responsive" src="/website/image/ir.attachment/1780_9eab116/datas" alt="QST"/>
+										<div class="overlay">
+											<h3>QST</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+
+	<!-- Tin tuc QSA trong News khong hien thi khi chua dang nhap-->
+	<template id="kderp_website_theme_default_thuy2.news_qsa" name="KDVN Thuy2 News QSA" inherit_id="kderp_website_theme_default_thuy1.list_posts">
+		<xpath expr="//div[@id='list-main']" position="replace">
+			<div id="list-main" t-att-class="customize_class" style="padding-bottom:40px">
+		        <t t-foreach="posts" t-as="post">
+					<t t-if="post.img_url_ids">
+						<t t-if="post.img_url_ids[0].name[-3:] == 'pdf'">
+							<t t-set="fa_value" t-value="'fa-file-pdf-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'doc'">
+							<t t-set="fa_value" t-value="'fa-file-word-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] == 'xls'">
+							<t t-set="fa_value" t-value="'fa-file-excel-o'"></t>
+						</t>
+						<t t-if="post.img_url_ids[0].name[-3:] not in ['pdf', 'doc', 'xls']">
+							<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+						</t>
+					</t>
+					<t t-if="not post.img_url_ids">
+						<t t-set="fa_value" t-value="'fa-file-image-o'"></t>
+					</t>
+					<t t-if="request.context.get('lang')=='en_US'">
+						<t t-set="list_post_lable" t-value="[
+							('General News','General News'),
+							('IT','IT'),
+							('Quality Safety Assurance','Quality Safety Assurance'),
+							('Electrical Systems','Electrical Systems'),
+							('Mechanical Systems','Mechanical Systems')]"/>
+					</t>
+					<t t-if="request.context.get('lang')=='vi_VN'">
+						<t t-set="list_post_lable" t-value="[
+							('General News','Tin tức chung'),
+							('IT','IT'),
+							('Quality Safety Assurance','Quản lý chất lượng'),
+							('Electrical Systems','Hệ thống điện'),
+							('Mechanical Systems','Hệ thống cơ')]"/>
+					</t>
+					<t t-if = "post.blog_id.name != 'Quality Safety Assurance'" >
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4 style="line-height:1.5" >
+								<t t-foreach="list_post_lable" t-as="lable">
+									<t t-if="lable[0]==post.blog_id.name">
+										<span class="label label-default"><t t-esc="lable[1]"></t></span>
+									</t>
+								</t>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+					<t t-if = "request.uid != request.website.user_id.id and post.blog_id.name == 'Quality Safety Assurance'">
+						<div class="list-group-item" style="border-left:0px;border-right:0px;">
+							<h4 style="line-height:1.5" >
+								<t t-foreach="list_post_lable" t-as="lable">
+									<t t-if="lable[0]==post.blog_id.name">
+										<span class="label label-default"><t t-esc="lable[1]"></t></span>
+									</t>
+								</t>
+								<span t-if="post.img_url_ids" t-attf-class="fa {{fa_value}}"></span>
+								<a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">
+									<t t-raw="post.name.title()"></t>
+								</a>
+							</h4>
+							<p class="blog-post-meta" style="margin-top: 0px;"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+							<p><t t-esc="post.summary"></t></p>
+						</div>
+					</t>
+				</t>
+			</div>
+		</xpath>
+	</template>
+
+	<!--Translate KINDEN VIETNAM-->
+	<template id="kderp_website_theme_default_thuy2.kdvn" name="KDVN Thuy2 KDVN" inherit_id="kderp_website.intro_jumbo">
+		<xpath expr="//div[@class='container']/div[@class='navbar navbar-custom navbar-right']/ul[@class='nav navbar-nav']" position="replace">
+			<t t-if="request.context.get('lang')=='en_US'">
+				<t t-set="abt_menus" t-value="[('aboutus','About us'),
+					('electricalsystems','Electrical'),
+					('aircon','Mechanical')]">
+				</t>
+			</t>
+			<t t-if="request.context.get('lang')=='vi_VN'">
+				<t t-set="abt_menus" t-value="[('aboutus','Giới thiệu'),
+					('electricalsystems','Hệ thống điện'),
+					('aircon','Hệ thống cơ')]">
+				</t>
+			</t>
+			<ul class="nav navbar-nav">
+				<t t-foreach="abt_menus" t-as="submenu">
+					<li  t-att-class="(request.httprequest.path.endswith('/' and submenu[0])) and 'active'"><a t-attf-href="/intro/kdvn/{{submenu[0]}}"><t t-esc="submenu[1]"></t></a></li>
+				</t>
+			</ul>
+		</xpath>
+	</template>
+
+	<!--Sua lai dinh dang ngay trong bai viet-->
+	<template id="kderp_website_theme_default_thuy2.show_post" name="KDVN Thuy2 Show Post" inherit_id="kderp_website_theme_default_thuy1.show_post">
+		<xpath expr="//div[@class='container show-post']/div[@class='col-sm-10']/div[@class='blog-header']/p[@class='blog-post-meta']" position="replace">
+			<p class="blog-post-meta"><span t-field="post.create_date" t-field-options='{"format":"MMMM dd, y"}'></span><span> by </span><t t-esc="post.author_id.name"></t></p>
+		</xpath>
+	</template>
+
+	<!--Sua lai duong dan thanh dieu huong-->
+	<template id="kderp_website_theme_default_thuy2.breadcrumb" name="KDVN Thuy2 Breadcrumb" inherit_id="kderp_website.breadcrumb">
+		<xpath expr="//div[@class='container']" position="replace">
+		<div class="container">
+			<div class="row mt8">
+				<div class="col-sm-12">
+					<ol class="breadcrumb mb0 bcstyle">
+						<li>
+							<a t-attf-href="/page/homepage">Home</a>
+						</li>
+						<li>
+							<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+								<t t-if="parent_url.url in request.httprequest.path and not parent_url.child_id">
+									<a t-attf-href="{{parent_url.url}}"><t t-esc="parent_url.name"/></a>test
+								</t>
+								<t t-if="parent_url.url in request.httprequest.path and parent_url.child_id">
+									<t t-esc="parent_url.name"/>
+								</t>
+
+								<t t-if="parent_url.url == '/ba' and
+										(('/es' in request.httprequest.path and parent_url.child_id) or ('/ms' in request.httprequest.path and parent_url.child_id))">
+									<t t-esc="parent_url.name"/>
+								</t>
+
+							</t>
+						</li>
+						<li>
+							<t t-foreach="website.menu_id.child_id" t-as="parent_url">
+								<t t-if="parent_url.url != '/ba'">
+									<t t-foreach="parent_url.child_id" t-as="url">
+										<t t-if="url.url in request.httprequest.path and parent_url.child_id">
+											<a t-attf-href="{{parent_url.url+'/news'}}"><t t-esc="url.name"/></a>
+										</t>
+									</t>
+								</t>
+								<t t-if="parent_url.url == '/ba'">
+									<t t-foreach="parent_url.child_id" t-as="url">
+										<t t-if="url.url in request.httprequest.path and parent_url.child_id">
+											<a t-attf-href="{{url.url}}"><t t-esc="url.name"/></a>
+										</t>
+									</t>
+								</t>
+							</t>
+						</li>
+					</ol>
+				 </div>
+			</div>
+		</div>
+		</xpath>
+	</template>
+
+	<!--Them form vao Contach Us-->
+	<template id="kderp_website_theme_default_thuy2.contacts" name="KDVN Thuy2 Contacts" inherit_id="kderp_website.contacts">
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container">
+				<h2 class="text-danger" style="margin-top: 20px; text-align: center;">Contact Form</h2>
+				<div class="row">
+					<form action="/crm/contactus" method="post" class="form-horizontal" style = "margin-right: 0px; margin-left: 0px;" enctype="multipart/form-data" >
+						<div class="col-md-6">
+							<div t-attf-class="form-group #{error and 'contact_name' in error and 'has-error' or ''}" >
+								<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
+							</div>
+							<div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}" >
+								<input placeholder="Phone Number" type="text" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
+							</div>
+							<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
+								<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}" >
+								<input placeholder="Subject" type="text" class="form-control" name="name" t-attf-value="#{name or ''}"/>
+							</div>
+							<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}" >
+								<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 85px" required="True"><t t-esc="description or ''"/></textarea>
+							</div>
+						</div>
+						<div class="col-md-12 text-center form-group" >
+							<button class="btn btn-primary btn-lg">Send</button>
+						</div>
+					</form>
+				</div>
+				<hr size="2px" align="center" style="border-top: 1px solid #026232;" />
+			</div>
+			<div class="container">
+				<div class="row offices" style="padding-top: 20px;">
+					<t t-foreach="offices" t-as="office">
+						<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
+							<address>
+								<h2 class="text-danger"><t t-esc="office.name"></t></h2>
+								<t t-esc="office.street"></t><br />
+								<t t-esc="office.street2"></t>
+								<t t-if = "not office.city">
+									<br />
+								</t>
+								<t t-if = "office.city">
+									<span>, <t t-esc="office.city"></t></span><br />
+								</t>
+								<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+								<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
+							</address>
+						</div>
+					</t>
+				</div>
+				<div class="row sites">
+					<t t-foreach="sites" t-as="site">
+						<div class="col-md-4">
+							<address>
+								<h3 class="text-success"><t t-esc="site.name"></t></h3>
+								<t t-esc="site.street"></t><br />
+								<t t-esc="site.street2"></t>
+								<t t-if = "not site.city">
+									<br />
+								</t>
+								<t t-if = "site.city">
+									<span>, <t t-esc="site.city"></t></span><br />
+								</t>
+								<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+								<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
+							</address>
+						</div>
+					</t>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
+	<!--Them template moi Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.pj_featured_jumbo" name="Project On Going Jumbotron">
+		<div class="oe_structure pj_featured_jumbo"></div>
+		<t t-raw="0"></t>
+	</template>
+	
+	<template id="kderp_website_theme_default_thuy2.page_pj_featured" name="KDVN Project On Going">
+		<t t-call="website.layout">
+			<t t-set="title">Project On Going</t>
+			<t t-call="kderp_website_theme_default_thuy2.pj_featured_jumbo"></t>
+			<div class="container">
+				<div class="row">
+					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Featured Projects</h3>
+					<t t-foreach="posts" t-as="post">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+							</div>
+							<div style ="position: relative; height: 70px; margin-bottom: 10px">
+								<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
+							</div>
+						</div>
+					</t>
+				</div>
+			</div>
+			<t t-if="pager">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" style="text-align: center;">
+							<t t-call="website.pager">
+								<t t-set="classname"></t>
+							</t>
+						</div>
+					</div>
+				</div>
+			</t>
+		</t>
+	</template>
+	<!--Them template moi Project Completed-->
+	<template id="kderp_website_theme_default_thuy2.pj_completed_jumbo" name="Project Completed Jumbotron">
+		<div class="oe_structure pj_completed_jumbo"></div>
+		<t t-raw="0"></t>
+	</template>
+	<template id="kderp_website_theme_default_thuy2.page_pj_completed" name="KDVN Project Completed">
+		<t t-call="website.layout">
+			<t t-set="title">Project Completed</t>
+			<t t-call="kderp_website_theme_default_thuy2.pj_completed_jumbo"></t>
+			<div class="container">
+				<div class="row">
+					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Completed Projects</h3>
+					<t t-foreach="posts" t-as="post">
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+							</div>
+							<div style ="position: relative; height: 70px; margin-bottom: 10px">
+								<h5 style="color:#026232; text-transform: uppercase;text-align: center;"><div t-field="post.name"></div></h5>
+								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
+							</div>
+						</div>
+					</t>
+				</div>
+			</div>
+			<t t-if="pager">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12" style="text-align: center;">
+							<t t-call="website.pager">
+								<t t-set="classname"></t>
+							</t>
+						</div>
+					</div>
+				</div>
+			</t>
+		</t>
+		
+	</template>
+	
+	<!--Ke thua template Jobs-->
+	<template id="kderp_website_theme_default_thuy2.jobs_index" name="KDVN Thuy2 Jobs Index" inherit_id="website_hr_recruitment.index">
+		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']" position="attributes">
+        	<attribute name="class">col-md-offset-3</attribute>
+		</xpath>
+		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mb16']/div[@class='container']" position="replace">
+			<div class="oe_structure"/>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center mb16" data-snippet-id="colmd">
+						<h2>Our Job Offers</h2>
+					</div>
+				</div>
+			</div>
+		</xpath>
+		<!--Thay ngay write_date thanh date_deadline -->
+		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']/ul[@class='media-list']/li[@class='media']/div[@class='media-body']/div[@class='text-muted']" position="replace">
+			<div class="text-muted">
+				<i class="fa fa-clock-o"/> <span>Deadline : </span><span t-field="job.date_deadline" t-field-options='{"format":"dd-MM-y"}'/><br />
+				<i class="fa fa-star"/> <span>Code : </span><span t-field="job.code"/><br />
+				<i class="fa fa-link"/> <span>Link : <a t-attf-href="#{job.job_link}" target="_blank"><span t-field="job.job_link"/></a></span>
+			</div>
+		</xpath>
+	</template>
+	<template id="kderp_website_theme_default_thuy2.jobs_detail" name="KDVN Thuy2 Jobs detail" inherit_id="website_hr_recruitment.detail">
+		<!--Thay ngay write_date thanh date_deadline -->
+		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/h5[@class='text-center text-muted']" position="replace">
+			<h5 class="text-center text-muted">
+                <i class="fa fa-clock-o"/> <span>Deadline : </span><span t-field="job.date_deadline" t-field-options='{"format":"dd-MM-y"}'/>
+            </h5>
+		</xpath>
+		<!--Dua noi dung vao class container-->
+		<xpath expr="//div[@id='wrap']/div[@t-field='job.website_description']" position="replace">
+			<section class="mt16 mb16">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2"/>
+						<div class="col-md-8">
+							<!--<div t-field="job.website_description"/>-->
+							<table border="0" cellpadding="0" cellspacing="0">
+								<tbody>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Title:</strong></p></td>
+										<td style="vertical-align:middle"><p><strong><div t-field="job.name"/></strong></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Code:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.code"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Description</strong>:</p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.description"/></p>
+										</td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Requirement:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.requirements"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Preferred language</strong>(For applications)</p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_language_id.name"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Job Level:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_level_id.name"/></p></td>
+									</tr>
+									<tr style="border-bottom: 1px solid #026232;">
+										<td style="vertical-align:middle"><p><strong>Work Place:</strong></p></td>
+										<td style="vertical-align:middle"><p><div t-field="job.job_work_place_id.name"/></p></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-2"/>
+					</div>
+				</div>
+			</section>
+		</xpath>
+		<!--Thay doi mau cua nut bam Apply-->
+		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mt16 mb16']/div[@class='container']/div[@class='row']/div[@class='col-md-12 text-center mt16 mb16']" position="replace">
+			<div class="col-md-12 text-center mt16 mb16">
+				<a t-attf-href="/jobs/apply/#{ job.id }" class="btn btn-primary btn-lg">Apply</a>
+			</div>
+		</xpath>
+	</template>
+	
+	
+	<template id="kderp_website_theme_default_thuy2.jobs_apply" name="KDVN Thuy2 Jobs apply" inherit_id="website_hr_recruitment.apply">
+		<!--Dua banner vao form application jobs-->
+		<xpath expr="//div[@id='wrap']/div[@class='container']" position="before">
+			<div class="oe_structure"/>
+		</xpath>
+		<!--Thay doi mau cua nut bam submit-->
+		<xpath expr="//div[@id='wrap']/div[@class='container']/div[@class='row']/section[@id='forms']/form[@class='form-horizontal mt32']/div[@class='form-group']/div[@class='col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7']" position="replace">
+			<div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</xpath>
+	</template>
+	
+	<!--Ke thua template Certificates-->
+	<template id="kderp_website_theme_default_thuy2.page_certificates" inherit_id="kderp_website_theme_default_thuy1.page_certificates" name="KDVN Thuy2 Certificates">
+		<xpath expr="//div[@class='container']/div/div[@class='row']" position="attributes">
+        	<attribute name="style">
+        		margin-right: 0px;
+    			margin-left: 0px;
+        	</attribute>
+		</xpath>
+	</template>
+</data>
+</openerp>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+	<!-- Views for internal use -->
+	<data>
+		<record model="ir.ui.view" id="kdvn_news_tags_tree">
+			<field name="name">blog.tag.tree</field>
+			<field name="model">blog.tag</field>
+			<field name="inherit_id" ref='website_blog.blog_tag_tree'/>
+            <field name="arch" type="xml" > 
+				<tree string="Tag List" create="false" position='replace'>
+					<tree string="Tag List" create="false">
+						<field name="name"/>
+					</tree>
+                </tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="kdvn_news_tree">
+			<field name="name">blog.tree</field>
+			<field name="model">blog.blog</field>
+			<field name="arch" type="xml">
+				<tree string="KDVN News">
+					<field name="name" />
+					<field name="subtitle" />
+					<field name="description" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="kdvn_news_form">
+			<field name="name">blog.form</field>
+			<field name="model">blog.blog</field>
+			<field name="arch" type="xml">
+				<form string="KDVN News">
+					<field name="name" />
+					<field name="subtitle" />
+					<field name="description" />
+					<field name="blogpost_ids"/>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="kdvn_post_tree">
+			<field name="name">post.tree</field>
+			<field name="model">blog.post</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+				<tree string="KDVN Posts">
+					<field name="name" />
+					<field name="blog_id"/>
+					<field name="create_date"/>
+					<field name="author_id" />
+					<field name="tag_ids" />
+					<field name="website_published" widget="website_button"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="kdvn_post_form">
+			<field name="name">post.form</field>
+			<field name="model">blog.post</field>
+			<field name="priority" eval="10" />
+			<field name="arch" type="xml">
+				<form string="KDVN Posts">
+				<group>
+					<field name="website_published" widget="website_button" groups="kderp_website.group_kdvn_knowledge_button_published"/>
+					<field name="blog_id" string="Blog category"/>
+					<field name="name" string="Title"/>
+					<field name="subtitle" string="Subtitle"/>
+					<field name="author_id" string="Author"/>
+					<field name="summary" string="Summary"/>
+					<field name="tag_ids" widget="many2many_tags" placeholder="Tags..." />
+          			<field name="content" widget="text_ckeditor4" />
+				</group>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="kdvn_res_partner_form">
+			<field name="name">res.partner</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<form string="Res Partner">
+					<field name="name" position='replace'>
+						<field name="name"/>
+					</field>
+					<field name="street" position='replace'>
+						<field name="street"/>
+					</field>
+					<field name="street2" position='replace'>
+						<field name="street2"/>
+					</field>
+					<field name="city" position='replace'>
+						<field name="city"/>
+					</field>
+				</form>
+			</field>
+		</record>
+	</data>
+
+	<!-- Actions, Menus for internal use -->
+	<data>
+		<!--==Action for Events==-->
+		<record model="ir.actions.act_window" id="act_kdvn_events_events">
+            <field name="name">Events</field>
+            <field name="res_model">event.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,calendar,tree,form</field>
+			<field name="view_id" ref="event.view_event_kanban"/>
+        </record>
+		
+		<!--==Action for News==-->
+		<record model="ir.actions.act_window" id="act_kdvn_blog_posts">
+			<field name="name">KDVN News</field>
+			<field name="res_model">blog.post</field>
+			<field name="view_mode">tree,form</field>
+			<field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="website_blog.view_blog_post_list"/>
+		</record>
+		
+			<!--==Action Sub for News==-->		
+			<!-- Show KDVN General News Posts -->
+			<record model="ir.actions.act_window" id="list_kdvn_gen_post">
+				<field name="name">KDVN Gen News Posts</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','General News')]</field>
+			</record>
+
+			<!-- Show KDVN Project Posts -->
+			<record model="ir.actions.act_window" id="list_kdvn_prj_post">
+				<field name="name">KDVN Works Posts</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Major Works')]</field>
+			</record>
+
+			<!-- Show KDVN QA Posts -->
+			<record model="ir.actions.act_window" id="list_kdvn_qa_post">
+				<field name="name">KDVN QA Posts</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Quality Safety Assurance')]</field>
+			</record>
+			
+			<!-- Show KDVN Electrical Systems -->
+			<record model="ir.actions.act_window" id="list_kdvn_es">
+				<field name="name">KDVN Electrical Systems</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Electrical Systems')]</field>
+			</record>
+			<!-- Show KDVN Mechanical Systems-->
+			<record model="ir.actions.act_window" id="list_kdvn_ms">
+				<field name="name">KDVN Mechanical Systems</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Mechanical Systems')]</field>
+			</record>
+			<!-- Show KDVN Fun Fact -->
+			<record model="ir.actions.act_window" id="list_kdvn_ff">
+				<field name="name">KDVN Fun Fact</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Fun Fact')]</field>
+			</record>
+			<!-- Show KDVN Announcement -->
+			<record model="ir.actions.act_window" id="list_kdvn_ann">
+				<field name="name">KDVN Announcement</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Announcement')]</field>
+			</record>
+			<!-- Show KDVN 	Media-->
+			<record model="ir.actions.act_window" id="list_kdvn_media">
+				<field name="name">KDVN Media</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Media')]</field>
+			</record>
+			<!-- Show KDVN Certificates-->
+			<record model="ir.actions.act_window" id="list_cer">
+				<field name="name">KDVN Certificates</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Certificates')]</field>
+			</record>
+			<!-- Show KDVN Introduction-->
+			<record model="ir.actions.act_window" id="list_kdvn_intro">
+				<field name="name">KDVN Introduction</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','Introduction')]</field>
+			</record>
+			<!-- Show KDVN IT-->
+			<record model="ir.actions.act_window" id="list_kdvn_it">
+				<field name="name">KDVN IT</field>
+				<field name="res_model">blog.post</field>
+				<field name="domain">[('blog_id','=','IT')]</field>
+			</record>
+			
+		<!--==Action for Configuration==-->
+		<!-- Show KDVN Tags-->
+		<record model="ir.actions.act_window" id="kdvn_news_tags_list">
+			<field name="name">News Tags</field>
+			<field name="res_model">blog.tag</field>
+			<field name="view_mode">tree,form</field>
+			<field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="website_blog.blog_tag_tree"/>
+		</record>
+		<!-- Show KDVN Blogs-->
+		<record model="ir.actions.act_window" id="act_kdvn_blog_blog">
+            <field name="name">Blogs</field>
+            <field name="res_model">blog.blog</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		<!-- Show KDVN Types of Events-->
+		<record model="ir.actions.act_window" id="act_kdvn_events_type">
+            <field name="name">Types of Events</field>
+            <field name="res_model">event.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event.view_event_type_tree"/>
+        </record>
+		<!-- Show KDVN Contact Office-->
+		<record model="ir.actions.act_window" id="kdvn_contact_offices">
+				<field name="name">Contact Offices</field>
+				<field name="res_model">res.partner</field>
+				<field name="domain">[('name','=','KINDEN VIETNAM')]</field>
+				<field name="view_mode">form</field>
+			</record>
+			
+		<!--=Main Menu=-->
+		<menuitem id="main_kdvn_website" name="KDVN Website" groups="group_kdvn_website_menu"/>
+		<!--==Menu==-->
+		<menuitem id="kdvn_events" name="Events" parent="main_kdvn_website" sequence="10" groups="group_kdvn_website_events_menu"/>
+		<menuitem id="kdvn_news_section" name="News" parent="main_kdvn_website" sequence="20" groups="group_kdvn_knowledge_blog_posts_menu"/>
+		<menuitem id="kdvn_website_config" name="Configuration" parent="main_kdvn_website" sequence="30" groups="group_kdvn_configuration_menu"/>
+		
+		<!--==Sub Menu==-->
+		<menuitem id="menu_kdvn_events" name="Events" parent="kdvn_events" action="act_kdvn_events_events"/>
+		<menuitem id="menu_kdvn_blog_posts_new" name="KDVN Website" parent="kdvn_news_section" action="act_kdvn_blog_posts"/>
+		<menuitem id="kdvn_tags" name="News tags" parent="kdvn_website_config" action="kdvn_news_tags_list" groups="group_kdvn_configuration_menu_tag"/>
+		<menuitem id="kdvn_offices" name="Contact Offices" parent="kdvn_website_config" action="kdvn_contact_offices" groups="group_kdvn_configuration_menu_contact_office"/>
+		<menuitem id="kdvn_blog_news" name="Blogs" parent="kdvn_website_config" action="act_kdvn_blog_blog" groups="group_kdvn_configuration_menu_blog"/>
+		<menuitem id="kdvn_events_type" name="Types of Events" parent="kdvn_website_config" action="act_kdvn_events_type" groups="group_kdvn_configuration_menu_events"/>
+		
+		<!--==Sub menu for KDVN Website==-->
+		<menuitem id="kdvn_general_news" name="KDVN General Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_gen_post"/>
+		<menuitem id="kdvn_works_news" name="KDVN Works Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_prj_post"/>
+		<menuitem id="kdvn_qa_news" name="KDVN QA Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_qa_post"/>
+		<menuitem id="kdvn_es_news" name="KDVN Electrical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_es"/>
+		<menuitem id="kdvn_ms_news" name="KDVN Mechanical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ms"/>
+		<menuitem id="kdvn_ff_news" name="KDVN Fun Fact" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ff"/>
+		<menuitem id="kdvn_ann_news" name="KDVN Announcement" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ann"/>
+		<menuitem id="kdvn_media_news" name="KDVN Media" parent="menu_kdvn_blog_posts_new" action="list_kdvn_media"/>
+		<menuitem id="kdvn_cer_news" name="KDVN Certificates" parent="menu_kdvn_blog_posts_new" action="list_cer"/>
+		<menuitem id="kdvn_intro_news" name="KDVN Introduction" parent="menu_kdvn_blog_posts_new" action="list_kdvn_intro"/>
+		<menuitem id="kdvn_it_news" name="KDVN IT" parent="menu_kdvn_blog_posts_new" action="list_kdvn_it"/>	
+	</data>
+</openerp>

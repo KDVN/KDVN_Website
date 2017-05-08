@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+
+  <template id="kderp_website.jumbo_project_featured" inherit_id="website.snippets" name="Jumbo Project Featured">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+          <span class="oe_snippet_thumbnail_title">Jumbo Project Featured</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center" style="background:url(/kderp_website/static/src/img/library/BROTHER%20IINDUSTRIES%20SAIGON.jpg) center center; background-size:cover;min-height: 231px;">
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  
+  <template id="kderp_website.pj_completed_jumbo" inherit_id="website.snippets" name="Jumbo Project Completed">
+    <xpath expr="//div[@id='snippet_structure']" position="inside">
+      <div>
+        <div class="oe_snippet_thumbnail">
+          <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+          <span class="oe_snippet_thumbnail_title">Jumbo Project Completed</span>
+        </div>
+        <section class="oe_snippet_body">
+          <div class="container">
+            <div class="jumbotron text-center" style="background:url(/kderp_website/static/src/img/library/SHISEIDO%20VIETNAM.jpg) center center; background-size:cover;min-height: 231px;">
+            </div>
+          </div>
+        </section>
+      </div>
+    </xpath>
+  </template>
+  
+  <template id="kderp_website.recruitment" inherit_id="website.snippets" name="Jumbo Recruitment">
+      <xpath expr="//div[@id='snippet_structure']" position="inside">
+        <div>
+          <div class="oe_snippet_thumbnail">
+            <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+            <span class="oe_snippet_thumbnail_title">Jumbo Recruitment</span>
+          </div>
+          <section class="oe_snippet_body">
+            <div class="container">
+              <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/2561_62582f1/datas) center center; background-size:cover;min-height: 231px;">
+              </div>
+            </div>
+          </section>
+        </div>
+      </xpath>
+    </template>
+    
+    <template id="kderp_website.certificates " inherit_id="website.snippets" name="Jumbo Certificates">
+      <xpath expr="//div[@id='snippet_structure']" position="inside">
+        <div>
+          <div class="oe_snippet_thumbnail">
+            <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+            <span class="oe_snippet_thumbnail_title">Jumbo Certificates</span>
+          </div>
+          <section class="oe_snippet_body">
+            <div class="container">
+              <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/2585_59a80ba/datas) center center; background-size:cover;min-height: 231px;">
+                <h1><span class="h2 text-success">Certificate of Appreciation</span></h1>
+              </div>
+            </div>
+          </section>
+        </div>
+      </xpath>
+    </template>
+</data>
+</openerp>

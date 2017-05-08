@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		<!--An menu login-->
+		<record id="website.show_sign_in" model="ir.ui.view">
+            <field name="active" eval="False"/>
+        </record>
+        <!--An menu Job-->
+		<record id="kderp_website_theme_default.jobs" model="website.menu">
+			<field name="name">Jobs</field>
+			<field name="url">/intro/jobs</field>
+			<field name="active" eval="False"/>
+			<field name="parent_id" ref="kderp_website_theme_default.jobs"></field>
+			<field name="sequence" type="int">94</field>
+		</record>
+		<!--Doi ten top menu kinden Japan thanh Kinden Corp. -->
+		<record id="kderp_website_theme_default.menu_kinden_jp" model="website.menu">
+			<field name="name">KINDEN CORP.</field>
+			<field name="new_window">True</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">http://www.kinden.co.jp/english/index.html</field>
+			<field name="sequence" type="int">70</field>
+		</record>
+
+		<!-- De an top menu Quality Assurance -->
+		<record id="kderp_website_theme_default.menu_qa" model="website.menu">
+			<field name="name">Quality Assurance</field>
+			<field name="parent_id" ref="kderp_website_theme_default.menu_qa"/>
+			<field name="url">/qa</field>
+			<field name="active" eval="False"/>
+			<field name="sequence" type="int">25</field>
+		</record>
+
+		<!--Them 2 top menu moi-->
+		<!--Chuyen menu Electrical va Mechanical vao Business Activities
+			Them menu Project trong top menu Business Acticities
+		-->
+		<record id="menu_ba" model="website.menu">
+			<field name="name">Business Activities</field>
+			<field name="parent_id" ref="website.main_menu"/>
+			<field name="url">/ba</field>
+			<field name="sequence" type="int">15</field>
+		</record>
+			<record id="kderp_website_theme_default.menu_electrical" model="website.menu">
+				<field name="name">Electrical</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/es/news</field>
+				<field name="sequence" type="int">15</field>
+			</record>
+			<record id="kderp_website_theme_default.menu_mechanical" model="website.menu">
+				<field name="name">Mechanical</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/ms/news</field>
+				<field name="sequence" type="int">20</field>
+			</record>
+
+			<record id="menu_featured_pj" model="website.menu">
+				<field name="name">Featured Projects</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/pj/featured</field>
+				<field name="divider" eval="True" />
+				<field name="divider_text">Projects</field>
+				<field name="sequence" type="int">30</field>
+			</record>
+			<record id="menu_comleted_pj" model="website.menu">
+				<field name="name">Completed Projects</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/pj/completed</field>
+				<field name="sequence" type="int">35</field>
+			</record>
+
+		<!--Chuyen menu Jobs sang menu Recruitment-->
+		<record id="website_hr_recruitment.menu_jobs" model="website.menu">
+			<field name="name">Recruitment</field>
+			<field name="url">/jobs</field>
+			<field name="parent_id" ref="website.main_menu"/>
+			<field name="sequence" type="int">20</field>
+		</record>
+		
+	</data>
+</openerp>
