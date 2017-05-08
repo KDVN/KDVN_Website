@@ -516,6 +516,9 @@
 	
 	<!--Ke thua template Jobs-->
 	<template id="kderp_website_theme_default_thuy2.jobs_index" name="KDVN Thuy2 Jobs Index" inherit_id="website_hr_recruitment.index">
+		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']" position="attributes">
+        	<attribute name="class">col-md-offset-3</attribute>
+		</xpath>
 		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mb16']/div[@class='container']" position="replace">
 			<div class="oe_structure"/>
 			<div class="container">
@@ -530,7 +533,8 @@
 		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']/ul[@class='media-list']/li[@class='media']/div[@class='media-body']/div[@class='text-muted']" position="replace">
 			<div class="text-muted">
 				<i class="fa fa-clock-o"/> <span>Deadline : </span><span t-field="job.date_deadline" t-field-options='{"format":"dd-MM-y"}'/><br />
-				<i class="fa fa-star"/> <span>Code : </span><span t-field="job.code"/>
+				<i class="fa fa-star"/> <span>Code : </span><span t-field="job.code"/><br />
+				<i class="fa fa-link"/> <span>Link : <a t-attf-href="#{job.job_link}" target="_blank"><span t-field="job.job_link"/></a></span>
 			</div>
 		</xpath>
 	</template>

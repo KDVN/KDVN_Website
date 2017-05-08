@@ -67,6 +67,7 @@ class hr_job(osv.Model):
 		'job_language_id': fields.many2one('kderp.hr.job.language', 'Job language'),
 		'job_level_id': fields.many2one('kderp.hr.job.level', 'Job level'),
 		'job_work_place_id': fields.many2one('kderp.hr.job.work.place', 'Job work place'),
+		'job_link': fields.char('Job link'),
 	}
 	_sql_constraints = [
 		('name_company_uniq', 'unique(code, company_id, department_id)', 'The code of the job position must be unique per department in company!'),

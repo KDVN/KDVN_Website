@@ -28,6 +28,7 @@
 				<field name="job_language_id"/>
 				<field name="job_level_id"/>
 				<field name="job_work_place_id"/>
+				<field name="job_link"/>
 			</xpath>
 			<div attrs="{'invisible': [('state', '!=', 'recruit')]}" position='replace'>
 				<div>
