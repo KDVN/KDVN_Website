@@ -517,7 +517,8 @@
 	<!--Ke thua template Jobs-->
 	<template id="kderp_website_theme_default_thuy2.jobs_index" name="KDVN Thuy2 Jobs Index" inherit_id="website_hr_recruitment.index">
 		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']" position="attributes">
-        	<attribute name="class">col-md-offset-3</attribute>
+			<attribute name="class"></attribute>
+        	<attribute name="style">margin-left: 25%;margin-right: 25%;</attribute>
 		</xpath>
 		<xpath expr="//div[@id='wrap']/div[@class='oe_structure']/section[@class='mb16']/div[@class='container']" position="replace">
 			<div class="oe_structure"/>
@@ -536,6 +537,17 @@
 				<i class="fa fa-star"/> <span>Code : </span><span t-field="job.code"/><br />
 				<i class="fa fa-link"/> <span>Link : <a t-attf-href="#{job.job_link}" target="_blank"><span t-field="job.job_link"/></a></span>
 			</div>
+		</xpath>
+		<!--Thay h3 thanh h4-->
+		<xpath expr="//div[@id='wrap']/div[@class='container oe_website_jobs']/div[@class='row']/div[@id='jobs_grid']/ul[@class='media-list']/li[@class='media']/div[@class='media-body']/h3[@class='media-heading']" position="replace">
+			<h4 class="media-heading">
+                <a t-attf-href="/jobs/detail/#{ slug(job) }">
+                    <span t-field="job.name"/>
+                </a>
+                <small t-if="job.no_of_recruitment &gt; 1">
+                    <t t-esc="job.no_of_recruitment"/> open positions
+                </small>
+            </h4>
 		</xpath>
 	</template>
 	<template id="kderp_website_theme_default_thuy2.jobs_detail" name="KDVN Thuy2 Jobs detail" inherit_id="website_hr_recruitment.detail">
