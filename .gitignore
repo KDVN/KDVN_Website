@@ -1,2 +1,14 @@
 .idea
 *.pyc
+.c9
+odoo
+backup
+node_modules
+org_addons
+grc_1.9-1_all.deb
+openerp.log
+packages.json
+pidfile
+start.bash
+Gruntfile.js
+package.json

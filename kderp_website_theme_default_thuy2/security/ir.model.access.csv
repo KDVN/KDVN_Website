@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_kderp_hr_job_language,kderp_hr_job_language,model_kderp_hr_job_language,base.group_public,1,0,0,0
-access_kderp_hr_job_level,kderp_hr_job_level,model_kderp_hr_job_level,base.group_public,1,0,0,0
-access_kderp_hr_job_work_place,kderp_hr_job_work_place,model_kderp_hr_job_work_place,base.group_public,1,0,0,0
