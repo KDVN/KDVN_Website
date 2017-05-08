@@ -55,7 +55,7 @@ class ExtendWebsiteHrRecruitment(website_hr_recruitment):
 		Jobs = env['hr.job']
 
 		# List jobs available to current UID
-		job_ids = Jobs.search([("date_deadline", ">=", sd(today - relativedelta(days=10)))], order="website_published desc,no_of_recruitment desc").ids
+		job_ids = Jobs.search([("date_deadline", ">=", sd(today - relativedelta(days=10)))], order="website_published desc,date_deadline desc,no_of_recruitment desc").ids
 		# Browse jobs as superuser, because address is restricted
 		jobs = Jobs.sudo().browse(job_ids)
 
