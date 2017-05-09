@@ -5,6 +5,10 @@ from openerp import models, fields, api
 
 from openerp import SUPERUSER_ID
 
+import werkzeug
+
+from openerp.addons.website.models.website import urlplus
+
 
 class view(osv.osv):
     """
@@ -129,9 +133,25 @@ class event(osv.osv):
         return None
 		
 class Partner(models.Model):
-	_inherit = 'res.partner'
+    #TODO: Central management for API keys
+    _inherit = 'res.partner'
+    def google_map_img(self, cr, uid, ids, zoom=18, width=298, height=298, context=None):
+    
+        partner = self.browse(cr, uid, ids[0], context=context)
+        params = {
+            'center': '%s, %s %s, %s' % (partner.street or '', partner.city or '', partner.zip or '', partner.country_id and partner.country_id.name_get()[0][1] or ''),
+            'size': "%sx%s" % (height, width),
+            'zoom': zoom,
+            'sensor': 'false',
+            'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
+        }
+        return urlplus('//maps.googleapis.com/maps/api/staticmap' , params)
 
 	name = fields.Char(string="Name", translate=True)
 	street = fields.Char(string="Address", translate=True)
 	street2 = fields.Char(string="Address2", translate=True)
 	city = fields.Char(string="City", translate=True)
+	
+	
+
+	    
