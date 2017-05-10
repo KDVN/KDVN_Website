@@ -552,3 +552,7 @@ footer a:hover {
   background-color: #03944c;
   border-color: #03944c;
 }
+td,
+th {
+  padding: 10px;
+}
