@@ -49,7 +49,7 @@ msgstr "Apply"
 #. module: kderp_website_theme_default_thuy2
 #: model:website.menu,name:kderp_website_theme_default_thuy2.menu_ba
 msgid "Business Activities"
-msgstr "Hoạt động kinh doanh"
+msgstr "Business Activities"
 
 #. module: kderp_website_theme_default_thuy2
 #: view:website:website.homepage
@@ -79,7 +79,7 @@ msgstr "Company name"
 #: view:website:kderp_website_theme_default_thuy2.page_pj_completed
 #: model:website.menu,name:kderp_website_theme_default_thuy2.menu_comleted_pj
 msgid "Completed Projects"
-msgstr "Các dự án đã hoàn thành"
+msgstr "Completed Projects"
 
 #. module: kderp_website_theme_default_thuy2
 #: view:website:kderp_website.contacts
@@ -120,13 +120,13 @@ msgstr "Date"
 #. module: kderp_website_theme_default_thuy2
 #: field:hr.job,date_deadline:0
 msgid "Deadline"
-msgstr "Hạn nộp hồ sơ"
+msgstr "Deadline"
 
 #. module: kderp_website_theme_default_thuy2
 #: view:website:website_hr_recruitment.detail
 #: view:website:website_hr_recruitment.index
 msgid "Deadline :"
-msgstr "Hạn nộp hồ sơ :"
+msgstr "Deadline :"
 
 #. module: kderp_website_theme_default_thuy2
 #: model:ir.actions.act_window,name:kderp_website_theme_default_thuy2.kdvn_departments_act
@@ -168,7 +168,7 @@ msgstr "Email"
 #: view:website:kderp_website_theme_default_thuy2.page_pj_featured
 #: model:website.menu,name:kderp_website_theme_default_thuy2.menu_featured_pj
 msgid "Featured Projects"
-msgstr "Các dự án nổi bật"
+msgstr "Featured Projects"
 
 #. module: kderp_website_theme_default_thuy2
 #: field:res.lang,flag_image:0
@@ -399,7 +399,7 @@ msgstr "KINDEN GROUP"
 #: view:website:website.homepage
 #: view:website:website.layout
 msgid "KINDEN VIETNAM CO., LTD"
-msgstr "CÔNG TY TNHH KINDEN VIỆT NAM"
+msgstr "KINDEN VIETNAM CO., LTD"
 
 #. module: kderp_website_theme_default_thuy2
 #: model:ir.model,name:kderp_website_theme_default_thuy2.model_res_lang
@@ -453,7 +453,7 @@ msgstr "Name"
 #. module: kderp_website_theme_default_thuy2
 #: view:website:website_hr_recruitment.index
 msgid "Our Job Offers"
-msgstr "Danh mục công việc"
+msgstr "Our Job Offers"
 
 #. module: kderp_website_theme_default_thuy2
 #: view:website:kderp_website.contacts
@@ -478,7 +478,7 @@ msgstr "Project On Going"
 #. module: kderp_website_theme_default_thuy2
 #: model:website.menu,divider_text:kderp_website_theme_default_thuy2.menu_featured_pj
 msgid "Projects"
-msgstr "Dự án"
+msgstr "Projects"
 
 #. module: kderp_website_theme_default_thuy2
 #: model:ir.ui.menu,name:kderp_website_theme_default_thuy2.kderp_website_config_recruitment
@@ -569,9 +569,3 @@ msgstr "open positions"
 msgid "test"
 msgstr "test"
 
-#. module: website
-#: view:website:website.500
-#: view:website:website.layout
-#: model:website.menu,name:website.menu_homepage
-msgid "Home"
-msgstr "Home"
