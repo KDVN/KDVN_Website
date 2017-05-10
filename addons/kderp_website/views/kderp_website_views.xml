@@ -238,16 +238,16 @@
 		<menuitem id="kdvn_events_type" name="Types of Events" parent="kdvn_website_config" action="act_kdvn_events_type" groups="group_kdvn_configuration_menu_events"/>
 		
 		<!--==Sub menu for KDVN Website==-->
-		<menuitem id="kdvn_general_news" name="KDVN General Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_gen_post"/>
-		<menuitem id="kdvn_works_news" name="KDVN Works Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_prj_post"/>
-		<menuitem id="kdvn_qa_news" name="KDVN QA Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_qa_post"/>
-		<menuitem id="kdvn_es_news" name="KDVN Electrical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_es"/>
-		<menuitem id="kdvn_ms_news" name="KDVN Mechanical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ms"/>
-		<menuitem id="kdvn_ff_news" name="KDVN Fun Fact" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ff"/>
-		<menuitem id="kdvn_ann_news" name="KDVN Announcement" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ann"/>
-		<menuitem id="kdvn_media_news" name="KDVN Media" parent="menu_kdvn_blog_posts_new" action="list_kdvn_media"/>
-		<menuitem id="kdvn_cer_news" name="KDVN Certificates" parent="menu_kdvn_blog_posts_new" action="list_cer"/>
-		<menuitem id="kdvn_intro_news" name="KDVN Introduction" parent="menu_kdvn_blog_posts_new" action="list_kdvn_intro"/>
-		<menuitem id="kdvn_it_news" name="KDVN IT" parent="menu_kdvn_blog_posts_new" action="list_kdvn_it"/>	
+		<menuitem id="kdvn_general_news" name="KDVN General Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_gen_post" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_works_news" name="KDVN Works Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_prj_post" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_qa_news" name="KDVN QA Posts" parent="menu_kdvn_blog_posts_new" action="list_kdvn_qa_post" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_es_news" name="KDVN Electrical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_es" groups="group_kderp_blog_post_e"/>
+		<menuitem id="kdvn_ms_news" name="KDVN Mechanical" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ms" groups="group_kderp_blog_post_m"/>
+		<menuitem id="kdvn_ff_news" name="KDVN Fun Fact" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ff" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_ann_news" name="KDVN Announcement" parent="menu_kdvn_blog_posts_new" action="list_kdvn_ann" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_media_news" name="KDVN Media" parent="menu_kdvn_blog_posts_new" action="list_kdvn_media" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_cer_news" name="KDVN Certificates" parent="menu_kdvn_blog_posts_new" action="list_cer" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_intro_news" name="KDVN Introduction" parent="menu_kdvn_blog_posts_new" action="list_kdvn_intro" groups="group_kdvn_blog_posts_sub_menu"/>
+		<menuitem id="kdvn_it_news" name="KDVN IT" parent="menu_kdvn_blog_posts_new" action="list_kdvn_it" groups="group_kdvn_blog_posts_sub_menu"/>	
 	</data>
 </openerp>

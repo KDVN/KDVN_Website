@@ -14,7 +14,7 @@
 		<field name="domain">[('blog_id','=','Projects Completed')]</field>
 	</record>
 	
-	<menuitem id="kdvn_pf_news" name="KDVN PJ Featured" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pf"/>
-	<menuitem id="kdvn_pc_news" name="KDVN PJ Completed" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pc"/>
+	<menuitem id="kdvn_pf_news" name="KDVN PJ Featured" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pf" groups="kderp_website.group_kdvn_blog_posts_sub_menu"/>
+	<menuitem id="kdvn_pc_news" name="KDVN PJ Completed" parent="kderp_website.menu_kdvn_blog_posts_new" action="list_kdvn_pc" groups="kderp_website.group_kdvn_blog_posts_sub_menu"/>
 </data>
 </openerp>

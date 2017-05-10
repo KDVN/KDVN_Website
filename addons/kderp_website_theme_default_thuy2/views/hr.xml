@@ -42,6 +42,9 @@
 					<field name="requirements"/>	
 				</div>					
             </div>
+			<xpath expr="//field[@name='website_published']" position="replace">
+                <field name="website_published" class="pull-right" widget="website_button" groups="kderp_website_theme_default_thuy2.group_kdvn_job_positions_button_published"/>
+            </xpath>
         </field>
     </record>
     <record id="view_kdvn_hr_job_tree" model="ir.ui.view">
@@ -189,11 +192,11 @@
 		<field name="view_mode">tree,form</field>
 	</record>
 	
-	<menuitem id="kdvn_menu_recruitment" name="Recruitment" parent="kderp_website.main_kdvn_website" sequence="28"/>
+	<menuitem id="kdvn_menu_recruitment" name="Recruitment" parent="kderp_website.main_kdvn_website" sequence="28" groups="group_kdvn_website_recruitment_menu"/>
 	<menuitem id="kdvn_job" name="Job Positions" parent="kdvn_menu_recruitment" action="kdvn_jobs_act"/>
 	<menuitem id="kdvn_applications" name="Applications" parent="kdvn_menu_recruitment" action="kdvn_applications_act"/>
 	
-	<menuitem id="kderp_website_config_recruitment" name="Recruitment" parent="kderp_website.kdvn_website_config"/>
+	<menuitem id="kderp_website_config_recruitment" name="Recruitment" parent="kderp_website.kdvn_website_config" groups="group_kdvn_configuration_menu_recruitment"/>
 	<menuitem id="kdvn_departments" name="Departments" parent="kderp_website_config_recruitment" action="kdvn_departments_act"/>
 	<menuitem id="kdvn_job_language" name="Job Language" parent="kderp_website_config_recruitment" action="kdvn_hr_job_language_act"/>
 	<menuitem id="kdvn_job_level" name="Job Level" parent="kderp_website_config_recruitment" action="kdvn_hr_job_level_act"/>

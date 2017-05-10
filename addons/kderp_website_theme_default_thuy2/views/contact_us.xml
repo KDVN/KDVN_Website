@@ -10,6 +10,6 @@
 	</record>
 	
 	<menuitem id="kdvn_menu_contact_us" name="Contact Us" parent="kderp_website.main_kdvn_website" sequence="25"/>
-	<menuitem id="kdvn_contact_us" name="Contact Us" parent="kdvn_menu_contact_us" action="kdvn_contact_us_act"/>
+	<menuitem id="kdvn_contact_us" name="Contact Us" parent="kdvn_menu_contact_us" action="kdvn_contact_us_act" groups="group_kdvn_website_contactus_menu"/>
 </data>
 </openerp>

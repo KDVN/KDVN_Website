@@ -6,10 +6,12 @@
     """,
     'category':'test',
     'version':'1.0',
-    'depends':['kderp_website', 'kderp_website_theme_default', 'website_menu_by_user_status', 'kderp_event'],
+    'depends':['kderp_website', 'kderp_website_theme_default', 'website_menu_by_user_status', 'kderp_event', 'website_hr_recruitment'],
     
     #tempalte, pages, and snippets
     'data':[
+            'security/security.xml',
+			'security/ir.model.access.csv',
             'views/layout.xml',
             'views/pages.xml',
             'views/data.xml',
@@ -19,8 +21,6 @@
             'views/snippets.xml',
             'views/hr.xml',
             'views/views.xml',
-            'security/security.xml',
-			'security/ir.model.access.csv',
             ],
     
     #Information

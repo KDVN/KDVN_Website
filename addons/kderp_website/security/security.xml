@@ -265,5 +265,36 @@
 	        								(4, ref('group_kdvn_event_type_create')),
 	        								(4, ref('group_kdvn_event_type_delete'))]"/>
 		</record>
+		
+		<!-- Rule for Blogs Post-->
+		<record id='group_kdvn_blog_posts_sub_menu' model='res.groups'>
+	        <field name='name'>KDVN - Knowledge Blog Posts/ General</field>
+	        <field name="category_id" ref="kderp_website.module_category_kdvn_knowledge"/>
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	    </record>
+		
+		<record id='group_kderp_blog_post_m' model='res.groups'>
+	        <field name='name'>KDVN - Knowledge Blog Posts/ Mechanical</field>
+	        <field name="category_id" ref="kderp_website.module_category_kdvn_knowledge"/>
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	    </record>
+		<record model="ir.rule" id="kderp_rule_blog_post_m">
+		 	<field name="name">KDVN - Knowledge Blog Posts/ Mechanical</field>
+		 	<field name="model_id" ref="website_blog.model_blog_post"/>		
+		 	<field name="domain_force">[('blog_id.name', '=', 'Mechanical Systems')]</field>
+		 	<field eval="[(6,0,[ref('group_kderp_blog_post_m')])]" name="groups"/>
+		</record>
+		
+	    <record id='group_kderp_blog_post_e' model='res.groups'>
+	        <field name='name'>KDVN - Knowledge Blog Posts/ Electrical</field>
+	        <field name="category_id" ref="kderp_website.module_category_kdvn_knowledge"/>
+	        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+	    </record>
+		<record model="ir.rule" id="kderp_rule_blog_post_e">
+		 	<field name="name">KDVN - Knowledge Blog Posts/ Electrical</field>
+		 	<field name="model_id" ref="website_blog.model_blog_post"/>		
+		 	<field name="domain_force">[('blog_id.name', '=', 'Electrical Systems')]</field>
+		 	<field eval="[(6,0,[ref('group_kderp_blog_post_e')])]" name="groups"/>
+		</record>
     </data>
 </openerp>
