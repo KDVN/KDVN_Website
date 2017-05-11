@@ -556,3 +556,8 @@ td,
 th {
   padding: 10px;
 }
+#footer_container,
+#footer {
+  padding-top: 15px;
+  padding-bottom: 0px;
+}

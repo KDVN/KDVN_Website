@@ -535,7 +535,7 @@
 			<div class="text-muted">
 				<i class="fa fa-clock-o"/> <span>Deadline : </span><span t-field="job.date_deadline" t-field-options='{"format":"dd-MM-y"}'/><br />
 				<i class="fa fa-star"/> <span>Code : </span><span t-field="job.code"/><br />
-				<i class="fa fa-link"/> <span>Link : <a t-attf-href="#{job.job_link}" target="_blank"><span t-field="job.job_link"/></a></span>
+				<i class="fa fa-link"/> <span>Link : <a t-attf-href="#{job.job_link}" target="_blank">Job link</a></span>
 			</div>
 		</xpath>
 		<!--Thay h3 thanh h4-->
