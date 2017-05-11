@@ -561,3 +561,7 @@ th {
   padding-top: 15px;
   padding-bottom: 0px;
 }
+.brand a:hover,
+a:focus {
+  text-decoration: none;
+}
