@@ -369,7 +369,7 @@
 								<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
 							</div>
 							<div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}" >
-								<input placeholder="Phone Number" type="text" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
+								<input placeholder="Phone Number" type="number" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
 							</div>
 							<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
 								<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
@@ -432,7 +432,21 @@
 			</div>
 		</xpath>
 	</template>
-	
+	<!--Ke thua module website_crm de sua giao dien cam on-->
+	<!--Them form vao Contach Us-->
+	<template id="kderp_website_theme_default_thuy2.contactus_thanks" name="KDVN Thuy2 Contacts Thanks" inherit_id="website_crm.contactus_thanks">
+		<xpath expr="//div[@id='wrap']/div[@class='container']/h1" position="replace">
+			<h1>Thank you!</h1>
+			<div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt16 mb16">
+                        <a href="/" class="btn btn-primary btn-lg">Continue To Our Website</a>
+                    </div>
+                </div>
+            </div>
+		</xpath>
+	</template>
+        
 	<!--Them template moi Project Featured-->
 	<template id="kderp_website_theme_default_thuy2.pj_featured_jumbo" name="Project On Going Jumbotron">
 		<div class="oe_structure pj_featured_jumbo"></div>
