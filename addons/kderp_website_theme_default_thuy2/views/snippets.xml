@@ -36,7 +36,7 @@
     </xpath>
   </template>
   
-  <template id="kderp_website.recruitment" inherit_id="website.snippets" name="Jumbo Recruitment">
+  <template id="kderp_website.recruitment_jumbo" inherit_id="website.snippets" name="Jumbo Recruitment">
       <xpath expr="//div[@id='snippet_structure']" position="inside">
         <div>
           <div class="oe_snippet_thumbnail">
@@ -53,7 +53,7 @@
       </xpath>
     </template>
     
-    <template id="kderp_website.certificates " inherit_id="website.snippets" name="Jumbo Certificates">
+    <template id="kderp_website.certificates_jumbo" inherit_id="website.snippets" name="Jumbo Certificates">
       <xpath expr="//div[@id='snippet_structure']" position="inside">
         <div>
           <div class="oe_snippet_thumbnail">
@@ -64,6 +64,65 @@
             <div class="container">
               <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/2585_59a80ba/datas) center center; background-size:cover;min-height: 231px;">
                 <h1 style="font-size: 48px;"><span class="text-success">Certificates</span></h1>
+              </div>
+            </div>
+          </section>
+        </div>
+      </xpath>
+    </template>
+    
+    <!--Them banner cho Electrical va Mechanical-->
+    <template id="kderp_website.electrical_jumbo" inherit_id="website.snippets" name="Jumbo Electrical">
+      <xpath expr="//div[@id='snippet_structure']" position="inside">
+        <div>
+          <div class="oe_snippet_thumbnail">
+            <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+            <span class="oe_snippet_thumbnail_title">Jumbo Electrical</span>
+          </div>
+          <section class="oe_snippet_body">
+            <div class="container">
+              <div class="bs-docs-header text-center" style="background: rgba(119, 119, 119, 0.23);">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img class="img-rounded img-responsive" style="max-height: 230px; width: 100%;" src="/kderp_website/static/src/img/electrical.jpg"/>
+                  </div>
+                  <div class="col-md-6">
+                    <h2 class="text-success" style="margin-top: 20px;">Electrical Systems</h2>
+                    <h3>
+                      We work to provide safe, high-quality and value-added electric systems for our customers' comfortable daily lives.
+                    </h3>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </xpath>
+    </template>
+    
+    <template id="kderp_website.mechanical_jumbo" inherit_id="website.snippets" name="Jumbo Mechanical">
+      <xpath expr="//div[@id='snippet_structure']" position="inside">
+        <div>
+          <div class="oe_snippet_thumbnail">
+            <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+            <span class="oe_snippet_thumbnail_title">Jumbo Mechanical</span>
+          </div>
+          <section class="oe_snippet_body">
+            <div class="container">
+             <div class="bs-docs-header text-center" style="background: rgba(0, 128, 0, 0.22);">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="text-success" style="margin-top: 20px;">Mechanical Systems</h2>
+                    <h3>
+                      We provide co-generation systems, thermal storage air-conditioning systems, 
+                      central heating and air-conditioning systems and more.
+                    </h3>
+                  </div>
+                  <div class="col-md-6">
+                    <img class="img-rounded img-responsive" style="max-height: 230px; width: 100%;" src="/kderp_website/static/src/img/air_conditioner.jpg"/>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
