@@ -13,6 +13,12 @@
 				<t t-if="post0.blog_id.name == 'Quality Safety Assurance'">
 					<t t-set="jumbo" t-value="'qa_jumbo'"></t>
 				</t>
+				<t t-if="post0.blog_id.name == 'Electrical Systems'">
+					<t t-set="jumbo" t-value="'es_jumbo'"></t>
+				</t>
+				<t t-if="post0.blog_id.name == 'Mechanical Systems'">
+					<t t-set="jumbo" t-value="'ms_jumbo'"></t>
+				</t>
 			</t>
 			<t t-call="kderp_website.{{jumbo}}"></t>
 		</template>
@@ -34,7 +40,18 @@
 			<div class="oe_structure gn_jumbo"></div>
 		  	<t t-raw="0"></t>
 		</template>
-
+		
+		<!-- Electrical Jumbotron -->
+		<template id="kderp_website.es_jumbo" name="ES Jumbotron">
+      		<div class="oe_structure es_jumbo"></div>
+      		<t t-raw="0"></t>
+		</template>
+		<!-- Mechanical Jumbotron -->
+		<template id="kderp_website.ms_jumbo" name="MS Jumbotron">
+      		<div class="oe_structure ms_jumbo"></div>
+      		<t t-raw="0"></t>
+		</template>
+		
 		<!-- Page list posts -->
 		<template id="kderp_website.page_list_posts" name="KDVN Blog" priority='5'>
 			<t t-call="website.layout">
