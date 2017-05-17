@@ -52,7 +52,9 @@ class view(osv.osv):
         # KDVN works for
         work_tag = "KDVN_Works"
         works = _search_browse([('tag_ids','=', work_tag)], offset=0)
-
+        work_tag_new = "KDVN_Works_New"
+        works_new = _search_browse([('tag_ids','=', work_tag_new)], offset=0)
+        
         # KDVN ME (for homepage features)
         me = _search_browse([('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems', 'QST'])], order="name")
         #Hien thi file download ra homepage
@@ -62,7 +64,7 @@ class view(osv.osv):
         news_trans = self.pool['ir.translation'].browse(cr, uid, news_trans_ids).sorted(key=lambda b: b.name)
 
         kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file,
-                     "kdvn_news_trans": news_trans}
+                     "kdvn_news_trans": news_trans, "kdvn_works_new":works_new,}
 
         if not values:
             values = dict()

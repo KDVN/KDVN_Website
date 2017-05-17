@@ -130,7 +130,40 @@
 			</div>		
 		</xpath>
 	</template>
-		
+	
+	<!--Them lua chon slice cho Homepage-->
+	<template id="kderp_website.home_jumbo2" name="Home jumbo 2" inherit_id="website.homepage" active="False" customize_show="True">
+		<xpath expr="//div[@id='jumbo']" position="inside">
+			<div class="jumbotron home-jumbo4">
+				<div id="worksCarousel" class="carousel slide" data-ride="carousel">
+					<!-- Indicator -->
+					<ol class="carousel-indicators">
+						<t t-foreach="kdvn_works_new" t-as="work">
+							<li data-target="#worksCarousel" t-att-data-slide-to="str(work_index)" t-att-class="'active' * (work_index == 0)"></li>
+						</t>
+					</ol>
+					
+					<div class="carousel-inner" role="listbox">
+						<t t-foreach="kdvn_works_new" t-as="work">
+							<div t-att-class="'item ' + 'active' * (work_index == 0)">
+								<div t-attf-style="background:url({{work.img_url_ids[0].website_url}}) center center; background-size:cover; width: 100%;height:450px" class="slider-size">
+									<div class="carousel-caption">
+										<h3><t t-esc="work.name"></t></h3>
+									</div>
+								</div>
+							</div>
+						</t>
+					</div>
+					<a class="left carousel-control" data-target="#worksCarousel" role="button" data-slide="prev">
+						<span class="fa fa-caret-left"></span>
+					</a>
+					<a class="right carousel-control" data-target="#worksCarousel" role="button" data-slide="next">
+						<span class="fa fa-caret-right"></span>
+					</a>
+				</div>
+			</div>		
+		</xpath>
+	</template>
 	<!-- KDVN News showing in homepage -->
 	<template id="home_news" name="Home News" inherit_id="website.homepage" active="True" customize_show="True">
 		<xpath expr="//div[@id='kdvn_news']" position="inside">
