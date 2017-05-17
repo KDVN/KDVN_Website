@@ -20,6 +20,7 @@
 ##############################################################################
 import time
 from openerp.osv import osv, fields
+from openerp.addons.hr_recruitment import hr_recruitment
 
 class hr_job(osv.Model):
 	_name = "hr.job"
@@ -233,4 +234,13 @@ class kderp_hr_job_work_place(osv.Model):
 		'description':fields.char('Description', size=128),
 		'jobs_ids': fields.one2many('hr.job', 'job_work_place_id', 'Jobs'),
 	}
+class hr_applicant(osv.Model):
+	_name = "hr.applicant"
+	_inherit = ['hr.applicant']
+	_columns={
+		'priority': fields.selection(hr_recruitment.AVAILABLE_PRIORITIES, 'Appreciation'),
+	}
+	_defaults = {
+		'priority': lambda *a: hr_recruitment.AVAILABLE_PRIORITIES[2][0],
+		}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
