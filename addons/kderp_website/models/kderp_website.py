@@ -34,7 +34,8 @@ class view(osv.osv):
                 search_domain.append(('id', 'not in', post_ids_not_tags))
 
             post_ids = self.pool['blog.post'].search(cr, uid, search_domain, **kwargs)
-            return self.pool['blog.post'].browse(cr, uid, post_ids)
+            #Them context=context de hien thi phan translate ra homepage
+            return self.pool['blog.post'].browse(cr, uid, post_ids, context=context)
 
         qa_tag_list = ['KinQ News','KinVQ News']
         news_list = ['General News', 'IT', 'Quality Safety Assurance', 'Electrical Systems', 'Mechanical Systems']
@@ -56,15 +57,12 @@ class view(osv.osv):
         works_new = _search_browse([('tag_ids','=', work_tag_new)], offset=0)
         
         # KDVN ME (for homepage features)
-        me = _search_browse([('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems', 'QST'])], order="name")
+        me = _search_browse([('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems'])], order="name")
         #Hien thi file download ra homepage
         kdvn_file = _search_browse([('blog_id', '=', 'Media'),('name','=','Resources Download')], offset=0, limit=4)
-        #Hien thi translate ra homepage
-        news_trans_ids = self.pool['ir.translation'].search(cr, uid, [('name', 'ilike', 'blog.post')])
-        news_trans = self.pool['ir.translation'].browse(cr, uid, news_trans_ids).sorted(key=lambda b: b.name)
 
         kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file,
-                     "kdvn_news_trans": news_trans, "kdvn_works_new":works_new,}
+                     "kdvn_works_new":works_new,}
 
         if not values:
             values = dict()
