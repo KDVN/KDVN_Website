@@ -76,7 +76,7 @@
 	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
 		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
 			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
-				<div class="row" style="margin: 5px -10px 5px -25px;">
+				<div class="row" style="padding-top:10px">
 					<!--Menu trai-->
 					<div class="col-md-5"  style="margin-top: 5px;">
 						<div>
@@ -134,7 +134,7 @@
 					</div>
 					<!--Menu phai-->
 					<div class="col-md-7 home-menu-right">
-						<div class="media" style="margin-bottom: 20px;">
+						<div class="media" style="margin-bottom: 20px; margin-top:5px">
 							<div class="media-left media-middle hp-media">
 								<a href="/intro/kdvn/aboutus">
 									<img class="media-object" src="/website/image/ir.attachment/1802_d34a84d/datas" alt="SERVICE" width="92" height="82"/>
@@ -146,7 +146,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-6 col-sm-6">
 								<div class="thumbnail hovereffect" >
 									<a href="/intro/kdvn/electricalsystems">
 										<img class="img-responsive" src="/website/image/ir.attachment/1769_6ebe4f7/datas" alt="Electrical"/>
@@ -156,7 +156,7 @@
 									</a>
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6 col-sm-6">
 								<div class="thumbnail hovereffect" >
 									<a href="/intro/kdvn/aircon">
 										<img class="img-responsive" src="/website/image/ir.attachment/1774_16b170f/datas" alt="Air conditionnal"/>
