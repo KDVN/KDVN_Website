@@ -98,37 +98,16 @@
 								</div>
 							</t>
 						</div>
-						
-						<!--Kinden Group-->
+						<!--General News-->
 						<div class="media">
 							<div class="media-left media-middle hp-media">
-								<a href="http://www.kinden.co.jp/english/index.html" target="_blank">
-									<img class="media-object" src="/website/image/ir.attachment/1793_ccc5901/datas" alt="KINDEN GROUP" width="92" height="82"/>
+								<a href="/intro/news">
+									<img class="media-object" src="/website/image/ir.attachment/1799_c4afdf3/datas" alt="General News" width="92" height="82"/>
 								</a>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading text-success">KINDEN CORPORATION</h4>
-								<p>About kinden's oversea group companies</p>
-							</div>
-						</div>
-						<!--Download Category-->
-						<div class="media" style="margin-bottom: 15px;">
-							<div class="media-left media-middle hp-media">
-								<a href="/intro/download">
-									<img class="media-object" src="/website/image/ir.attachment/1791_27c6eec/datas" alt="CATALOGUE DOWNLOAD" width="92" height="82"/>
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading text-success">CATALOGUE DOWNLOAD</h4>
-								<t t-foreach="kdvn_file" t-as="post">
-									<t t-if="post.img_url_ids">
-									<div >
-										<t t-foreach="post.img_url_ids[:2]" t-as="file">
-											<p><a t-attf-href="{{file.website_url}}/{{file.name}}" target="_blank"><t t-esc="file.name"></t></a></p>
-										</t>
-									</div>
-									</t>
-								</t>
+								<h4 class="media-heading text-success">GENERAL NEWS</h4>
+								<p>News and information of KINDEN VIETNAM CO., LTD</p>
 							</div>
 						</div>
 					</div>
@@ -167,7 +146,48 @@
 								</div>
 							</div>
 						</div>
-					
+						<div class="row">
+							<div class="col-sm-3 col-xs-6">
+								<div class="thumbnail hovereffect" >
+									<a href="http://www.kinden.co.jp/english/index.html" target="_blank">
+										<img class="media-object" src="/website/image/ir.attachment/1793_ccc5901/datas" style="height:100px" alt="KINDEN GROUP"/>
+										<div class="overlay">
+											<h5>KINDEN GROUP</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-3 col-xs-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/download">
+										<img class="img-responsive" src="/website/image/ir.attachment/1791_27c6eec/datas" style="height:100px" alt="CATALOGUE DOWNLOAD"/>
+										<div class="overlay">
+											<h5>CATALOGUE DOWNLOAD</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-3 col-xs-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/pj/featured">
+										<img class="img-responsive" src="/kderp_website/static/src/img/library/BROTHER%20IINDUSTRIES%20SAIGON.jpg" style="height:100px"  alt="FEATURED PROJECTS"/>
+										<div class="overlay">
+											<h5>FEATURED PROJECTS</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-3 col-xs-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/pj/completed">
+										<img class="img-responsive" src="/kderp_website/static/src/img/library/SHISEIDO%20VIETNAM.jpg" style="height:100px"  alt="COMPLETED PROJECTS"/>
+										<div class="overlay">
+											<h5>COMPLETED PROJECTS</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
