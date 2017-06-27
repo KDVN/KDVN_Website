@@ -37,5 +37,24 @@
 				</div>
 			</xpath>
 		</template>
+		
+		<!--Dua phan Announcement ra hien thi o tat ca cac trang-->
+		<template id="on_announcement" inherit_id="website.layout" name="Announcement Alert" customize_show="True" active="False">
+	        <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+	            <attribute name="id">on_announcement</attribute>
+	        </xpath>
+	        <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+	            <div class="container">
+	            	<t t-if= "anns">
+	            		<div class="alert alert-danger" role="alert" style="padding: 0px; padding-left:10px">
+	                    	<h5><strong>Kinden Vietnam Announcement!</strong></h5>
+							<t t-foreach="anns" t-as="ann">
+							    <p t-field="ann.summary"></p>
+							</t>
+		                </div>
+	            	</t>
+	            </div>
+	        </xpath>
+    	</template>
 	</data>
 </openerp>

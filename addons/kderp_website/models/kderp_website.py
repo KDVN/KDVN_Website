@@ -8,7 +8,8 @@ from openerp import SUPERUSER_ID
 import werkzeug
 
 from openerp.addons.website.models.website import urlplus
-
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 
 class view(osv.osv):
     """
@@ -60,9 +61,12 @@ class view(osv.osv):
         me = _search_browse([('blog_id','=','Introduction'),('name', 'in', ['Mechanical Systems', 'Electrical Systems'])], order="name")
         #Hien thi file download ra homepage
         kdvn_file = _search_browse([('blog_id', '=', 'Media'),('name','=','Resources Download')], offset=0, limit=4)
-
+        
+        #Hien thi announcment ra tat ca cac trang
+        announcements = _search_browse([('blog_id', '=', 'Announcement'), ("create_date", ">=", (datetime.today() - relativedelta(days=10)).strftime('%Y-%m-%d'))],offset=0, limit=2)
+        
         kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file,
-                     "kdvn_works_new":works_new,}
+                     "kdvn_works_new":works_new, 'anns':announcements}
 
         if not values:
             values = dict()
