@@ -57,22 +57,22 @@
   color: #5bc0de;
 }
 .navbar-custom {
-  background-color: white;
+  background-color: #ffffff;
   padding-bottom: 4px;
 }
 .navbar-custom .navbar-brand {
-  color: black;
+  color: #000000;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:focus {
   color: #026232;
 }
 .navbar-custom .navbar-text {
-  color: black;
+  color: #000000;
 }
 .navbar-custom .navbar-nav > li > a {
-  color: black;
-  border-bottom: solid white;
+  color: #000000;
+  border-bottom: solid #ffffff;
 }
 .navbar-custom .navbar-nav > li > a:hover,
 .navbar-custom .navbar-nav > li > a:focus {
@@ -80,11 +80,11 @@
   border-bottom: solid #026232;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu {
-  background-color: white;
+  background-color: #ffffff;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a {
-  color: black;
-  border-left: solid 2px white;
+  color: #000000;
+  border-left: solid 2px #ffffff;
 }
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-custom .navbar-nav > li > .dropdown-menu > li > a:focus {
@@ -122,21 +122,21 @@
   border-bottom: solid #026232;
 }
 .navbar-custom .navbar-toggle .icon-bar {
-  background-color: black;
+  background-color: #000000;
 }
 .navbar-custom .navbar-collapse,
 .navbar-custom .navbar-form {
-  border-color: black;
+  border-color: #000000;
 }
 .navbar-custom .navbar-link {
-  color: black;
+  color: #000000;
 }
 .navbar-custom .navbar-link:hover {
   color: #026232;
 }
 @media (max-width: 767px) {
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
-    color: black;
+    color: #000000;
   }
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -198,13 +198,13 @@ a:hover {
 .pagination .active a:hover,
 .pagination .active a:focus {
   background-color: #026232;
-  color: white;
+  color: #ffffff;
   border-color: #026232;
 }
 .pagination li a,
 .pagination li a:hover,
 .pagination li a:focus {
-  background-color: white;
+  background-color: #ffffff;
   color: #026232;
 }
 .bg-kdvn {
@@ -255,20 +255,20 @@ a:hover {
   height: 450px;
 }
 footer {
-  background-color: white;
+  background-color: #ffffff;
 }
 footer a,
 footer a:hover {
-  color: #777;
+  color: #777777;
 }
 footer address {
-  color: #777;
+  color: #777777;
 }
 footer address h4 {
-  color: #777 !important;
+  color: #777777 !important;
 }
 .text-kdvn {
-  color: #777 !important;
+  color: #777777 !important;
 }
 .slider-size {
   height: 300px;
@@ -564,4 +564,9 @@ th {
 .brand a:hover,
 a:focus {
   text-decoration: none;
+}
+.kdvn-media-hpl {
+  padding: 10px 0px 35px 0px;
+  margin-top: 0px;
+  border-bottom: 1px solid #ccc;
 }

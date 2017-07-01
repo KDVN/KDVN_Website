@@ -76,12 +76,7 @@
 	<template id="kderp_website_theme_default_thuy2.home_page" name="KDVN Thuy2 Home Page" inherit_id="website.homepage">
 		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
 			<style>
-				.kdvn-media-hpl{
-					padding: 35px 0px 35px 0px;
-					margin-top: 0px;
-					border-bottom: 1px solid #ccc;
-				}
-				p{height: 25px;}
+
 			</style>
 			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
 				<div class="row" style="padding-top:10px">
@@ -89,7 +84,7 @@
 					<div class="col-md-5">
 						<h4 style="text-align: center;border-bottom: 1px solid #ccc;color: #026232;padding-bottom: 15px;}">NEWS</h4>
 						<!--Electrical Systems News-->
-						<div class="media kdvn-media-hpl">
+						<div class="media kdvn-media-hpl" style="margin-top:-10px">
 							<div class="media-left media-middle hp-media">
 								<a href="/es/news">
 									<img class="media-object" src="/website/image/ir.attachment/1826_51117ed/datas" alt="Elctrical News" width="92" height="82"/>
