@@ -52,6 +52,7 @@
 					<field name="author_id" />
 					<field name="tag_ids" />
 					<field name="website_published" widget="website_button"/>
+					<field name="priority"/>
 				</tree>
 			</field>
 		</record>
@@ -64,6 +65,7 @@
 				<form string="KDVN Posts">
 				<group>
 					<field name="website_published" widget="website_button" groups="kderp_website.group_kdvn_knowledge_button_published"/>
+					<field name="priority" string="Priority"/>
 					<field name="blog_id" string="Blog category"/>
 					<field name="name" string="Title"/>
 					<field name="subtitle" string="Subtitle"/>

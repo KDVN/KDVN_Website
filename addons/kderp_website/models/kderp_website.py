@@ -115,6 +115,7 @@ class KdvnPost(models.Model):
     img_url_ids = fields.One2many('ir.attachment', string="Image URLs", compute='_get_img_url_ids')
     #img_url_ids = fields.One2many('ir.attachment', 'id')
     summary = fields.Text('Summary', translate=True)
+    priority = fields.Boolean(string='Priority')
 
 class event(osv.osv):
     """Modify some methods of event object:

@@ -78,7 +78,7 @@ class KderpWebsite(http.Controller):
     other_domain_search = _tag_search(other_domain_search)
     search_domain += other_domain_search
 
-    result = http.request.env['blog.post'].search(search_domain, **kwargs)
+    result = http.request.env['blog.post'].search(search_domain, order="priority desc", **kwargs)
     if len(result) == 1:
       # Return only one post
       return http.request.render(template[0],
@@ -93,7 +93,7 @@ class KderpWebsite(http.Controller):
         step=self._post_per_page
       )
       # limit and offset result
-      result = http.request.env['blog.post'].search(search_domain, offset=(page - 1) * self._post_per_page,
+      result = http.request.env['blog.post'].search(search_domain, order="priority desc", offset=(page - 1) * self._post_per_page,
                                                     limit=self._post_per_page)
       return http.request.render(template[1], {
         'posts': result,
@@ -299,7 +299,7 @@ class KderpWebsite(http.Controller):
   @http.route(['/intro/certificates', '/intro/certificates/<int:cur_index>'], auth="public", website=True)
   def kdvn_testi(self, cur_index=0):
     """Showing testimonials with next and previous button"""
-    posts = http.request.env['blog.post'].search([('blog_id', '=', 'Certificates')])
+    posts = http.request.env['blog.post'].search([('blog_id', '=', 'Certificates')], order="priority desc")
 
     if cur_index == 0:
       pre_index = len(posts) - 1
