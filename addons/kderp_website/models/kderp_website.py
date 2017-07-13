@@ -144,12 +144,16 @@ class Partner(models.Model):
     
         partner = self.browse(cr, uid, ids[0], context=context)
         params = {
-            'center': '%s, %s %s, %s' % (partner.street or '', partner.city or '', partner.zip or '', partner.country_id and partner.country_id.name_get()[0][1] or ''),
-            'size': "%sx%s" % (height, width),
+            'center': '%s,%s%s,%s' % (partner.street or '', partner.city or '', partner.zip or '', partner.country_id and partner.country_id.name_get()[0][1] or ''),
+            'size': "%dx%d" % (height, width),
             'zoom': zoom,
             'sensor': 'false',
             'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
         }
+        #Decorrate markers
+        #TODO: customized icon
+        params["markers"] = 'color:green|label:K|' + params["center"]
+        static_map_url = '//maps.googleapis.com/maps/api/staticmap?'
         return urlplus('//maps.googleapis.com/maps/api/staticmap' , params)
 
 	name = fields.Char(string="Name", translate=True)
