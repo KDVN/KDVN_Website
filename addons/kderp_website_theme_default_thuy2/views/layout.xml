@@ -49,7 +49,7 @@
 	            		<div class="alert alert-danger" role="alert" style="padding: 0px; padding-left:10px">
 	                    	<h5><strong>Kinden Vietnam Announcement!</strong></h5>
 							<t t-foreach="anns" t-as="ann">
-							    <p t-field="ann.summary"></p>
+							    <div t-field="ann.content"/>
 							</t>
 		                </div>
 	            	</t>
