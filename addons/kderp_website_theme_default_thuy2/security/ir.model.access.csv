@@ -21,3 +21,9 @@ access_kderp_contact_us_read,kderp_contact_us_read,crm.model_crm_lead,,1,0,0,0
 access_kderp_contact_us_full,kderp_contact_us_full,crm.model_crm_lead,group_kdvn_contactus_full,1,1,1,1
 access_crm_tracking_medium_read,crm_tracking_medium_read,crm.model_crm_tracking_medium,,1,0,0,0
 access_crm_tracking_medium_full,crm_tracking_medium_full,crm.model_crm_tracking_medium,group_kdvn_contactus_full,1,1,1,1
+access_kderp_location,kderp_location,model_kderp_location,,1,0,0,0
+access_kderp_blog_post_year,kderp_blog_post_year,model_kderp_blog_post_year,,1,0,0,0
+access_kderp_blog_post_project_type,kderp_blog_post_project_type,model_kderp_blog_post_project_type,,1,0,0,0
+access_kderp_blog_post_project_size,kderp_blog_post_project_size,model_kderp_blog_post_project_size,,1,0,0,0
+access_kderp_area,kderp_area,model_kderp_area,,1,0,0,0
+access_kderp_city,kderp_city,model_kderp_city,,1,0,0,0

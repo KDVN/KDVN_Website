@@ -441,7 +441,7 @@
 	
 	<template id="kderp_website_theme_default_thuy2.page_pj_featured" name="KDVN Project On Going">
 		<t t-call="website.layout">
-			<t t-set="title">Project On Going</t>
+			<t t-set="title">Project Featured</t>
 			<t t-call="kderp_website_theme_default_thuy2.pj_featured_jumbo"></t>
 			<t t-if="pager">
 				<div class="container">
@@ -455,23 +455,87 @@
 				</div>
 			</t>
 			<div class="container">
-				<div class="row" style="margin-top:-20px">
-					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Featured Projects</h3>
-					<t t-foreach="posts" t-as="post">
-						<div class="col-sm-6 col-md-4">
-							<div class="thumbnail">
-								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+				<div class="row" >
+					<div class="col-md-3">
+						<h3><a t-attf-href="/pj/featured" style="font-weight: bold;"><span> All Project Featured</span></a>
+						</h3>
+						<!--area-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
+						</h3>
+						<ul class="dis-district">
+							<t t-foreach="list_areas" t-as="list_a">												
+								<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
+									<a t-attf-href="/pj/featured/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
+								</li>
+							</t>
+						</ul>
+						<!--type-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_types" t-as="list_t">																							
+								<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/featured/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
+								</li>
+							</t>
+						</ul>
+						<!--Size-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_sizes" t-as="list_z">																							
+								<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
+								</li>
+							</t>
+						</ul>
+						<!--Year-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_years" t-as="list_y">																							
+								<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/featured/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
+								</li>
+							</t>
+						</ul>
+					
+					</div>
+					<div class="col-md-9">
+						<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+									color:#026232;margin: 0px 15px 25px 15px;">Featured Projects</h3>
+						<t t-foreach="posts" t-as="post">
+							<div class="col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 200px;"></img>
+								</div>
+								<div style ="position: relative; height: 150px; margin-bottom: 10px">
+									<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+									<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;">
+										<t t-if="post.type">
+	                                        <span>Type : </span><span t-field="post.type"/><br />
+	                                    </t>
+	                                    <t t-if="post.size">
+	                                        <span>Scale : </span><span t-field="post.size"/><br />
+	                                    </t>
+	                                    <t t-if="post.project_location_id">
+	                                    	<span>Locaion : </span><span t-field="post.project_location_id" />
+	                                    </t>
+	                                    <t t-if="post.completion_date">
+	                                    	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
+	                                    </t>
+										<!--<t t-raw="post.content"></t>-->
+									</p>
+								</div>
 							</div>
-							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
-								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
-							</div>
-						</div>
-					</t>
+						</t>
+					</div>
 				</div>
 			</div>
-			
 		</t>
 	</template>
 	<!--Them template moi Project Completed-->
@@ -495,23 +559,87 @@
 				</div>
 			</t>
 			<div class="container">
-				<div class="row" style="margin-top:-15px">
-					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								margin-bottom: 25px; margin-left: 15px; margin-right: 15px; color:#026232;">Completed Projects</h3>
-					<t t-foreach="posts" t-as="post">
-						<div class="col-sm-6 col-md-4">
-							<div class="thumbnail">
-								<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 250px;"></img>
+				<div class="row">
+					<div class="col-md-3">
+						<h3><a t-attf-href="/pj/completed" style="font-weight: bold;"><span> All Project Featured</span></a>
+						</h3>
+						<!--area-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/completed/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
+						</h3>
+						<ul class="dis-district">
+							<t t-foreach="list_areas" t-as="list_a">												
+								<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
+									<a t-attf-href="/pj/completed/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
+								</li>
+							</t>
+						</ul>
+						<!--type-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_types" t-as="list_t">																							
+								<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/completed/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
+								</li>
+							</t>
+						</ul>
+						<!--Size-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_sizes" t-as="list_z">																							
+								<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
+								</li>
+							</t>
+						</ul>
+						<!--Year-->
+						<h3><span class="glyphicon glyphicon-list-alt"></span>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
+						</h3>
+						<ul class="dis-district">							
+							<t t-foreach="list_years" t-as="list_y">																							
+								<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
+									<a t-attf-href="/pj/completed/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
+								</li>
+							</t>
+						</ul>
+					
+					</div>
+					<div class="col-md-9">
+						<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+									color:#026232;margin: 0px 15px 25px 15px;">Completed Projects</h3>
+						<t t-foreach="posts" t-as="post">
+							<div class="col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 200px;"></img>
+								</div>
+								<div style ="position: relative; height: 150px; margin-bottom: 10px">
+									<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+									<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;">
+										<t t-if="post.type">
+	                                        <span>Type : </span><span t-field="post.type"/><br />
+	                                    </t>
+	                                    <t t-if="post.size">
+	                                        <span>Scale : </span><span t-field="post.size"/><br />
+	                                    </t>
+	                                    <t t-if="post.completion_date">
+	                                    	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
+	                                    </t>
+	                                    <t t-if="post.project_location_id">
+	                                    	<span>Locaion : </span><span t-field="post.project_location_id" />
+	                                    </t>
+										<!--<t t-raw="post.content"></t>-->
+									</p>
+								</div>
 							</div>
-							<div style ="position: relative; height: 70px; margin-bottom: 10px">
-								<h5 style="color:#026232; text-transform: uppercase;text-align: center;"><div t-field="post.name"></div></h5>
-								<p style="color: #5d5c5c; font-size: 14px; font-weight: 300; text-align: center;"><t t-raw="post.content"></t></p>
-							</div>
-						</div>
-					</t>
+						</t>
+					</div>
 				</div>
 			</div>
-			
 		</t>
 		
 	</template>

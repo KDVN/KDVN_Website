@@ -570,3 +570,37 @@ a:focus {
   margin-top: 0px;
   border-bottom: 1px solid #ccc;
 }
+/*Project*/
+ul.dis-district {
+  margin: 0;
+  padding: 0;
+}
+ul.dis-district li {
+  display: block;
+  list-style: none;
+  border-bottom: 1px solid #CFCFCF;
+  padding: 10px 0;
+  --margin-left: 20px;
+}
+ul.dis-district li:first-child {
+  border-top: 1px solid #CFCFCF;
+}
+--ul.dis-district li a {
+  font-size: 14px;
+}
+ul.dis-district li a:hover,
+ul.dis-district li a.active {
+  color: #11A84E;
+}
+ul.dis-district li a {
+  --font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  outline: 0;
+}
+ul.dis-district li.active {
+  background: #f2f2f2;
+}
+ul.dis-district li.active a {
+  --color: red;
+}

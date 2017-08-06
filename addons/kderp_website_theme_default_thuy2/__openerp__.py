@@ -21,6 +21,7 @@
             'views/snippets.xml',
             'views/hr.xml',
             'views/views.xml',
+            'views/kderp_project.xml',
             ],
     
     #Information

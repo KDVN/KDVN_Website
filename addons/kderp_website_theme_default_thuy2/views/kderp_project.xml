@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<!-- Them cac truong vao Blog Post-->
+	<record model="ir.ui.view" id="kdvn_post_inherit_form">
+		<field name="name">kdvn.post.inherit.form</field>
+		<field name="model">blog.post</field>
+		<field name="inherit_id" ref='kderp_website.kdvn_post_form'/>
+		<field name="arch" type="xml" > 
+			<xpath expr="//form/group" position="before">
+				<div attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed'])]}">
+					<group col="4" string="Project Des.">			
+						<field name="project_location_id" on_change="onchange_location_city(project_location_id)"/>
+						<field name="area_id" on_change="onchange_location_city(project_location_id)"/>
+						<field name="city_id" on_change="onchange_location_city(project_location_id)"/>
+						<field name="completion_date" on_change="onchange_year(completion_date,project_year_id)"/>
+						<field name="type"/>
+						<field name="size"/>
+						<field name="project_year_id" on_change="onchange_year(completion_date,project_year_id)"/>
+						<field name="blog_name" invisible='1'/>
+						
+					</group>
+					<div class="oe_horizontal_separator oe_clear ">
+						Project Info
+					</div>
+				</div>			
+			</xpath>
+			
+		</field>
+	</record>
+	<!-- Year -->
+	<record id="view_kderp_blog_post_year_form" model="ir.ui.view">
+        <field name="name">kderp.blog.post.year.form</field>
+        <field name="model">kderp.blog.post.year</field>
+        <field name="arch" type="xml">
+            <form string="Area">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_blog_post_year_tree" model="ir.ui.view">
+        <field name="name">kderp.blog.post.year.tree</field>
+        <field name="model">kderp.blog.post.year</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	<!-- Type -->
+	<record id="view_kderp_blog_post_project_type_form" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.type.form</field>
+        <field name="model">kderp.blog.post.project.type</field>
+        <field name="arch" type="xml">
+            <form string="Type">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_blog_post_project_type_tree" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.type.tree</field>
+        <field name="model">kderp.blog.post.project.type</field>
+        <field name="arch" type="xml">
+            <tree string="Type">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+
+	<!-- Size -->
+	<record id="view_kderp_blog_post_project_size_form" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.size.form</field>
+        <field name="model">kderp.blog.post.project.size</field>
+        <field name="arch" type="xml">
+            <form string="Size">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_blog_post_project_size_tree" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.size.tree</field>
+        <field name="model">kderp.blog.post.project.size</field>
+        <field name="arch" type="xml">
+            <tree string="Size">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+    <!-- Location"-->
+	<record id="view_kderp_location_form" model="ir.ui.view">
+        <field name="name">kderp.location.form</field>
+        <field name="model">kderp.location</field>
+        <field name="arch" type="xml">
+            <form string="Location">
+				<sheet>
+					<group col="4" >
+						<field name="code"/>
+						<field name="name"/>
+						<field name="city_id"/>
+						<field name="city_code"/>
+						<field name="area_id"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_location_tree" model="ir.ui.view">
+        <field name="name">kderp.location.tree</field>
+        <field name="model">kderp.location</field>
+        <field name="arch" type="xml">
+            <tree string="Location">
+				<field name="code"/>
+				<field name="name"/>
+				<field name="city_id"/>
+				<field name="city_code"/>
+				<field name="area_id"/>
+			</tree>
+        </field>
+    </record>
+	
+	<!-- City"-->
+	<record id="view_kderp_city_form" model="ir.ui.view">
+        <field name="name">kderp.city.form</field>
+        <field name="model">kderp.city</field>
+        <field name="arch" type="xml">
+            <form string="City">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_city_tree" model="ir.ui.view">
+        <field name="name">kderp.city.tree</field>
+        <field name="model">kderp.city</field>
+        <field name="arch" type="xml">
+            <tree string="Blog Post Location City">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	<!-- Area"-->
+	<record id="view_kderp_area_form" model="ir.ui.view">
+        <field name="name">kderp.area.form</field>
+        <field name="model">kderp.area</field>
+        <field name="arch" type="xml">
+            <form string="Area">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_area_tree" model="ir.ui.view">
+        <field name="name">kderp.area.tree</field>
+        <field name="model">kderp.area</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	<!--========================-->
+	<record model="ir.actions.act_window" id="kdvn_blog_post_year_act">
+		<field name="name">Year</field>
+		<field name="res_model">kderp.blog.post.year</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_blog_post_project_type_act">
+		<field name="name">Type</field>
+		<field name="res_model">kderp.blog.post.project.type</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_blog_post_project_size_act">
+		<field name="name">Size</field>
+		<field name="res_model">kderp.blog.post.project.size</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_location_act">
+		<field name="name">Location</field>
+		<field name="res_model">kderp.location</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_city_act">
+		<field name="name">City</field>
+		<field name="res_model">kderp.city</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window" id="kdvn_area_act">
+		<field name="name">Area</field>
+		<field name="res_model">kderp.area</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="kderp_website_config_project" name="Project" parent="kderp_website.kdvn_website_config"/>
+	
+	<menuitem id="kdvn_blog_post_year" name="Project Year" parent="kderp_website_config_project" action="kdvn_blog_post_year_act"/>
+	<menuitem id="kdvn_blog_post_project_type" name="Project Type" parent="kderp_website_config_project" action="kdvn_blog_post_project_type_act"/>
+	<menuitem id="kdvn_blog_post_project_size" name="Project Size" parent="kderp_website_config_project" action="kdvn_blog_post_project_size_act"/>
+	
+	<menuitem id="kdvn_location" name="Location" parent="kderp_website_config_project" action="kdvn_location_act"/>
+	<menuitem id="kdvn_city" name="City" parent="kderp_website_config_project" action="kdvn_city_act"/>
+	<menuitem id="kdvn_area" name="Area" parent="kderp_website_config_project" action="kdvn_area_act"/>
+</data>
+</openerp>
