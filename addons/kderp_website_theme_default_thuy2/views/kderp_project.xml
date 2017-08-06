@@ -8,24 +8,27 @@
 		<field name="inherit_id" ref='kderp_website.kdvn_post_form'/>
 		<field name="arch" type="xml" > 
 			<xpath expr="//form/group" position="before">
-				<div attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed'])]}">
-					<group col="4" string="Project Des.">			
+				
+				<div attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed', 'Certificates'])]}">
+					<group col="4" >
+						<field name="area_id" attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed', 'Certificates'])]}"/>
+					</group>
+					<group col="4" string="Project Des." attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed'])]}">			
 						<field name="project_location_id" on_change="onchange_location_city(project_location_id)"/>
-						<field name="area_id" on_change="onchange_location_city(project_location_id)"/>
-						<field name="city_id" on_change="onchange_location_city(project_location_id)"/>
+						<field name="city_id"/>
 						<field name="completion_date" on_change="onchange_year(completion_date,project_year_id)"/>
 						<field name="type"/>
 						<field name="size"/>
 						<field name="project_year_id" on_change="onchange_year(completion_date,project_year_id)"/>
 						<field name="blog_name" invisible='1'/>
-						
 					</group>
 					<div class="oe_horizontal_separator oe_clear ">
 						Project Info
 					</div>
-				</div>			
+				</div>	
+				
 			</xpath>
-			
+		
 		</field>
 	</record>
 	<!-- Year -->
