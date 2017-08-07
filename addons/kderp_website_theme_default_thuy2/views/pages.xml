@@ -765,9 +765,9 @@
 		</xpath>
 		<xpath expr="//div[@class='container']/div/div[@class='row']" position="replace">
 			<div class="row">
+				<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;margin: 0px 15px 25px 15px;">Certificates of Iso and Ohsas</h3>
+				<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hanoi</h5>
 				<div class="col-md-12">
-					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								color:#026232;margin: 0px 15px 25px 15px;">Certificate North of Vietnam</h3>
 					<t t-foreach="posts" t-as="post">
 						<t t-if="post.area_id.name == 'The North of Vietnam' and post.tag_ids.name=='Certificate Tags'">
 							<div class="col-sm-6 col-md-4">
@@ -785,11 +785,12 @@
 								</div>
 							</div>
 						</t>
+						
+						
 					</t>
 				</div>
+				<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hochiminh City</h5>
 				<div class="col-md-12">
-					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-								color:#026232;margin: 0px 15px 25px 15px;">Certificate South of Vietnam</h3>
 					<t t-foreach="posts" t-as="post">
 						<t t-if="post.area_id.name == 'The South of Vietnam' and post.tag_ids.name =='Certificate Tags'">
 							<div class="col-sm-6 col-md-4">
