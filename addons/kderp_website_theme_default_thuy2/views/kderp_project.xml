@@ -18,7 +18,7 @@
 						<field name="completion_date" on_change="onchange_year(completion_date,project_year_id)"/>
 						<field name="type"/>
 						<field name="size"/>
-						<field name="project_year_id" on_change="onchange_year(completion_date,project_year_id)"/>
+						<field name="project_year_id" on_change="onchange_year(completion_date,project_year_id)" invisible='1'/>
 						<field name="blog_name" invisible='1'/>
 					</group>
 					<div class="oe_horizontal_separator oe_clear ">
