@@ -122,7 +122,7 @@ class ExtendKderpWebsite(KderpWebsite):
 		
 		list_areas = http.request.env['kderp.area'].search([])
 		list_types = http.request.env['kderp.blog.post.project.type'].search([])
-		list_years = http.request.env['kderp.blog.post.year'].search([])
+		list_years = http.request.env['kderp.blog.post.year'].search([],order='code desc', limit=5)
 		list_sizes = http.request.env['kderp.blog.post.project.size'].search([])
 		
 		values = {
