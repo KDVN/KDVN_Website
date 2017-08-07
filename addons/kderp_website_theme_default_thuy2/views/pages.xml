@@ -766,49 +766,53 @@
 		<xpath expr="//div[@class='container']/div/div[@class='row']" position="replace">
 			<div class="row">
 				<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;margin: 0px 15px 25px 15px;">Certificates of Iso and Ohsas</h3>
-				<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hanoi</h5>
 				<div class="col-md-12">
-					<t t-foreach="posts" t-as="post">
-						<t t-if="post.area_id.name == 'The North of Vietnam' and post.tag_ids.name=='Certificate Tags'">
-							<div class="col-sm-6 col-md-4">
-								<div class="thumbnail">
-									<a href="#" class="pop">
-										<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height:250px"/>
-									</a>
-									<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
-										<img src="" class="imagepreview img-click-mobil img-click-desk"/>
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hanoi</h5>
+							<t t-foreach="posts" t-as="post">
+								<t t-if="post.area_id.name == 'The North of Vietnam' and post.tag_ids.name=='Certificate Tags'">
+									<div class="col-sm-6 col-md-6">
+										<div class="thumbnail">
+											<a href="#" class="pop">
+												<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height:250px"/>
+											</a>
+											<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+												<img src="" class="imagepreview img-click-mobil img-click-desk"/>
+											</div>
+										</div>
+										<div style ="position: relative; height: 50px; margin-bottom: 10px">
+											<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+										</div>
+									</div>
+								</t>
+							</t>
+						</div>	
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-12">
+						<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hochiminh City</h5>
+						<t t-foreach="posts" t-as="post">
+							<t t-if="post.area_id.name == 'The South of Vietnam' and post.tag_ids.name =='Certificate Tags'">
+								<div class="col-sm-6 col-md-6">
+									<div class="thumbnail">
+										<a href="#" class="pop">
+											<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height:250px"/>
+										</a>
+										<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+											<img src="" class="imagepreview img-click-mobil img-click-desk"/>
+										</div>
+									</div>
+									<div style ="position: relative; height: 50px; margin-bottom: 10px">
+										<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
 									</div>
 								</div>
-								<div style ="position: relative; height: 50px; margin-bottom: 10px">
-									<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
-								</div>
-							</div>
+							</t>
 						</t>
-						
-						
-					</t>
-				</div>
-				<h5 style="text-transform: uppercase; font-weight: bold; color:#026232;margin: 0px 15px 25px 15px;">Hochiminh City</h5>
-				<div class="col-md-12">
-					<t t-foreach="posts" t-as="post">
-						<t t-if="post.area_id.name == 'The South of Vietnam' and post.tag_ids.name =='Certificate Tags'">
-							<div class="col-sm-6 col-md-4">
-								<div class="thumbnail">
-									<a href="#" class="pop">
-										<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive" style="height:250px"/>
-									</a>
-									<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
-										<img src="" class="imagepreview img-click-mobil img-click-desk"/>
-									</div>
-								</div>
-								<div style ="position: relative; height: 50px; margin-bottom: 10px">
-									<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
-								</div>
-							</div>
-						</t>
-					</t>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-12">
 					<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
