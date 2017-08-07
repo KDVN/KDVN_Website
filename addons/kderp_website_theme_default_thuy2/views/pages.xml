@@ -457,12 +457,13 @@
 			<div class="container">
 				<div class="row" >
 					<div class="col-md-3">
-						<h3><a t-attf-href="/pj/featured" style="font-weight: bold;"><span> All Project Featured</span></a>
-						</h3>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">
+							<a t-attf-href="/pj/featured"><span> All Project Featured</span></a></h4>
+
 						<!--area-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">
 							<t t-foreach="list_areas" t-as="list_a">												
 								<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
@@ -471,9 +472,9 @@
 							</t>
 						</ul>
 						<!--type-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_types" t-as="list_t">																							
 								<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
@@ -482,9 +483,9 @@
 							</t>
 						</ul>
 						<!--Size-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_sizes" t-as="list_z">																							
 								<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
@@ -493,9 +494,9 @@
 							</t>
 						</ul>
 						<!--Year-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_years" t-as="list_y">																							
 								<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
@@ -506,8 +507,7 @@
 					
 					</div>
 					<div class="col-md-9">
-						<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-									color:#026232;margin: 0px 15px 25px 15px;">Featured Projects</h3>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">Featured Projects</h4>
 						<t t-foreach="posts" t-as="post">
 							<div class="col-sm-6 col-md-4">
 								<div class="thumbnail">
@@ -561,12 +561,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<h3><a t-attf-href="/pj/completed" style="font-weight: bold;"><span> All Project Featured</span></a>
-						</h3>
+						<h4  style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+									color:#026232"><a t-attf-href="/pj/completed"><span> All Project Completed</span></a>
+						</h4>
 						<!--area-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/completed/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">
 							<t t-foreach="list_areas" t-as="list_a">												
 								<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
@@ -575,9 +576,9 @@
 							</t>
 						</ul>
 						<!--type-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/completed/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_types" t-as="list_t">																							
 								<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
@@ -586,9 +587,9 @@
 							</t>
 						</ul>
 						<!--Size-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_sizes" t-as="list_z">																							
 								<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
@@ -597,9 +598,9 @@
 							</t>
 						</ul>
 						<!--Year-->
-						<h3><span class="glyphicon glyphicon-list-alt"></span>
+						<h4><span class="glyphicon glyphicon-list-alt"></span>
 							<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
-						</h3>
+						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_years" t-as="list_y">																							
 								<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
@@ -610,8 +611,8 @@
 					
 					</div>
 					<div class="col-md-9">
-						<h3 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-									color:#026232;margin: 0px 15px 25px 15px;">Completed Projects</h3>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
+									color:#026232">Completed Projects</h4>
 						<t t-foreach="posts" t-as="post">
 							<div class="col-sm-6 col-md-4">
 								<div class="thumbnail">
