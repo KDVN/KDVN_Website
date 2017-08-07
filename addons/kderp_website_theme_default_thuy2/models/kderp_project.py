@@ -9,7 +9,6 @@ class kderp_blog_post_project(osv.Model):
 		'blog_name': fields.related('blog_id','name', type="char", string='Blog'),
 		'project_location_id': fields.many2one('kderp.location', string="Location"),
 		'area_id':fields.many2one('kderp.area', string="Area"),
-		'city_id':fields.many2one('kderp.city', string="City"),
 		'completion_date': fields.date(string='Completion Date'),
 		'project_year_id': fields.many2one('kderp.blog.post.year', string="Years"),
 		'type': fields.many2one('kderp.blog.post.project.type',"Project Type"),
@@ -27,18 +26,18 @@ class kderp_blog_post_project(osv.Model):
 					val={'project_year_id':id}
 		return {'value':val}
 	
-	def onchange_location_city(self, cr, uid, ids, project_location_id=False):
+	def onchange_location(self, cr, uid, ids, project_location_id=False):
+		val={}
 		if not project_location_id:
-			return {'value': {
-				'city_id': False,
+			val={
 				'area_id': False
-				}}
-		location = self.pool.get('kderp.location').browse(cr, uid, project_location_id)
-		return {'value': {
-				'city_id': location.city_id.id if location.city_id else False,
+			}
+		else:
+			location = self.pool.get('kderp.location').browse(cr, uid, project_location_id)
+			val={
 				'area_id': location.area_id.id if location.area_id else False,
-				
-		}}
+			}
+		return {'value':val}
 
 kderp_blog_post_project()
 
@@ -78,44 +77,10 @@ class kderp_location(osv.Model):
 	_name = "kderp.location"
 	
 	_columns = {
-		'code':fields.char('Code',size=128,required=True),
 		'name':fields.char('Name',size=128,required=True),
 		'description':fields.char('Description',size=128),
-		'city_id':fields.many2one('kderp.city', 'City'),
-		'city_code':fields.related('city_id','code',type="char", string='Code City', readonly=1),
 		'area_id':fields.many2one('kderp.area', 'Area'),
 		}
-	def name_get(self, cr, uid, ids, context=None):
-		if isinstance(ids, (list, tuple)) and not len(ids):
-			return []
-		if isinstance(ids, (long, int)):
-			ids = [ids]
-		reads = self.read(cr, uid, ids, ['name','code'], context=context)
-		res = []
-		for record in reads:
-			name = "%s - %s" % (record['code'],record['name'])
-			
-			res.append((record['id'], name))
-		return res
-
-	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
-		if not args:
-			args=[]
-		if context is None:
-			context={}
-
-		if name:
-			name=name.strip()
-			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid,[('city', 'ilike', name)] + args, limit=limit, context=context)                
-		else:
-			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
-		return self.name_get(cr, uid, ctc_ids, context=context)
 kderp_location()
 
 class kderp_area(osv.Model):
@@ -126,45 +91,3 @@ class kderp_area(osv.Model):
 		}
 kderp_area()
 
-class kderp_city(osv.Model):
-	_name = "kderp.city"
-	_columns = {
-		'code':fields.char('Code',size=16, required=True),
-		'name':fields.char('Name', size=128, translate=True, required = True),
-		}
-		
-	def name_get(self, cr, uid, ids, context=None):
-		if isinstance(ids, (list, tuple)) and not len(ids):
-			return []
-		if isinstance(ids, (long, int)):
-			ids = [ids]
-		reads = self.read(cr, uid, ids, ['name','code'], context=context)
-		res = []
-		for record in reads:
-			name = "%s - %s" % (record['code'],record['name'])
-			
-			res.append((record['id'], name))
-		return res
-
-	def name_search(self, cr, uid, name, args=None, operator='ilike', context=None, limit=100):
-		if not args:
-			args=[]
-		if context is None:
-			context={}
-
-		if name:
-			name=name.strip()
-			ctc_ids = self.search(cr, uid, [('code', '=', name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid, [('code', operator, name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid,[('name', 'ilike', name)] + args, limit=limit, context=context)
-			if not ctc_ids:
-				ctc_ids = self.search(cr, uid,[('city', 'ilike', name)] + args, limit=limit, context=context)                
-		else:
-			ctc_ids = self.search(cr, uid, args, limit=limit, context=context)
-		return self.name_get(cr, uid, ctc_ids, context=context)
-		
-	_sql_constraints=[('kderp.city','unique(code)','Code must be unique !')]
-	
-kderp_city()
