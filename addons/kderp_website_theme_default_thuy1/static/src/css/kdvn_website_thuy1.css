@@ -123,12 +123,12 @@ o desktop hien thi do rong 30%
 */
 @media (min-width: 970px){
 .img-click-desk {
-  width:40%; position: absolute; top: 0; bottom:0; left: 0; right:0; margin: auto;
+  max-height: 100%; position: absolute; top: 0; bottom:0; left: 0; right:0; margin: auto;
  }
 }
 @media (max-width: 970px){
 .img-click-mobil {
-  width:90%; position: absolute; top: 0; bottom:0; left: 0; right:0; margin: auto;
+  width: 90%; position: absolute; top: 0; bottom:0; left: 0; right:0; margin: auto;
  }
 }
 .data-lp-hp {
