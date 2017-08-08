@@ -522,9 +522,11 @@
 	                                    <t t-if="post.size">
 	                                        <span>Scale : </span><span t-field="post.size"/><br />
 	                                    </t>
+	                                    <!--
 	                                    <t t-if="post.project_location_id">
 	                                    	<span>Locaion : </span><span t-field="post.project_location_id" /><br />
 	                                    </t>
+	                                    -->
 	                                    <t t-if="post.completion_date">
 	                                    	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
 	                                    </t>
@@ -627,9 +629,11 @@
 	                                    <t t-if="post.size">
 	                                        <span>Scale : </span><span t-field="post.size"/><br />
 	                                    </t>
+	                                    <!--
 	                                     <t t-if="post.project_location_id">
 	                                    	<span>Locaion : </span><span t-field="post.project_location_id" /><br />
 	                                    </t>
+	                                    -->
 	                                    <t t-if="post.completion_date">
 	                                    	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/>
 	                                    </t>
