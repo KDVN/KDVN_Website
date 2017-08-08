@@ -599,7 +599,7 @@ ul.dis-district li a {
   outline: 0;
 }
 ul.dis-district li.active {
-  background: #f2f2f2;
+  background: #cfcfcf;
 }
 ul.dis-district li.active a {
   --color: red;
