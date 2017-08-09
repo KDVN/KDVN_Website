@@ -462,7 +462,7 @@
 
 						<!--area-->
 						<h4><span class="glyphicon glyphicon-map-marker"></span>
-							<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 						</h4>
 						<ul class="dis-district">
 							<t t-foreach="list_areas" t-as="list_a">												
@@ -473,7 +473,7 @@
 						</ul>
 						<!--type-->
 						<h4><span class="glyphicon glyphicon-list-alt"></span>
-							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_types" t-as="list_t">																							
@@ -484,7 +484,7 @@
 						</ul>
 						<!--Size-->
 						<h4><span class="fa fa-arrows-alt"></span>
-							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_sizes" t-as="list_z">																							
@@ -495,7 +495,7 @@
 						</ul>
 						<!--Year-->
 						<h4><span class="fa fa-calendar"></span>
-							<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_years" t-as="list_y">																							
@@ -568,7 +568,7 @@
 						</h4>
 						<!--area-->
 						<h4><span class="glyphicon glyphicon-map-marker"></span>
-							<a t-attf-href="/pj/completed/?{{keep_query('type','size','year', area='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Area</span></a>
+							<a t-attf-href="/pj/completed/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 						</h4>
 						<ul class="dis-district">
 							<t t-foreach="list_areas" t-as="list_a">												
@@ -579,7 +579,7 @@
 						</ul>
 						<!--type-->
 						<h4><span class="glyphicon glyphicon-list-alt"></span>
-							<a t-attf-href="/pj/completed/?{{keep_query('area','size','year', type='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Type</span></a>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_types" t-as="list_t">																							
@@ -590,7 +590,7 @@
 						</ul>
 						<!--Size-->
 						<h4><span class="fa fa-arrows-alt"></span>
-							<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Size</span></a>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_sizes" t-as="list_z">																							
@@ -601,7 +601,7 @@
 						</ul>
 						<!--Year-->
 						<h4><span class="fa fa-calendar"></span>
-							<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="margin-left: 10px;font-weight: bold;"><span> Year</span></a>
+							<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 						</h4>
 						<ul class="dis-district">							
 							<t t-foreach="list_years" t-as="list_y">																							
