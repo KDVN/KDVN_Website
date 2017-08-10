@@ -457,8 +457,8 @@
 			<div class="container">
 				<div class="row" >
 					<div class="col-md-3">
-						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">
-							<a t-attf-href="/pj/featured"><span> All Project Featured</span></a></h4>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; 
+									color:#026232; "><a t-attf-href="/pj/featured"><span> All</span></a></h4>
 
 						<!--area-->
 						<h4><span class="glyphicon glyphicon-map-marker"></span>
@@ -507,7 +507,7 @@
 					
 					</div>
 					<div class="col-md-9">
-						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">Featured Projects</h4>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;text-align: center">Featured Projects</h4>
 						<t t-foreach="posts" t-as="post">
 							<div class="col-sm-6 col-md-4">
 								<div class="thumbnail">
@@ -563,8 +563,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<h4  style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-									color:#026232"><a t-attf-href="/pj/completed"><span> All Project Completed</span></a>
+						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232"><a t-attf-href="/pj/completed"><span> All</span></a>
 						</h4>
 						<!--area-->
 						<h4><span class="glyphicon glyphicon-map-marker"></span>
@@ -614,7 +613,7 @@
 					</div>
 					<div class="col-md-9">
 						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase;
-									color:#026232">Completed Projects</h4>
+									color:#026232;text-align: center; ">Completed Projects</h4>
 						<t t-foreach="posts" t-as="post">
 							<div class="col-sm-6 col-md-4">
 								<div class="thumbnail">
