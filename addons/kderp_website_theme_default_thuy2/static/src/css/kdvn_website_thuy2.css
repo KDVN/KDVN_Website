@@ -606,3 +606,8 @@ ul.dis-district li.active a {
   color: #000;
   margin-left: 5px;
 }
+@media screen and (min-width: 768px) {
+  #kdvn-btn-collapse {
+    display: None;
+  }
+}
