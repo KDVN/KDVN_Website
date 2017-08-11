@@ -18,6 +18,8 @@ class kderp_blog_post_project(osv.Model):
 	def onchange_year(self, cr, uid, ids, completion_date, project_year_id):
 		val={}
 		cr.execute("""select id, code from kderp_blog_post_year """)
+		if not completion_date:
+			val={'project_year_id':None}
 		if completion_date:
 			completion_date= datetime.datetime.strptime(completion_date,"%Y-%m-%d")
 			year = completion_date.strftime('%Y')
