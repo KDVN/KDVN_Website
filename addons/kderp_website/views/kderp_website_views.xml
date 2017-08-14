@@ -11,6 +11,7 @@
 				<tree string="Tag List" create="false" position='replace'>
 					<tree string="Tag List" create="false">
 						<field name="name"/>
+						<field name="blog_blog_name"/>
 					</tree>
                 </tree>
 			</field>

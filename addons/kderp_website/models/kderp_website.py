@@ -90,7 +90,25 @@ class KdvnNewsTags(models.Model):
 
     name = fields.Char(string="Tags")
 
-
+class BlogTag(models.Model):
+    _inherit = 'blog.tag'
+    
+    blog_blog_name = fields.Char(string="Blogs", compute='_get_blog_blog_name')
+    
+    @api.one
+    def _get_blog_blog_name(self):
+        result = ""
+        ids = []
+        for blog in self:
+            if blog.post_ids:
+                for b in blog.post_ids:
+                    ids.append(b.blog_id.id)
+                self.blog_blog_name = str(list(set(ids)))
+        blogs = self.env['blog.blog'].search([('id', 'in', list(set(ids)))])
+        for blog in blogs:
+            result += blog.name+'\n'
+        self.blog_blog_name = result
+    
 class KdvnNews(models.Model):
     _inherit = 'blog.blog'
 
