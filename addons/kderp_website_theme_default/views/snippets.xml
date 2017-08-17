@@ -39,11 +39,11 @@
             <div class="bs-docs-header bg-success text-center">
               <div class="row">
                 <div class="col-md-6">
-                  <h1><small class="text-danger">Construction &amp; Enginnering</small></h1>
+                  <h1 style="margin-top: 60px"><small class="text-danger">Construction &amp; Enginnering</small></h1>
                   <h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
                 </div>
                 <div class="col-md-6">
-                  <img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg"/>
+                  <img class="img-rounded img-responsive" src="/kderp_website_theme_default/static/src/img/hai_van_tunnel.jpg" style="height: 300px;"/>
                 </div>
               </div>
             </div>
@@ -140,7 +140,7 @@
         </div>
         <section class="oe_snippet_body">
           <div class="container">
-            <div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/1807_c7b0433/datas) center center; background-size:contain">
+            <div class="jumbotron text-center" id="kderp_website.job-jumbo" style="background:url(/website/image/ir.attachment/1807_c7b0433/datas) center center; background-size:contain;height: 300px">
               <h1 ><span class="h2 text-success" style="background-color: rgba(238, 238, 238, 0.58);">Working for one of top 50 most desired companies?</span></h1>
               <a class="btn btn-primary btn-lg" href="#">Apply Now!</a>
             </div>
@@ -158,8 +158,8 @@
         </div>
         <section class="oe_snippet_body">
           <div class="container">
-            <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/1795_a9318b2/datas) center center; background-size:cover">
-              <h1><small class="text-kdvn">Want to join our hot events?</small></h1>
+            <div class="jumbotron text-center" style="background:url(/website/image/ir.attachment/1795_a9318b2/datas) center center; background-size:cover;height: 300px">
+              <h1><small style="color: #fff !important; background-color: rgba(119, 119, 119, 0.73);}">Want to join our hot events?</small></h1>
               <a class="btn btn-primary btn-lg" href="#">Book Now!</a>
             </div>
           </div>
