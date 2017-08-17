@@ -434,12 +434,12 @@
 	</template>
         
 	<!--Them template moi Project Featured-->
-	<template id="kderp_website_theme_default_thuy2.pj_featured_jumbo" name="Project On Going Jumbotron">
+	<template id="kderp_website_theme_default_thuy2.pj_featured_jumbo" name="Project Featured Jumbotron">
 		<div class="oe_structure pj_featured_jumbo"></div>
 		<t t-raw="0"></t>
 	</template>
 	
-	<template id="kderp_website_theme_default_thuy2.page_pj_featured" name="KDVN Project On Going">
+	<template id="kderp_website_theme_default_thuy2.page_pj_featured" name="KDVN Project Featured">
 		<t t-call="website.layout">
 			<t t-set="title">Project Featured</t>
 			<t t-call="kderp_website_theme_default_thuy2.pj_featured_jumbo"></t>
@@ -457,90 +457,147 @@
 			<div class="container">
 				<div class="row" >
 					<div class="col-md-3">
-						<button id="kdvn-btn-collapse" type="button" data-toggle="collapse" data-target="#kdvn-collapse"><span class="fa fa-list"></span></button>
-						<div id="kdvn-collapse" class="collapse in">
-							<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">
-										<a t-attf-href="/pj/featured"><span> All Projects</span></a></h4>
-							<!--area-->
-							<h4><span class="glyphicon glyphicon-map-marker"></span>
-								<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
-							</h4>
-							<ul class="dis-district">
-								<t t-foreach="list_areas" t-as="list_a">												
-									<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
-										<a t-attf-href="/pj/featured/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
-									</li>
-								</t>
-							</ul>
-							<!--type-->
-							<h4><span class="glyphicon glyphicon-list-alt"></span>
-								<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
-							</h4>
-							<ul class="dis-district">							
-								<t t-foreach="list_types" t-as="list_t">																							
-									<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/featured/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
-									</li>
-								</t>
-							</ul>
-							<!--Size-->
-							<h4><span class="fa fa-arrows-alt"></span>
-								<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
-							</h4>
-							<ul class="dis-district">							
-								<t t-foreach="list_sizes" t-as="list_z">																							
-									<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
-									</li>
-								</t>
-							</ul>
-							<!--Year-->
-							<h4><span class="fa fa-calendar"></span>
-								<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
-							</h4>
-							<ul class="dis-district">							
-								<t t-foreach="list_years" t-as="list_y">																							
-									<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/featured/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
-									</li>
-								</t>
-							</ul>
-						</div>
-						<div class="visible-xs" id="xs-check"></div>
+						<div id="kdvn-menuleft-prjf"/>
 					</div>
 					<div class="col-md-9">
-						<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;text-align: center">Featured Projects</h4>
-						<t t-foreach="posts" t-as="post">
-							<div class="col-sm-6 col-md-4">
-								<div class="thumbnail">
-									<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 200px;"></img>
-								</div>
-								<div style ="position: relative; height: 150px; margin-bottom: 10px">
-									<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
-									<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;">
-										<t t-if="post.type">
-	                                        <span>Type : </span><span t-field="post.type"/><br />
-	                                    </t>
-	                                    <t t-if="post.size">
-	                                        <span>Scale : </span><span t-field="post.size"/><br />
-	                                    </t>
-	                                    <!--
-	                                    <t t-if="post.project_location_id">
-	                                    	<span>Locaion : </span><span t-field="post.project_location_id" /><br />
-	                                    </t>
-	                                    -->
-	                                    <t t-if="post.completion_date">
-	                                    	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
-	                                    </t>
-										<!--<t t-raw="post.content"></t>-->
-									</p>
-								</div>
-							</div>
-						</t>
+						<div id="kdvn-content-prjf"/>
 					</div>
 				</div>
 			</div>
 		</t>
+	</template>
+	<!--Template cho menu trai cua Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.kdvn_menuleft_prjf" inherit_id="kderp_website_theme_default_thuy2.page_pj_featured" active="True" customize_show="True" name="KDVN Project Featured Menu Left">		
+		<xpath expr="//div[@id='kdvn-menuleft-prjf']" position="inside">
+			<button id="kdvn-btn-collapse" type="button" data-toggle="collapse" data-target="#kdvn-collapse"><span class="fa fa-list"></span></button>
+			<div id="kdvn-collapse" class="collapse in">
+				<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;">
+							<a t-attf-href="/pj/featured"><span> All Projects</span></a></h4>
+				<!--area-->
+				<h4><span class="glyphicon glyphicon-map-marker"></span>
+					<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
+				</h4>
+				<ul class="dis-district">
+					<t t-foreach="list_areas" t-as="list_a">												
+						<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
+							<a t-attf-href="/pj/featured/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
+						</li>
+					</t>
+				</ul>
+				<!--type-->
+				<h4><span class="glyphicon glyphicon-list-alt"></span>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
+				</h4>
+				<ul class="dis-district">							
+					<t t-foreach="list_types" t-as="list_t">																							
+						<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
+							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
+						</li>
+					</t>
+				</ul>
+				<!--Size-->
+				<h4><span class="fa fa-arrows-alt"></span>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
+				</h4>
+				<ul class="dis-district">							
+					<t t-foreach="list_sizes" t-as="list_z">																							
+						<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
+						</li>
+					</t>
+				</ul>
+				<!--Year-->
+				<h4><span class="fa fa-calendar"></span>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
+				</h4>
+				<ul class="dis-district">							
+					<t t-foreach="list_years" t-as="list_y">																							
+						<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
+							<a t-attf-href="/pj/featured/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
+						</li>
+					</t>
+				</ul>
+			</div>
+			<div class="visible-xs" id="xs-check"></div>
+		</xpath>
+	</template>
+	<!--Template cho content cua Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.kdvn_content_prjf" inherit_id="kderp_website_theme_default_thuy2.page_pj_featured" active="False" customize_show="True" name="KDVN Project Featured Content">		
+		<xpath expr="//div[@id='kdvn-content-prjf']" position="inside">
+			<h4 style="border-bottom: 1px solid #ebebeb; padding-bottom: 3px; text-transform: uppercase; color:#026232;text-align: center">Featured Projects</h4>
+			<t t-foreach="posts" t-as="post">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img t-attf-src="{{post.img_url_ids[0].website_url}}" style="height: 200px;"></img>
+					</div>
+					<div style ="position: relative; height: 150px; margin-bottom: 10px">
+						<h5 style="color:#026232; text-transform: uppercase; text-align: center;"><div t-field="post.name"></div></h5>
+						<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;">
+							<t t-if="post.type">
+                                <span>Type : </span><span t-field="post.type"/><br />
+                            </t>
+                            <t t-if="post.size">
+                                <span>Scale : </span><span t-field="post.size"/><br />
+                            </t>
+                            <!--
+                            <t t-if="post.project_location_id">
+                            	<span>Locaion : </span><span t-field="post.project_location_id" /><br />
+                            </t>
+                            -->
+                            <t t-if="post.completion_date">
+                            	<span>Completion : </span><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
+                            </t>
+							<!--<t t-raw="post.content"></t>-->
+						</p>
+					</div>
+				</div>
+			</t>
+		</xpath>
+	</template>
+	<!--Template thu 2 cho content cua Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.kdvn_content_prjf_2" inherit_id="kderp_website_theme_default_thuy2.page_pj_featured" active="False" customize_show="True" name="KDVN Project Featured Content 2">		
+		<xpath expr="//div[@id='kdvn-content-prjf']" position="inside">
+			<h4 style="border-bottom: 1px solid #ebebeb; text-transform: uppercase; color:#026232;"><span> Featured Projects</span></h4>
+			<t t-foreach="posts" t-as="post">
+				<div class="list-group-item" style="border: 0px; padding:0px 0px;">
+					<div class="row" style="margin-right: 0px; margin-left: 0px;">
+						<h5 style="color:#026232; text-transform: uppercase;font-weight:bold"><div t-field="post.name"></div></h5>
+						<p style="color: #5d5c5c; font-size: 14px; font-weight: 300;">
+							<t t-if="post.type">
+                                <strong>Type : </strong><span t-field="post.type"/><br />
+                            </t>
+                            <t t-if="post.size">
+                                <strong>Scale : </strong><span t-field="post.size"/><br />
+                            </t>
+                            <t t-if="post.project_location_id">
+                            	<strong >Locaion : </strong><span t-field="post.project_location_id" /><br />
+                            </t>
+                            <t t-if="post.completion_date">
+                            	<strong >Completion : </strong><span t-field="post.completion_date" t-field-options='{"format":"MMMM, y"}'/><br />
+                            </t>
+							<!--<t t-raw="post.content"></t>-->
+						</p>
+					</div>
+				</div>
+				<hr style="border-top: 1px solid #ccc;"/>
+			</t>
+		</xpath>
+	</template>
+	<!--Template thu 3 cho content cua Project Featured-->
+	<template id="kderp_website_theme_default_thuy2.kdvn_content_prjf_3" inherit_id="kderp_website_theme_default_thuy2.page_pj_featured" active="True" customize_show="True" name="KDVN Project Featured Content 3">		
+		<xpath expr="//div[@id='kdvn-content-prjf']" position="inside">
+			<h4 style="border-bottom: 1px solid #ebebeb; text-transform: uppercase; color:#026232;"><span> Featured Projects</span></h4>
+			<div class="container"  style="margin-bottom:60px ">
+			  <div id="allinone_carousel_charming">
+			    <!-- CONTENT -->
+			    <ul class="allinone_carousel_list">
+			    	<t t-foreach="posts" t-as="post">
+			    		<li><img t-attf-src="{{post.img_url_ids[0].website_url}}" ><h3 class="kdvn_title_prj" t-field="post.name"></h3></img></li>
+			    	</t>
+			    </ul>                                         
+			  </div>
+			</div>  
+		</xpath>
 	</template>
 	<!--Them template moi Project Completed-->
 	<template id="kderp_website_theme_default_thuy2.pj_completed_jumbo" name="Project Completed Jumbotron">
