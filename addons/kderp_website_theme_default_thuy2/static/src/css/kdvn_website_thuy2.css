@@ -658,3 +658,34 @@ h1.kdvn-bn-me {
   text-transform: uppercase;
   text-align: center;
 }
+.brand-left > div > ul.kdvn-h-sologan {
+  display: table-cell;
+}
+.brand-left > div > ul > li > span {
+  display: inline-block;
+  font-size: 24px;
+  color: #026232;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+}
+.brand-left > div > address {
+  margin: 0;
+  padding: 0 5px 0 5px;
+}
+.brand-left > div > ul {
+  margin-bottom: -5px;
+}
+.brand-left > div > address {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+#wrap > section > div > div > div.col-md-5 > div.media.kdvn-media-hpl > div.media-body > a:hover,
+a:focus {
+  text-decoration: none;
+}
+#wrap > section > div > div > div.col-md-7.home-menu-right > div.media > div.media-body > a:hover,
+a:focus {
+  text-decoration: none;
+}

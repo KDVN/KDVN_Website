@@ -24,7 +24,7 @@
 			</ul>
 		</xpath>
 		<xpath expr="//div[@class='container']" position="before">
-			<div class="container" style="padding-top: 5px; padding-bottom: 5px;">
+			<div class="container" style="padding-top: 20px; padding-bottom: 20px;">
 				<!--dua logo kinden vietnam len tren-->
 				<div class="brand">
 					<a href="/" class="logo">
@@ -43,8 +43,8 @@
 
 					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
 						<div >
-							<ul class="list-inline js_language_selector" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
-								<li><b>KINDEN VIETNAM CO., LTD</b></li>
+							<ul class="list-inline js_language_selector kdvn-h-sologan" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+								<li><span>KINDEN VIETNAM CO., LTD</span></li>
 								<li t-foreach="languages" t-as="lg">
 									<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
 									 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
@@ -57,9 +57,9 @@
 									</a>
 								</li>
 							</ul>
-							<address style="margin-bottom: 0px; margin-right: 5px;">
-							<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
-							<span class="fa fa-fax"></span> <t t-esc="contact.fax"></t>
+							<address>
+								<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t><br/>
+								<span class="fa fa-envelope"></span> <t t-esc="contact.email"></t>
 							</address>
 						</div>
 					</t>
