@@ -663,7 +663,7 @@ h1.kdvn-bn-me {
 }
 .brand-left > div > ul > li > span {
   display: inline-block;
-  font-size: 24px;
+  font-size: 22px;
   color: #026232;
   font-weight: bold;
   text-align: center;
@@ -680,6 +680,7 @@ h1.kdvn-bn-me {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  margin-top: -2px;
 }
 #wrap > section > div > div > div.col-md-5 > div.media.kdvn-media-hpl > div.media-body > a:hover,
 a:focus {
