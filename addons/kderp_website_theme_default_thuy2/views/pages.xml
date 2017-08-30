@@ -512,10 +512,13 @@
 				</h4>
 				<ul class="dis-district">							
 					<t t-foreach="list_years" t-as="list_y">																							
-						<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
+						<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
 							<a t-attf-href="/pj/featured/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
 						</li>
 					</t>
+					<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
+						<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='less_than')}}"><span>Less Than</span></a>
+					</li>
 				</ul>
 			</div>
 			<div class="visible-xs" id="xs-check"></div>
@@ -663,13 +666,21 @@
 							<!--Year-->
 							<h4><span class="fa fa-calendar"></span>
 								<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
+								
 							</h4>
 							<ul class="dis-district">							
-								<t t-foreach="list_years" t-as="list_y">																							
-									<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/completed/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
+								<t t-foreach="list_years" t-as="list_y">	
+									<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
+										<a t-attf-href="/pj/completed/?{{keep_query('area','size','type', year=list_y.id)}}"> 
+											<span t-field="list_y.name"/>
+										</a>
 									</li>
 								</t>
+								
+								<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
+									<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='less_than')}}"><span>Less Than</span></a>
+								</li>
+								
 							</ul>
 						</div>
 						<div class="visible-xs" id="xs-check"></div>

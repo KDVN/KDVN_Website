@@ -56,6 +56,11 @@ class ExtendKderpWebsite(KderpWebsite):
 		searches.setdefault('year', prj_year)
 		searches.setdefault('size', prj_size)
 		
+		list_years = http.request.env['kderp.blog.post.year'].search([],order='code desc', limit=4)
+		list_areas = http.request.env['kderp.area'].search([])
+		list_types = http.request.env['kderp.blog.post.project.type'].search([])
+		list_sizes = http.request.env['kderp.blog.post.project.size'].search([])
+		
 		domain_search = {}
 		# search domains		
 		if searches["type"] != 'all':
@@ -65,9 +70,16 @@ class ExtendKderpWebsite(KderpWebsite):
 			current_area = area_obj.browse(cr, uid, int(searches['area']), context=context)
 			domain_search["area"] = [("area_id", "=", int(searches["area"]))]
 			
-		if searches["year"] != 'all':
+		# search domain year
+		var_list_years = []
+		for var_l in list_years:
+			var_list_years.append(var_l.name)
+		if searches["year"] not in ['all','less_than']:
 			current_year = year_obj.browse(cr, uid, int(searches['year']), context=context)
-			domain_search["year"] = [("project_year_id", "=", int(searches["year"])), ]
+			domain_search["year"] = [("project_year_id", "=", int(searches["year"])) ]
+		if searches["year"] =="less_than":
+			domain_search["year"] = [("project_year_id", "not in", var_list_years)]
+			
 		if searches["size"] != 'all':
 			current_size = size_obj.browse(cr, uid, int(searches['size']), context=context)
 			domain_search["size"] = [("size", "=", int(searches["size"]))]
@@ -96,7 +108,12 @@ class ExtendKderpWebsite(KderpWebsite):
 		years = blog_post_obj.read_group(request.cr, request.uid, domain, ["id", "project_year_id"],groupby="project_year_id", orderby="project_year_id", context=request.context)
 		years.insert(0, {
 			'project_year_id': ("all", _("All Year"))
+			
 		})
+		years.insert(0, {
+			'project_year_id': ("less_than", _("Less Than"))
+		})
+		
 		domain = dom_without('size')
 		sizes = blog_post_obj.read_group(request.cr, request.uid, domain, ["id", "size"], groupby="size", orderby="size", context=request.context)
 		#size_count = blog_post_obj.search(request.cr, request.uid, domain, count=True, context=request.context)
@@ -120,10 +137,7 @@ class ExtendKderpWebsite(KderpWebsite):
 		obj_ids = blog_post_obj.search(request.cr, request.uid, dom_without("none"), limit=step, offset=pager['offset'],  context=request.context)
 		blog_post_ids = blog_post_obj.browse(request.cr, request.uid, obj_ids, context=request.context)
 		
-		list_areas = http.request.env['kderp.area'].search([])
-		list_types = http.request.env['kderp.blog.post.project.type'].search([])
-		list_years = http.request.env['kderp.blog.post.year'].search([],order='code desc', limit=5)
-		list_sizes = http.request.env['kderp.blog.post.project.size'].search([])
+		
 		
 		values = {
 			'posts': blog_post_ids,
