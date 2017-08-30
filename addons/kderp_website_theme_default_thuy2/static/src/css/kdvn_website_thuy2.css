@@ -634,3 +634,27 @@ h1.kdvn-bn-me {
   font-weight: normal;
   background-color: rgba(51, 51, 51, 0.39);
 }
+.kdvn-cer-title {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+  color: #026232;
+  margin: 0px 15px 25px 15px;
+}
+.kdvn-cer-title-area {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #026232;
+  margin: 0px 15px 25px 15px;
+}
+.thumbnail a > img.kdvn-cer-image {
+  height: 200px;
+}
+.kdvn-cer-content {
+  position: relative;
+  height: 50px;
+  margin-bottom: 10px;
+  color: #026232;
+  text-transform: uppercase;
+  text-align: center;
+}
