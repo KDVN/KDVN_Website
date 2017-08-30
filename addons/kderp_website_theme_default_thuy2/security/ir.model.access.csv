@@ -26,3 +26,4 @@ access_kderp_blog_post_year,kderp_blog_post_year,model_kderp_blog_post_year,,1,0
 access_kderp_blog_post_project_type,kderp_blog_post_project_type,model_kderp_blog_post_project_type,,1,0,0,0
 access_kderp_blog_post_project_size,kderp_blog_post_project_size,model_kderp_blog_post_project_size,,1,0,0,0
 access_kderp_area,kderp_area,model_kderp_area,,1,0,0,0
+access_kderp_blog_post_project_purpose,kderp_blog_post_project_purpose,model_kderp_blog_post_project_purpose,,1,0,0,0

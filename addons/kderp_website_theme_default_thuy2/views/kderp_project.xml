@@ -16,6 +16,7 @@
 					<group col="4" string="Project Des." attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed'])]}">			
 						<field name="project_location_id" on_change="onchange_location(project_location_id)"/>
 						<field name="completion_date" on_change="onchange_year(completion_date,project_year_id)"/>
+						<field name="project_purpose_id"/>
 						<field name="type"/>
 						<field name="size"/>
 						<field name="project_year_id" on_change="onchange_year(completion_date,project_year_id)" invisible='1'/>
@@ -157,7 +158,39 @@
 			</tree>
         </field>
     </record>
+	<!-- Purpose of use"-->
+	<record id="view_kderp_blog_post_project_purpose_form" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.purpose.form</field>
+        <field name="model">kderp.blog.post.project.purpose</field>
+        <field name="arch" type="xml">
+            <form string="Purpose">
+				<sheet>
+					<group col="4" >
+						<field name="sequence"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kderp_blog_post_project_purpose_tree" model="ir.ui.view">
+        <field name="name">kderp.blog.post.project.purpose.tree</field>
+        <field name="model">kderp.blog.post.project.purpose</field>
+        <field name="arch" type="xml">
+            <tree string="Purpose">
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
 	<!--========================-->
+	<record model="ir.actions.act_window" id="kderp_blog_post_project_purpose_act">
+		<field name="name">Project Purpose</field>
+		<field name="res_model">kderp.blog.post.project.purpose</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
 	<record model="ir.actions.act_window" id="kdvn_blog_post_year_act">
 		<field name="name">Year</field>
 		<field name="res_model">kderp.blog.post.year</field>
@@ -195,6 +228,7 @@
 	<menuitem id="kdvn_blog_post_year" name="Project Year" parent="kderp_website_config_project" action="kdvn_blog_post_year_act"/>
 	<menuitem id="kdvn_blog_post_project_type" name="Project Type" parent="kderp_website_config_project" action="kdvn_blog_post_project_type_act"/>
 	<menuitem id="kdvn_blog_post_project_size" name="Project Size" parent="kderp_website_config_project" action="kdvn_blog_post_project_size_act"/>
+	<menuitem id="kderp_blog_post_project_purpose" name="Project Purpose" parent="kderp_website_config_project" action="kderp_blog_post_project_purpose_act" sequence="1"/>
 	
 	<menuitem id="kdvn_location" name="Location" parent="kderp_website_config_project" action="kdvn_location_act"/>
 	<menuitem id="kdvn_area" name="Area" parent="kderp_website_config_project" action="kdvn_area_act"/>

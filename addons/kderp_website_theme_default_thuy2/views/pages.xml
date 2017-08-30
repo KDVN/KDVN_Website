@@ -475,49 +475,49 @@
 							<a t-attf-href="/pj/featured"><span> All Projects</span></a></h4>
 				<!--area-->
 				<h4><span class="glyphicon glyphicon-map-marker"></span>
-					<a t-attf-href="/pj/featured/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
+					<a t-attf-href="/pj/featured/?{{keep_query('type','purpose','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 				</h4>
 				<ul class="dis-district">
 					<t t-foreach="list_areas" t-as="list_a">												
 						<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
-							<a t-attf-href="/pj/featured/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
+							<a t-attf-href="/pj/featured/?{{ keep_query('type','purpose','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
 						</li>
 					</t>
 				</ul>
 				<!--type-->
 				<h4><span class="glyphicon glyphicon-list-alt"></span>
-					<a t-attf-href="/pj/featured/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 				</h4>
 				<ul class="dis-district">							
 					<t t-foreach="list_types" t-as="list_t">																							
 						<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
-							<a t-attf-href="/pj/featured/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
 						</li>
 					</t>
 				</ul>
-				<!--Size-->
+				<!--purpose-->
 				<h4><span class="fa fa-arrows-alt"></span>
-					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
 				</h4>
 				<ul class="dis-district">							
-					<t t-foreach="list_sizes" t-as="list_z">																							
-						<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
-							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
+					<t t-foreach="list_purposes" t-as="list_z">																							
+						<li t-att-class="'active' if list_z.id == int((searches.get('purpose') if searches.get('purpose') != 'all' else 0)  or 0) else ''">
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose=list_z.id)}}"><span t-field="list_z.name"/></a>
 						</li>
 					</t>
 				</ul>
 				<!--Year-->
 				<h4><span class="fa fa-calendar"></span>
-					<a t-attf-href="/pj/featured/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','type','purpose', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 				</h4>
 				<ul class="dis-district">							
 					<t t-foreach="list_years" t-as="list_y">																							
 						<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
-							<a t-attf-href="/pj/featured/?{{keep_query('area','size','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
 						</li>
 					</t>
 					<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
-						<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='less_than')}}"><span>Less Than</span></a>
+						<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span>Less Than</span></a>
 					</li>
 				</ul>
 			</div>
@@ -539,8 +539,8 @@
 							<t t-if="post.type">
                                 <span>Type : </span><span t-field="post.type"/><br />
                             </t>
-                            <t t-if="post.size">
-                                <span>Scale : </span><span t-field="post.size"/><br />
+                            <t t-if="post.project_purpose_id.name">
+                                <span>Purpose od use : </span><span t-field="post.project_purpose_id.name"/><br />
                             </t>
                             <!--
                             <t t-if="post.project_location_id">
@@ -569,8 +569,8 @@
 							<t t-if="post.type">
                                 <strong>Type : </strong><span t-field="post.type"/><br />
                             </t>
-                            <t t-if="post.size">
-                                <strong>Scale : </strong><span t-field="post.size"/><br />
+                            <t t-if="post.project_purpose_id">
+                                <strong>Purpose of use : </strong><span t-field="post.project_purpose_id.name"/><br />
                             </t>
                             <t t-if="post.project_location_id">
                             	<strong >Location : </strong><span t-field="post.project_location_id" /><br />
@@ -632,53 +632,53 @@
 							</h4>
 							<!--area-->
 							<h4><span class="glyphicon glyphicon-map-marker"></span>
-								<a t-attf-href="/pj/completed/?{{keep_query('type','size','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
+								<a t-attf-href="/pj/completed/?{{keep_query('type','purpose','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 							</h4>
 							<ul class="dis-district">
 								<t t-foreach="list_areas" t-as="list_a">												
 									<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
-										<a t-attf-href="/pj/completed/?{{ keep_query('type','size','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
+										<a t-attf-href="/pj/completed/?{{ keep_query('type','purpose','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
 									</li>
 								</t>
 							</ul>
 							<!--type-->
 							<h4><span class="glyphicon glyphicon-list-alt"></span>
-								<a t-attf-href="/pj/completed/?{{keep_query('area','size','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
+								<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 							</h4>
 							<ul class="dis-district">							
 								<t t-foreach="list_types" t-as="list_t">																							
 									<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/completed/?{{keep_query('area','size','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
+										<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
 									</li>
 								</t>
 							</ul>
-							<!--Size-->
+							<!--purpose-->
 							<h4><span class="fa fa-arrows-alt"></span>
-								<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size='all')}}" style="font-weight: bold;"><span>Size</span></a>
+								<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
 							</h4>
 							<ul class="dis-district">							
-								<t t-foreach="list_sizes" t-as="list_z">																							
-									<li t-att-class="'active' if list_z.id == int((searches.get('size') if searches.get('size') != 'all' else 0)  or 0) else ''">
-										<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', size=list_z.id)}}"><span t-field="list_z.name"/></a>
+								<t t-foreach="list_purposes" t-as="list_z">																							
+									<li t-att-class="'active' if list_z.id == int((searches.get('purpose') if searches.get('purpose') != 'all' else 0)  or 0) else ''">
+										<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose=list_z.id)}}"><span t-field="list_z.name"/></a>
 									</li>
 								</t>
 							</ul>
 							<!--Year-->
 							<h4><span class="fa fa-calendar"></span>
-								<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
+								<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 								
 							</h4>
 							<ul class="dis-district">							
 								<t t-foreach="list_years" t-as="list_y">	
 									<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
-										<a t-attf-href="/pj/completed/?{{keep_query('area','size','type', year=list_y.id)}}"> 
+										<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','type', year=list_y.id)}}"> 
 											<span t-field="list_y.name"/>
 										</a>
 									</li>
 								</t>
 								
 								<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
-									<a t-attf-href="/pj/completed/?{{keep_query('area','type','size', year='less_than')}}"><span>Less Than</span></a>
+									<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span>Less Than</span></a>
 								</li>
 								
 							</ul>
@@ -699,8 +699,8 @@
 										<t t-if="post.type">
 	                                        <span>Type : </span><span t-field="post.type"/><br />
 	                                    </t>
-	                                    <t t-if="post.size">
-	                                        <span>Scale : </span><span t-field="post.size"/><br />
+	                                    <t t-if="post.project_purpose_id">
+	                                        <span>Purpose of use : </span><span t-field="post.project_purpose_id.name"/><br />
 	                                    </t>
 	                                    <!--
 	                                     <t t-if="post.project_location_id">

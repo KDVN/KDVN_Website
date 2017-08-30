@@ -23,43 +23,43 @@ from openerp.addons.website_hr_recruitment.controllers.main import website_hr_re
 
 class ExtendKderpWebsite(KderpWebsite):
 	@http.route(['/pj/featured', '/pj/featured/page/<int:page>'], type='http', auth="public", website=True)
-	def kdvn_pj_featured(self,page=1,url="/pj/featured", filter=[],template='',type='all',area='all', year='all', size='all',**searches):
+	def kdvn_pj_featured(self,page=1,url="/pj/featured", filter=[],template='',type='all',area='all', year='all', purpose='all',**searches):
 		return self.send_prj(
 							page=page, 
 							url=url,
 							filter=['|',('blog_id', '=', 'Projects Featured'),('tag_ids','=', 'Project Featured Tags')], 
 							template='kderp_website_theme_default_thuy2.page_pj_featured', 
-							prj_type=type, prj_area=area, prj_year=year, prj_size=size
+							prj_type=type, prj_area=area, prj_year=year, prj_purpose=purpose
 							)
 							
 	@http.route(['/pj/completed','/pj/completed/page/<int:page>'], auth='public', website=True)
-	def kdvn_pj_completed(self,page=1,url="/pj/completed", filter=[],template='',type='all',area='all', year='all', size='all',**searches):
+	def kdvn_pj_completed(self,page=1,url="/pj/completed", filter=[],template='',type='all',area='all', year='all', purpose='all',**searches):
 		return self.send_prj(
 							page=page,
 							url=url,
 							filter=['|',('blog_id', '=', 'Projects Completed'),('tag_ids','=', 'Project Completed Tags')], 
 							template='kderp_website_theme_default_thuy2.page_pj_completed', 
-							prj_type=type, prj_area=area, prj_year=year, prj_size=size
+							prj_type=type, prj_area=area, prj_year=year, prj_purpose=purpose
 							)
 							
-	def send_prj(self,page=1,url='/', filter=[], template="", prj_type='all', prj_area='all', prj_year='all', prj_size='all', **searches):
+	def send_prj(self,page=1,url='/', filter=[], template="", prj_type='all', prj_area='all', prj_year='all', prj_purpose='all', **searches):
 		
 		cr, uid, context = request.cr, request.uid, request.context
 		blog_post_obj = request.registry['blog.post']
 		type_obj = request.registry['kderp.blog.post.project.type']
 		area_obj = request.registry['kderp.area']
 		year_obj = request.registry['kderp.blog.post.year']
-		size_obj = request.registry['kderp.blog.post.project.size']
+		purpose_obj = request.registry['kderp.blog.post.project.purpose']
 		
 		searches.setdefault('type', prj_type)
 		searches.setdefault('area', prj_area)
 		searches.setdefault('year', prj_year)
-		searches.setdefault('size', prj_size)
+		searches.setdefault('purpose', prj_purpose)
 		
 		list_years = http.request.env['kderp.blog.post.year'].search([],order='code desc', limit=4)
 		list_areas = http.request.env['kderp.area'].search([])
 		list_types = http.request.env['kderp.blog.post.project.type'].search([])
-		list_sizes = http.request.env['kderp.blog.post.project.size'].search([])
+		list_purposes = http.request.env['kderp.blog.post.project.purpose'].search([])
 		
 		domain_search = {}
 		# search domains		
@@ -80,9 +80,9 @@ class ExtendKderpWebsite(KderpWebsite):
 		if searches["year"] =="less_than":
 			domain_search["year"] = [("project_year_id", "not in", var_list_years)]
 			
-		if searches["size"] != 'all':
-			current_size = size_obj.browse(cr, uid, int(searches['size']), context=context)
-			domain_search["size"] = [("size", "=", int(searches["size"]))]
+		if searches["purpose"] != 'all':
+			current_purpose = purpose_obj.browse(cr, uid, int(searches['purpose']), context=context)
+			domain_search["purpose"] = [("project_purpose_id", "=", int(searches["purpose"]))]
 			
 		def dom_without(without):
 			#domain = [('blog_id', '=', 'Projects Featured')]
@@ -114,12 +114,12 @@ class ExtendKderpWebsite(KderpWebsite):
 			'project_year_id': ("less_than", _("Less Than"))
 		})
 		
-		domain = dom_without('size')
-		sizes = blog_post_obj.read_group(request.cr, request.uid, domain, ["id", "size"], groupby="size", orderby="size", context=request.context)
-		#size_count = blog_post_obj.search(request.cr, request.uid, domain, count=True, context=request.context)
-		sizes.insert(0, {
-			#'size_count': size_count,
-			'size': ("all", _("All Categories"))
+		domain = dom_without('purpose')
+		purposes = blog_post_obj.read_group(request.cr, request.uid, domain, ["id", "project_purpose_id"], groupby="project_purpose_id", orderby="project_purpose_id", context=request.context)
+		#purpose_count = blog_post_obj.search(request.cr, request.uid, domain, count=True, context=request.context)
+		purposes.insert(0, {
+			#'purpose_count': purpose_count,
+			'project_purpose_id': ("all", _("All Categories"))
 		})
 		
 		step = 9  # Number of events per page
@@ -128,7 +128,7 @@ class ExtendKderpWebsite(KderpWebsite):
 			context=request.context)
 		pager = request.website.pager(
 			url= url,
-			url_args={ 'area': searches.get('area'), 'type': searches.get('type'), 'size': searches.get('size'),'year': searches.get('year'), },
+			url_args={ 'area': searches.get('area'), 'type': searches.get('type'), 'purpose': searches.get('purpose'),'year': searches.get('year'), },
 			total=blog_post_count,
 			page=page,
 			step=step,
@@ -144,12 +144,12 @@ class ExtendKderpWebsite(KderpWebsite):
 			'types': types,
 			'areas': areas,
 			'years': years,
-			'sizes': sizes,
+			'purposes': purposes,
 			
 			'list_areas': list_areas,
 			'list_types': list_types,
 			'list_years': list_years,
-			'list_sizes': list_sizes,
+			'list_purposes': list_purposes,
 
 			'pager': pager,
 			'searches': searches,

@@ -11,6 +11,7 @@ class kderp_blog_post_project(osv.Model):
 		'area_id':fields.many2one('kderp.area', string="Area"),
 		'completion_date': fields.date(string='Completion Date'),
 		'project_year_id': fields.many2one('kderp.blog.post.year', string="Years"),
+		'project_purpose_id': fields.many2one('kderp.blog.post.project.purpose', string="Purpose of use"),
 		'type': fields.many2one('kderp.blog.post.project.type',"Project Type"),
 		'size': fields.many2one('kderp.blog.post.project.size',"Project Size"),
 		}
@@ -51,6 +52,7 @@ class kderp_blog_post_year(osv.Model):
 		'name':fields.char('Name',size=100,required=True),
 		'description':fields.char('Description',size=128),
 		}
+	('kderp_unique_code_blog_post_year','unique(code, name)', 'Blog post year Code, Name must be unique')
 kderp_blog_post_year()
 
 class kderp_blog_post_project_type(osv.Model):
@@ -60,6 +62,7 @@ class kderp_blog_post_project_type(osv.Model):
 		'code':fields.char('Code',required=True),
 		'name':fields.char('Name',required=True)
 		}
+	('kderp_unique_code_blog_post_project_type','unique(code, name)', 'Blog post type Code, Name must be unique')
 kderp_blog_post_project_type()
 
 class kderp_blog_post_project_size(osv.Model):
@@ -69,11 +72,24 @@ class kderp_blog_post_project_size(osv.Model):
 		'code':fields.char('Code', required=True),
 		'name':fields.char('Name', required=True)
 		}
+	('kderp_unique_code_blog_post_project_size','unique(code, name)', 'Blog post size Code, Name must be unique')
 kderp_blog_post_project_size()
 
-from openerp.osv import osv, fields
-from openerp import SUPERUSER_ID
-import time
+class kderp_blog_post_project_purpose(osv.Model):
+    _name = 'kderp.blog.post.project.purpose'
+    _description = 'Kderp Blog Post Project Purpose'
+        
+    _columns = {
+                'sequence':fields.integer("Seq."),
+                'name': fields.char("Name", size=16, required = True, translate=True),
+                'description':fields.char("Description", size=128)
+                }
+    _sql_constraints = [
+        ('kderp_unique_sequence_project_purpose','unique(sequence)', 'Project Purpose Name must be unique'),
+        ('kderp_unique_name_project_purpose','unique(name)', 'Project Purpose Name must be unique')
+        ]
+
+kderp_blog_post_project_purpose()
 
 class kderp_location(osv.Model):
 	_name = "kderp.location"
@@ -91,5 +107,6 @@ class kderp_area(osv.Model):
 		'code':fields.char('Code', required=True),
 		'name':fields.char('Name', translate=True, required = True),
 		}
+	('kderp_unique_code_area','unique(code, name)', 'Area Code, Name must be unique')
 kderp_area()
 
