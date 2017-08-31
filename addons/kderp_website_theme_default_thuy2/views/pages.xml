@@ -346,74 +346,76 @@
 	<!--Them form vao Contach Us-->
 	<template id="kderp_website_theme_default_thuy2.contacts" name="KDVN Thuy2 Contacts" inherit_id="kderp_website.contacts">
 		<xpath expr="//div[@class='container']" position="replace">
-			<div class="container">
-				<h2 class="text-danger" style="margin-top: 20px; text-align: center;">Contact Form</h2>
-				<div class="row">
-					<form action="/crm/contactus" method="post" class="form-horizontal" style = "margin-right: 0px; margin-left: 0px;" enctype="multipart/form-data" >
-						<div class="col-md-6">
-							<div t-attf-class="form-group #{error and 'contact_name' in error and 'has-error' or ''}" >
-								<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
+			<div id="kdvn-contactus">
+				<div class="container">
+					<h2 class="text-danger" style="margin-top: 20px; text-align: center;">Contact Form</h2>
+					<div class="row">
+						<form action="/crm/contactus" method="post" class="form-horizontal" style = "margin-right: 0px; margin-left: 0px;" enctype="multipart/form-data" >
+							<div class="col-md-6">
+								<div t-attf-class="form-group #{error and 'contact_name' in error and 'has-error' or ''}" >
+									<input placeholder="Your Name" type="text" class="form-control" name="contact_name" required="True" t-attf-value="#{contact_name or ''}"/>
+								</div>
+								<div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}" >
+									<input placeholder="Phone Number" type="number" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
+								</div>
+								<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
+									<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
+								</div>
 							</div>
-							<div t-attf-class="form-group #{error and 'phone' in error and 'has-error' or ''}" >
-								<input placeholder="Phone Number" type="number" class="form-control" name="phone" t-attf-value="#{phone or ''}"/>
+							<div class="col-md-6">
+								<div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}" >
+									<input placeholder="Subject" type="text" class="form-control" name="name" t-attf-value="#{name or ''}"/>
+								</div>
+								<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}" >
+									<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 85px" required="True"><t t-esc="description or ''"/></textarea>
+								</div>
 							</div>
-							<div name="email_from_container" t-attf-class="form-group #{error and 'email_from' in error and 'has-error' or ''}" >
-								<input placeholder="Email" type="email" class="form-control" name="email_from" required="True" t-attf-value="#{email_from or ''}"/>
+							<div class="col-md-12 text-center form-group" >
+								<button class="btn btn-primary btn-lg">Send</button>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div t-attf-class="form-group #{error and 'name' in error and 'has-error' or ''}" >
-								<input placeholder="Subject" type="text" class="form-control" name="name" t-attf-value="#{name or ''}"/>
-							</div>
-							<div t-attf-class="form-group #{error and 'description' in error and 'has-error' or ''}" >
-								<textarea placeholder="Your Question" class="form-control" name="description" style="min-height: 85px" required="True"><t t-esc="description or ''"/></textarea>
-							</div>
-						</div>
-						<div class="col-md-12 text-center form-group" >
-							<button class="btn btn-primary btn-lg">Send</button>
-						</div>
-					</form>
+						</form>
+					</div>
+					<hr size="2px" align="center" style="border-top: 1px solid #026232;" />
 				</div>
-				<hr size="2px" align="center" style="border-top: 1px solid #026232;" />
-			</div>
-			<div class="container">
-				<div class="row offices" style="padding-top: 20px;">
-					<t t-foreach="offices" t-as="office">
-						<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
-							<address>
-								<h2 class="text-danger"><t t-esc="office.name"></t></h2>
-								<t t-esc="office.street"></t><br />
-								<t t-esc="office.street2"></t>
-								<t t-if = "not office.city">
-									<br />
-								</t>
-								<t t-if = "office.city">
-									<span>, <t t-esc="office.city"></t></span><br />
-								</t>
-								<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
-								<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
-							</address>
-						</div>
-					</t>
-				</div>
-				<div class="row sites">
-					<t t-foreach="sites" t-as="site">
-						<div class="col-md-4">
-							<address>
-								<h3 class="text-success"><t t-esc="site.name"></t></h3>
-								<t t-esc="site.street"></t><br />
-								<t t-esc="site.street2"></t>
-								<t t-if = "not site.city">
-									<br />
-								</t>
-								<t t-if = "site.city">
-									<span>, <t t-esc="site.city"></t></span><br />
-								</t>
-								<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
-								<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
-							</address>
-						</div>
-					</t>
+				<div class="container">
+					<div class="row offices" style="padding-top: 20px;">
+						<t t-foreach="offices" t-as="office">
+							<div t-attf-class="col-md-{{8 - (office_index % 2)*4}}"><!-- Ben trai class col-md-8; ben phai class col-md-4 -->
+								<address>
+									<h2 class="text-danger"><t t-esc="office.name"></t></h2>
+									<t t-esc="office.street"></t><br />
+									<t t-esc="office.street2"></t>
+									<t t-if = "not office.city">
+										<br />
+									</t>
+									<t t-if = "office.city">
+										<span>, <t t-esc="office.city"></t></span><br />
+									</t>
+									<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+									<span class="fa fa-fax"></span> <t t-esc="office.fax"></t><br />
+								</address>
+							</div>
+						</t>
+					</div>
+					<div class="row sites">
+						<t t-foreach="sites" t-as="site">
+							<div class="col-md-4">
+								<address>
+									<h3 class="text-success"><t t-esc="site.name"></t></h3>
+									<t t-esc="site.street"></t><br />
+									<t t-esc="site.street2"></t>
+									<t t-if = "not site.city">
+										<br />
+									</t>
+									<t t-if = "site.city">
+										<span>, <t t-esc="site.city"></t></span><br />
+									</t>
+									<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+									<span class="fa fa-fax"></span> <t t-esc="site.fax"></t><br />
+								</address>
+							</div>
+						</t>
+					</div>
 				</div>
 			</div>
 		</xpath>
