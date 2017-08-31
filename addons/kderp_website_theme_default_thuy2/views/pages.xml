@@ -518,9 +518,11 @@
 							<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
 						</li>
 					</t>
-					<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
-						<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span>Less Than</span></a>
-					</li>
+					<t t-foreach="list_years[-1]" t-as="list_y">
+						<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
+							<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span><small>Before </small><t t-esc="(int(list_y.name)-1)"/></span></a>
+						</li>
+					</t>
 				</ul>
 			</div>
 			<div class="visible-xs" id="xs-check"></div>
@@ -678,11 +680,11 @@
 										</a>
 									</li>
 								</t>
-								
-								<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
-									<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span>Less Than</span></a>
-								</li>
-								
+								<t t-foreach="list_years[-1]" t-as="list_y">
+									<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
+										<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span><small>Before </small><t t-esc="(int(list_y.name)-1)"/></span></a>
+									</li>
+								</t>
 							</ul>
 						</div>
 						<div class="visible-xs" id="xs-check"></div>
