@@ -852,7 +852,7 @@
 							<t t-foreach="posts" t-as="post">
 								<t t-if="post.area_id.name == 'The North of Vietnam' and post.tag_ids.name=='Certificate Tags'">
 									<div class="col-sm-6 col-md-6">
-										<div class="thumbnail">
+										<div class="thumbnail kdvn-cer-thum-cus">
 											<a href="#" class="pop">
 												<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-cer-image"/>
 											</a>
@@ -874,7 +874,7 @@
 						<t t-foreach="posts" t-as="post">
 							<t t-if="post.area_id.name == 'The South of Vietnam' and post.tag_ids.name =='Certificate Tags'">
 								<div class="col-sm-6 col-md-6">
-									<div class="thumbnail">
+									<div class="thumbnail kdvn-cer-thum-cus">
 										<a href="#" class="pop">
 											<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-cer-image"/>
 										</a>
@@ -899,7 +899,7 @@
 							<t t-foreach="posts" t-as="post">
 								<t t-if="post.area_id.name == 'The North of Vietnam' and post.tag_ids.name=='Awards and Accolades'">
 									<div class="col-sm-6 col-md-6">
-										<div class="thumbnail">
+										<div class="thumbnail kdvn-cer-thum-cus">
 											<a href="#" class="pop">
 												<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-cer-image"/>
 											</a>
@@ -920,7 +920,7 @@
 							<t t-foreach="posts" t-as="post">
 								<t t-if="post.area_id.name == 'The South of Vietnam' and post.tag_ids.name =='Awards and Accolades'">
 									<div class="col-sm-6 col-md-6">
-										<div class="thumbnail">
+										<div class="thumbnail kdvn-cer-thum-cus">
 											<a href="#" class="pop">
 												<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-cer-image"/>
 											</a>

@@ -649,8 +649,19 @@ h1.kdvn-bn-me {
   color: #026232;
   margin: 0px 15px 25px 15px;
 }
+div.kdvn-cer-thum-cus {
+  height: 250px;
+  position: relative;
+}
 .thumbnail a > img.kdvn-cer-image {
-  height: 200px;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
 }
 .kdvn-cer-content {
   position: relative;
