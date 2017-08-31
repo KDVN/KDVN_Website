@@ -571,38 +571,40 @@ a:focus {
   border-bottom: 1px solid #ccc;
 }
 /*Project*/
-ul.dis-district {
+ul.kdvn-menu-left-prj {
   margin: 0;
   padding: 0;
+  border-bottom: 1px solid #CFCFCF;
+  border-top: 1px solid #CFCFCF;
 }
-ul.dis-district li {
+ul.kdvn-menu-left-prj li {
   display: block;
   list-style: none;
   border-bottom: 1px solid #CFCFCF;
   padding: 10px 0;
-  --margin-left: 20px;
+  margin-left: 15px;
 }
-ul.dis-district li:first-child {
-  border-top: 1px solid #CFCFCF;
+ul.kdvn-menu-left-prj > li:first-child {
+  border-top: 0;
 }
---ul.dis-district li a {
-  font-size: 14px;
+ul.kdvn-menu-left-prj > li:last-child {
+  border-bottom: 0;
 }
-ul.dis-district li a:hover,
-ul.dis-district li a.active {
+ul.kdvn-menu-left-prj li a:hover,
+ul.kdvn-menu-left-prj li a.active {
   color: #11A84E;
 }
-ul.dis-district li a {
+ul.kdvn-menu-left-prj li a {
   --font-size: 14px;
   color: #666;
   text-decoration: none;
   outline: 0;
-  margin-left: 5px;
+  margin-left: 15px;
 }
-ul.dis-district li.active {
+ul.kdvn-menu-left-prj li.active {
   background: #999999;
 }
-ul.dis-district li.active a {
+ul.kdvn-menu-left-prj li.active a {
   color: #000;
   margin-left: 5px;
 }

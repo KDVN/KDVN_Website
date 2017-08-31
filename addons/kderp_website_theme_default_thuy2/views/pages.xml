@@ -479,7 +479,7 @@
 				<h4><span class="glyphicon glyphicon-map-marker"></span>
 					<a t-attf-href="/pj/featured/?{{keep_query('type','purpose','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 				</h4>
-				<ul class="dis-district">
+				<ul class="kdvn-menu-left-prj">
 					<t t-foreach="list_areas" t-as="list_a">												
 						<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
 							<a t-attf-href="/pj/featured/?{{ keep_query('type','purpose','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
@@ -490,7 +490,7 @@
 				<h4><span class="glyphicon glyphicon-list-alt"></span>
 					<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 				</h4>
-				<ul class="dis-district">							
+				<ul class="kdvn-menu-left-prj">							
 					<t t-foreach="list_types" t-as="list_t">																							
 						<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
 							<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
@@ -501,7 +501,7 @@
 				<h4><span class="fa fa-arrows-alt"></span>
 					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
 				</h4>
-				<ul class="dis-district">							
+				<ul class="kdvn-menu-left-prj">							
 					<t t-foreach="list_purposes" t-as="list_z">																							
 						<li t-att-class="'active' if list_z.id == int((searches.get('purpose') if searches.get('purpose') != 'all' else 0)  or 0) else ''">
 							<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose=list_z.id)}}"><span t-field="list_z.name"/></a>
@@ -512,7 +512,7 @@
 				<h4><span class="fa fa-calendar"></span>
 					<a t-attf-href="/pj/featured/?{{keep_query('area','type','purpose', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 				</h4>
-				<ul class="dis-district">							
+				<ul class="kdvn-menu-left-prj">							
 					<t t-foreach="list_years" t-as="list_y">																							
 						<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
 							<a t-attf-href="/pj/featured/?{{keep_query('area','purpose','type', year=list_y.id)}}"><span t-field="list_y.name"/></a>
@@ -636,7 +636,7 @@
 							<h4><span class="glyphicon glyphicon-map-marker"></span>
 								<a t-attf-href="/pj/completed/?{{keep_query('type','purpose','year', area='all')}}" style="font-weight: bold;"><span>Area</span></a>
 							</h4>
-							<ul class="dis-district">
+							<ul class="kdvn-menu-left-prj">
 								<t t-foreach="list_areas" t-as="list_a">												
 									<li t-att-class="'active' if list_a.id == int((searches.get('area') if searches.get('area') != 'all' else 0) or 0) else ''">	
 										<a t-attf-href="/pj/completed/?{{ keep_query('type','purpose','year', area=list_a.id)}}" ><span t-field="list_a.name"/></a>												
@@ -647,7 +647,7 @@
 							<h4><span class="glyphicon glyphicon-list-alt"></span>
 								<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','year', type='all')}}" style="font-weight: bold;"><span>Type</span></a>
 							</h4>
-							<ul class="dis-district">							
+							<ul class="kdvn-menu-left-prj">							
 								<t t-foreach="list_types" t-as="list_t">																							
 									<li t-att-class="'active' if list_t.id == int((searches.get('type') if searches.get('type') != 'all' else 0)  or 0) else ''">
 										<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','year',type=list_t.id)}}"><span t-field="list_t.name"/></a>
@@ -658,7 +658,7 @@
 							<h4><span class="fa fa-arrows-alt"></span>
 								<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
 							</h4>
-							<ul class="dis-district">							
+							<ul class="kdvn-menu-left-prj">							
 								<t t-foreach="list_purposes" t-as="list_z">																							
 									<li t-att-class="'active' if list_z.id == int((searches.get('purpose') if searches.get('purpose') != 'all' else 0)  or 0) else ''">
 										<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose=list_z.id)}}"><span t-field="list_z.name"/></a>
@@ -670,7 +670,7 @@
 								<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='all')}}" style="font-weight: bold;"><span>Year</span></a>
 								
 							</h4>
-							<ul class="dis-district">							
+							<ul class="kdvn-menu-left-prj">							
 								<t t-foreach="list_years" t-as="list_y">	
 									<li t-att-class="'active' if list_y.id == int((searches.get('year') if searches.get('year') not in ['all','less_than'] else 0)  or 0) else ''">
 										<a t-attf-href="/pj/completed/?{{keep_query('area','purpose','type', year=list_y.id)}}"> 
