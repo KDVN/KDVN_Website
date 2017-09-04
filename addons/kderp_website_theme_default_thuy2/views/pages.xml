@@ -499,7 +499,7 @@
 				</ul>
 				<!--purpose-->
 				<h4><span class="fa fa-arrows-alt"></span>
-					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
+					<a t-attf-href="/pj/featured/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Category</span></a>
 				</h4>
 				<ul class="kdvn-menu-left-prj">							
 					<t t-foreach="list_purposes" t-as="list_z">																							
@@ -658,7 +658,7 @@
 							</ul>
 							<!--purpose-->
 							<h4><span class="fa fa-arrows-alt"></span>
-								<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Purpose</span></a>
+								<a t-attf-href="/pj/completed/?{{keep_query('area','type','year', purpose='all')}}" style="font-weight: bold;"><span>Category</span></a>
 							</h4>
 							<ul class="kdvn-menu-left-prj">							
 								<t t-foreach="list_purposes" t-as="list_z">																							
