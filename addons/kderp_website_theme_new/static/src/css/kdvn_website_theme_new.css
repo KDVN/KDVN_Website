@@ -1,0 +1,133 @@
+/* CSS used here will be applied after bootstrap.css */
+/* Customize container */
+.navbar.navbar-custom.navbar-static-top {
+	border-top: 4px solid #026232;
+}
+#kdvn_top_h{padding: 0;}
+
+.kdvn_h_right ul{
+	margin-bottom: -5px;
+}
+.kdvn_h_right ul>li>h1{
+	font-size: 20px;
+  	color:black;
+  	font-weight:bold;
+  	margin-top:-10px;
+}
+
+.kdvn_h_right ul>li:last-child
+	{
+	margin-right: 0px;
+	padding-right: 0px;
+	}
+	
+.kdvn_h_right address{
+	font-size: 16px;
+  	color:#026232;
+  	font-weight:bold;
+    background:#d1d1d1;
+    width:auto;
+    float:right;
+	margin: 0;
+    padding : 0 5px 0 5px;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0.3, #f3f3f3),color-stop(0.7, #ddd));
+}
+
+.kdvn_h_right address> span > a:hover, a:focus {
+	color: rgba(0, 128, 0, 0.54);
+	text-decoration: none;
+}
+/*tao dau thang dung de chia cac menu trong header*/
+
+.kdvn_vertical_line{
+    width: 1px;
+    height: 50%;
+    float: left;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-right: 1px solid grey;
+}
+
+#top_menu > li > a > span{
+	text-transform: uppercase;
+}
+
+#top_menu > li:last-child>span{
+	width: 1px;
+    height: 50%;
+    float: right;
+	margin-bottom: -5px;
+	padding-top: 20px;
+    border-right: 1px solid grey;
+}
+
+/*Hien thi gach chan giong kinden thai lan*/
+span.kdvn_hp_lineUnder {
+	padding-bottom: 3px;
+    color:#026232;
+    border-bottom: 3px solid #026232;
+    line-height:1.4;
+}
+
+#wrap > section > div > div > div.col-md-5 > div.media.kdvn-media-hpl > div.media-body > a>h4.media-heading {
+	border-width: 1px;
+	padding-bottom:3px;
+}
+
+#wrap > section > div > div > div.col-md-7.home-menu-right > div.media > div.media-body > a>h4.media-heading {
+	border-width: 1px;
+	padding-bottom:3px;
+}
+/*====*/
+h3.kdvn-contactus-location{
+	border-bottom: 1px solid green; 
+	padding-bottom: 2px;
+	margin: 0; 
+	font-size: 22px;
+}
+h3.kdvn-contactus-location> span{
+	border-bottom: 1px solid green; 
+	padding-bottom: 3px;
+    border-bottom: 3px solid #026232;
+	line-height: 1.4;
+}
+
+.kdvn-cus-contactus-row{
+	margin: 0;
+	padding:0;
+	padding: 0 5px 25px 5px;
+}
+
+.kdvn-top-h-address{
+	padding: 5px 20px 5px 0;
+	background: #ccc;
+	text-align: right;
+}
+	
+@media screen and (min-width: 768px){
+	#kdvn_top_h{padding: 20px 0 20px 0;}
+	
+	.kdvn-top-h-address{
+		display:none;
+	}
+	
+	.brand {
+		margin-left:15px;
+	}
+	.brand-left {
+		padding-right: 15px;
+	}
+
+	ul#top_menu.nav.navbar-nav > li.divider{
+		width: 1px;
+		height: 50%;
+		float: right;
+		margin-bottom: -5px;
+		padding-top: 20px;
+		border-right: 1px solid grey;
+	}
+}
+
+
+
+

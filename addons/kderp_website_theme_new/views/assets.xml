@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		<template id="kderp_website_theme_new_css" name="Kderp Website Them New Css" inherit_id="kderp_website_theme_default.theme_style">
+		    <xpath expr="link[last()]" position="after">
+				<link href="/kderp_website_theme_new/static/src/css/kdvn_website_theme_new.css" rel="stylesheet"/>
+		    </xpath>
+		</template>
+		<template id="kderp_website_theme_new_js" name="Kderp Website Them New JS" inherit_id="website.assets_frontend">
+      		<xpath expr="script[last()]" position="after">
+        		<script type="text/javascript" src="/kderp_website_theme_new/static/src/js/kdvn_website_theme_new.js" />
+      		</xpath>
+    	</template>
+	</data>
+</openerp>

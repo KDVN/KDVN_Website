@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	<!--===header===-->
+	<template id="kderp_website_theme_new.wrapwrap" name="Kderp Website Theme New Header" inherit_id="kderp_website_theme_default_thuy2.wrapwrap">			
+		<xpath expr="//div[@class='container']" position="replace">
+			<div class="container" id="kdvn_top_h">
+				<div class="kdvn-top-h-address">				
+					<span class="fa fa-phone fa-lg text-success"></span><span itemprop="telephone"><a href="tel:+842439342535">(+84-24) 3934 2535</a></span> - 
+					<span class="fa fa-envelope fa-lg text-success"></span> <span itemprop="email"><a href="mailto:dautienthuy@gmail.com">info@kinden.com.vn</a></span>
+				</div>
+				<div class="brand">
+					<a href="/" class="logo">
+						<img src="/website/image/ir.attachment/2532_249831d/datas" het-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="100" height="60"/>
+					</a>
+					<span>
+						<img src="/website/image/ir.attachment/2558_ed44260/datas/100x50" alt="Logo ISO and OHSAS" title="ISO and OHSAS"/>						
+					</span>
+					
+				</div>
+				<div class="brand-left">
+					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
+						<div class="kdvn_h_right">
+							<ul class="list-inline js_language_selector" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+								<li><h1>KINDEN VIETNAM CO., LTD</h1></li>
+								<li t-foreach="languages" t-as="lg">
+									<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+									 <img t-att-src="website.image_url(lg[2], 'flag_image')" height="20" width="30"  t-att-title="lg[1]" />
+									</a>
+								</li>
+								<li groups="base.group_website_publisher">
+									<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+									<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+									</a>
+								</li>
+							</ul>
+
+							<address>
+								<span itemprop=""><a href="callto:+842439342535"><span class="fa fa-phone fa-lg"></span><t t-esc="contact.phone"></t></a></span><br/>
+								<span itemprop="email"><a href="mailto:info@kinden.com.vn"><span class="fa fa-envelope fa-lg"></span> <t t-esc="contact.email"></t></a></span>
+							</address>
+						</div>
+					</t>
+				</div>		
+			</div>				
+		</xpath>
+		<xpath expr="//ul[@id='top_menu']/li[@class='dropdown']" position="after">
+			<li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+		</xpath>
+	</template>
+	<!--Them icon vao menu-->
+	<template id="website.submenu" name="Kderp Theme New Menu"  priority="1">
+		<t t-if="submenu.name!='Home'">
+			<li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
+				((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
+				 request.httprequest.path == submenu.url) and 'active'
+				">
+				<span t-att-class="'kdvn_vertical_line' if submenu.parent_id.name == 'Top Menu' else ''" ></span>
+				<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+					
+					<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} fa-lg text-success"/>
+					<span t-field="submenu.name"/>
+				</a>
+			</li>
+			<li t-if="submenu.child_id" t-attf-class="dropdown{{'' if (submenu.parent_id.name == 'Top Menu') else '-submenu'}} #{
+				((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
+				 request.httprequest.path == submenu.url) and 'active'
+				}">
+				<span t-att-class="'kdvn_vertical_line'" ></span>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} fa-lg text-success"/>
+					<span t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
+				</a>
+				<ul class="dropdown-menu" role="menu">
+					<t t-foreach="submenu.child_id" t-as="submenu">
+						
+						<t t-call="website.submenu"/>
+					</t>
+				</ul>
+			</li>
+			<li><span></span></li>
+		</t>
+	</template>	
+</data>
+</openerp>

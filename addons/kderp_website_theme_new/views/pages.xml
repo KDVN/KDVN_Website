@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	<!--Giao dien trang chu-->
+	<template id="kderp_website_theme_new.home_page" name="KDVN Theme New Home Page" inherit_id="kderp_website_theme_default_thuy2.home_page">
+		<xpath expr="//div[@class='oe_structure oe_empty']/section/div[@class='container']" position="replace">
+			<div class="container" style="background: rgba(238, 238, 238, 0.65);margin-bottom: 20px;">
+				<div class="row" style="padding-top:10px">
+					<!--Menu trai-->
+					<div class="col-md-5">
+						<h4 style="text-align: center;border-bottom: 1px solid #ccc;color: #026232;padding-bottom: 15px;}">NEWS</h4>
+						<!--Electrical Systems News-->
+						<div class="media kdvn-media-hpl" style="margin-top:-10px">
+							<div class="media-left media-middle hp-media">
+								<a href="/es/news">
+									<img class="media-object" src="/website/image/ir.attachment/1826_51117ed/datas" alt="Elctrical News" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<a href="/es/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">ELECTRICAL SYSTEMS NEWS</span></h4></a>
+								<p>We work to provide safe, high-quality and value-added electric systems for our customers' comfortable daily lives.</p>
+							</div>
+						</div>
+						<!--Mechanical Systems News-->
+						<div class="media kdvn-media-hpl">
+							<div class="media-left media-middle hp-media">
+								<a href="/ms/news">
+									<img class="media-object" src="/website/image/ir.attachment/1828_130dd2a/datas" alt="Mechanical News" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<a href="/ms/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">MECHANICAL SYSTEMS NEWS</span></h4></a>
+								<p>We provide co-generation systems, thermal storage air-conditioning systems, central heating and air-conditioning systems and more.</p>
+							</div>
+						</div>
+						<!--General News-->
+						<div class="media kdvn-media-hpl">
+							<div class="media-left media-middle hp-media">
+								<a href="/intro/news">
+									<img class="media-object" src="/website/image/ir.attachment/1799_c4afdf3/datas" alt="General News" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<a href="/intro/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">GENERAL NEWS</span></h4></a>
+								<p>News and information of KINDEN VIETNAM CO., LTD</p>
+							</div>
+						</div>
+					</div>
+					<!--Menu phai-->
+					<div class="col-md-7 home-menu-right">
+						<h4 style="text-align: center;border-bottom: 1px solid #ccc;color: #026232;padding-bottom: 15px;}">ABOUT US</h4>
+						<div class="media" style="margin-bottom: 20px; margin-top:5px">
+							<div class="media-left media-middle hp-media">
+								<a href="/intro/kdvn/aboutus">
+									<img class="media-object" src="/website/image/ir.attachment/1802_d34a84d/datas" alt="SERVICE" width="92" height="82"/>
+								</a>
+							</div>
+							<div class="media-body">
+								<a href="/intro/kdvn/aboutus"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">KINDEN VIETNAM CO., LTD</span></h4></a>
+								<p>Design, Construction, Consulting for Electrical &amp; Mechanical and Repair, Renovation</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 col-sm-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/kdvn/electricalsystems">
+										<img class="img-responsive" src="/website/image/ir.attachment/1769_6ebe4f7/datas" style="height:160px;width: 100%" alt="Electrical"/>
+										<div class="overlay">
+											<h3>Electrical</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/kdvn/aircon">
+										<img class="img-responsive" src="/website/image/ir.attachment/1774_16b170f/datas" style="height:160px;width: 100%" alt="Air conditionnal"/>
+										<div class="overlay">
+											<h3>Mechanical</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 col-md-6">
+								<div class="thumbnail hovereffect" >
+									<a href="http://www.kinden.co.jp/english/index.html" target="_blank">
+										<img class="img-responsive" src="/website/image/ir.attachment/1793_ccc5901/datas" style="height:160px;width: 100%;" alt="KINDEN GROUP"/>
+										<div class="overlay">
+											<h3>KINDEN GROUP</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-6">
+								<div class="thumbnail hovereffect" >
+									<a href="/intro/download">
+										<img class="img-responsive" src="/website/image/ir.attachment/1792_17951d7/datas" style="height:160px;width: 100%;" alt="CATALOGUE DOWNLOAD"/>
+										<div class="overlay">
+											<h3>CATALOGUE DOWNLOAD</h3>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	
+	<!--Giao dien trang Contact us-->
+	<template id="kderp_website_theme_new.contacts" name="KDVN Theme New Contacts" active="False" customize_show="True" inherit_id="kderp_website_theme_default_thuy2.contacts">
+		<xpath expr="//div[@id='kdvn-contactus']/div[2]" position="replace">
+			<div class="container">
+				<div class="row offices">
+					<t t-foreach="offices" t-as="office">
+						<div class="row kdvn-cus-contactus-row">
+							<div class="col-md-4 col-sm-6">
+								<a t-att-href="office.google_map_link()" target="_BLANK">
+									<img t-att-src="office.google_map_img(zoom=17)" width="100%%"/>
+								</a>
+							</div>
+							<div class="col-md-8 col-sm-6">
+								<address>															
+									<h3 class="text-danger kdvn-contactus-location">
+										<span><t t-esc="office.parent_id.name"></t> - <t t-esc="office.name"></t></span>
+									</h3>
+									<h4 >Address:</h4>
+									<div class="row">
+										<div class="col-md-8 col-sm-6">											
+											<p>
+												<t t-esc="office.street"></t><br />
+												<t t-esc="office.street2"></t>
+												<t t-if = "not office.city">
+													<br />
+												</t>
+												<t t-if = "office.city">
+													<span>, <t t-esc="office.city"></t></span>
+												</t>	
+											</p>											
+										</div>
+										<div class="col-md-4">
+											<p>
+												<span class="fa fa-phone"></span> <t t-esc="office.phone"></t><br/>
+												<span class="fa fa-fax"></span> <t t-esc="office.fax"></t>
+											</p>
+										</div>
+									</div>
+								</address>
+							</div>
+						</div>					
+					</t>
+				</div>
+				<div class="row sites">
+					<t t-foreach="sites" t-as="site">
+						<div class="row kdvn-cus-contactus-row">
+							<div class="col-md-4 col-sm-6">
+								<a t-att-href="site.google_map_link()" target="_BLANK">
+									<img t-att-src="site.google_map_img(zoom=17)" width="100%%"/>
+								</a>
+							</div>
+							<div class="col-md-8 col-sm-6">
+								<address>																								
+									<h3 class="text-success kdvn-contactus-location">
+										<span><t t-esc="site.parent_id.name"></t> - <t t-esc="site.name"></t></span>
+									</h3>
+									<h4 >Address:</h4>
+									<div class="row">
+										<div class="col-md-8">											
+											<p>
+												<t t-esc="site.street"></t><br />
+												<t t-esc="site.street2"></t>
+												<t t-if = "not site.city">
+													<br />
+												</t>
+												<t t-if = "site.city">
+													<span>, <t t-esc="site.city"></t></span>
+												</t>	
+											</p>											
+										</div>
+										<div class="col-md-4">
+											<p>
+												<span class="fa fa-phone"></span> <t t-esc="site.phone"></t><br/>
+												<span class="fa fa-fax"></span> <t t-esc="site.fax"></t>
+											</p>
+										</div>
+									</div>		
+								</address>
+							</div>
+						</div>
+					</t>
+				</div>
+			</div>
+		</xpath>
+	</template>
+</data>
+</openerp>
