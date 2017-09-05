@@ -221,8 +221,10 @@
 		<record model="ir.actions.act_window" id="kdvn_contact_offices">
 				<field name="name">Contact Offices</field>
 				<field name="res_model">res.partner</field>
-				<field name="domain">[('name','=','KINDEN VIETNAM')]</field>
-				<field name="view_mode">form</field>
+				<field name="view_type">form</field>
+				<!--<field name="domain">[('name','=','KINDEN VIETNAM')]</field>-->
+				<field name="view_mode">tree,form</field>
+				<field name="view_id" ref="base.view_partner_tree"/>
 			</record>
 			
 		<!--=Main Menu=-->
