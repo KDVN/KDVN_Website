@@ -46,12 +46,13 @@
 	        <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
 	            <div class="container">
 	            	<t t-if= "anns">
-	            		<div class="alert alert-danger" role="alert" style="padding: 0px; padding-left:10px">
-	                    	<h5><strong>Kinden Vietnam Announcement!</strong></h5>
+	            		<div class="alert alert-danger" style="padding: 0 0 0 10px; margin:10px 0 15px 0">
+	            			<button type="button" class="close" data-dismiss="alert">&amp;times;</button>
+	                        <h5><strong>Kinden Vietnam Announcement!</strong></h5>
 							<t t-foreach="anns" t-as="ann">
 							    <div t-field="ann.content"/>
 							</t>
-		                </div>
+	                    </div>
 	            	</t>
 	            </div>
 	        </xpath>
