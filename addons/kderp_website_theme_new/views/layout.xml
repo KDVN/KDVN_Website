@@ -6,8 +6,8 @@
 		<xpath expr="//div[@class='container']" position="replace">
 			<div class="container" id="kdvn_top_h">
 				<div class="kdvn-top-h-address">				
-					<span class="fa fa-phone fa-lg text-success"></span><span itemprop="telephone"><a href="tel:+842439342535">(+84-24) 3934 2535</a></span> - 
-					<span class="fa fa-envelope fa-lg text-success"></span> <span itemprop="email"><a href="mailto:info@kinden.com.vn">info@kinden.com.vn</a></span>
+					<span class="fa fa-phone fa-lg text-success"></span><span itemprop="telephone"><a href="tel:+842439342535">(+84-24) 3934 2535</a></span> | 
+					<span class="fa fa-envelope fa-lg text-success"></span> <span itemprop="email"><a href="mailto:info@kinden.com.vn"> Contact us</a></span>
 				</div>
 				<div class="brand">
 					<a href="/" class="logo">
@@ -37,8 +37,8 @@
 							</ul>
 
 							<address>
-								<span itemprop=""><a href="callto:+842439342535"><span class="fa fa-phone fa-lg"></span><t t-esc="contact.phone"></t></a></span><br/>
-								<span itemprop="email"><a href="mailto:info@kinden.com.vn"><span class="fa fa-envelope fa-lg"></span> <t t-esc="contact.email"></t></a></span>
+								<span itemprop=""><a href="callto:+842439342535"><span class="fa fa-phone-square fa-lg"></span> <t t-esc="contact.phone"></t></a></span> | 
+								<span><a href="/intro/contactus"><span class="fa fa-envelope fa-lg"></span><small> Contact us</small></a></span>
 							</address>
 						</div>
 					</t>
@@ -51,36 +51,33 @@
 	</template>
 	<!--Them icon vao menu-->
 	<template id="website.submenu" name="Kderp Theme New Menu"  priority="1">
-		<t t-if="submenu.name!='Home'">
-			<li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
-				((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
-				 request.httprequest.path == submenu.url) and 'active'
-				">
-				<span t-att-class="'kdvn_vertical_line' if submenu.parent_id.name == 'Top Menu' else ''" ></span>
-				<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
-					
-					<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} fa-lg text-success"/>
+		<li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
+			((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
+			 request.httprequest.path == submenu.url) and 'active'">
+			<span t-att-class="'kdvn_vertical_line' if submenu.parent_id.name == 'Top Menu' else ''" ></span>
+			<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+				<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
+				<t t-if="submenu.url != '/page/homepage'">
 					<span t-field="submenu.name"/>
-				</a>
-			</li>
-			<li t-if="submenu.child_id" t-attf-class="dropdown{{'' if (submenu.parent_id.name == 'Top Menu') else '-submenu'}} #{
-				((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
-				 request.httprequest.path == submenu.url) and 'active'
-				}">
-				<span t-att-class="'kdvn_vertical_line'" ></span>
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} fa-lg text-success"/>
-					<span t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
-				</a>
-				<ul class="dropdown-menu" role="menu">
-					<t t-foreach="submenu.child_id" t-as="submenu">
-						
-						<t t-call="website.submenu"/>
-					</t>
-				</ul>
-			</li>
-			<li><span></span></li>
-		</t>
+				</t>
+			</a>
+		</li>
+		<li t-if="submenu.child_id" t-attf-class="dropdown{{'' if (submenu.parent_id.name == 'Top Menu') else '-submenu'}} #{
+			((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
+			 request.httprequest.path == submenu.url) and 'active'
+			}">
+			<span t-att-class="'kdvn_vertical_line'" ></span>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
+				<span t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<t t-foreach="submenu.child_id" t-as="submenu">
+					<t t-call="website.submenu"/>
+				</t>
+			</ul>
+		</li>
+		<li><span></span></li>
 	</template>	
 </data>
 </openerp>

@@ -28,21 +28,24 @@
 	padding-right: 0px;
 	}
 	
-.kdvn_h_right address{
-	font-size: 16px;
+.brand-left>.kdvn_h_right> address{
+	font-size: 18px;
   	color:#026232;
   	font-weight:bold;
     background:#d1d1d1;
     width:auto;
     float:right;
-	margin: 0;
-    padding : 0 5px 0 5px;
+	margin-top: 5px;
+    padding : 5px;
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0.3, #f3f3f3),color-stop(0.7, #ddd));
 }
 
-.kdvn_h_right address> span > a:hover, a:focus {
+.brand-left>.kdvn_h_right> address> span > a:hover, a:focus {
 	color: rgba(0, 128, 0, 0.54);
 	text-decoration: none;
+}
+.brand-left>.kdvn_h_right> address> span > small{
+	padding-top:2px
 }
 /*tao dau thang dung de chia cac menu trong header*/
 
@@ -134,7 +137,11 @@ h3.kdvn-contactus-location> span{
 		border-right: 1px solid grey;
 	}
 }
-
-
+#top_menu > li.dropdown.open > ul{
+	width:100%;
+}
+#top_menu > li.dropdown.open > ul > li > a{
+	padding-left: 10px;
+}
 
 
