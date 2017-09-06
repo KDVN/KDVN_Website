@@ -67,6 +67,7 @@
 				<group>
 					<field name="website_published" widget="website_button" groups="kderp_website.group_kdvn_knowledge_button_published"/>
 					<field name="priority" string="Priority"/>
+					<field name="relative_date" attrs="{'invisible': [('blog_name', 'not in', ['Announcement'])]}"/>
 					<field name="blog_id" string="Blog category"/>
 					<field name="name" string="Title"/>
 					<field name="subtitle" string="Subtitle"/>

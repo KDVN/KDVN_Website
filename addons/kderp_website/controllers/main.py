@@ -61,9 +61,16 @@ class KderpWebsite(http.Controller):
       return date.strftime(tools.DEFAULT_SERVER_DATETIME_FORMAT)
 
     today = datetime.today()
-
-    announcements = http.request.env['blog.post'].search(
-      [('blog_id', '=', 'Announcement'), ("create_date", ">=", sd(today - relativedelta(days=7)))])
+    
+    #Cac announcement duoc hien thi trong bao nhieu ngay do relative_date
+    #vi du relative_date = 7 thi announcement chi hien thi trong 7 ngay tinh tu ngay tao create_date 
+    env = request.env(context=dict(request.env.context))
+    Posts = env['blog.post']
+    announcement_ids = Posts.search([('blog_id', '=', 'Announcement')]).ids
+    announcements = Posts.sudo().browse(announcement_ids)
+    announcements = set(j for j in announcements if j.create_date >= sd(today - relativedelta(days=j.relative_date)))
+    ####################
+    
     funfacts = http.request.env['blog.post'].search([('blog_id', '=', 'Fun Fact')])
     events = http.request.env['event.event'].search([("date_begin", ">=", sd(today))], limit=6)
 

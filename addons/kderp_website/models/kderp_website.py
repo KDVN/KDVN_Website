@@ -134,6 +134,7 @@ class KdvnPost(models.Model):
     #img_url_ids = fields.One2many('ir.attachment', 'id')
     summary = fields.Text('Summary', translate=True)
     priority = fields.Boolean(string='Priority')
+    relative_date = fields.Integer(string="Relative Date", size=4)
 
 class event(osv.osv):
     """Modify some methods of event object:
