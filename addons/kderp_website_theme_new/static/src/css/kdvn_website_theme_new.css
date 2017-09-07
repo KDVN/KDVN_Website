@@ -3,9 +3,11 @@
 .navbar.navbar-custom.navbar-static-top {
 	border-top: 4px solid #026232;
 }
+/*
 .navbar-header{
 	padding: 10px 0 10px 0;
 }
+*/
 .navbar-header > a.navbar-brand.logo {
     padding: 0;
 }
@@ -77,6 +79,15 @@ span.kdvn_hp_lineUnder {
     color:#026232;
     border-bottom: 3px solid #026232;
     line-height:1.4;
+}
+p.kdvn-hp-p-more{
+	margin:0; 
+	padding:0;
+	text-align: right;
+}
+p.kdvn-hp-p-more > a:hover, a:focus{
+	color: rgba(0, 128, 0, 0.54);
+	text-decoration: none;
 }
 
 #wrap > section > div > div > div.col-md-5 > div.media.kdvn-media-hpl > div.media-body > a>h4.media-heading {

@@ -10,41 +10,65 @@
 					<div class="col-md-5">
 						<h4 style="text-align: center;border-bottom: 1px solid #ccc;color: #026232;padding-bottom: 15px;}">NEWS</h4>
 						<!--Electrical Systems News-->
-						<div class="media kdvn-media-hpl" style="margin-top:-10px">
-							<div class="media-left media-middle hp-media">
-								<a href="/es/news">
-									<img class="media-object" src="/website/image/ir.attachment/1826_51117ed/datas" alt="Elctrical News" width="92" height="82"/>
-								</a>
+						<t t-foreach="kdvn_news_e.sorted(key=lambda kne: kne.id, reverse=True)[0]" t-as="post">
+							<div class="media kdvn-media-hpl" style="margin-top:-10px">
+								<div class="media-left media-middle hp-media">
+									<a href="/es/news">
+										<img class="media-object" src="/website/image/ir.attachment/1826_51117ed/datas" alt="Elctrical News" width="92" height="82"/>
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="/es/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">ELECTRICAL SYSTEMS NEWS</span></h4></a>
+									<t t-if="len(post.summary) &lt;= 120">
+										<p><t t-esc="post.summary"/></p>
+									</t>
+									<t t-if="len(post.summary) &gt; 100">
+										<p><t t-esc="post.summary[:100]"/><span> ...</span></p>
+									</t>
+									<p class="kdvn-hp-p-more"><a t-attf-href="{{'/es/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">more <span>&#x25B8;</span></a></p>
+								</div>
 							</div>
-							<div class="media-body">
-								<a href="/es/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">ELECTRICAL SYSTEMS NEWS</span></h4></a>
-								<p>We work to provide safe, high-quality and value-added electric systems for our customers' comfortable daily lives.</p>
-							</div>
-						</div>
+						</t>
 						<!--Mechanical Systems News-->
-						<div class="media kdvn-media-hpl">
-							<div class="media-left media-middle hp-media">
-								<a href="/ms/news">
-									<img class="media-object" src="/website/image/ir.attachment/1828_130dd2a/datas" alt="Mechanical News" width="92" height="82"/>
-								</a>
+						<t t-foreach="kdvn_news_m.sorted(key=lambda knm: knm.id, reverse=True)[0]" t-as="post">
+							<div class="media kdvn-media-hpl">
+								<div class="media-left media-middle hp-media">
+									<a href="/ms/news">
+										<img class="media-object" src="/website/image/ir.attachment/1828_130dd2a/datas" alt="Mechanical News" width="92" height="82"/>
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="/ms/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">MECHANICAL SYSTEMS NEWS</span></h4></a>
+									<t t-if="len(post.summary) &lt;= 120">
+										<p><t t-esc="post.summary"/></p>
+									</t>
+									<t t-if="len(post.summary) &gt; 100">
+										<p><t t-esc="post.summary[:100]"/><span> ...</span></p>
+									</t>
+									<p class="kdvn-hp-p-more"><a t-attf-href="{{'/ms/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">more <span>&#x25B8;</span></a></p>
+								</div>
 							</div>
-							<div class="media-body">
-								<a href="/ms/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">MECHANICAL SYSTEMS NEWS</span></h4></a>
-								<p>We provide co-generation systems, thermal storage air-conditioning systems, central heating and air-conditioning systems and more.</p>
-							</div>
-						</div>
+						</t>
 						<!--General News-->
-						<div class="media kdvn-media-hpl">
-							<div class="media-left media-middle hp-media">
-								<a href="/intro/news">
-									<img class="media-object" src="/website/image/ir.attachment/1799_c4afdf3/datas" alt="General News" width="92" height="82"/>
-								</a>
+						<t t-foreach="kdvn_news.sorted(key=lambda kn: kn.id, reverse=True)[0]" t-as="post">
+							<div class="media kdvn-media-hpl">
+								<div class="media-left media-middle hp-media">
+									<a href="/intro/news">
+										<img class="media-object" src="/website/image/ir.attachment/1799_c4afdf3/datas" alt="General News" width="92" height="82"/>
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="/intro/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">GENERAL NEWS</span></h4></a>
+										<t t-if="len(post.summary) &lt;= 120">
+										<p><t t-esc="post.summary"/></p>
+									</t>
+									<t t-if="len(post.summary) &gt; 100">
+										<p><t t-esc="post.summary[:100]"/><span> ...</span></p>
+									</t>
+									<p class="kdvn-hp-p-more"><a t-attf-href="{{'/intro/news' if request.httprequest.path == '/page/homepage' else request.httprequest.path}}/{{slug(post)}}">more <span>&#x25B8;</span></a></p>
+								</div>
 							</div>
-							<div class="media-body">
-								<a href="/intro/news"><h4 class="media-heading text-success"><span class="kdvn_hp_lineUnder">GENERAL NEWS</span></h4></a>
-								<p>News and information of KINDEN VIETNAM CO., LTD</p>
-							</div>
-						</div>
+						</t>
 					</div>
 					<!--Menu phai-->
 					<div class="col-md-7 home-menu-right">
