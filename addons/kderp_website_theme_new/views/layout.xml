@@ -46,7 +46,7 @@
 			</div>				
 		</xpath>
 		<xpath expr="//ul[@id='top_menu']/li[@class='dropdown']" position="after">
-			<li class="divider" t-ignore="true" t-if="website.user_id != user_id"/>
+			<li class="divider"/>
 		</xpath>
 	</template>
 	<!--Them icon vao menu-->

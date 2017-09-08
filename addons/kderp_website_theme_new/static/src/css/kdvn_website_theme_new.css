@@ -59,6 +59,15 @@
     padding-top: 20px;
     border-right: 1px solid grey;
 }
+.kdvn_vertical_line.oe_editable{
+	width: 1px;
+	height: 50%;
+	float: left;
+	margin-bottom: -5px;
+	border: none;
+    padding: 0;
+    border-right: 1px solid grey;
+}
 
 #top_menu > li > a > span{
 	text-transform: uppercase;
@@ -147,6 +156,15 @@ h3.kdvn-contactus-location> span{
 		padding-top: 20px;
 		border-right: 1px solid grey;
 	}
+	ul#top_menu.nav.navbar-nav > li.divider.oe_editable{
+		width: 1px;
+		height: 50%;
+		float: right;
+		margin-bottom: -5px;
+		border: none;
+    	padding: 0;
+		border-right: 1px solid grey;
+	}
 }
 #top_menu > li.dropdown.open > ul{
 	width:100%;
@@ -154,5 +172,3 @@ h3.kdvn-contactus-location> span{
 #top_menu > li.dropdown.open > ul > li > a{
 	padding-left: 10px;
 }
-
-
