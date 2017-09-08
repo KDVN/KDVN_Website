@@ -48,8 +48,8 @@ msgstr "Apply"
 
 #. module: kderp_website_theme_default_thuy2
 #: model:website.menu,name:kderp_website_theme_default_thuy2.menu_ba
-msgid "Business Activities"
-msgstr "Business Activities"
+msgid "Services"
+msgstr "Services"
 
 #. module: kderp_website_theme_default_thuy2
 #: view:website:website.homepage

@@ -48,7 +48,7 @@ msgstr "Apply"
 
 #. module: kderp_website_theme_default_thuy2
 #: model:website.menu,name:kderp_website_theme_default_thuy2.menu_ba
-msgid "Business Activities"
+msgid "Services"
 msgstr "Hoạt động kinh doanh"
 
 #. module: kderp_website_theme_default_thuy2

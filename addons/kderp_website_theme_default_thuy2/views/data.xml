@@ -32,11 +32,11 @@
 		</record>
 
 		<!--Them 2 top menu moi-->
-		<!--Chuyen menu Electrical va Mechanical vao Business Activities
+		<!--Chuyen menu Electrical va Mechanical vao Services
 			Them menu Project trong top menu Business Acticities
 		-->
 		<record id="menu_ba" model="website.menu">
-			<field name="name">Business Activities</field>
+			<field name="name">Services</field>
 			<field name="parent_id" ref="website.main_menu"/>
 			<field name="url">/ba</field>
 			<field name="sequence" type="int">15</field>
