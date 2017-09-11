@@ -147,12 +147,14 @@ h3.kdvn-contactus-location> span{
 	.brand-left {
 		padding-right: 15px;
 	}
-
+	ul#top_menu.nav.navbar-nav > li {
+		margin: 0;
+	}
 	ul#top_menu.nav.navbar-nav > li.divider{
 		width: 1px;
 		height: 50%;
 		float: right;
-		margin-bottom: -5px;
+		margin-bottom: -10px;
 		padding-top: 30px;
 		border-right: 1px solid grey;
 	}
