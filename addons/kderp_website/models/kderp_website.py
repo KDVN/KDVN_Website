@@ -63,8 +63,10 @@ class view(osv.osv):
         kdvn_file = _search_browse([('blog_id', '=', 'Media'),('name','=','Resources Download')], offset=0, limit=4)
         
         #Hien thi announcment ra tat ca cac trang
-        announcements = _search_browse([('blog_id', '=', 'Announcement'), ('tag_ids.name', '=', 'Announcement Alert'), ("create_date", ">=", (datetime.today() - relativedelta(days=10)).strftime('%Y-%m-%d'))],offset=0)
-        
+        announcement_ids = self.pool['blog.post'].search(cr, uid, [('blog_id', '=', 'Announcement'), ('tag_ids.name', '=', 'Announcement Alert')])
+        announcements = self.pool['blog.post'].browse(cr, uid, announcement_ids, context=context)
+        announcements = set(j for j in announcements if j.create_date >= (datetime.today() - relativedelta(days=j.relative_date)).strftime('%Y-%m-%d')) 
+
         kdvn_info = {"kdvn_news":news, "kdvn_works":works, "kdvn_me": me, "kdvn_news_e":news_e, "kdvn_news_m":news_m, "kdvn_news_q":news_q, 'kdvn_file':kdvn_file,
                      "kdvn_works_new":works_new, 'anns':announcements}
 
