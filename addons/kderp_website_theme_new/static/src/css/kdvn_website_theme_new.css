@@ -172,6 +172,14 @@ h3.kdvn-contactus-location> span{
 		border-right: 1px solid #aaa;;
 	}
 }
+@media screen and (max-width: 767px){
+	ul#top_menu.nav.navbar-nav > li.divider{
+		display:None;
+	}
+	.kdvn_vertical_line{
+		display:None;
+	}
+}
 #top_menu > li.dropdown.open > ul{
 	width:100%;
 }
