@@ -19,7 +19,7 @@
 }
 .kdvn_h_right ul>li>h1{
 	font-size: 20px;
-  	color:black;
+  	color:green;
   	font-weight:bold;
   	margin-top:-10px;
 }
@@ -31,7 +31,7 @@
 	}
 	
 .brand-left>.kdvn_h_right> address{
-	font-size: 18px;
+	font-size: 16px;
   	color:#026232;
   	font-weight:bold;
     background:#d1d1d1;
@@ -136,7 +136,7 @@ h3.kdvn-contactus-location> span{
 }
 	
 @media screen and (min-width: 768px){
-	#kdvn_top_h{padding: 20px 0 20px 0;}
+	#kdvn_top_h{padding: 15px 0 15px 0;}
 	
 	.kdvn-top-h-address{
 		display:none;
