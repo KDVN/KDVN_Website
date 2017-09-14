@@ -134,6 +134,10 @@ h3.kdvn-contactus-location> span{
 	background: #ccc;
 	text-align: right;
 }
+
+#top_menu > li.dropdown.active.open > ul > li.active > a{
+	background:#ddd;
+}
 	
 @media screen and (min-width: 768px){
 	#kdvn_top_h{padding: 15px 0 15px 0;}
@@ -170,7 +174,4 @@ h3.kdvn-contactus-location> span{
 }
 #top_menu > li.dropdown.open > ul{
 	width:100%;
-}
-#top_menu > li.dropdown.open > ul > li > a{
-	padding-left: 10px;
 }
