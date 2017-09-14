@@ -56,17 +56,18 @@
     height: 50%;
     float: left;
     margin-top: 15px;
-    padding-top: 30px;
-    border-right: 1px solid grey;
+    padding-top: 20px;
+    border-right: 1px solid #aaa;
 }
 .kdvn_vertical_line.oe_editable{
 	width: 1px;
 	height: 50%;
 	float: left;
-	margin-bottom: -5px;
+	margin: 0;
 	border: none;
     padding: 0;
-    border-right: 1px solid grey;
+    border-right: 1px solid #aaa;
+    margin-top: 14px;
 }
 
 #top_menu > li > a > span{
@@ -154,18 +155,17 @@ h3.kdvn-contactus-location> span{
 		width: 1px;
 		height: 50%;
 		float: right;
-		margin-bottom: -10px;
-		padding-top: 30px;
-		border-right: 1px solid grey;
+		margin-bottom: -5px;
+		padding-top: 20px;
+		border-right: 1px solid #aaa;;
 	}
 	ul#top_menu.nav.navbar-nav > li.divider.oe_editable{
 		width: 1px;
 		height: 50%;
 		float: right;
-		margin-bottom: -10px;
 		border: none;
-    	padding: 0;
-		border-right: 1px solid grey;
+	    padding: 0;
+		border-right: 1px solid #aaa;;
 	}
 }
 #top_menu > li.dropdown.open > ul{

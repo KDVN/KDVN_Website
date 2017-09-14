@@ -57,11 +57,11 @@
 		<li t-if="(not submenu.child_id) and (submenu.user_not_logged or user_id != website.user_id)" t-att-class="
 			((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
 			 request.httprequest.path == submenu.url) and 'active'">
-			<span t-att-class="'kdvn_vertical_line' if submenu.parent_id.name == 'Top Menu' else ''" ></span>
+			<span contentEditable="false" t-att-class="'kdvn_vertical_line' if submenu.parent_id.name == 'Top Menu' else ''" ></span>
 			<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
-				<i t-if="submenu.fa_icon" style="vertical-align: -15%;" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
+				<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
 				<t t-if="submenu.url != '/page/homepage'">
-					<span t-att-class="'h4' if submenu.parent_id.name == 'Top Menu' else ''" t-field="submenu.name"/>
+					<span t-field="submenu.name"/>
 				</t>
 			</a>
 		</li>
@@ -69,10 +69,10 @@
 			((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
 			 request.httprequest.path == submenu.url) and 'active'
 			}">
-			<span t-att-class="'kdvn_vertical_line'" ></span>
+			<span contentEditable="false" t-att-class="'kdvn_vertical_line'" ></span>
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i t-if="submenu.fa_icon" style="vertical-align: -15%;" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
-				<span t-att-class="'h4' if submenu.parent_id.name == 'Top Menu' else ''" t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
+				<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>
+				<span t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
 			</a>
 			<ul class="dropdown-menu" role="menu">
 				<t t-foreach="submenu.child_id" t-as="submenu">
@@ -80,7 +80,6 @@
 				</t>
 			</ul>
 		</li>
-		<li><span></span></li>
 	</template>	
 </data>
 </openerp>
