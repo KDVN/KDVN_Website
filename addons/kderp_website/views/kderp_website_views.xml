@@ -80,7 +80,6 @@
 			</field>
 		</record>
 		
-		
 		<record model="ir.ui.view" id="kdvn_res_partner_form">
 			<field name="name">res.partner</field>
 			<field name="model">res.partner</field>
@@ -101,8 +100,18 @@
 				</form>
 			</field>
 		</record>
+		<!--Inherit website form-->
+        <record id="kdvn_view_website_config_settings" model="ir.ui.view">
+	        <field name="name">Website settings</field>
+	        <field name="model">website.config.settings</field>
+	        <field name="inherit_id" ref='website.view_website_config_settings'/>
+	        <field name="arch" type="xml">
+	    		<div name="google_analytics_key" position="after">
+	    			<field name="google_map_api_kdvn_key"/>
+	    		</div>
+	        </field>
+        </record>
 	</data>
-
 	<!-- Actions, Menus for internal use -->
 	<data>
 		<!--==Action for Events==-->

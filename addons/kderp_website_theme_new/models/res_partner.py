@@ -7,7 +7,7 @@ class res_partner(osv.Model):
 	_inherit = 'res.partner'
 	
 	def google_map_img(self, cr, uid, ids, zoom=10, width=298, height=298, context=None):
-		
+		google_map_api_kdvn_key = self.pool.get('website').browse(cr, uid, uid).google_map_api_kdvn_key
 		partner = self.browse(cr, uid, ids[0], context=context)
 		
 		#Neu co lat, lon thi center se dung toa do theo cau truc: "center": "x,y"
@@ -22,7 +22,8 @@ class res_partner(osv.Model):
 			'size': "%dx%d" % (height, width),
 			'zoom': zoom,
 			'sensor': 'false',
-			'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
+			#'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
+			'key': google_map_api_kdvn_key
 		}
 		#Decorrate markers
 		#TODO: customized icon

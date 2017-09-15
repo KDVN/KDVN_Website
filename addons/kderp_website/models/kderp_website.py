@@ -1,6 +1,6 @@
 import openerp
 from openerp import http
-from openerp.osv import orm, osv
+from openerp.osv import orm, osv, fields
 from openerp import models, fields, api
 
 from openerp import SUPERUSER_ID
@@ -160,16 +160,20 @@ class event(osv.osv):
 		
 class Partner(models.Model):
     #TODO: Central management for API keys
+    #TODO: Add field Google Map API key to Website Settings
     _inherit = 'res.partner'
     def google_map_img(self, cr, uid, ids, zoom=18, width=298, height=298, context=None):
-    
+        google_map_api_kdvn_key = self.pool.get('website').browse(cr, uid, uid).google_map_api_kdvn_key
+        
         partner = self.browse(cr, uid, ids[0], context=context)
         params = {
             'center': '%s,%s%s,%s' % (partner.street or '', partner.city or '', partner.zip or '', partner.country_id and partner.country_id.name_get()[0][1] or ''),
             'size': "%dx%d" % (height, width),
             'zoom': zoom,
             'sensor': 'false',
-            'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
+            # Get api key from Website settings
+            #'key': 'AIzaSyBAH0ggPtUks7WjlgAM_VkNAhP6Mqy_F48'
+            'key': google_map_api_kdvn_key
         }
         #Decorrate markers
         #TODO: customized icon
@@ -182,6 +186,33 @@ class Partner(models.Model):
 	street2 = fields.Char(string="Address2", translate=True)
 	city = fields.Char(string="City", translate=True)
 	
-	
+class website(osv.osv):
+    _name = "website" 
+    _inherit = "website"
+    
+    _columns = {
+        'google_map_api_kdvn_key': openerp.osv.fields.char('Google Map Api Kdvn Key'),
+    }
+
+class website_config_settings(osv.osv_memory):
+    _name = 'website.config.settings'
+    _inherit = 'website.config.settings'
+
+    _columns = {
+        'google_map_api_kdvn_key': openerp.osv.fields.char('Google Map Api Kdvn Key'),
+    }
+
+    def set_google_map_api_kdvn_key(self, cr, uid, ids, context=None):
+        """
+            Luu gia tri cua google_map_api_kdvn_key
+        """
+        config = self.browse(cr, uid, ids[0], context)
+        website = self.pool.get('website').browse(cr, uid, uid)
+        website.write({
+                        'google_map_api_kdvn_key': config.google_map_api_kdvn_key
+                    })
+    _defaults = {
+        'google_map_api_kdvn_key': lambda self, cr, uid, context:self.pool.get('website').browse(cr, uid, uid, context).google_map_api_kdvn_key,
+    }
 
 	    
