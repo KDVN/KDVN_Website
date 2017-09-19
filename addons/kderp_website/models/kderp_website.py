@@ -163,7 +163,7 @@ class Partner(models.Model):
     #TODO: Add field Google Map API key to Website Settings
     _inherit = 'res.partner'
     def google_map_img(self, cr, uid, ids, zoom=18, width=298, height=298, context=None):
-        google_map_api_kdvn_key = self.pool.get('website').browse(cr, uid, uid).google_map_api_kdvn_key
+        google_map_api_kdvn_key = self.pool['website'].browse(cr, uid, 1, context=context).google_map_api_kdvn_key
         
         partner = self.browse(cr, uid, ids[0], context=context)
         params = {
