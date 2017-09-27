@@ -520,7 +520,7 @@
 					</t>
 					<t t-foreach="list_years[-1]" t-as="list_y">
 						<li t-att-class="'active' if searches.get('year') == 'less_than' else ''">
-							<a t-attf-href="/pj/completed/?{{keep_query('area','type','purpose', year='less_than')}}"><span><small>Before </small><t t-esc="(int(list_y.name)-1)"/></span></a>
+							<a t-attf-href="/pj/featured/?{{keep_query('area','type','purpose', year='less_than')}}"><span><small>Before </small><t t-esc="(int(list_y.name)-1)"/></span></a>
 						</li>
 					</t>
 				</ul>
