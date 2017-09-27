@@ -41,19 +41,31 @@
 			<field name="url">/ba</field>
 			<field name="sequence" type="int">15</field>
 		</record>
-			<record id="kderp_website_theme_default.menu_electrical" model="website.menu">
-				<field name="name">Electrical News</field>
+		    <record id="menu_power_distribution" model="website.menu">
+				<field name="name">Power Distribution</field>
 				<field name="parent_id" ref="menu_ba" />
-				<field name="url">/es/news</field>
+				<field name="url">#</field>
 				<field name="sequence" type="int">15</field>
 			</record>
+			<record id="menu_environmental_facilities" model="website.menu">
+				<field name="name">Environmental Facilities</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">#</field>
+				<field name="sequence" type="int">16</field>
+			</record>
+			<record id="kderp_website_theme_default.menu_electrical" model="website.menu">
+				<field name="name">Electrical</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/es/news</field>
+				<field name="sequence" type="int">17</field>
+			</record>
 			<record id="kderp_website_theme_default.menu_mechanical" model="website.menu">
-				<field name="name">Mechanical News</field>
+				<field name="name">Mechanical</field>
 				<field name="parent_id" ref="menu_ba" />
 				<field name="url">/ms/news</field>
-				<field name="sequence" type="int">20</field>
+				<field name="sequence" type="int">18</field>
 			</record>
-
+			<!--
 			<record id="menu_featured_pj" model="website.menu">
 				<field name="name">Featured Projects</field>
 				<field name="parent_id" ref="menu_ba" />
@@ -62,8 +74,17 @@
 				<field name="divider_text">Projects</field>
 				<field name="sequence" type="int">30</field>
 			</record>
+			-->
+			<record id="menu_featured_pj" model="website.menu">
+				<field name="name">Completed Projects 01</field>
+				<field name="parent_id" ref="menu_ba" />
+				<field name="url">/pj/featured</field>
+				<field name="divider" eval="True" />
+				<field name="divider_text">Projects</field>
+				<field name="sequence" type="int">30</field>
+			</record>
 			<record id="menu_comleted_pj" model="website.menu">
-				<field name="name">Completed Projects</field>
+				<field name="name">Completed Projects 02</field>
 				<field name="parent_id" ref="menu_ba" />
 				<field name="url">/pj/completed</field>
 				<field name="sequence" type="int">35</field>
