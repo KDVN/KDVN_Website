@@ -38,23 +38,35 @@
 			</xpath>
 		</template>
 		
-		<!--Dua phan Announcement ra hien thi o tat ca cac trang-->
-		<template id="on_announcement" inherit_id="website.layout" name="Announcement Alert" customize_show="True" active="False">
+		<!--Dua phan Alert ra hien thi o tat ca cac trang-->
+		<template id="off_alert_loader" inherit_id="website.assets_frontend" name="Alert off script loader">
+			<xpath expr=".">
+				<script type="text/javascript" src="/kderp_website_theme_default_thuy2/static/src/js/alert_off.js" />
+			</xpath>
+		</template>
+		
+		<template id="on_announcement" inherit_id="website.layout" name="Announcement Alert" customize_show="True" active="True">
 	        <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
 	            <attribute name="id">on_announcement</attribute>
 	        </xpath>
+	        
 	        <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-	            <div class="container">
+	        	
+	            
 	            	<t t-if= "anns">
-	            		<div class="alert alert-danger" style="padding: 0 0 0 10px; margin:10px 0 15px 0">
-	            			<button type="button" class="close" data-dismiss="alert">&amp;times;</button>
-	                        <h5><strong>Kinden Vietnam Announcement!</strong></h5>
-							<t t-foreach="anns" t-as="ann">
-							    <div t-field="ann.content"/>
-							</t>
-	                    </div>
+	            		<t t-foreach="anns" t-as="ann">
+	            			<div t-if="not (request and request.httpsession.get('alert_off_' + str(ann.id)))" class="container">
+			            		<div class="alert alert-danger alert-dismissable kdvn_alert"  >
+			            			<button t-att-id="ann.id" type="button" class="close" data-dismiss="alert">&amp;times;</button>
+			            			<!--<a class="btn close" href="/alert_off/select">&amp;times;</a>-->
+			                        <h5><strong>Kinden Vietnam Announcement!</strong></h5>
+								    <div t-field="ann.content"/>
+			                    </div>
+		                    </div>
+	                    </t>
 	            	</t>
-	            </div>
+	            
+	            
 	        </xpath>
     	</template>
 	</data>

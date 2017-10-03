@@ -21,6 +21,18 @@ from openerp.addons.kderp_website.controllers.main import KderpWebsite
 #Ke thua class website_hr_recruitment trong module website_hr_recruitment
 from openerp.addons.website_hr_recruitment.controllers.main import website_hr_recruitment
 
+class AlertOff(http.Controller):
+	@http.route("/alert_off/<int:id>", auth="public")
+	def alert_off(self, id):
+		""" Stop showing alert having the id"""
+		# if (not http.request.httpsession.get('alert_off_test')):
+		# 	http.request.httpsession['alert_off_test'] = {}
+		# http.request.httpsession['alert_off_test'][str(id)] = True
+		# http.request.httpsession['alert_off_test'] = str(http.request.httpsession['alert_off_test'])
+		# print (http.request.httpsession)
+		http.request.httpsession['alert_off_' + str(id)] = True
+		return http.local_redirect("/")
+
 class ExtendKderpWebsite(KderpWebsite):
 	@http.route(['/pj/featured', '/pj/featured/page/<int:page>'], type='http', auth="public", website=True)
 	def kdvn_pj_featured(self,page=1,url="/pj/featured", filter=[],template='',type='all',area='all', year='all', purpose='all',**searches):
