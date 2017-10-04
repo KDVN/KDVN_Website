@@ -5,12 +5,12 @@
 (function($){
     $(".kdvn_alert button").click(function(e){
        e.preventDefault();
-       //e.stopPropagation();
+       e.stopPropagation();
        $.ajax("/alert_off/" + $(e.target).attr("id"), {
-           "completed": function(jqXHR, textStatus) {
-                console.log("DONE", jqXHR, textStatus);
+           "complete": function(jqXHR, textStatus) {
+                //console.log("DONE", jqXHR, textStatus);
                 //TODO: How to hide here
-                //$(e.target).closest(".kdvn_alert").hide("fast");
+                $(e.target).closest(".kdvn_alert").hide("fast");
            }
        });
     });
