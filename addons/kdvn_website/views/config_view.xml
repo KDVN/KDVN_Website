@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_kdvn_website_config_settings" model="ir.ui.view">
+            <field name="name">Kdvn Website settings</field>
+            <field name="model">kdvn.website.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="kdvn Configure Website" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <div>
+						<group string="Kdvn Website Map">
+							<field name="google_map_api_kdvn_key"/>
+						</group>
+                        <group string="Kdvn Website Media">
+                            <label for="media"/>
+                            <div name="media">
+                                <div class="oe_inline">
+                                    <field name="media" placeholder="Media"/>
+                                </div>
+                            </div>
+							<label for="images_library"/>
+                            <div name="images_library">
+                                <div class="oe_inline">
+									<field name="images_library" placeholder="Images Library"/>
+                                </div>
+                            </div>
+							<label for="resources_download"/>
+                            <div name="resources_download">
+                                <div class="oe_inline">
+									<field name="resources_download" placeholder="Resources Download"/>
+                                </div>
+                            </div>
+                        </group>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_kdvn_website_configuration" model="ir.actions.act_window">
+            <field name="name">Kdvn Website Settings</field>
+            <field name="res_model">kdvn.website.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_kdvn_website_configuration" parent="base.menu_config"
+            sequence="100" action="action_kdvn_website_configuration"/>
+
+    </data>
+</openerp>

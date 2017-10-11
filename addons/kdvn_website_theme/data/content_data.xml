@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1" >
+		<!--Kinden Vietnam page-->
+		<record forcecreate="0" id="kdvn_blog_post_intro_about_us" model="blog.post">
+			<field name="website_published" eval="True"/>
+			<field name="blog_id" ref="kdvn_website_theme.kdvn_blog_blog_intro"/>
+            <field name="name">About us</field>
+			<field name="sequence">1</field>
+			<field name="content"><![CDATA[
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h4><b><u>Introduction</u></b></h4>
+<p>Kinden Vietnam Co., Ltd. is an equipment and facilities provider 
+working to fulfill customers' energy, environmental and communication needs. 
+Since our foundation, we have been serving many companies coming to Vietnam 
+from Japan as well as many other countries.</p>
+<p>Our parent company, Kinden Corporation, as a part of their social 
+action programs, held the Kinden Classroom at Le Thi Hong Gam Vocational 
+Training Center for nine years, from 1994 to 2003, training Vietnamese 
+engineers with general and power electrical skills. Many of the graduates 
+of the Kinden Classroom now work for Kinden Vietnam. Their excellent skills 
+are our strong assets.</p>
+<p>At Kinden Vietnam, we assign excellent and highly experienced personnel 
+appropriate for each project, meeting customer needs from constructing power, 
+electric, instrumentation, information, communication, air-conditioning, 
+plumbing and utility systems to developing energy-saving programs. Our broad 
+range of service covers design, construction and maintenance of such systems 
+under a reliable management system.</p>
+<h4><b><u>Management Creed</u></b></h4>
+<ul>
+	<li>Honesty and service</li>
+	<li>Pursuit and effort</li>
+	<li>Harmony and cheerfulness</li>
+</ul>
+<h4><b><u>Company Policy</u></b></h4>
+<p>To support your total lifestyle, We offers solutions through our high 
+technology and advanced systems in the field of energy, environment and 
+information &amp; communications.</p>
+</div>
+<div class="col-md-8">
+	<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_a1.jpg"></div>
+<div>
+<p>Training at Le Thi Hong Gam Vocational Center</p>
+</div>
+</div>
+]]>
+			</field>
+        </record>
+		<record forcecreate="0" id="kdvn_blog_post_intro_es" model="blog.post">
+			<field name="website_published" eval="True"/>
+			<field name="blog_id" ref="kdvn_website_theme.kdvn_blog_blog_intro"/>
+            <field name="name">Electrical</field>
+			<field name="sequence">2</field>
+			<field name="content"><![CDATA[
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h4><b><u>Electrical systems</u></b></h4>
+			<p>Electrical systems providing electricity to buildings, plants and 
+			commercial and public facilities are essential for people's lives 
+			and industries. Constructing such systems is Kinden Vietnam's core business.</p>
+			<p>We work to provide safe, high-quality and value-added electric 
+			systems for our customers' comfortable daily lives.</p>
+		</div>
+		<div class="col-md-6">
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e1.jpg"></div>
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e2.jpg"></div>
+		</div>
+		<div class="col-md-6">
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e3.jpg"></div>
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e4.jpg"></div>
+		</div>
+		<div class="col-md-12">
+			<h4><b><u>For the Future of People and the Earth</u></b></h4>
+			<p>Aiming for environment-friendly technologies, Kinden Vietnam is proactively 
+			adopting solar power generation and other new energy technologies. We are 
+			working to develop optimal nextgeneration electric systems.</p>
+			<h4><b><u>Infrastructure within premises</u></b></h4>
+			<p>We propose, planing, design, construct and maintain optimal systems 
+			for receiving, transforming and distributing electricity within all types of 
+			building, facility and plant premises in an integrated and consistent manner.</p>
+			<p><strong>We provide high-voltage power receiving and transforming systems 
+			and uninterruptible power supply (UPS) systems, private power generators for 
+			emergency use, trunk-line and power control systems and more. </strong></p>
+			<h4><b><u>Housing environment systems within premises</u></b></h4>
+			<p>We work to create optimal electric system that enable safe and streamlined 
+			operation of lighting, air-conditioners, elevators, factory lines and other 
+			such equipment and facilities.</p>
+			<p><strong>We provide lighting, wall outlets, telephones, broadcast systems, 
+			intercoms, AV systems, LAN wiring and more. </strong></p>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-5">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e5.jpg"></div>
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e6.jpg"></div>
+			</div>
+			<div class="col-md-7">
+				<h4><b><u>Security and disaster prevention systems within premises</u></b></h4>
+				<p data-chatter-id="counter_32255/div/div/div/div">With our integrated technical 
+				capabilities that take advantage of advanced electric energy and signal control 
+				technologies, we improve all environments for people's activities, both indoor 
+				and outdoor, creating a better future.</p>
+				<p><strong>We provide security equipments, smoke detectors, electric lock, 
+				lightening protection and automatic fire alarm systems and more. </strong></p>
+				<h4><b><u>Network construction solutions</u></b></h4>
+				<p>We offer integrated coordination services for network system construction, 
+				from infrastructure including offices, public facilities and other buildings 
+				to Internet access from such buildings. With our extensive technologies and 
+				know-how, we enable customers to meet their needs, from designing and constructing 
+				smooth and efficient networks to selecting the most appropriate devices to comprehensive testing.</p>
+				<h4><b><u>Our technologies make the best out of facilities</u></b></h4>
+				<p>With our explosion-proof instrumentation technologies and our 
+				integrated engineering covering instrument, power, control panel and 
+				monitoring systems, we support customers' production facilities.</p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-5">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e7.jpg"></div>
+			</div>
+			<div class="col-md-7">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_e8.jpg"></div>
+			</div>
+		</div>
+	</div>
+</div>
+			]]>
+			</field>
+        </record>
+		<record forcecreate="0" id="kdvn_blog_post_intro_ms" model="blog.post">
+			<field name="website_published" eval="True"/>
+			<field name="blog_id" ref="kdvn_website_theme.kdvn_blog_blog_intro"/>
+            <field name="name">Mechanical</field>
+			<field name="sequence">3</field>
+			<field name="content"><![CDATA[
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h4><b><u>Air-conditioning and plumbing systems</u></b></h4>
+			<p>From commercial facilities and plants occupied by people to building roofs 
+			and basements that people rarely see, maintaining a good living environment is 
+			very important. With our wide array of advanced technologies, Kinden Vietnam 
+			offers services, including constructing human-friendly air-conditioning, water 
+			supply and drainage systems, to maintain a good living environment that 
+			significantly helps our bodies and minds.</p>
+		</div>
+		<div class="col-md-12">
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m1.jpg" style="height:400px; width:600px"></div>
+		</div>
+		<div class="col-md-12">
+			<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m2.jpg"></div>
+		</div>
+		<div class="col-md-6">
+			<h4><b><u>Future-oriented and environment-friendly recycling energy</u></b></h4>
+			<p>Through future-oriented energy systems and recycling and renewal technologies, 
+			we work to create a recycling-oriented symbiosis society where environmental 
+			burdens are reduced.</p>
+			<p><strong>We provide co-generation systems, thermal storage air-conditioning 
+			systems, central heating and air-conditioning systems and more.</strong></p>
+		</div>
+		<div class="col-md-6">
+			<h4><b><u>Environmental preservation</u></b></h4>
+			<p>For environmental preservation, we work to collect Freon and treat water. 
+			Our air-cleanup, ventilation and active oxygen sterilization systems remove 
+			volatile organic compounds (VOC) and other harmful substances. Through these, 
+			we create a healthy living environment more.</p>
+			<h4><b><u>Improving living environment</u></b></h4>
+			<p>Our objective is to perform what needs to be performed efficiently, 
+			economically and in an environment-friendly way. We pursue ideal air-conditioning systems.</p>
+			<p><strong>We provide air-conditioning, air-cleanup, ventilation plumbing systems and more.</strong></p>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m3.jpg"></div>
+			</div>
+			<div class="col-md-6">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m4.jpg"></div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<h4><b><u>Future-oriented and environment-friendly recycling energy</u></b></h4>
+			<p data-chatter-id="counter_81495/div/div/div">Improving industrial utility systems 
+			at plants and facilities The quality of energy-supplying systems at industrial facilities 
+			directly affects production costs and is important to business and environment management.</p>
+			<p><strong>We provide air-supplying systems, water softeners, boilers systems, cooling 
+			water systems, chemical supplying systems and filtration systems. </strong></p>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m5.jpg"></div>
+			</div>
+			<div class="col-md-6">
+				<h4><b><u>Industrial environment systems</u></b></h4>
+				<p>Our unique technologies and know-how, including instruction on the Hazard 
+				Analysis Critical Control Point (HACCP) system for preventing microbial contamination, 
+				tampering and other accidents, enable our customers to meet the environmental requirements of today's society.</p>
+				<p></p>
+				<p><strong>We provide clean room equipment, HACCP, and more.</strong></p>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m6.jpg"></div>
+			</div>
+			<div class="col-md-6">
+				<div class="thumbnail"><img src="/kdvn_website_theme/static/src/img/default/intro_m7.jpg"></div>
+			</div>
+		</div>
+	</div>
+</div>
+			]]>
+			</field>
+        </record>
+		<!--Term of Use page-->
+		<record forcecreate="0" id="kdvn_blog_post_term" model="blog.post">
+			<field name="website_published" eval="True"/>
+			<field name="blog_id" ref="kdvn_blog_blog_term"/>
+            <field name="name">Terms of Use</field>
+			<field name="content"><![CDATA[
+				<div class="bs-callout bs-callout-success"><strong>Terms of Use</strong>
+					<p>Welcome to the Kinden Corporation (below, &quot;the Company&quot;) Web Site. The use of this Site is predicated on the following Terms of Use. Please read these Terms carefully before using this Site.</p>
+					</div>
+					<div class="bs-callout bs-callout-primary"><strong>Restrictions on Use of Copyrights, Trademarks, etc.</strong>
+					<p>The copyrights, trademark rights and other intellectual property rights of this Web Site and the information, contents, trademarks and logomarks, etc. found on this Site are the exclusive property of the Company. With the exception of personal, non-commercial use and cases permitted by other copyright laws, the use, reproduction, modification, transferring or copying any of the materials appearing in this Site in whole or in part is prohibited by law.</p>
+					</div>
+					<div class="bs-callout bs-callout-danger"><strong>Disclaimer of Warranties</strong>
+					<p>The Company makes no recommendations, endorsements or representations whatsoever for the accuracy or reliability of any third-party Web site accessed through this Site. Please read the Terms of Use of any third-party Web site accessed through this Site prior to using the site in question.</p>
+					</div>
+					<div class="bs-callout bs-callout-success"><strong>Links to Non-Company Sites</strong>
+					<p>If you would like to link your web site to this Web Site, please click here for further information after entering the information listed below. However, we reserve the right to refuse approval of any such link should the Company deem that it constitutes or may constitute a liability to the Company's best interests.</p>
+					<p>Please enter the following items:</p>
+					<ul>
+						<li>The name of the company operating the link</li>
+						<li>The name of the person in charge of operating the link</li>
+						<li>The e-mail address of the person in charge of operating the link</li>
+						<li>The URL of the link</li>
+						<li>The purpose of the link</li>
+					</ul>
+					</div>
+					<div class="bs-callout bs-callout-warning"><strong>Applicable Laws and Jurisdiction</strong>
+					<p>This Web site and its Terms of Use shall be construed and applied pursuant to the laws of Japan. All controversies and disputes arising in relation to this Web site shall be submitted to the Osaka District Court in Osaka, Japan as the Court of first instance unless otherwise expressly provided.</p>
+				</div>
+				]]>
+			</field>
+        </record>
+	</data>
+</openerp>

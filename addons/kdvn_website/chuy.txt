@@ -1,0 +1,24 @@
+1. De an cac menu khong can thiet  vi du Messaging, Marketing thi tao group an Kdvn Hidden
+Chu y vao Settings -> Technical -> User Interface -> Menu Items ->Messaging (hoac Marketing) de kiem tra xem co group Human Resources /Employee khong.
+Neu co thi phai xoa di moi an cac menu duoc.
+2. Vao Settings -> Companies -> Companies de tao ten cong ty. Dien day du thong tin nhu so Phone, so Fax, Email.
+3. Vao Kderp Website -> Contact -> Contact Offices de import du lieu ve van phong va cac chi nhanh cua cong ty.
+4. De hien thi Attachment(s) de them cac file anh, pdf,.. de hien thi hay download file thi vao duoc dan sau
+Settings -> Configuration -> Knowledge sau do tick vao Manage doccuments sau do an Apply
+5. Tao thu user demo/demo de kiem tra quyen.
+6. Cau hinh Email vao Settings -> Technical -> 
+	- Incoming Mail Servers
+		Name: KINDEN VIETNAM
+		Server Type: IMAP Server //co the thay bang Pop Server
+		Server Name: mail.kinden.com.vn//gmail: imap.gmail.com hay pop.gmail.com
+		SSL/TLS: True
+		Port: 993
+		User: info@kinden.com.vn
+		password: ******
+	- Outgoing Mail Servers
+		Description: KINDEN VIETNAM
+		SMTP Server: mail.kinden.com.vn//gmail: smtp.gmail.com
+		Connection Security: SSl/TLS
+		SMTP Port: 465
+		Username: info@kinden.com.vn
+		Password: ******

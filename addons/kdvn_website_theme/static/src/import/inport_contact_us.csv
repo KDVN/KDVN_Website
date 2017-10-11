@@ -1,0 +1,9 @@
+id,Contacts/Name,Contacts/Position X,Contacts/Position Y,Contacts/Street,Contacts/Street2,Contacts/City,Contacts/Tags,Contacts/Customer,Contacts/Fax,Contacts/Phone,Contacts/Contact Website
+base.main_partner,Bien Hoa Office,10.9283772,106.875574,"1F, Sonadezi Building, No1, 3A St.","Bien Hoa 2 Industrial Zone, Dong Nai Province",Dong Nai,KDVN_Site_Office,TRUE,(84-61) 393 2731,(84-61) 393 2711,TRUE
+,Binh Duong Office,10.94354079,106.7366302,"C14 The Oasis Village, Viet-Sing Township","Thuan An District, Binh Duong Province",Binh Duong,KDVN_Site_Office,TRUE,(84-650) 371 3951,(84-650) 371 3952,TRUE
+,Hai Phong Office,,,47 Luong Khanh Thien street,Ngo Quyen District,Hai Phong,KDVN_Site_Office,TRUE,(84-31) 385 0309,(84-31) 374 3599,TRUE
+,Head Office,21.0304207,105.784361,"15F, CMC tower, Duy Tan street","Dich Vong Hau ward, Cau Giay District",Hanoi,KDVN_Office,TRUE,(84-4) 3934 2537,(84-4) 3934 2535,TRUE
+,Ho Chi Minh City Branch,10.7781051,106.7048681,3F Saigon Riverside Office Center,"A-4A Ton Duc Thang, Dist. 1",Ho Chi Minh,KDVN_Office,TRUE,(84-8) 3933 0150,(84-8) 3933 0121,TRUE
+,Hung Yen Office,20.9399806,106.0413451,"Pho Noi B Industrial Zone, Lien Xa Commune","My Hao Dist., Hung Yen Province",Hung Yen,KDVN_Site_Office,TRUE,(84-321) 358 9121,(84-321) 358 9122,TRUE
+,Noi Bai Office,21.2327297,105.8106964,"Shop Slot No 6, Noi Bai Industrial Zone","Quang Tien, Soc Son",Hanoi,KDVN_Site_Office,TRUE,(84-4) 3582 0206,(84-4) 3582 4523,TRUE
+,Thang Long Office,21.1155719,105.7758676,"2F, Thang Long A1 Building, Km02, Bac Thang Long - Noi Bai str.",Dong Anh Dist.,Hanoi,KDVN_Site_Office,TRUE,(84-4) 3881 1694,(84-4) 3881 1695,TRUE

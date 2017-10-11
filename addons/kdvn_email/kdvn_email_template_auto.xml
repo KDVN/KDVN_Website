@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<!--Email template-->
+		<record id="email_template_auto_application" model="email.template">
+			<field name="name">Send auto email application</field>
+			<field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+			<field name="subject">Kinden Vietnam</field>
+			<field name="email_to">${object.email_from or ''}</field>
+			<field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+			<field name="lang">${object.lang}</field>
+			<field name="auto_delete" eval="True"/>
+			<field name="user_signature" eval="0"/>
+			<field name="body_html"><![CDATA[
+			<p>Dear ${object.partner_name or 'applicant'},</p>
+			<p>I will call you as soon as possible</p>
+			<p>Kind regards,</p>
+			]]>
+			</field>
+		</record>
+		
+		<record id="email_template_auto_contact_us" model="email.template">
+			<field name="name">Send auto email contact us</field>
+			<field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+			<field name="subject">Kinden Vietnam</field>
+			<field name="email_to">${object.email_from or ''}</field>
+			<field name="model_id" ref="crm.model_crm_lead"/>
+			<field name="lang">${object.lang}</field>
+			<field name="auto_delete" eval="True"/>
+			<field name="user_signature" eval="0"/>
+			<field name="body_html"><![CDATA[
+			<p>Dear ${object.contact_name or 'you'},</p>
+			<p>I will call you as soon as possible</p>
+			<p>Kind regards,</p>
+			]]>
+			</field>
+		</record>
+  
+	</data>
+</openerp>

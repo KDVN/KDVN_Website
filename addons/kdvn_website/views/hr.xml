@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<!-- hr.job -->
+	<record id="view_kdvn_hr_job_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="website_hr_recruitment.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <!-- add state field in header -->
+			<div class="oe_title" position='replace'>
+				<div class="oe_title">
+					<label for="name" class="oe_edit_only"/>
+					<h1>
+						<field name="code" class="oe_inline"/> - 
+						<field name="name" class="oe_inline"/>
+					</h1>
+				</div>
+			</div>
+			<field name='department_id' position='replace'>
+				<field name='department_id' on_change="new_code(department_id,date_input)"/>
+			</field>
+           	<field name='department_id' position='before'>
+                <field name="date_input" on_change="new_code(department_id,date_input)"/>
+                <field name="date_deadline"/>
+            </field>
+			<xpath expr="//group[@name='employee_data']/div[1]" position="after">
+				<field name="job_language_id"/>
+				<field name="job_level_id"/>
+				<field name="job_work_place_id"/>
+				<field name="job_link"/>
+			</xpath>
+			<div attrs="{'invisible': [('state', '!=', 'recruit')]}" position='replace'>
+				<div>
+					<label for="description"/>
+					<field name="description"/>	
+				</div>
+			</div>
+			<div attrs="{'invisible': [('state', '!=', 'recruit')]}" position='replace'>  
+				<div>
+					<label for="requirements"/>
+					<field name="requirements"/>	
+				</div>					
+            </div>
+			<xpath expr="//field[@name='website_published']" position="replace">
+                <field name="website_published" class="pull-right" widget="website_button" groups="kdvn_website.group_kdvn_website_recruitment_button_published"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_kdvn_hr_job_tree" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.tree.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+        	<field name="name" position="before">
+        		<field name="code" string="Job Code"/>
+        	</field>
+        </field>
+    </record>
+    
+    <record id="view_kdvn_hr_job_survey_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey"/>
+        <field name="arch" type="xml">
+        	 <field name="user_id" class="oe_inline" position="replace">
+        		 <field name="user_id" class="oe_inline" invisible="1" />
+        	</field>
+    	</field>
+    </record>
+    <!-- hr.applicant -->
+    <record id="view_kdvn_hr_applicant_tree" model="ir.ui.view">
+        <field name="name">kdvn.hr.applicant.tree.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
+        <field name="arch" type="xml">
+        	<field name="user_id" position="replace">
+        		<field name="user_id" invisible="1"/>
+        	</field>
+        </field>
+    </record>
+    <record id="view_kdvn_hr_applicant_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.applicant.form.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+        <field name="arch" type="xml">
+        	<field name="user_id" position="replace">
+        		<field name="user_id" invisible="1"/>
+        	</field>
+        </field>
+    </record>
+    
+	 <!-- hr.department -->
+	<record id="view_kdvn_department_form" model="ir.ui.view">
+		<field name="name">hr.kdvn.department.form</field>
+		<field name="model">hr.department</field>
+		<field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <!-- add state field in header -->
+			<field name="name" position='before'>
+				<field name="code"/>
+			</field>
+			<field name="parent_id" position='after'>
+				<field name="manager_2nd_id"/>
+			</field>
+		</field>
+	</record>
+	<!-- Show KDVN Job Language"-->
+	<record id="view_kdvn_hr_job_language_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.language.form</field>
+        <field name="model">kdvn.hr.job.language</field>
+        <field name="arch" type="xml">
+            <form string="Job Language">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kdvn_hr_job_language_tree" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.language.tree</field>
+        <field name="model">kdvn.hr.job.language</field>
+        <field name="arch" type="xml">
+            <tree string="Job Language">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	
+	<!-- Show KDVN Job Level"-->
+	<record id="view_kdvn_hr_job_level_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.level.form</field>
+        <field name="model">kdvn.hr.job.level</field>
+        <field name="arch" type="xml">
+            <form string="Job level">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kdvn_hr_job_level_tree" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.level.tree</field>
+        <field name="model">kdvn.hr.job.level</field>
+        <field name="arch" type="xml">
+            <tree string="Job Language">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	
+	<!-- Show KDVN Job Work Place"-->
+	<record id="view_kdvn_hr_job_work_place_form" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.work.place.form</field>
+        <field name="model">kdvn.hr.job.work.place</field>
+        <field name="arch" type="xml">
+            <form string="Job Word Place">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+        </field>
+    </record>
+	<record id="view_kdvn_hr_job_work_place_tree" model="ir.ui.view">
+        <field name="name">kdvn.hr.job.work.place.tree</field>
+        <field name="model">kdvn.hr.job.work.place</field>
+        <field name="arch" type="xml">
+            <tree string="Job Word Place">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+        </field>
+    </record>
+	
+</data>
+</openerp>

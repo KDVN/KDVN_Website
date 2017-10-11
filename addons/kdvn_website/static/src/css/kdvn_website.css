@@ -1,0 +1,145 @@
+a {
+  color: #026232;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #026232;
+  border-color: #026232;
+}
+.btn-primary {
+  background-color: #026232;
+  border-color: #026232;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #03944c;
+  border-color: #03944c;
+}
+.text-success {
+  color: #026232;
+}
+.pagination .active a,
+.pagination .active a:hover,
+.pagination .active a:focus {
+  background-color: #026232;
+  color: #fff;
+  border-color: #026232;
+}
+.pagination li a,
+.pagination li a:hover,
+.pagination li a:focus {
+  background-color: #fff;
+  color: #026232;
+}
+/*Sua mau hien thi tren menu*/
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  border-color: #026232;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  border-left: solid #026232;
+}
+.nav > .active > a {
+  border-bottom: solid #026232;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  border-bottom: solid #026232;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #026232;
+  background-color: #fff;
+  border-left: solid #026232;
+}
+.dropdown-menu .divider {
+  background-color: #026232;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #026232;
+  border-bottom: solid #026232;
+  background-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > li > a:active {
+  color: #026232;
+  border-bottom: solid #026232;
+  background-color: #fff;
+}
+.navbar-default .navbar-nav > .active > a {
+  color: #026232;
+  border-bottom: solid #026232;
+  background-color: #fff;
+}
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #026232;
+  border-bottom: solid #026232;
+  background-color: #e7e7e7;
+}
+/*Hien thi voi Bootstrap callout*/
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code {
+  border-radius: 3px;
+}
+.bs-callout + .bs-callout {
+  margin-top: -5px;
+}
+.bs-callout-default {
+  border-left-color: #777;
+}
+.bs-callout-default h4 {
+  color: #777;
+}
+.bs-callout-primary {
+  border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+  color: #428bca;
+}
+.bs-callout-success {
+  border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+  color: #5cb85c;
+}
+.bs-callout-danger {
+  border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+  color: #d9534f;
+}
+.bs-callout-warning {
+  border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+  color: #f0ad4e;
+}
+.bs-callout-info {
+  border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+  color: #5bc0de;
+}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<!-- Actions, Menus for internal use -->
+	<data>		
+		<record model="ir.actions.act_window" id="kdvn_tags_act">
+			<field name="name">Tags</field>
+			<field name="res_model">blog.tag</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="kdvn_posts_act">
+			<field name="name">Posts</field>
+			<field name="res_model">blog.post</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="inherited_kdvn_posts_search"/>
+			<field name="context">{'search_default_group_by_categories': True}</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="kdvn_categories_act">
+			<field name="name">Categories</field>
+			<field name="res_model">blog.blog</field>
+			<field name="view_mode">tree,form,search</field>
+		</record>
+		<!-- Show Post Year-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_year_act">
+			<field name="name">Year</field>
+			<field name="res_model">kdvn.post.prj.year</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Type-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_type_act">
+			<field name="name">Type</field>
+			<field name="res_model">kdvn.post.prj.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Categ-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_categ_act">
+			<field name="name">Category</field>
+			<field name="res_model">kdvn.post.prj.categ</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Location-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_location_act">
+			<field name="name">Location</field>
+			<field name="res_model">kdvn.post.prj.location</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Area-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_area_act">
+			<field name="name">Area</field>
+			<field name="res_model">kdvn.post.prj.area</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<!-- Show KDVN Contact Offices-->
+		<record model="ir.actions.act_window" id="kdvn_contact_offices_act">
+			<field name="name">Contact Offices</field>
+			<field name="res_model">res.partner</field>
+			<!--<field name="domain">[('contact_website','=',True)]</field>-->
+			<field name="domain">[]</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="kdvn_contact_tags_act">
+			<field name="name">Contact Tags</field>
+			<field name="res_model">res.partner.category</field>
+			<field name="domain">[]</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<!-- Show KDVN Contact Us-->
+		<record model="ir.actions.act_window" id="kdvn_contact_us_act">
+			<field name="name">Contact Us</field>
+			<field name="res_model">crm.lead</field>
+			<field name="domain">[('medium_id.name','=','Website')]</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<!-- Show KDVN Jobs -->
+		<record model="ir.actions.act_window" id="kdvn_hr_job_act">
+			<field name="name">Job Positions</field>
+			<field name="res_model">hr.job</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>
+		<record model="ir.actions.act_window" id="kdvn_hr_applicant_act">
+			<field name="name">Applications</field>
+			<field name="res_model">hr.applicant</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,kanban</field>
+		</record>		
+		<record model="ir.actions.act_window" id="kdvn_hr_department_act">
+			<field name="name">Departments</field>
+			<field name="res_model">hr.department</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+			<record model="ir.actions.act_window" id="kdvn_hr_job_language_act">
+			<field name="name">Job language</field>
+			<field name="res_model">kdvn.hr.job.language</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="kdvn_hr_job_level_act">
+			<field name="name">Job Level</field>
+			<field name="res_model">kdvn.hr.job.work.place</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="kdvn_hr_job_word_place_act">
+			<field name="name">Job Word Place</field>
+			<field name="res_model">kdvn.hr.job.level</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+	
+		<menuitem id="main_kdvn_website" name="Kdvn Website" />
+		
+
+		<menuitem id="kdvn_menu_website" name="Website" parent="main_kdvn_website" sequence="10" groups="group_kdvn_website_post_menu"/>
+		<menuitem id="kdvn_posts" name="Posts" parent="kdvn_menu_website" action="kdvn_posts_act" sequence="10"/>			
+		<menuitem id="kdvn_categories" name="Categories" parent="kdvn_menu_website" action="kdvn_categories_act" sequence="15"/>
+		<menuitem id="kdvn_tags" name="Tags" parent="kdvn_menu_website" action="kdvn_tags_act" sequence="20"/>
+		
+		<menuitem id="kdvn_menu_contact_us" name="Contact" parent="main_kdvn_website" sequence="20" groups="group_kdvn_website_contactus_menu"/>	
+		<menuitem id="kdvn_contact_us" name="Contact Us" parent="kdvn_menu_contact_us" action="kdvn_contact_us_act" sequence="20" />	
+		<menuitem id="kdvn_contact_offices" name="Contact Offices" parent="kdvn_menu_contact_us" action="kdvn_contact_offices_act" sequence="25" />
+		<menuitem id="kdvn_contact_tags" name="Contact Tags" parent="kdvn_menu_contact_us" action="kdvn_contact_tags_act" sequence="30" />	
+		
+
+		<menuitem id="kdvn_menu_recruitment" name="Recruitment" parent="main_kdvn_website" sequence="30" groups="group_kdvn_website_recruitment_menu"/>
+		<menuitem id="kdvn_hr_job" name="Job Positions" parent="kdvn_menu_recruitment" action="kdvn_hr_job_act" sequence="30"/>
+		<menuitem id="kdvn_hr_applicant" name="Applications" parent="kdvn_menu_recruitment" action="kdvn_hr_applicant_act" sequence="30"/>
+		<menuitem id="kdvn_hr_department" name="Departments" parent="kdvn_menu_recruitment" action="kdvn_hr_department_act" sequence="30"/>		
+
+		<menuitem id="kdvn_menu_config" name="Configuration" parent="main_kdvn_website" sequence="40" groups="group_kdvn_website_config_menu"/>		
+		<menuitem id="kdvn_config_project" name="Project" parent="kdvn_menu_config"/>	
+		<menuitem id="kdvn_post_prj_year" name="Year" parent="kdvn_config_project" action="kdvn_post_prj_year_act"/>
+		<menuitem id="kdvn_post_prj_type" name="Type" parent="kdvn_config_project" action="kdvn_post_prj_type_act"/>
+		<menuitem id="kdvn_post_prj_categ" name="Category" parent="kdvn_config_project" action="kdvn_post_prj_categ_act"/>
+		<menuitem id="kdvn_post_prj_location" name="Location" parent="kdvn_config_project" action="kdvn_post_prj_location_act"/>
+		<menuitem id="kdvn_post_prj_area" name="Area" parent="kdvn_config_project" action="kdvn_post_prj_area_act"/>
+
+		<menuitem id="kdvn_config_recruitment" name="Recruitment" parent="kdvn_menu_config"/>	
+		<menuitem id="kdvn_job_language" name="Job Language" parent="kdvn_config_recruitment" action="kdvn_hr_job_language_act"/>
+		<menuitem id="kdvn_job_level" name="Job Level" parent="kdvn_config_recruitment" action="kdvn_hr_job_level_act"/>
+		<menuitem id="kdvn_job_word_place" name="Job Work Place" parent="kdvn_config_recruitment" action="kdvn_hr_job_word_place_act"/>
+	</data>
+</openerp>

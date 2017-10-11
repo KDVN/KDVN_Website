@@ -1,0 +1,161 @@
+<openerp>
+	<data>
+		<!--=Group Kdvn Website Contact=-->
+		<record model="ir.module.category" id="module_category_kdvn_website_contact">
+            <field name="name">Kdvn Website Contact Us</field>
+            <field name="sequence">5</field>
+        </record>
+		<record id='group_kdvn_website_contactus_menu' model='res.groups'>
+        	<field name='name'>Kdvn - Kdvn Contact Menu</field>
+			<field name="category_id" ref="module_category_kdvn_website_contact"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id="group_kdvn_website_contactus_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Us/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_contactus_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Us/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_contact_office_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Office/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_contact_office_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Office/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_contact_tag_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Tag/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_contact_tag_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Contact Tag/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_contact"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<!--=Group Kdvn Website Recruitment=-->
+		<record model="ir.module.category" id="module_category_kdvn_website_recruitment">
+            <field name="name">Kdvn Website Recruitment</field>
+            <field name="sequence">10</field>
+        </record>
+		<record id='group_kdvn_website_recruitment_button_published' model='res.groups'>
+        	<field name='name'>KDVN - Kdvn Job Positions/ Button Published</field>
+			<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id='group_kdvn_website_recruitment_menu' model='res.groups'>
+        	<field name='name'>Kdvn - Kdvn Recruitment Menu</field>
+			<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id="group_kdvn_website_job_positions_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Job Positions/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_job_positions_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Job Positions/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_hr_applicant_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Applicant/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_hr_applicant_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Applicant/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_hr_department_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Departments/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_hr_department_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Departments/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_recruitment"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<!--=Group Kdvn Website Post=-->
+		<record model="ir.module.category" id="module_category_kdvn_website_post">
+            <field name="name">Kdvn Website Posts</field>
+            <field name="sequence">10</field>
+        </record>
+		<record id='group_kdvn_website_post_button_published' model='res.groups'>
+        	<field name='name'>KDVN - Kdvn Posts/ Button Published</field>
+			<field name="category_id" ref="module_category_kdvn_website_post"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id='group_kdvn_website_post_menu' model='res.groups'>
+        	<field name='name'>Kdvn - Kdvn Posts Menu</field>
+			<field name="category_id" ref="module_category_kdvn_website_post"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id="group_kdvn_website_posts_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Posts/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_posts_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Posts/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_categories_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Categories/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_categories_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Categories/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_tags_read" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Tags/ Read</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<record id="group_kdvn_website_tags_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Tags/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_post"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+		<!--=Group Kdvn Website Config=-->
+		<record model="ir.module.category" id="module_category_kdvn_website_config">
+            <field name="name">Kdvn Website Config</field>
+            <field name="sequence">10</field>
+        </record>
+		<record id='group_kdvn_website_config_menu' model='res.groups'>
+        	<field name='name'>Kdvn - Kdvn Config Menu</field>
+			<field name="category_id" ref="module_category_kdvn_website_config"/>
+        	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+    	</record>
+		<record id="group_kdvn_website_config_full" model="res.groups">
+	       	<field name="name">Kdvn - Kdvn Config/ Full</field>
+	      	<field name="category_id" ref="module_category_kdvn_website_config"/>
+	       	<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+    </data>
+	<data>
+		<record id="res_partner_public" model="ir.rule">
+			<field name="name">Res Partner: Public</field>
+			<field name="model_id" ref="base.model_res_partner"/>
+			<field name="domain_force">[('website_published', '=', True)]</field>
+			<field name="groups" eval="[(4, ref('base.group_public'))]"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="False"/>
+			<field name="perm_create" eval="False"/>
+			<field name="perm_unlink" eval="False"/>
+		</record>
+    </data>
+</openerp>

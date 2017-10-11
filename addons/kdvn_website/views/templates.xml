@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<template id="kdvn_website.kdvn_css" inherit_id="website.layout" name="Kdvn Css">
+		<xpath expr="//t[@t-call-assets='website.assets_frontend']" position="after">
+			<link href="/kdvn_website/static/src/css/kdvn_website.css" rel="stylesheet" type="text/css"/>		
+		</xpath>
+	</template>
+	<template id="kdvn_website.kdvn_js" inherit_id="website.assets_frontend" name="Kdvn Js" >
+		<xpath expr="script[last()]" position="after">
+			<script type="text/javascript" src="/kdvn_website/static/src/js/kdvn_website.js" />
+		</xpath>
+    </template>
+	<!--==Header==-->
+	<!-- Them class vao menu va submenu-->
+	<template id="website.submenu" name="Kdvn Submenu" priority="5">
+		<li t-if="not submenu.child_id" t-att-class="
+			((submenu.url and submenu.url != '/' and request.httprequest.path.startswith(submenu.url)) or
+			 request.httprequest.path == submenu.url) and 'active'
+			">
+			<a class="kdvn-submenu-a" t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">								
+				<span t-field="submenu.name"/>
+			</a>
+		</li>
+		<li t-if="submenu.child_id" t-attf-class="dropdown{{'' if (submenu.parent_id.name == 'Top Menu') else '-submenu'}} #{
+			((submenu.url and submenu.url != '/' and [1 for submenu in submenu.child_id if request.httprequest.path.startswith(submenu.url)]) or
+			 request.httprequest.path == submenu.url) and 'active'
+			}">			
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">				
+				<span t-field="submenu.name"/> <span t-att-class="(submenu.parent_id.name == 'Top Menu') and 'caret'" t-ignore="true"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<t t-foreach="submenu.child_id" t-as="submenu">
+					<t t-call="website.submenu"/>
+				</t>
+			</ul>
+		</li>
+	</template>
+	<!--==Customize Header: Them id vao header de cac theme co the de dang ke thua==-->
+	<template id="kdvn_website_header" name="Kdvn header" inherit_id="website.layout">	
+		<xpath expr="//div[@class='navbar navbar-default navbar-static-top']" position="attributes">
+			<attribute name="id">kdvn_header</attribute>
+		</xpath>
+	</template>
+    <!--== Home page: 
+		- Trung id phai xoa view da tao ra trong view TODO
+		- Them id section de cac theme co the de dang ke thua
+	==-->	
+    <template id="website.homepage" name="KDVN Homepage" page="True" priority="5">
+        <t t-call="website.layout">			
+            <div id="wrap" class="oe_structure oe_empty">
+                <section id="sec_kdvn_homepage_jumbo"></section>
+                <section id="sec_kdvn_homepage_main"></section>
+            </div>
+        </t>
+    </template>	
+	<!--==footer==-->
+	<template id="kdvn_footer" inherit_id="website.footer_default" name="Kdvn Footer">
+		<xpath expr="//div[@class='container hidden-print']" position="replace">
+			<div class="container" id="kdvn_footer">
+				Footer <span t-field="res_company.name" itemprop="name"></span>
+			</div>
+		</xpath>
+	</template>
+	<!--== Footer Copyright==-->
+	<template id="kdvn_layout_footer_copyright" inherit_id="website.layout_footer_copyright" priority="10" name="Kdvn Footer Copyright">
+		<xpath expr="//footer/div[@class='container mt16 mb8']" position="replace">
+			<div id="kdvn_footer_copyright">
+				<div class="container mb8">
+					<div class="row" style="border-top: 1px solid;">
+						<div class="col-md-8">
+							<div class="pull-left">
+								Copyright <span class="fa fa-copyright"></span> <span t-field="res_company.name" itemprop="name"></span>
+							</div>
+						</div>
+						<div class="col-md-4" style="text-align: right;">
+							<ul class="list-inline js_language_selector" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+								<li t-foreach="languages" t-as="lg">
+									<a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None">
+									 <t t-esc="lg[1].split('/').pop()"/></a>
+								</li>
+								<li groups="base.group_website_publisher">
+									<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+									<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">
+									<i class="fa fa-plus-circle"/>
+									Add a language...
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>	
+</data>
+</openerp>
