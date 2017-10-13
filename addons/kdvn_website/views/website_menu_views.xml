@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<record id="kderp_website_menu_display" model="ir.ui.view">
+		<field name="name">Website.menu: Add icon in menu website</field>
+		<field name="model">website.menu</field>
+		<field name="inherit_id" ref="website.menu_tree"/>
+		<field name="arch" type="xml">
+			<field name="url" position="after">
+				<field name="fa_icon"/>
+			</field>
+		</field>
+	</record>
+</data>
+</openerp>

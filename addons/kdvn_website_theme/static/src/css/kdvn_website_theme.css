@@ -241,6 +241,18 @@ div#kdvn_theme_header_top {
     padding: 0;
     border-right: 1px solid #dddddd;
   }
+  /* hieu ung click anh trong Certificate
+		o desktop hien thi do rong 30%
+	*/
+  .img-click-desk {
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 767px) {
   ul#top_menu.nav.navbar-nav > li.divider {
@@ -253,6 +265,20 @@ div#kdvn_theme_header_top {
   }
   div#kdvn_theme_header_top {
     padding: 0;
+  }
+  /* hieu ung click anh trong Certificate
+		o mobil hien thi do rong 90%
+		o desktop hien thi do rong 30%
+	*/
+  .img-click-mobil {
+    max-width: 90%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
 #top_menu > li.dropdown.open > ul {

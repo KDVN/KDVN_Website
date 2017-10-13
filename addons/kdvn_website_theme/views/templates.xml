@@ -256,16 +256,24 @@
 										<div class="row">
 											<t t-foreach="posts" t-as="post">
 												<t t-if="post.prj_area_id.code == 'N' and post.tag_ids.name=='Certificate'">
-													<div class="col-sm-6 col-md-6">
+													<div class="col-sm-6 col-md-6">													
 														<div class="thumbnail kdvn-theme-cer-thum-cus">
-															<a href="#">
+															<a href="#" class="pop">
 																<t t-if="post.img_url_ids">
 																	<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-theme-cer-image"/>
 																</t>
 																<t t-if="not post.img_url_ids">
 																	<img src="/kdvn_website/static/src/img/images/image.png" class="img-responsive kdvn-theme-cer-image"/>
 																</t>
-															</a>								
+															</a>
+															<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																<t t-if="post.img_url_ids">
+																	<img t-att-src="post.img_url_ids[0].website_url" class="imagepreview img-click-mobil img-click-desk"/>																		
+																</t>
+																<t t-if="not post.img_url_ids">
+																	<img src="/kdvn_website/static/src/img/images/image.png" class="imagepreview img-click-mobil img-click-desk"/>																		
+																</t>																	
+															</div>															
 														</div>
 														<h5 class="kdvn-theme-cer-content"><div t-field="post.name"></div></h5>
 													</div>
@@ -284,15 +292,23 @@
 												<t t-if="post.prj_area_id.code == 'S' and post.tag_ids.name =='Certificate'">
 													<div class="col-sm-6 col-md-6">
 														<div class="thumbnail kdvn-theme-cer-thum-cus">
-															<a href="#">
+															<a href="#" class="pop">
 																<t t-if="post.img_url_ids">
 																	<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-theme-cer-image"/>
 																</t>
 																<t t-if="not post.img_url_ids">
 																	<img src="/kdvn_website/static/src/img/images/image.png" class="img-responsive kdvn-theme-cer-image"/>
 																</t>
-															</a>							
-														</div>
+															</a>
+															<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																<t t-if="post.img_url_ids">
+																	<img t-att-src="post.img_url_ids[0].website_url" class="imagepreview img-click-mobil img-click-desk"/>																		
+																</t>
+																<t t-if="not post.img_url_ids">
+																	<img src="/kdvn_website/static/src/img/images/image.png" class="imagepreview img-click-mobil img-click-desk"/>																		
+																</t>																	
+															</div>															
+														</div>														
 														<h5 class="kdvn-theme-cer-content"><div t-field="post.name"></div></h5>
 													</div>
 												</t>
@@ -317,14 +333,22 @@
 											<t t-if="post.prj_area_id.code == 'N' and post.tag_ids.name=='Awards'">
 												<div class="col-sm-6 col-md-6">
 													<div class="thumbnail kdvn-theme-cer-thum-cus">
-														<a href="#">
+														<a href="#" class="pop">
 															<t t-if="post.img_url_ids">
 																<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-theme-cer-image"/>
 															</t>
 															<t t-if="not post.img_url_ids">
 																<img src="/kdvn_website/static/src/img/images/image.png" class="img-responsive kdvn-theme-cer-image"/>
 															</t>
-														</a>								
+														</a>
+														<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+															<t t-if="post.img_url_ids">
+																<img t-att-src="post.img_url_ids[0].website_url" class="imagepreview img-click-mobil img-click-desk"/>																		
+															</t>
+															<t t-if="not post.img_url_ids">
+																<img src="/kdvn_website/static/src/img/images/image.png" class="imagepreview img-click-mobil img-click-desk"/>																		
+															</t>																	
+														</div>															
 													</div>
 													<h5 class="kdvn-theme-cer-content"><div t-field="post.name"></div></h5>
 												</div>
@@ -343,14 +367,22 @@
 													<t t-if="post.prj_area_id.code == 'S' and post.tag_ids.name =='Awards'">
 														<div class="col-sm-6 col-md-6">
 															<div class="thumbnail kdvn-theme-cer-thum-cus">
-																<a href="#">
+																<a href="#" class="pop">
 																	<t t-if="post.img_url_ids">
 																		<img t-att-src="post.img_url_ids[0].website_url" class="img-responsive kdvn-theme-cer-image"/>
 																	</t>
 																	<t t-if="not post.img_url_ids">
 																		<img src="/kdvn_website/static/src/img/images/image.png" class="img-responsive kdvn-theme-cer-image"/>
 																	</t>
-																</a>								
+																</a>
+																<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+																	<t t-if="post.img_url_ids">
+																		<img t-att-src="post.img_url_ids[0].website_url" class="imagepreview img-click-mobil img-click-desk"/>																		
+																	</t>
+																	<t t-if="not post.img_url_ids">
+																		<img src="/kdvn_website/static/src/img/images/image.png" class="imagepreview img-click-mobil img-click-desk"/>																		
+																	</t>																	
+																</div>															
 															</div>
 															<h5 class="kdvn-theme-cer-content"><div t-field="post.name"></div></h5>
 														</div>

@@ -183,7 +183,7 @@ class hr_job(osv.Model):
 	_description = "Job Position"
 	_inherit = ['hr.job']
 	#Ham tao code HR tu dong
-	def new_code(self,cr,uid,ids,department_id,date,code=False,type='material'):
+	def new_code(self,cr,uid,ids,department_id,date,code=False):
 		if ids:
 			try:
 				ids=ids[0]

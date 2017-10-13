@@ -16,11 +16,12 @@
 			'data/menu_data.xml',
 			'data/data.xml',
 			'data/content_data.xml',
-			'views/assets.xml',				
+			'views/config_view.xml',
+			'views/assets_temp.xml',				
 			'views/header_footer_temp.xml',
 			'views/recruitment_temp.xml',
-			'views/config_view.xml',
+			'views/snippets_temp.xml',			
             'views/templates.xml',	
-			'views/snippets.xml',				
+						
             ]
 }
