@@ -21,3 +21,6 @@ $('.pop').on('click', function() {
 	$('.imagepreview').attr('src', $(this).find('img').attr('src'));
 	$('#imagemodal').modal('show');
 });
+//An hien menu trai trong cac trang Project    
+if( $("#xs-check").is(":visible") )
+    $("#kdvn-theme-collapse-comp").removeClass("in");
