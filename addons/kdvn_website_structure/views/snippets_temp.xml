@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+	<template id="kdvn_str_banner_gn" inherit_id="website.snippets" name="kdvn Banner General">
+		<xpath expr="//div[@id='snippet_structure']" position="inside">
+			<div>
+				<div class="oe_snippet_thumbnail">
+					<img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=GE" />
+					<span class="oe_snippet_thumbnail_title">General</span>
+				</div>
+				<section class="oe_snippet_body">
+					<div class="container">
+						<div class="bs-docs-header bg-success text-center">
+							<div class="row">
+								<div class="col-md-6">
+									<h1 style="margin-top: 60px"><small class="text-danger">Construction &amp; Enginnering</small></h1>
+									<h2><small class="text-warning">Bring total comfortable to customers and <mark>environment</mark></small></h2>
+								</div>
+								<div class="col-md-6">
+									<img class="img-rounded img-responsive" src="/kdvn_website_structure/static/src/img/default/banner_gn.jpg" style="height: 300px;"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</xpath>
+	</template>
+	<template id="kdvn_str_banner_prj_completed" inherit_id="website.snippets" name="Prj Completed">
+		<xpath expr="//div[@id='snippet_structure']" position="inside">
+		  <div>
+			<div class="oe_snippet_thumbnail">
+			  <img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+			  <span class="oe_snippet_thumbnail_title">Prj Completed</span>
+			</div>
+			<section class="oe_snippet_body">
+				<div class="container">
+					<div class="jumbotron text-center" style="background:url(/kdvn_website_structure/static/src/img/default/banner_prj.jpg) center center; background-size:cover;min-height: 300px;">
+					</div>
+				</div>
+			</section>
+		  </div>
+		</xpath>
+	</template>
+	<template id="kdvn_str_banner_recruitment" inherit_id="website.snippets" name="Recruitment">
+		<xpath expr="//div[@id='snippet_structure']" position="inside">
+			<div>
+				<div class="oe_snippet_thumbnail">
+					<img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+					<span class="oe_snippet_thumbnail_title">Recruitment</span>
+				</div>
+				<section class="oe_snippet_body">
+					<div class="container">
+						<div class="jumbotron text-center" style="background:url(/kdvn_website_structure/static/src/img/default/banner_recuit.jpg) center center; background-size:cover;min-height: 300px;"></div>
+					</div>
+				</section>
+			</div>
+		</xpath>
+	</template>    
+	<template id="kdvn_str_banner_certificates" inherit_id="website.snippets" name="Certificates">
+		<xpath expr="//div[@id='snippet_structure']" position="inside">
+			<div>
+				<div class="oe_snippet_thumbnail">
+					<img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+					<span class="oe_snippet_thumbnail_title">Certificates</span>
+				</div>
+				<section class="oe_snippet_body">
+					<div class="container">
+						<div class="jumbotron text-center" style="background:url(/kdvn_website_structure/static/src/img/default/banner_cert.jpg) center center; background-size:cover;min-height: 300px;">
+							<h1 style="font-size: 48px; margin-top:55px"><span class="text-success">Certificates</span></h1>
+						</div>
+					</div>
+				</section>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="kdvn_str_banner_electrical" inherit_id="website.snippets" name="Electrical">		
+		<xpath expr="//div[@id='snippet_structure']" position="inside">			
+			<div>
+				<div class="oe_snippet_thumbnail">
+					<img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+					<span class="oe_snippet_thumbnail_title">Electrical</span>
+				</div>
+				<section class="oe_snippet_body">
+					<div class="container">
+						<div class="jumbotron text-center" style="background:url(/kdvn_website_structure/static/src/img/default/banner_e.jpg) center center; background-size:cover;min-height: 300px;">
+							<div class="row">
+								<div class="col-md-3">
+									<h1 class="kdvn-str-bn-me">Electrical Systems</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</xpath>
+    </template>
+	<template id="kdvn_str_banner_mechanical" inherit_id="website.snippets" name="Mechanical">			
+		<xpath expr="//div[@id='snippet_structure']" position="inside">
+			<div>
+				<div class="oe_snippet_thumbnail">
+					<img class="oe_snippet_thumbnail_img" src="http://placehold.it/100x79.png?text=News" />
+					<span class="oe_snippet_thumbnail_title">Mechanical</span>
+				</div>
+				<section class="oe_snippet_body">
+					<div class="container">
+						<div class="jumbotron text-center" style="background:url(/kdvn_website_structure/static/src/img/default/banner_m.jpg) center center; background-size:cover;min-height: 300px;">
+							<div class="row">
+								<div class="col-md-3">
+									<h1 class="kdvn-str-bn-me">Mechanical Systems</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</xpath>
+    </template>	
+
+</data>
+</openerp>

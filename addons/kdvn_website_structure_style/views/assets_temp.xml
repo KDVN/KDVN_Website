@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		<template id="kdvn_website_structure_style_css" name="Kdvn Structure Style Css" inherit_id="kdvn_website_structure.kdvn_website_structure_css">
+			<xpath expr="//link[@href='/kdvn_website_structure/static/src/css/kdvn_website_structure.css']" position="after">
+				<link href="/kdvn_website_structure_style/static/src/css/kdvn_website_structure_style.css" rel="stylesheet"/>
+			</xpath>
+		</template>
+		<template id="kdvn_website_structure_style_js" name="Kdvn Structure Style Js" inherit_id="website.assets_frontend">
+      		<xpath expr="script[last()]" position="after">
+        		<script type="text/javascript" src="/kdvn_website_structure_style/static/src/js/kdvn_website_structure_style.js" />
+      		</xpath>
+    	</template>
+	</data>
+</openerp>

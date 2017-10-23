@@ -1,0 +1,370 @@
+@import "../../../../kdvn_website_structure/static/src/css/kdvn_website_structure.less";
+@kdvn_color: #18ADB5;
+@kdvn-color-divider: #ddd;
+
+/*header*/
+.brand {
+    display: none;
+}
+.brand-right{
+    display:none;
+}
+.navbar-default {
+	background-color: #fff;
+	border-color: #fff;
+}
+.navbar-default .navbar-nav > li > a {
+	border-bottom: solid #fff;
+}	
+div#kdvn_str_header_top{
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+#top_menu > li > a > span {
+    text-transform: uppercase;
+}
+@media screen and (min-width:768px) {
+	.navbar-nav.navbar-right:last-child {
+		margin-right: 0px;
+	}
+    .navbar-header {
+        display: none;
+    }
+	
+	.brand {
+		display: inherit;
+		text-align: center;
+		float:left;
+		margin-top: 5px;
+	}
+	.brand-right {
+		display: inherit;
+		text-align: center;
+		float:right;
+		address {
+			text-align: right;
+		};
+		margin-bottom: -15px;
+	}
+	.brand-right>.kdvn_str_h_right> address {
+		font-size: 16px;
+		color: #026232;
+		font-weight: bold;
+		background: #d1d1d1;
+		width: auto;
+		float: right;
+		margin-top: 5px;
+		padding: 5px;
+		background: -webkit-gradient(linear,left top,left bottom,color-stop(0.3, #f3f3f3),color-stop(0.7, #ddd));
+	}
+	.kdvn_str_h_right> ul{
+		margin:0;
+	}	 
+	.kdvn_str_h_right> ul> li{
+		vertical-align: middle;
+	}		
+	.kdvn_str_h_right> ul> li > h1{
+		font-size: 20px; 
+		color: @kdvn_color;; 
+		font-weight: bold;
+		margin: 0;
+	}
+	
+	.kdvn-str-top-address{
+		display:none
+	}
+    ul#top_menu.nav.navbar-nav {
+        margin: 0 auto;
+        display: table;
+        table-layout: auto;
+        float: none;
+        width: 100%;
+		border-top: 1px solid @kdvn_color;
+    }
+    ul#top_menu.nav.navbar-nav>li {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
+	ul#top_menu.nav.navbar-nav > li.divider{
+		width: 1px;
+		height: 50%;
+		float: right;
+		margin-bottom: -5px;
+		padding-top: 20px;
+		border-right: 1px solid @kdvn-color-divider;
+	}
+	ul#top_menu.nav.navbar-nav > li.divider.oe_editable{
+		width: 1px;
+		height: 50%;
+		float: right;
+		border: none;
+	    padding: 0;
+		border-right: 1px solid @kdvn-color-divider;
+	}
+	/* hieu ung click anh trong Certificate
+		o desktop hien thi do rong 30%
+	*/
+	.img-click-desk {
+		max-height: 100%; 
+		position: absolute; 
+		top: 0; 
+		bottom:0; 
+		left: 0; 
+		right:0; 
+		margin: auto;
+	}
+	/*Khong hien thi nut bam cua Project Completed trong giao dien desktop*/
+	#kdvn-str-btn-collapse {
+        display: None;
+    }
+
+}
+@media screen and (max-width: 767px){
+	ul#top_menu.nav.navbar-nav > li.divider{
+		display:None;
+	}
+	.kdvn-str-top-address{
+		padding: 5px 15px 5px 0;
+		background: #ccc;
+		text-align: right;
+	}
+	div#kdvn_str_header_top{
+		padding:0
+	}
+	/* hieu ung click anh trong Certificate
+		o mobil hien thi do rong 90%
+	*/
+	.img-click-mobil {
+		max-width: 90%;
+		max-height: 100%;
+		position: absolute; 
+		top: 0; 
+		bottom:0; 
+		left: 0; 
+		right:0; 
+		margin: auto;
+	}
+	
+}
+
+#top_menu > li.dropdown.open > ul{
+	width:100%;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+.brand a:hover, a:focus {
+    text-decoration: none;
+}
+/*Footer*/
+#wrapwrap footer {
+    background-color: @kdvn_color;
+    color: #fff;
+    height:initial;
+}
+#wrapwrap footer address h4 {
+    color: #fff !important;
+}
+#wrapwrap footer address {
+    color: #fff;
+}
+/*Homepage main*/
+.kdvn-str-hp-main{
+	background: rgba(238, 238, 238, 0.65);
+}
+.less-homepage-main-h4() {
+	text-align: center;
+	border-bottom: 1px solid @kdvn_color;
+	color: @kdvn_color;
+	padding-bottom: 15px;
+	margin: 0;
+}
+.less-homepage-main-media() {
+	border-bottom: 1px solid @kdvn_color;
+	padding-bottom: 10px;
+
+}
+div.media-body >a:hover, 
+	div.media-body >a:active, 
+		div.media-body >a:focus {
+			text-decoration: none;
+}
+
+/*Homepage main menu trai*/
+.kdvn-str-hp-main-left > h4{
+	.less-homepage-main-h4
+}
+div.col-md-5.kdvn-str-hp-main-left > div.media{
+	.less-homepage-main-media
+}
+.kdvn-str-homepage-main-p{
+	margin:0;
+	padding:0;
+	text-align: right;
+}
+
+/*Homepage main menu phai*/
+.kdvn-str-hp-main-right > h4{
+	.less-homepage-main-h4
+}
+.kdvn-str-hp-main-right > div.media{
+	padding-bottom: 15px;
+}
+/*Hien thi anh tren Homepage menu phai*/
+#kdvn_str_thumbnail > .thumbnail{
+	position: relative;
+} 
+#kdvn_str_thumbnail > .thumbnail > .caption{
+	position: absolute;
+	padding: 0;
+    top: 15%;
+    left: 0;
+    width: 100%;
+}
+#kdvn_str_thumbnail > .thumbnail >.caption > h4{
+	text-transform: uppercase;
+    color: @kdvn_color;
+    padding: 0.5em 0;
+    background-color: rgba(255, 255, 255, 0.45);
+}
+/*Project*/
+ul.kdvn-str-menu-left-prj {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid @kdvn_color;
+	border-top: 1px solid @kdvn_color;
+	}
+ul.kdvn-str-menu-left-prj li {
+					display: block;
+					list-style: none;
+					border-bottom: 1px solid @kdvn_color;
+					padding: 10px 0; 
+					margin-left: 15px;
+					}
+ul.kdvn-str-menu-left-prj>li:first-child {border-top: 0;}
+ul.kdvn-str-menu-left-prj>li:last-child {border-bottom: 0}
+ul.kdvn-str-menu-left-prj li a:hover , 
+	ul.kdvn-str-menu-left-prj li a.active {color: #11A84E;}
+
+ul.kdvn-str-menu-left-prj li a {
+	color: #666;
+	text-decoration: none;
+	outline: 0;
+	margin-left: 15px;
+}
+ul.kdvn-str-menu-left-prj li.active {
+	background:#999
+}
+ul.kdvn-str-menu-left-prj li.active a{
+	color:#000;
+	margin-left: 15px;
+}
+.kdvn-str-menu-left-prj-title{
+	border-bottom: 1px solid @kdvn_color; 
+	padding-bottom: 3px; 
+	text-transform: uppercase; 
+	color:@kdvn_color
+}
+//Page Certificates
+.kdvn-str-cer-title{
+    border-bottom: 1px solid @kdvn_color; 
+    padding-bottom: 3px; 
+    text-transform: uppercase; 
+    color:@kdvn_color;
+	font-weight: bold;
+}
+.kdvn-str-cer-thum-cus{
+	height: 200px;
+    position: relative;
+}
+.kdvn-str-cer-image{
+	height: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	max-height: 100%;
+}
+.kdvn-str-cer-content{
+	position: relative; 
+    height: 50px; 
+    margin-bottom: 10px; 
+    color:@kdvn_color; 
+    text-transform: uppercase; 
+}
+/*page list post*/
+.kdvn-str-post-list-cus{
+	border-left:0px;
+	border-right:0px;
+	padding: 0px 0px;
+}
+.list-group-item:first-child.kdvn-str-post-list-cus{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.list-group-item:last-child.kdvn-str-post-list-cus {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+/*content post*/
+.kdvn-str-blog-title{
+	margin-top: 1.5rem!important;
+	color: @kdvn_color;
+	text-transform: uppercase;
+}
+/*page Recruiment*/
+.kdvn-str-hr-tr{
+	border-bottom: 1px solid @kdvn_color
+}
+.kdvn-str-hr-td-title{
+	vertical-align:middle; 
+	padding-left: 5px;
+}
+.kdvn-str-hr-td-content{
+	vertical-align:middle; 
+	padding: 10px;
+}
+/*Contact us*/
+.kdvn-str-contactus-location{
+	border-bottom: 1px solid @kdvn_color;
+    padding-bottom: 2px;
+    margin: 0;
+}
+.kdvn-str-contactus-location > span {
+    padding-bottom: 3px;
+    border-bottom: 3px solid @kdvn_color;
+    line-height: 1.4;
+}
+/*Banner*/
+h1.kdvn-str-bn-me{
+	height: 150px;
+	padding: 0 15px;
+	background-color: rgba(51,51,51,0.8);
+	font-size: 36px;
+	color: #FFFFFF;
+	line-height: 1.2;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+/*Hieu ung anh trong Project Completed*/
+.kdvn-hovergallery img{
+	-webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+	-moz-transition-duration: 0.5s; /*Mozilla duration version*/
+	-o-transition-duration: 0.5s; /*Opera duration version*/
+	opacity: 0.7; /*initial opacity of images*/
+	margin: 0 10px 5px 0; /*margin between images*/
+	}
+	.kdvn-hovergallery img:hover{
+	-webkit-transform:scale(1.1); /*Webkit: Scale up image to 1.2x original size*/
+	-moz-transform:scale(1.1); /*Mozilla scale version*/
+	-o-transform:scale(1.1); /*Opera scale version*/
+	box-shadow:0px 0px 30px gray; /*CSS3 shadow: 30px blurred shadow all around image*/
+	-webkit-box-shadow:0px 0px 30px gray; /*Safari shadow version*/
+	-moz-box-shadow:0px 0px 30px gray; /*Mozilla shadow version*/
+	opacity: 1;
+}

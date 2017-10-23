@@ -2,12 +2,14 @@ import openerp
 import time
 
 from openerp.osv import orm, osv, fields
-from openerp import models, fields, api
+from openerp import models, fields, api, _
 
 import openerp
 from openerp import http
 from openerp.osv import orm, osv, fields
 from openerp import models, fields, api
+
+from openerp.exceptions import AccessError, Warning
 
 from openerp import SUPERUSER_ID
 
@@ -104,7 +106,7 @@ class BlogTag(models.Model):
 	
 class KdvnPost(models.Model):
 	_inherit = 'blog.post'
-		
+			
 	@api.one
 	def _get_img_url_ids(self):
 		result = []
@@ -131,10 +133,10 @@ class KdvnPost(models.Model):
 			else:
 				next_code= 1
 		else:
-			next_code=1
-			
+			next_code=1			
 		if self.blog_id:
 			self.sequence = next_code
+		
 	#Dien nam theo nam 'Completion Date'
 	@api.onchange('prj_compl_date', 'prj_year_id')
 	def onchange_year(self):
@@ -162,7 +164,7 @@ class KdvnPost(models.Model):
 				'prj_area_id': location.area_id.id if location.area_id else False,
 			}
 		return {'value':val}	
-
+	
 	img_url_ids = fields.One2many('ir.attachment', string="Image URLs", compute='_get_img_url_ids')
 	summary = fields.Text('Summary', translate=True) 
 	sequence = fields.Integer('Sequence')
@@ -176,7 +178,9 @@ class KdvnPost(models.Model):
 	prj_year_id = fields.Many2one('kdvn.post.prj.year', string="Years")
 	prj_categ_id = fields.Many2one('kdvn.post.prj.categ', string="Category")
 	prj_type_id = fields.Many2one('kdvn.post.prj.type', string="Type")
-
+	
+	_sql_constraints = [('seqence_blog_id_uniq', 'unique(blog_id, sequence)', 'Two sequence of one category with the same number? Impossible!')]
+		
 class Partner(osv.Model):
 	#TODO: Central management for API keys
 	_inherit = 'res.partner'
