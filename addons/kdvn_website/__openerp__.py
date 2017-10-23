@@ -15,7 +15,7 @@
             'security/ir.model.access.csv',
 			'data/data_menu.xml',
 			'data/data.xml',
-			'views/templates.xml',
+			'views/website_menu_views.xml',
 			'views/res_flag_views.xml',		
             'views/blog_views.xml',
 			'views/res_partner_views.xml',
