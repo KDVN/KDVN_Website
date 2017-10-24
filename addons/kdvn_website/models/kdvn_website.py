@@ -180,6 +180,15 @@ class KdvnPost(models.Model):
 	prj_type_id = fields.Many2one('kdvn.post.prj.type', string="Type")
 	
 	_sql_constraints = [('seqence_blog_id_uniq', 'unique(blog_id, sequence)', 'Two sequence of one category with the same number? Impossible!')]
+	
+	#Ham duplicate	
+	@api.one
+	def copy(self, default=None):
+		default = dict(default or {})
+		default.update({
+			'sequence': False
+		})
+		return super(KdvnPost, self).copy(default)
 		
 class Partner(osv.Model):
 	#TODO: Central management for API keys
