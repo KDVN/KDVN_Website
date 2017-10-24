@@ -222,14 +222,16 @@
 					</ul>							
 				</div>	
 				<div class="container">
-					<div class="col-md-offset-2 col-md-8">
-						<t t-foreach="posts_detail" t-as="post">
-							<t t-if="(request.httprequest.path == '/intro/kdvn' and post.sequence==1) or (request.httprequest.path!='/intro/kdvn')">
-								<h1 class="text-center"><span class="text-success"><span t-field="post.name"></span></span></h1>
-								<div class="mt32" t-field="post.content"></div>
+					<div class="row">
+						<div class="col-md-offset-2 col-md-8">
+							<t t-foreach="posts_detail" t-as="post">
+								<t t-if="(request.httprequest.path == '/intro/kdvn' and post.sequence==1) or (request.httprequest.path!='/intro/kdvn')">
+									<h1 class="text-center"><span class="text-success"><span t-field="post.name"></span></span></h1>
+									<div class="mt32" t-field="post.content"></div>
+								</t>
 							</t>
-						</t>
-					</div>							
+						</div>
+					</div>
 				</div>
 			</div>
 		</t>
