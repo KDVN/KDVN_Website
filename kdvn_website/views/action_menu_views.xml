@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Actions, Menus for internal use -->
+	<data>	
+		<record model="ir.actions.act_window" id="kdvn_tags_act">
+			<field name="name">Tags</field>
+			<field name="res_model">blog.tag</field>
+			<field name="view_mode">tree,form</field>
+		</record>		
+		<record model="ir.actions.act_window" id="kdvn_posts_act">
+			<field name="name">Posts</field>
+			<field name="res_model">blog.post</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>		
+		<record model="ir.actions.act_window" id="kdvn_categories_act">
+			<field name="name">Categories</field>
+			<field name="res_model">blog.blog</field>
+			<field name="view_mode">tree,kanban,calendar,form</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="kdvn_categories_tree"/>
+		</record>		
+		<!-- Show Post Year-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_year_act">
+			<field name="name">Year</field>
+			<field name="res_model">kdvn.post.prj.year</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Type-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_type_act">
+			<field name="name">Type</field>
+			<field name="res_model">kdvn.post.prj.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Categ-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_categ_act">
+			<field name="name">Category</field>
+			<field name="res_model">kdvn.post.prj.categ</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>		
+		<!-- Show Post Location-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_location_act">
+			<field name="name">Location</field>
+			<field name="res_model">kdvn.post.prj.location</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Show Post Area-->
+		<record model="ir.actions.act_window" id="kdvn_post_prj_area_act">
+			<field name="name">Area</field>
+			<field name="res_model">kdvn.post.prj.area</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<!-- Show KDVN Contact Offices-->
+		<record model="ir.actions.act_window" id="kdvn_contact_offices_act">
+			<field name="name">Contact Offices</field>
+			<field name="res_model">res.partner</field>
+			<!--<field name="domain">[('contact_website','=',True)]</field>-->
+			<field name="domain">[]</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="kdvn_contact_tags_act">
+			<field name="name">Contact Tags</field>
+			<field name="res_model">res.partner.category</field>
+			<field name="domain">[]</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem id="main_kdvn_website" name="Kdvn Website" />
+			<menuitem id="menu_kdvn_website_root" name="Website" parent="main_kdvn_website" sequence="10" />
+				<menuitem id="menu_kdvn_posts" name="Posts" parent="menu_kdvn_website_root" action="kdvn_posts_act" sequence="10"/>			
+				<menuitem id="menu_kdvn_categories" name="Categories" parent="menu_kdvn_website_root" action="kdvn_categories_act" sequence="15"/>
+				<menuitem id="menu_kdvn_tags" name="Tags" parent="menu_kdvn_website_root" action="kdvn_tags_act" sequence="20"/>
+			<menuitem id="kdvn_menu_contact_us" name="Contact" parent="main_kdvn_website" sequence="15"/>			
+				<menuitem id="kdvn_contact_offices" name="Contact Offices" parent="kdvn_menu_contact_us" action="kdvn_contact_offices_act" sequence="25" />
+				<menuitem id="kdvn_contact_tags" name="Contact Tags" parent="kdvn_menu_contact_us" action="kdvn_contact_tags_act" sequence="30" />			
+			<menuitem id="menu_kdvn_website_config_root" name="Configuration" parent="main_kdvn_website" sequence="20" />
+				<menuitem id="menu_kdvn_website_config_project" name="Project" parent="menu_kdvn_website_config_root"/>	
+					<menuitem id="menu_kdvn_post_prj_year" name="Year" parent="menu_kdvn_website_config_project" action="kdvn_post_prj_year_act"/>
+					<menuitem id="menu_kdvn_post_prj_type" name="Type" parent="menu_kdvn_website_config_project" action="kdvn_post_prj_type_act"/>
+					<menuitem id="menu_kdvn_post_prj_categ" name="Category" parent="menu_kdvn_website_config_project" action="kdvn_post_prj_categ_act"/>
+					<menuitem id="menu_kdvn_post_prj_location" name="Location" parent="menu_kdvn_website_config_project" action="kdvn_post_prj_location_act"/>
+					<menuitem id="menu_kdvn_post_prj_area" name="Area" parent="menu_kdvn_website_config_project" action="kdvn_post_prj_area_act"/>
+	</data>
+</odoo>

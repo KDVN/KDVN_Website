@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!--
+			Tao website_blog.menu_news va website.menu_contactus 
+			de khi xoa khong bi bao loi khong co cac id nay 
+		-->
+		<record id="portal.portal_show_sign_in" model="ir.ui.view">
+            <field name="active" eval="False"/>
+        </record>
+		<record id="website_blog.menu_news" model="website.menu">
+			<field name="name">News</field>
+		</record>
+		<record id="website.menu_contactus" model="website.menu">
+            <field name="name">Contact us</field>
+        </record>
+		<delete model="website.menu" id="website_blog.menu_news"></delete>
+		<delete model="website.menu" id="website.menu_contactus"></delete>			
+	</data>	
+</odoo>

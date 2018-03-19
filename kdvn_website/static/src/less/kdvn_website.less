@@ -1,0 +1,148 @@
+@kdvn_color: #026232;
+@kdvn_background_color_hover: #e7e7e7;
+
+a {
+    color: @kdvn_color;
+    text-decoration: none;
+}
+a:hover, 
+ a:active,
+	a:focus
+	{
+		color: @kdvn_color;
+		border-color: @kdvn_color;
+	}
+.btn-primary{
+	background-color:@kdvn_color;
+	border-color:@kdvn_color;
+	}
+.btn-primary:hover, 
+	.btn-primary:focus, 
+		.btn-primary:active, 
+			.btn-primary.active, .open > .dropdown-toggle.btn-primary{
+	color: #fff;
+    background-color: lighten(@kdvn_color, 10%);
+    border-color: lighten(@kdvn_color, 10%);
+	}
+.text-success {
+    color: @kdvn_color;
+}
+
+.pagination {
+	.active {
+		a , a:hover, a:focus{
+		background-color: @kdvn_color;
+		color: #fff;
+		border-color: @kdvn_color;
+		}
+	}
+	li {
+		a, a:hover, a:focus {
+		background-color: #fff;
+		color: @kdvn_color;
+		}
+	}
+}
+/*Sua mau hien thi tren menu*/
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    border-color: @kdvn_color;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    border-left: solid @kdvn_color;
+}
+.nav >.active> a{
+		border-bottom: solid @kdvn_color;
+	}
+.nav > li > a:hover, .nav > li > a:focus {
+	border-bottom: solid @kdvn_color;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+	color: @kdvn_color;
+    background-color: #fff;
+	border-left: solid @kdvn_color;
+}
+.dropdown-menu .divider {
+
+    background-color: @kdvn_color;
+}
+.navbar-default .navbar-nav > li > a:hover, 
+	.navbar-default .navbar-nav > li > a:focus,{
+		color: @kdvn_color;
+		border-bottom: solid @kdvn_color;
+		background-color: @kdvn_background_color_hover;
+}
+.navbar-default .navbar-nav > li > a:active{
+	color: @kdvn_color;
+	border-bottom: solid @kdvn_color;
+	background-color: #fff;
+}
+.navbar-default .navbar-nav > .active > a{
+	color: @kdvn_color;
+	border-bottom: solid @kdvn_color;
+	background-color: #fff;
+} 
+.navbar-default .navbar-nav > .active > a:hover, 
+	.navbar-default .navbar-nav > .active > a:focus {
+		color: @kdvn_color;
+		border-bottom: solid @kdvn_color;
+		background-color: @kdvn_background_color_hover;
+}
+
+/*Hien thi voi Bootstrap callout*/
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}

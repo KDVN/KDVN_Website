@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.kdvn_website</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Kdvn Website" data-key="kdvn_website_structure">
+                    <h2>Website</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="API Key"/>
+                                <div class="text-muted">
+                                   Kdvn Google API key
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label class="col-md-3 o_light_label" string="API Key" for="google_maps_api_key"/>
+                                        <field name="google_maps_api_key"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Media"/>
+                                <div class="text-muted">
+                                   Tags Image Library and Download of Category Media
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label class="col-md-3 o_light_label" for="media"/>
+                                     	<field name="media" />
+                                    </div>
+                                    <div class="row">
+                                     	<label class="col-md-3 o_light_label" for="images_library"/>
+										<field name="images_library" />
+									</div>
+									<div class="row">
+										<label class="col-md-3 o_light_label" for="resources_download"/>
+										<field name="resources_download" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Slice"/>
+                                <div class="text-muted">
+                                    Category Major Works show slice in page Homepage
+                                </div>
+                                <div class="row mt16">
+                                    <label class="col-md-3 o_light_label" for="major_works"/>
+                                 	<field name="major_works" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Alert"/>
+                                <div class="text-muted">
+                                    Tag Announcement Alert of Category Announcement show all page
+                                </div>
+                               <div class="row mt16">
+									<label class="col-md-3 o_light_label" for="announcements_alert"/>
+									<field name="announcements_alert" help="Show Announcement Alert on all page"/>
+								</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="News"/>
+                                <div class="text-muted">
+                                    Category of news show homepage and pages news
+                                </div>
+                                <div class="row mt16">
+                                	<label class="col-md-3 o_light_label" for="es_blog"/>
+									<field name="es_blog"/>
+								</div>
+								<div class="row">
+                                	<label class="col-md-3 o_light_label" for="ms_blog"/>
+									<field name="ms_blog"/>
+								</div>
+								
+                            </div>
+                        </div>
+                       <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Sidebar"/>
+                                <div class="text-muted">
+                                    Category sidebar
+                                </div>
+                                <div class="row mt16">
+									<label class="col-md-3 o_light_label" for="announcements"/>
+									<field name="announcements"/>
+								</div>
+								
+								<div class="row">
+									<label class="col-md-3 o_light_label" for="announcements_alert"/>
+									<field name="ffacts"/>
+								</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Introduction"/>
+                                <div class="text-muted">
+                                    Category Introduction
+                                </div>
+                               <div class="row mt16">
+									<label class="col-md-3 o_light_label" for="introduction"/>
+									<field name="introduction"/>
+								</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Page Simple"/>
+                                <div class="text-muted">
+                                    Category for pages simple
+                                </div>
+                               <div class="row mt16">
+									<label class="col-md-3 o_light_label" for="certificates"/>
+									<field name="certificates"/>
+								</div>
+								<div class="row">
+									<label class="col-md-3 o_light_label" for="termofuse"/>
+									<field name="termofuse"/>
+								</div>
+								<div class="row">
+									<label class="col-md-3 o_light_label" for="projects_featured"/>
+									<field name="projects_featured"/>
+								</div>
+								<div class="row">
+									<label class="col-md-3 o_light_label" for="projects_completed"/>
+									<field name="projects_completed"/>
+								</div>
+                            </div>
+                        </div>
+					</div>
+					<h2>Contact</h2>
+                    <div class="row mt16 o_settings_container">
+                    	<div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Contact"/>
+                                <div class="text-muted">
+                                    Tags Contact
+                                </div>
+                               <div class="row mt16">
+									<label class="col-md-3 o_light_label" for="partner_office"/>
+									<field name="partner_office"/>
+								</div>
+								<div class="row">
+									<label class="col-md-3 o_light_label" for="partner_site_office"/>
+									<field name="partner_site_office"/>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    
+	<record id="action_kdvn_website_configuration" model="ir.actions.act_window">
+		<field name="name">Kdvn Website Settings</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">res.config.settings</field>
+		<field name="view_mode">form</field>
+		<field name="target">inline</field>
+	</record>
+		
+	<menuitem name="Settings" id="menu_kdvn_website_configuration" parent="kdvn_website.menu_kdvn_website_config_root"
+		sequence="1" action="action_kdvn_website_configuration"/>
+	
+	<!--Dua website menu ra-->
+	<menuitem name="Website Menu" id="menu_kdvn_menu_website_configuration" parent="kdvn_website.menu_kdvn_website_config_root"
+		sequence="5" action="website.action_website_menu"/>
+</data>
+</odoo>

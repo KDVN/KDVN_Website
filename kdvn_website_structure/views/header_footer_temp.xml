@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<!-- submenu -->
+	<template id="kdvn_str_submenu" inherit_id="website.submenu" name="Kdvn Structure  Submenu">		
+		<xpath expr="//li" position="before">
+			<li t-if="submenu.divider and submenu.divider_text" class="divider"></li>
+			<li t-if="submenu.divider and submenu.divider_text" class="dropdown-header"><span t-esc="submenu.divider_text"></span></li>			
+		</xpath>
+		<xpath expr="//li/a[hasclass('kdvn-submenu-a')]" position="replace">	
+			<a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">								
+				<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>							
+				<t t-if="submenu.url != '/page/homepage' or (submenu.url == '/page/homepage' and (not submenu.fa_icon))">
+					<span t-field="submenu.name"/>
+				</t>
+			</a>
+		</xpath>
+		<xpath expr="//li/a[hasclass('dropdown-toggle')]/span" position="before">
+			<i t-if="submenu.fa_icon" t-attf-class="fa fa-fw #{submenu.fa_icon} text-success"/>	
+		</xpath>
+	</template>
+	
+	<!--===header===-->
+	<template id="kdvn_str_header" name="Kdvn Structure header" inherit_id="kdvn_website.kdvn_website_header">
+		<xpath expr="//div[@id='kdvn_header']" position="before">
+			<div id="kdvn_str_header_top" class="container">
+				<!--Hien thi so dien thoai, mail, lua chon ngon ngu trong giao dien mobile -->
+				<div class="kdvn-str-top-address">					
+					<ul class="list-inline js_language_selector">
+						<li style="vertical-align: middle;">
+							<span class="fa fa-phone fa-lg text-success"></span><span itemprop="telephone"><a href="tel:+842439342535">(+84-24) 3934 2535</a></span> | 
+							<span class="fa fa-envelope fa-lg text-success"></span> <span itemprop="email"><a href="mailto:info@kinden.com.vn"> Contact us</a></span>
+						</li>					
+						<t t-if="(len(languages) &gt; 1) or editable">
+							<li t-foreach="languages" t-as="lg">
+								<a
+									t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+									t-att-data-lang="lg[0]"
+									t-att-class="'js_change_lang flag-icon flag-icon-'+lg[0][-2:].lower()">
+								</a>
+							</li>						
+						</t>
+					</ul>
+				</div>						
+			</div>
+		</xpath>
+		<xpath expr="//div[hasclass('container')]/div[hasclass('collapse','navbar-collapse','navbar-top-collapse')]/ul[hasclass('nav','navbar-nav','navbar-right')]" position="attributes">
+			<attribute name="class">nav navbar-nav</attribute>
+		</xpath>
+	</template>
+	<!--Them logo iso va ohsas vao giao diem mobile-->
+	<template id="kdvn_str_logo" name="KDVN Structure logo" inherit_id="website.layout">
+		<xpath expr="//div[hasclass('container')]/div[hasclass('navbar-header')]" position="inside">			
+			<span><img src="/kdvn_website/static/src/img/iso_and_ohsas.png" alt="ISO and OHSAS" title="ISO and OHSAS"/></span>
+		</xpath>
+	</template>
+	<!--===footer===-->
+	<template id="kdvn_str_footer_default" inherit_id="kdvn_website.kdvn_footer" name="Kdvn Structure Footer">
+		<xpath expr="//div[@id='footer']" position="replace">
+			<div class="container" id="kdvn_footer">
+				<div class="row">
+					<t t-foreach="res_company.partner_id.child_ids[3:5]" t-as="contact">						
+						<div t-attf-class="col-sm-{{8 - (contact_index % 2) * 4}}">
+							<address class="mt16">
+								<h4 ><t t-esc="contact.name"></t></h4>
+								<t t-esc="contact.street"></t><br />
+								<t t-esc="contact.street2"></t>, <t t-esc="contact.city"></t><br />
+								<span class="fa fa-phone"></span> <t t-esc="contact.phone"></t>							
+							</address>
+						</div>
+					</t>					
+				</div>
+			</div>
+		</xpath>
+	</template>
+</data>
+</odoo>

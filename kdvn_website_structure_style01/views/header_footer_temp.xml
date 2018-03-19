@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<!--===header===-->	
+	<template id="kdvn_str_header_style" name="Kdvn Structure Style01 Header Style" inherit_id="kdvn_website_structure.kdvn_str_header">
+		<xpath expr="//div[@id='kdvn_str_header_top']/div[hasclass('kdvn-str-top-address')]" position="after">
+			<!--Giao gien desktop-->
+			<div class="container">
+				<div class="brand">
+					<a href="/" class="logo">
+						<img src="/logo.png" t-att-alt="'Logo of %s' % res_company.name" style="height: 60px; width:100px" t-att-title="res_company.name"/>
+						<img src="/kdvn_website/static/src/img/iso_and_ohsas.png" alt="ISO and OHSAS" title="ISO and OHSAS"/>
+					</a>
+				</div>	
+				<div class="brand-right">									
+					<t t-foreach="res_company.partner_id.child_ids[3:4]" t-as="contact">
+						<div class="kdvn_str_h_right">								
+							<ul class="list-inline js_language_selector text-right">
+								<li>
+									<h1><t t-esc="res_company.name"/></h1> 
+								</li>
+								<li t-foreach="languages" t-as="lg">
+									<a
+										t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+										t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+										t-att-data-lang="lg[0]"
+										t-att-class="'js_change_lang flag-icon flag-icon-'+lg[0][-2:].lower()">
+									</a>
+								</li>
+							</ul>							
+							<address>
+								<span itemprop=""><a href="callto:+842439342535"><span class="fa fa-phone-square fa-lg"></span> <t t-esc="contact.phone"></t></a></span> | 
+								<span><a href="/intro/contactus"><span class="fa fa-envelope fa-lg"></span><small> Contact us</small></a></span>
+							</address>
+						</div>
+					</t>
+				</div>			
+			</div>
+		</xpath>
+	</template>
+</data>
+</odoo>

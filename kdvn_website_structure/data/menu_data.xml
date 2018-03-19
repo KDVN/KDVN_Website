@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="menu_aboutus" model="website.menu">
+			<field name="name">About us</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">/all</field>
+			<field name="sequence" type="int">15</field>
+		</record>			
+			<record id="intro_aboutus" model="website.menu">
+				<field name="name">KINDEN VIETNAM</field>
+				<field name="url">/intro/kdvn</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">15</field>
+			</record>
+			
+			<record id="intro_certificates" model="website.menu">
+				<field name="name">Certificates</field>
+				<field name="url">/intro/certificates</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">16</field>
+			</record>
+			<record id="intro_contact_us" model="website.menu">
+				<field name="name">Contacts us</field>
+				<field name="url">/intro/contactus</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">17</field>
+			</record>
+			
+			<record id="resource" model="website.menu">
+				<field name="name">News</field>
+				<field name="url">/all/news</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="divider" eval="True"></field>
+				<field name="divider_text">Resources</field>
+				<field name="sequence" type="int">18</field>
+			</record>
+
+			<record id="intro_download" model="website.menu">
+				<field name="name">Download</field>
+				<field name="url">/kdvn/download</field>
+				<field name="parent_id" ref="menu_aboutus"></field>
+				<field name="sequence" type="int">19</field>
+			</record>
+		
+			<record id="privacy" model="website.menu">
+				<field name="name">Terms of Use</field>
+				<field name="url">/intro/termofuse</field>
+				<field name="parent_id" ref="menu_aboutus" />
+				<field name="new_window" eval="False"/>
+				<field name="divider" eval="True" />
+				<field name="divider_text">Notes</field>
+				<field name="sequence" type="int">20</field>
+			</record>
+			
+		<record id="menu_serv" model="website.menu">
+			<field name="name">Services</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">/services</field>
+			<field name="sequence" type="int">25</field>
+		</record>			
+			<record id="serv_electrical" model="website.menu">
+				<field name="name">Electrical</field>
+				<field name="parent_id" ref="menu_serv" />
+				<field name="url">/es/news</field>
+				<field name="sequence" type="int">25</field>
+			</record>
+			<record id="serv_mechanical" model="website.menu">
+				<field name="name">Mechanical</field>
+				<field name="parent_id" ref="menu_serv" />
+				<field name="url">/ms/news</field>
+				<field name="sequence" type="int">26</field>
+			</record>
+			<record id="serv_comleted_prj" model="website.menu">
+				<field name="name">Completed Projects</field>
+				<field name="parent_id" ref="menu_serv" />
+				<field name="url">/prj/completed</field>
+				<field name="divider" eval="True" />
+				<field name="divider_text">Projects</field>
+				<field name="sequence" type="int">27</field>
+			</record>		
+		<!--Chuyen menu Jobs sang menu Recruitment
+		<record id="website_hr_recruitment.menu_jobs" model="website.menu">
+			<field name="name">Recruitment</field>
+			<field name="url">/jobs</field>
+			<field name="parent_id" ref="website.main_menu"/>
+			<field name="sequence" type="int">40</field>
+		</record>
+		-->
+		<record id="menu_kinden_jp" model="website.menu">
+			<field name="name">KINDEN JAPAN</field>
+			<field name="new_window">True</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="url">http://www.kinden.co.jp/english/index.html</field>
+			<field name="sequence" type="int">50</field>
+		</record>
+	</data>
+</odoo>

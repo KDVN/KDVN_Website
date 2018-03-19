@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<template id="kdvn_assets_frontend_css" inherit_id="website.assets_frontend" name="Kdvn Css Front-end assets">
+		<xpath expr="//link[last()]" position="after">
+			<link type="text/less" rel="stylesheet" href="/kdvn_website/static/src/less/kdvn_website.less"/>
+			
+		</xpath>
+	</template>
+	<template id="kdvn_assets_frontend_js" inherit_id="website.assets_frontend" name="Kdvn Js Front-end assets">
+		<xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/kdvn_website/static/src/js/kdvn_website.js"/>
+		</xpath>
+	</template>
+
+	<!--==Submenu==-->
+	<!-- Them class vao menu va submenu-->
+	<template id="website.submenu" name="Kdvn Submenu" priority="5">
+		<li t-if="not submenu.child_id" t-att-class="
+			'active' if submenu.clean_url() and unslug_url(request.httprequest.path) == unslug_url(submenu.clean_url()) else None
+			">
+			<a class="kdvn-submenu-a" t-att-href="submenu.clean_url()" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+				<span t-field="submenu.name"/>
+			</a>
+		</li>
+		<li t-if="submenu.child_id" t-attf-class="dropdown #{
+			(submenu.clean_url() and submenu.clean_url() != '/' and any([request.httprequest.path == child.url for child in submenu.child_id if child.url]) or
+			 (submenu.clean_url() and request.httprequest.path == submenu.clean_url())) and 'active'
+			}">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<span t-field="submenu.name"/> <span class="caret" t-ignore="true"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<t t-foreach="submenu.child_id" t-as="submenu">
+					<t t-call="website.submenu"/>
+				</t>
+			</ul>
+		</li>
+	</template>
+	<!--==Customize Header: Them id vao header de cac theme co the de dang ke thua==-->
+	<template id="kdvn_website_header" name="Kdvn header" inherit_id="website.layout">	
+		<xpath expr="//div[hasclass('navbar','navbar-default','navbar-static-top')]" position="attributes">
+			<attribute name="id">kdvn_header</attribute>
+		</xpath>
+	</template>
+	<template id="website.homepage" name="KDVN Homepage" priority="5">
+		 <t t-call="website.layout">
+			<t t-set="pageName" t-value="'homepage'"/>
+			<div id="wrap" class="oe_structure oe_empty">
+				<section id="sec_kdvn_homepage_jumbo"></section>
+				<section id="sec_kdvn_homepage_main"></section>
+			</div>
+		</t>
+	</template>
+	<!--==footer==-->
+	<template id="kdvn_layout_footer_copyright" inherit_id="website.layout_footer_copyright" priority="10" name="Kdvn Footer Copyright">
+		<xpath expr="//footer/div[hasclass('container','mt16','mb8')]" position="replace">
+			<div id="kdvn_footer_copyright">
+				<div class="container mb8">
+					<div class="row" style="border-top: 1px solid;">			
+						<div class="col-md-8">
+							<div class="pull-left">Copyright &amp;copy; <span t-field="res_company.name"></span></div>
+						</div>
+						<div class="col-md-4">
+							<ul groups="website.group_website_publisher" class="list-inline js_language_selector" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
+								<li t-foreach="languages" t-as="lg">
+								  <a
+									t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+									t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+									t-att-data-lang="lg[0]"
+									class="js_change_lang"
+								  >
+									<t t-esc="lg[1].split('/').pop()"/>
+								  </a>
+								</li>
+								<li >
+									<t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+									<a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id if website else ''}&amp;url_return=#{url_return}">
+										<i class="fa fa-plus-circle"/>
+										Add a language...
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	<template id="kdvn_footer" inherit_id="website.footer_default" customize_show="True" name="Kdvn Automatic Footer">
+		<xpath expr="//div[@id='footer']" position="replace">
+			<div id="footer" class="container hidden-print">				
+				<div class="row">
+					<div class="col-md-8">
+						<div class="pull-left"><span t-field="res_company.name"></span>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</xpath>
+	</template>
+</data>
+</odoo>
+

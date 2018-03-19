@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+	<record id="kderp_website_menu_display" model="ir.ui.view">
+		<field name="name">Website.menu: Add icon in menu website</field>
+		<field name="model">website.menu</field>
+		<field name="inherit_id" ref="website.menu_tree"/>
+		<field name="arch" type="xml">
+			<field name="url" position="after">
+				<field name="fa_icon"/>
+			</field>
+		</field>
+	</record>
+	<!--Blog Blog-->
+	<record model="ir.ui.view" id="kdvn_categories_tree">
+		<field name="name">kdvn.categories.tree</field>
+		<field name="model">blog.blog</field>
+		<field name="priority">10</field>
+		<field name="arch" type="xml">
+			<tree string="Kdvn Categories">
+				<field name="name" />
+				<field name="categories_news"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_categories_form">
+		<field name="name">kdvn.categories.form</field>
+		<field name="model">blog.blog</field>
+		<field name="priority">10</field>
+		<field name="arch" type="xml">
+			<form string="Kdvn Categories">
+				<sheet>
+					<group>
+						<field name="name" />
+						<field name="categories_news"/>							
+					</group>
+					<label for="blogpost_ids" string="Blog Posts: "/>
+					<field name="blogpost_ids"></field>
+				</sheet>					
+			</form>
+		</field>
+	</record>		
+	<record model="ir.ui.view" id="kdvn_categories_kanban">
+		<field name="name">kdvn.categories.kanban</field>
+		<field name="model">blog.blog</field>
+		<field name="arch" type="xml">
+			<kanban class="o_kanban_mobile">
+				<field name="name"/>
+				<field name="create_date"/>
+				<templates>
+					<t t-name="kanban-box">
+						<div t-attf-class="oe_kanban_card oe_kanban_global_click">
+							<div class="row">
+								<div class="col-xs-6">
+									<strong><span><t t-esc="record.name.value"/></span></strong>
+								</div>                                    
+							</div>
+							<div class="row">
+								<div class="col-xs-6 text-muted">
+									<span><t t-esc="record.create_date.value"/></span>
+								</div>                                    
+							</div>
+						</div>
+					</t>
+				</templates>
+			</kanban>
+		</field>
+	</record>
+	<record id="kdvn_categories_calendar" model="ir.ui.view">
+		<field name="name">kdvn.categories.calendar</field>
+		<field name="model">blog.blog</field>
+		<field name="arch" type="xml">
+			<calendar string="Categories" color="categories_news" date_start="create_date">
+				<field name="name"/>
+			</calendar>
+		</field>
+	</record>
+	<!--Blog Posts-->
+	<record model="ir.ui.view" id="kdvn_posts_tree">
+		<field name="name">kdvn.posts.tree</field>
+		<field name="model">blog.post</field>
+		<field name="priority">10</field>
+		<field name="arch" type="xml">
+			<tree string="KDVN Posts">
+				<field name="name" />
+				<field name="blog_id" string="Categories"/>
+				<field name="create_date"/>
+				<field name="summary" />
+				<field name="author_id" />
+				<field name="tag_ids" />
+				<field name="website_published"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_posts_form">
+		<field name="name">kdvn.posts.form</field>
+		<field name="model">blog.post</field>
+		<field name="priority" eval="10" />
+		<field name="arch" type="xml">
+			<form string="KDVN Posts">		
+				<sheet>  					
+					<div attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed', 'Certificates'])]}">
+						<group>
+							<field name="prj_area_id"  attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed', 'Certificates'])]}"/>
+						</group>							
+						<group string="Prj" colspan="4" col="4" attrs="{'invisible': [('blog_name', 'not in', ['Projects Featured','Projects Completed'])]}">
+							<field name="prj_compl_date"/>
+							<field name="prj_location_id" on_change="onchange_location(prj_location_id)" />								
+							<field name="prj_categ_id" />
+							<field name="prj_type_id" />
+							<field name="prj_year_id" invisible='1'/>
+							<field name="blog_name" invisible='1'/>
+						</group>
+					</div>
+					<separator string="Posts"/>
+					<div class="oe_title">
+						<field name="website_published"/>
+						<label for="website_published" string="Online"/>
+					</div>
+					<group colspan="4" col="4">						
+						<field name="blog_id" string="Category"/>                            
+						<field name="author_id" string="Author"/>                            
+						<field name="priority"/>
+						<field name="sequence" />
+						<field name="relative_date" help="Number date to Alert close to Create Date"/>
+					</group>
+					<group>
+						<field name="name" string="Title"/>
+						<field name="summary" string="Summary"/>
+						<field name="tag_ids" string="Tags" widget="many2many_tags" placeholder="Tags..."/>
+					</group>
+					 <field name="content" widget="html" class="oe_memo" editor_height="450px"/>
+					
+				</sheet>
+			</form>
+		</field>
+	</record>		
+	<!--Kdvn Post Year-->
+	<record model="ir.ui.view" id="kdvn_post_year_tree">
+		<field name="name">kdvn.post.year.tree</field>
+		<field name="model">kdvn.post.prj.year</field>
+		<field name="arch" type="xml" > 
+			<tree string="Post Year">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_post_year_form">
+		<field name="name">kdvn.post.year.form</field>
+		<field name="model">kdvn.post.prj.year</field>
+		<field name="arch" type="xml" > 
+			<form string="Post Year">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!--Kdvn Post Type-->
+	<record model="ir.ui.view" id="kdvn_post_type_tree">
+		<field name="name">kdvn.post.type.tree</field>
+		<field name="model">kdvn.post.prj.type</field>
+		<field name="arch" type="xml" > 
+			<tree string="Post Type">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_post_type_form">
+		<field name="name">kdvn.post.type.form</field>
+		<field name="model">kdvn.post.prj.type</field>
+		<field name="arch" type="xml" > 
+			<form string="Post Type">
+				<sheet>
+					<group col="4">
+						<field name="code"/>
+						<field name="name"/>
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!--Kdvn Post Categ-->
+	<record model="ir.ui.view" id="kdvn_post_categ_tree">
+		<field name="name">kdvn.post.categ.tree</field>
+		<field name="model">kdvn.post.prj.categ</field>
+		<field name="arch" type="xml"> 
+			<tree string="Post Category">
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_post_categ_form">
+		<field name="name">kdvn.post.categ.form</field>
+		<field name="model">kdvn.post.prj.categ</field>
+		<field name="arch" type="xml" > 
+			<form string="Post Categ">
+				<sheet>
+					<group col="4">
+						<field name="name"/>
+						<field name="sequence"/>							
+						<field name="description"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!--Kdvn Post location-->
+	<record model="ir.ui.view" id="kdvn_post_location_tree">
+		<field name="name">kdvn.post.location.tree</field>
+		<field name="model">kdvn.post.prj.location</field>
+		<field name="arch" type="xml" > 
+			<tree string="Post Location">
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_post_location_form">
+		<field name="name">kdvn.post.location.form</field>
+		<field name="model">kdvn.post.prj.location</field>
+		<field name="arch" type="xml" > 
+			<form string="Post Location">
+				<sheet>
+					<group col="4">							
+						<field name="name"/>
+						<field name="description"/>
+						<field name="area_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!--Kdvn Post area-->
+	<record model="ir.ui.view" id="kdvn_post_area_tree">
+		<field name="name">kdvn.post.area.tree</field>
+		<field name="model">kdvn.post.prj.area</field>
+		<field name="arch" type="xml" > 
+			<tree string="Post Area">
+				<field name="code"/>
+				<field name="name"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="kdvn_post_area_form">
+		<field name="name">kdvn.post.area.form</field>
+		<field name="model">kdvn.post.prj.area</field>
+		<field name="arch" type="xml" > 
+			<form string="Post Area">
+				<sheet>
+					<group col="4">	
+						<field name="code"/>						
+						<field name="name"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+</data>
+</odoo>
